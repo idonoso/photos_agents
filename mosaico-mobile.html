@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Mosaico &mdash; Portfolio</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #000;
+      color: #e0e0e0;
+      overscroll-behavior: none;
+    }
+
+    /* --- Barra superior --- */
+    .top-bar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(10,10,10,0.97);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid #1c1c1c;
+      padding: 0 1rem;
+      height: 52px;
+      display: flex;
+      align-items: center;
+    }
+
+    .top-bar-title {
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #fff;
+    }
+
+    .top-bar-count {
+      margin-left: auto;
+      font-size: 0.72rem;
+      color: #555;
+    }
+
+    /* --- Filtros: scroll horizontal --- */
+    .filters-bar {
+      position: sticky;
+      top: 52px;
+      z-index: 90;
+      background: rgba(10,10,10,0.97);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid #1c1c1c;
+    }
+
+    .filters-scroll {
+      display: flex;
+      gap: 0.4rem;
+      padding: 0.55rem 1rem;
+      overflow-x: auto;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      -webkit-overflow-scrolling: touch;
+    }
+    .filters-scroll::-webkit-scrollbar { display: none; }
+
+    .filter-sep {
+      width: 1px;
+      min-width: 1px;
+      background: #2a2a2a;
+      align-self: stretch;
+      margin: 0 0.1rem;
+    }
+
+    .filter-btn {
+      flex-shrink: 0;
+      padding: 0.3em 0.8em;
+      background: #1a1a1a;
+      border: 1px solid #282828;
+      border-radius: 20px;
+      color: #666;
+      font-size: 0.72rem;
+      font-family: inherit;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.15s;
+      touch-action: manipulation;
+    }
+    .filter-btn.active {
+      background: #0d1a2e;
+      border-color: #4a9eff;
+      color: #4a9eff;
+    }
+
+    /* --- Grid 2 columnas --- */
+    .photo-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      padding: 2px;
+      padding-bottom: 72px; /* espacio para bottom nav */
+    }
+
+    .grid-tile {
+      position: relative;
+      overflow: hidden;
+      background: #0a0a0a;
+      aspect-ratio: 1 / 1;
+      cursor: pointer;
+    }
+
+    .grid-tile img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .grid-tile-info {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 0.5rem 0.55rem 0.45rem;
+      background: linear-gradient(transparent 0%, rgba(0,0,0,0.82) 100%);
+    }
+
+    .grid-tile-title {
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: #fff;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      margin-bottom: 0.1rem;
+    }
+
+    .grid-tile-score {
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+
+    .empty-state {
+      grid-column: 1 / -1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 50vh;
+      color: #444;
+      font-size: 0.85rem;
+    }
+
+    /* --- Lightbox --- */
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: #000;
+      z-index: 300;
+      flex-direction: column;
+      touch-action: pan-y;
+    }
+    .lightbox.open { display: flex; }
+
+    .lightbox-header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 10;
+      padding: env(safe-area-inset-top, 0) 1rem 0.75rem;
+      padding-top: calc(env(safe-area-inset-top, 0px) + 0.75rem);
+      background: linear-gradient(rgba(0,0,0,0.7) 0%, transparent 100%);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .lb-close {
+      width: 40px;
+      height: 40px;
+      border: none;
+      background: rgba(255,255,255,0.12);
+      border-radius: 50%;
+      color: #fff;
+      font-size: 1.3rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      touch-action: manipulation;
+    }
+
+    .lb-counter {
+      font-size: 0.78rem;
+      color: #aaa;
+      margin-left: auto;
+    }
+
+    .lightbox-stage {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .lb-img-track {
+      display: flex;
+      height: 100%;
+      width: 100%;
+      will-change: transform;
+      transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .lb-img-track.no-transition {
+      transition: none;
+    }
+
+    .lb-slide {
+      flex-shrink: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .lb-slide img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      display: block;
+      user-select: none;
+      -webkit-user-drag: none;
+    }
+
+    .lightbox-footer {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 0.75rem 1.2rem;
+      padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 0.75rem);
+      background: linear-gradient(transparent 0%, rgba(0,0,0,0.8) 100%);
+    }
+
+    .lb-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 0.2rem;
+    }
+
+    .lb-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .lb-score {
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+
+    .lb-cats {
+      font-size: 0.72rem;
+      color: #777;
+    }
+
+    /* --- Bottom nav --- */
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 200;
+      background: rgba(10,10,10,0.97);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-top: 1px solid #1c1c1c;
+      display: flex;
+      padding-bottom: env(safe-area-inset-bottom, 0);
+    }
+
+    .bottom-nav a {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 0.55rem 0;
+      color: #555;
+      text-decoration: none;
+      font-size: 0.6rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      gap: 0.2rem;
+      touch-action: manipulation;
+    }
+
+    .bottom-nav a.active { color: #fff; }
+
+    .bottom-nav svg {
+      width: 22px;
+      height: 22px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="top-bar">
+    <span class="top-bar-title">Portfolio fotogr&aacute;fico</span>
+    <span class="top-bar-count" id="top-count"></span>
+  </header>
+
+  <div class="filters-bar">
+    <div class="filters-scroll" id="filters"></div>
+  </div>
+
+  <div class="photo-grid" id="photo-grid"></div>
+
+  <!-- Lightbox con swipe -->
+  <div class="lightbox" id="lightbox">
+    <div class="lightbox-header">
+      <button class="lb-close" id="lb-close" onclick="closeLightbox()">&#x2715;</button>
+      <span class="lb-counter" id="lb-counter"></span>
+    </div>
+    <div class="lightbox-stage" id="lb-stage">
+      <div class="lb-img-track" id="lb-track"></div>
+    </div>
+    <div class="lightbox-footer">
+      <div class="lb-title" id="lb-title"></div>
+      <div class="lb-meta">
+        <span class="lb-score" id="lb-score"></span>
+        <span class="lb-cats" id="lb-cats"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Barra de navegación inferior -->
+  <nav class="bottom-nav">
+    <a href="index.html">
+      <svg viewBox="0 0 24 24"><path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H4a1 1 0 01-1-1V9.5z"/><path d="M9 21V12h6v9"/></svg>
+      Portfolio
+    </a>
+    <a href="mosaico-mobile.html" class="active">
+      <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+      Mosaico
+    </a>
+    <a href="tareas.html">
+      <svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+      Repetir
+    </a>
+    <a href="aspectos.html">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 3"/></svg>
+      Aspectos
+    </a>
+    <a href="tecnicas.html">
+      <svg viewBox="0 0 24 24"><path d="M2 20h20M6 20V10M10 20V4M14 20V14M18 20V8"/></svg>
+      T&eacute;cnicas
+    </a>
+  </nav>
+
+  <script>
+    const SCORE_STOPS = [
+      [127,29,29],[153,27,27],[185,28,28],[220,38,38],[239,68,68],
+      [249,115,22],[234,179,8],[132,204,22],[16,185,129],[6,182,212],[37,99,235]
+    ];
+
+    function scoreColor(score) {
+      if (typeof score !== 'number' || isNaN(score)) return '#888';
+      const s = Math.max(0, Math.min(10, score));
+      const lo = Math.floor(s), hi = Math.min(10, lo + 1), t = s - lo;
+      const [r0,g0,b0] = SCORE_STOPS[lo], [r1,g1,b1] = SCORE_STOPS[hi];
+      return `rgb(${Math.round(r0+(r1-r0)*t)},${Math.round(g0+(g1-g0)*t)},${Math.round(b0+(b1-b0)*t)})`;
+    }
+
+    let visibleFotos = [];
+    let lbIndex = 0;
+    let activeUbic = null, activeYear = null, activeCat = null;
+    let allFotos = [];
+
+    /* ---- Lightbox ---- */
+    function buildLightboxTrack(fotos) {
+      const track = document.getElementById('lb-track');
+      track.innerHTML = fotos.map((f, i) =>
+        `<div class="lb-slide"><img src="${f.path}" alt="${f.titulo}" loading="lazy"></div>`
+      ).join('');
+    }
+
+    function setLightboxSlide(index, animate) {
+      const track = document.getElementById('lb-track');
+      if (!animate) track.classList.add('no-transition');
+      track.style.transform = `translateX(${-index * 100}%)`;
+      if (!animate) requestAnimationFrame(() => requestAnimationFrame(() => track.classList.remove('no-transition')));
+
+      const foto = visibleFotos[index];
+      const score = foto.evaluacion.puntuacion_total;
+      document.getElementById('lb-title').textContent = foto.titulo;
+      document.getElementById('lb-score').textContent = score.toFixed(1) + ' pts';
+      document.getElementById('lb-score').style.color = scoreColor(score);
+      document.getElementById('lb-cats').textContent = (foto.categorias || []).join(' · ');
+      document.getElementById('lb-counter').textContent = `${index + 1} / ${visibleFotos.length}`;
+    }
+
+    function openLightbox(index) {
+      lbIndex = index;
+      buildLightboxTrack(visibleFotos);
+      setLightboxSlide(lbIndex, false);
+      document.getElementById('lightbox').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    /* Swipe en lightbox */
+    let swipeStartX = 0, swipeStartY = 0, swiping = false, swipeDx = 0;
+
+    const stage = document.getElementById('lb-stage');
+    const track = document.getElementById('lb-track');
+
+    stage.addEventListener('touchstart', e => {
+      swipeStartX = e.touches[0].clientX;
+      swipeStartY = e.touches[0].clientY;
+      swiping = true;
+      swipeDx = 0;
+    }, { passive: true });
+
+    stage.addEventListener('touchmove', e => {
+      if (!swiping) return;
+      swipeDx = e.touches[0].clientX - swipeStartX;
+      const dy = Math.abs(e.touches[0].clientY - swipeStartY);
+      if (Math.abs(swipeDx) < dy) { swiping = false; return; }
+      track.classList.add('no-transition');
+      track.style.transform = `translateX(calc(${-lbIndex * 100}% + ${swipeDx}px))`;
+    }, { passive: true });
+
+    stage.addEventListener('touchend', () => {
+      if (!swiping) return;
+      swiping = false;
+      track.classList.remove('no-transition');
+      const threshold = window.innerWidth * 0.3;
+      if (swipeDx < -threshold && lbIndex < visibleFotos.length - 1) lbIndex++;
+      else if (swipeDx > threshold && lbIndex > 0) lbIndex--;
+      setLightboxSlide(lbIndex, true);
+    });
+
+    /* ---- Filtros ---- */
+    function buildFilters(fotos) {
+      const ubics = [...new Set(fotos.map(f => f.ubicacion).filter(u => u && u !== 'Desconocida'))].sort();
+      const cats = [...new Set(fotos.flatMap(f => f.categorias || []))].sort();
+      const years = [...new Set(fotos.map(f => f.fecha ? f.fecha.split('-')[0] : null).filter(Boolean))].sort().reverse();
+      const el = document.getElementById('filters');
+      let html = '';
+
+      html += `<button class="filter-btn active" data-type="ubic" data-val="">Todos</button>`;
+      ubics.forEach(u => { html += `<button class="filter-btn" data-type="ubic" data-val="${u}">${u}</button>`; });
+
+      if (cats.length > 1) {
+        html += `<div class="filter-sep"></div>`;
+        html += `<button class="filter-btn active" data-type="cat" data-val="">Todas</button>`;
+        cats.forEach(c => { html += `<button class="filter-btn" data-type="cat" data-val="${c}">${c}</button>`; });
+      }
+
+      if (years.length > 1) {
+        html += `<div class="filter-sep"></div>`;
+        html += `<button class="filter-btn active" data-type="year" data-val="">Todos</button>`;
+        years.forEach(y => { html += `<button class="filter-btn" data-type="year" data-val="${y}">${y}</button>`; });
+      }
+
+      el.innerHTML = html;
+      el.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const type = btn.dataset.type, val = btn.dataset.val;
+          el.querySelectorAll(`.filter-btn[data-type="${type}"]`).forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          if (type === 'ubic') activeUbic = val || null;
+          if (type === 'cat') activeCat = val || null;
+          if (type === 'year') activeYear = val || null;
+          applyFilters();
+        });
+      });
+    }
+
+    function applyFilters() {
+      visibleFotos = allFotos.filter(f => {
+        const matchUbic = !activeUbic || f.ubicacion === activeUbic;
+        const matchCat = !activeCat || (f.categorias || []).includes(activeCat);
+        const matchYear = !activeYear || (f.fecha && f.fecha.startsWith(activeYear));
+        return matchUbic && matchCat && matchYear;
+      });
+
+      const grid = document.getElementById('photo-grid');
+      if (visibleFotos.length === 0) {
+        grid.innerHTML = '<div class="empty-state">Sin fotos para este filtro.</div>';
+        document.getElementById('top-count').textContent = '';
+        return;
+      }
+
+      document.getElementById('top-count').textContent = `${visibleFotos.length} fotos`;
+
+      grid.innerHTML = visibleFotos.map((foto, i) => {
+        const score = foto.evaluacion.puntuacion_total;
+        const color = scoreColor(score);
+        return `
+          <div class="grid-tile" onclick="openLightbox(${i})">
+            <img src="${foto.path}" alt="${foto.titulo}" loading="lazy">
+            <div class="grid-tile-info">
+              <div class="grid-tile-title">${foto.titulo}</div>
+              <span class="grid-tile-score" style="color:${color}">${score.toFixed(1)}</span>
+            </div>
+          </div>`;
+      }).join('');
+    }
+
+    /* ---- Init ---- */
+    async function init() {
+      try {
+        const res = await fetch('fotos.json');
+        const fotos = await res.json();
+
+        allFotos = fotos
+          .filter(f => f.evaluacion && f.evaluacion.puntuacion_total >= 6.0)
+          .sort((a, b) => b.evaluacion.puntuacion_total - a.evaluacion.puntuacion_total);
+
+        if (allFotos.length === 0) {
+          document.getElementById('photo-grid').innerHTML =
+            '<div class="empty-state">No hay fotos con puntuación 6 o más.</div>';
+          return;
+        }
+
+        buildFilters(allFotos);
+        applyFilters();
+      } catch (e) {
+        document.getElementById('photo-grid').innerHTML =
+          '<div class="empty-state">Error al cargar fotos.json</div>';
+      }
+    }
+
+    init();
+  </script>
+</body>
+</html>
