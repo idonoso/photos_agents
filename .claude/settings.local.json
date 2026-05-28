@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(sips:*)",
+      "Bash(python3:*)",
+      "Bash(find /Users/ignacio/.claude -type d -name *skill*)",
+      "Bash(open:*)",
+      "WebFetch(domain:www.birdpoty.com)",
+      "Bash(cp /Users/ignacio/Sites/fotos/fotos.json /Users/ignacio/Sites/fotos/fotos.json.bak)",
+      "Bash(mv \"/Users/ignacio/Sites/fotos/pendientes/DSC_2491.jpeg\" \"/Users/ignacio/Sites/fotos/originales/DSC_2491.jpeg\")",
+      "Bash(mv \"/Users/ignacio/Sites/fotos/pendientes/DSC_2478.jpeg\" \"/Users/ignacio/Sites/fotos/originales/DSC_2478.jpeg\")",
+      "Bash(mv \"/Users/ignacio/Sites/fotos/pendientes/DSC_2449.jpeg\" \"/Users/ignacio/Sites/fotos/originales/DSC_2449.jpeg\")",
+      "Bash(mv \"/Users/ignacio/Sites/fotos/pendientes/DSC_2286.jpeg\" \"/Users/ignacio/Sites/fotos/originales/DSC_2286.jpeg\")",
+      "Bash(cp \"/Users/ignacio/Sites/fotos/pendientes/DSC_2192.jpeg\" \"/Users/ignacio/Sites/fotos/originales/DSC_2192.jpeg\")",
+      "Bash(rm \"/Users/ignacio/Sites/fotos/pendientes/DSC_2192.jpeg\")",
+      "Bash(jq '[.[] | .evaluacion.puntuacion_total] | sort' /Users/ignacio/Sites/fotos/fotos.json)",
+      "Read(//tmp/**)"
+    ]
+  }
+}

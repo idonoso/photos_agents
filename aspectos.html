@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aspectos de Evaluaci&oacute;n</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #0a0a0a;
+      color: #e0e0e0;
+      line-height: 1.6;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(10,10,10,0.96);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid #1c1c1c;
+    }
+    .site-header-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      display: flex;
+      align-items: center;
+      height: 68px;
+      gap: 2rem;
+    }
+    .site-logo {
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #fff;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+    .site-nav {
+      display: flex;
+      gap: 0.25rem;
+      margin-left: auto;
+    }
+    .site-nav a {
+      padding: 0.5rem 1.1rem;
+      color: #666;
+      text-decoration: none;
+      font-size: 0.8rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      border-radius: 6px;
+      transition: color 0.2s, background 0.2s;
+      font-weight: 500;
+    }
+    .site-nav a:hover { color: #fff; background: #1a1a1a; }
+    .site-nav a.active { color: #fff; background: #1c1c1c; border: 1px solid #2d2d2d; }
+
+    h1 {
+      font-size: 2rem;
+      font-weight: 300;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: #fff;
+      margin-bottom: 0.5rem;
+    }
+
+    .subtitle {
+      color: #777;
+      font-size: 0.9rem;
+      margin-bottom: 2rem;
+      letter-spacing: 0.02em;
+    }
+
+    .part {
+      margin-bottom: 3rem;
+    }
+
+    .part-header {
+      display: flex;
+      align-items: baseline;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid #222;
+    }
+
+    .part-name {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #fff;
+    }
+
+    .part-weight {
+      font-size: 0.8rem;
+      font-weight: 400;
+      color: #555;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .part--tecnica .part-name { color: #4a9eff; }
+    .part--artistica .part-name { color: #c77dba; }
+    .part--excepcional .part-name { color: #e8a838; }
+
+    .part--tecnica .aspect::before { background: #4a9eff; }
+    .part--artistica .aspect::before { background: #c77dba; }
+    .part--excepcional .aspect::before { background: #e8a838; }
+
+    .aspects {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .aspect {
+      position: relative;
+      padding: 1.25rem 1.5rem 1.25rem 2rem;
+      background: #111;
+      border-radius: 6px;
+    }
+
+    .aspect::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      border-radius: 3px 0 0 3px;
+      opacity: 0.6;
+    }
+
+    .aspect-name {
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 0.4rem;
+      font-size: 1rem;
+    }
+
+    .aspect-desc {
+      color: #999;
+      font-size: 0.88rem;
+      line-height: 1.6;
+    }
+
+    .scale {
+      margin-top: 3rem;
+      padding: 1.5rem 2rem;
+      background: #111;
+      border-radius: 6px;
+    }
+
+    .scale h2 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .scale-items {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .scale-item {
+      display: flex;
+      align-items: baseline;
+      gap: 1rem;
+    }
+
+    .scale-range {
+      font-weight: 600;
+      font-size: 0.85rem;
+      min-width: 3rem;
+      color: #fff;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .scale-label {
+      color: #777;
+      font-size: 0.85rem;
+    }
+
+    .formula {
+      margin-top: 2rem;
+      padding: 1.5rem 2rem;
+      background: #111;
+      border-radius: 6px;
+    }
+
+    .formula h2 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .formula code {
+      font-family: "SF Mono", "Fira Code", monospace;
+      font-size: 0.9rem;
+      color: #ccc;
+      background: #1a1a1a;
+      padding: 0.6rem 1rem;
+      border-radius: 4px;
+      display: block;
+    }
+
+    @media (max-width: 600px) {
+      .container { padding: 1.5rem 1rem; }
+      h1 { font-size: 1.5rem; }
+      .aspect { padding: 1rem 1rem 1rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-inner">
+      <a class="site-logo" href="index.html">Portfolio fotogr&aacute;fico</a>
+      <nav class="site-nav">
+        <a href="index.html">Portfolio</a>
+        <a href="mosaico.html">Mosaico</a>
+        <a href="tareas.html">Repetir</a>
+        <a href="aspectos.html" class="active">Aspectos</a>
+        <a href="tecnicas.html">T&eacute;cnicas</a>
+      </nav>
+    </div>
+  </header>
+  <div class="container">
+    <h1>Evaluaci&oacute;n fotogr&aacute;fica</h1>
+    <p class="subtitle">3 partes &middot; 20 aspectos &middot; Puntuaci&oacute;n 0 &ndash; 10</p>
+
+    <div class="part part--tecnica">
+      <div class="part-header">
+        <span class="part-name">T&eacute;cnica</span>
+        <span class="part-weight">Peso 40% &middot; 9 aspectos</span>
+      </div>
+      <div class="aspects">
+        <div class="aspect">
+          <div class="aspect-name">Exposici&oacute;n</div>
+          <div class="aspect-desc">C&oacute;mo se ha gestionado la cantidad de luz que llega al sensor. Equilibrio del histograma: &iquest;hay zonas quemadas (blanco puro sin detalle) o empastadas (negro sin informaci&oacute;n)? Una exposici&oacute;n excelente aprovecha todo el rango din&aacute;mico, manteniendo detalle en luces y sombras. En escenas de alto contraste (contraluz, interiores con ventanas), se valora si el fot&oacute;grafo ha priorizado correctamente qu&eacute; zona exponer. Una sub o sobreexposici&oacute;n intencional y bien ejecutada (clave alta, clave baja) es v&aacute;lida.</div>
+        </div>
+        <div class="aspect">
+          <div class="aspect-name">Nitidez</div>
+          <div class="aspect-desc">Precisi&oacute;n del enfoque y su adecuaci&oacute;n a la intenci&oacute;n de la imagen. El sujeto principal debe estar n&iacute;tido donde el fot&oacute;grafo lo pretende: ojos en retratos, cabeza en fauna, punto de inter&eacute;s en paisaje. &iquest;La profundidad de campo elegida es apropiada? Demasiada puede diluir el sujeto en un fondo ca&oacute;tico; demasiado poca puede dejar fuera elementos importantes. Distingue entre motion blur intencional (barrido creativo, larga exposici&oacute;n) y accidental (trepidaci&oacute;n por velocidad insuficiente).</div>
+        </div>
+        <div class="aspect">
+          <div class="aspect-name">Color</div>
+          <div class="aspect-desc">Paleta crom&aacute;tica de la imagen en su conjunto. &iquest;Los colores son precisos y fieles, o est&aacute;n desviados de forma no intencional? &iquest;Hay armon&iacute;a entre los tonos &mdash; complementarios, an&aacute;logos, monocrom&aacute;ticos &mdash; o compiten entre s&iacute;? Valora la coherencia de la saturaci&oacute;n: colores sobresaturados que gritan o tan desaturados que la imagen pierde vida. Un procesado de color intencional y coherente (teal &amp; orange, desaturado cinem&aacute;tico) es v&aacute;lido si funciona con la escena.</div>
+        </div>
+        <div class="aspect">
+          <div class="aspect-name">Balance de blancos</div>
+          <div class="aspect-desc">&iquest;La temperatura de color representa fielmente la escena o la intenci&oacute;n del fot&oacute;grafo? Un tono azul en un retrato de interior sugiere error; un tono c&aacute;lido en hora dorada es esperado. Busca consistencia de tinte en toda la imagen: &iquest;hay zonas con dominante diferente (sombras verdosas, luces amarillentas)? Las fuentes de luz mixta (tungsteno + luz d&iacute;a, fluorescentes) son especialmente problem&aacute;ticas. Un balance creativo e intencional (fr&iacute;o para soledad, c&aacute;lido para nostalgia) es v&aacute;lido si es coherente.</div>
+        </div>
+        <div class="aspect">
+          <div class="aspect-name">Composici&oacute;n</div>
+          <div class="aspect-desc">C&oacute;mo est&aacute;n organizados los elementos dentro del encuadre. &iquest;La mirada del espectador es guiada de forma natural hacia el sujeto principal? Analiza el uso de regla de tercios, simetr&iacute;a, l&iacute;neas de fuga, marcos naturales, espacio negativo y peso visual. &iquest;El horizonte est&aacute; nivelado (o intencionalmente inclinado)? &iquest;Hay elementos que distraen en bordes o fondo &mdash; ramas cortadas, objetos parciales, elementos brillantes que roban atenci&oacute;n? Una composici&oacute;n excelente hace que todo elemento tenga un prop&oacute;sito.</div>
+        </div>
+        <div class="aspect">
+          <div class="aspect-name">Iluminaci&oacute;n</div>
+          <div class="aspect-desc">Calidad, direcci&oacute;n y uso de la luz en la escena. Luz dura (sol directo, flash sin difusor) crea sombras marcadas y alto contraste; luz suave (nublado, hora dorada) crea transiciones suaves. &iquest;La direcci&oacute;n modela bien al sujeto, revela texturas y crea volumen? Valora el ratio de contraste entre luces y sombras: excesivo pierde detalle, insuficiente aplana la imagen. En escenas con luz artificial, &iquest;el fot&oacute;grafo ha trabajado la luz o ha dependido del ambiente? La iluminaci&oacute;n es lo que separa una instant&aacute;nea de una fotograf&iacute;a.</div>
+        </div>
+        <div class="aspect">
+          <div class="aspect-name">Enfoque y profundidad</div>
+          <div class="aspect-desc">Uso creativo y t&eacute;cnico de la profundidad de campo. &iquest;El sujeto est&aacute; bien aislado del fondo cuando es deseable? &iquest;La calidad del desenfoque (bokeh) es agradable &mdash; suave y cremoso, o nervioso y distractor? Valora las capas: primer plano, sujeto, fondo &mdash; &iquest;cada una aporta? En paisajes, &iquest;hay hiperfocal o enfoque apilado cuando se necesita nitidez total? Una apertura abierta con bokeh cremoso que separa limpiamente al sujeto es un recurso poderoso. Profundidad inadecuada penaliza.</div>
+        </div>
+        <div class="aspect">
+          <div class="aspect-name">Ruido y limpieza</div>
+          <div class="aspect-desc">Limpieza t&eacute;cnica de la imagen. &iquest;Hay ruido ISO visible &mdash; luminancia (grano) o crom&aacute;tico (puntos de color)? Busca artefactos de compresi&oacute;n JPEG, bandas de posterizaci&oacute;n en gradientes (cielos especialmente), distorsi&oacute;n geom&eacute;trica de lente, aberraci&oacute;n crom&aacute;tica (halos p&uacute;rpura/verde en bordes de alto contraste). Manchas de sensor, reflejos no intencionales y aberraciones &oacute;pticas tambi&eacute;n penalizan. Un grano intencional con fines est&eacute;ticos (estilo anal&oacute;gico) es aceptable si es coherente.</div>
+        </div>
+        <div class="aspect">
+          <div class="aspect-name">Procesado</div>
+          <div class="aspect-desc">Calidad de la post-producci&oacute;n y el revelado digital. &iquest;Las transiciones tonales son suaves y naturales, o se notan artefactos de edici&oacute;n agresiva (halos HDR, sombras artificialmente abiertas con aspecto gris&aacute;ceo, saturaci&oacute;n excesiva)? &iquest;El retoque es invisible o se nota? &iquest;El tratamiento es coherente en toda la imagen? La clave es que el procesado sea invisible &mdash; que parezca que la foto &ldquo;sali&oacute; as&iacute;&rdquo; de la c&aacute;mara, incluso si hubo trabajo considerable detr&aacute;s. Un estilo de edici&oacute;n intencional y coherente es v&aacute;lido si est&aacute; bien aplicado.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="part part--artistica">
+      <div class="part-header">
+        <span class="part-name">Art&iacute;stica</span>
+        <span class="part-weight">Peso 40% &middot; 7 aspectos</span>
+      </div>
+      <div class="aspects">
+        <div class="aspect">
+          <div class="aspect-name">Emoci&oacute;n</div>
+          <div class="aspect-desc">Respuesta emocional que la imagen provoca en el espectador. &iquest;Sientes algo al mirarla &mdash; calma, tensi&oacute;n, alegr&iacute;a, melancol&iacute;a, asombro, inquietud, ternura? La emoci&oacute;n no necesita ser intensa para puntuar alto: una serenidad sutil bien transmitida vale tanto como un drama potente. Lo que importa es que sea clara y genuina, no forzada ni ausente. Una foto t&eacute;cnicamente impecable que no hace sentir nada es una postal, no una fotograf&iacute;a. Nota: la emoci&oacute;n es lo que t&uacute; sientes; la atm&oacute;sfera es lo que la escena proyecta visualmente.</div>
+        </div>
+        <div class="aspect">
+          <div class="aspect-name">Narrativa</div>
+          <div class="aspect-desc">&iquest;La imagen cuenta o sugiere una historia? &iquest;Hay un antes y un despu&eacute;s impl&iacute;cito? &iquest;El espectador se pregunta qu&eacute; pas&oacute; o qu&eacute; pasar&aacute;? Busca elementos que construyan contexto: expresiones faciales, gestos, relaciones entre sujetos, objetos que implican acci&oacute;n, contrastes tem&aacute;ticos (viejo/nuevo, natural/artificial, soledad/multitud). Una foto con narrativa fuerte genera preguntas y no las responde todas &mdash; deja espacio para la imaginaci&oacute;n. Un paisaje vac&iacute;o tiene poca narrativa; ese mismo paisaje con un camino que desaparece en la niebla la tiene.</div>
+        </div>
+        <div class="aspect">
+          <div class="aspect-name">Momento</div>
+          <div class="aspect-desc">El timing &mdash; cu&aacute;n preciso fue el instante de captura. El &ldquo;instante decisivo&rdquo; de Cartier-Bresson: la mil&eacute;sima de segundo en que acci&oacute;n, expresi&oacute;n, geometr&iacute;a y luz convergen perfectamente. &iquest;La foto captura el pico de la acci&oacute;n, la cima de la expresi&oacute;n, el punto exacto de equilibrio visual? En fauna o street el momento lo es todo. En paisaje importa tambi&eacute;n: &iquest;esper&oacute; el fot&oacute;grafo a la luz perfecta, a que se despejara la gente, a que las nubes formaran el patr&oacute;n adecuado?</div>
+        </div>
+        <div class="aspect">
+          <div class="aspect-name">Intenci&oacute;n</div>
+          <div class="aspect-desc">&iquest;Se percibe una visi&oacute;n clara del fot&oacute;grafo detr&aacute;s de la imagen? &iquest;Las decisiones t&eacute;cnicas &mdash; &aacute;ngulo, focal, apertura, velocidad, momento &mdash; parecen deliberadas y coherentes con lo que la imagen comunica? &iquest;O parece que simplemente apunt&oacute; y dispar&oacute;? Un retrato a ras de suelo comunica algo diferente que uno desde arriba; un gran angular distorsiona intencionalmente; una larga exposici&oacute;n borra el tiempo a prop&oacute;sito. La intenci&oacute;n se nota cuando todas las decisiones apuntan en la misma direcci&oacute;n.</div>
+        </div>
+        <div class="aspect">
+          <div class="aspect-name">Originalidad</div>
+          <div class="aspect-desc">&iquest;Cu&aacute;n fresca y &uacute;nica es la perspectiva del fot&oacute;grafo? &iquest;Ha encontrado un &aacute;ngulo, momento, tratamiento o enfoque que no se ve todos los d&iacute;as? El mundo est&aacute; saturado de atardeceres centrados, caf&eacute;s con latte art y la Torre Eiffel desde el Trocadero. La originalidad no requiere temas ex&oacute;ticos &mdash; una farola bajo la lluvia puede ser extraordinariamente original si la perspectiva, la luz o el momento son &uacute;nicos. Penaliza clich&eacute;s sin valor a&ntilde;adido. Premia visiones que hacen ver algo cotidiano de forma nueva.</div>
+        </div>
+        <div class="aspect">
+          <div class="aspect-name">Atm&oacute;sfera</div>
+          <div class="aspect-desc">El ambiente visual que la escena proyecta, independientemente de la emoci&oacute;n que provoque. La atm&oacute;sfera es lo que se <em>ve</em>: niebla envolviendo un bosque, la calima de un mediod&iacute;a de verano, la penumbra de una catedral, el bullicio visual de un mercado, el vac&iacute;o de un desierto, la calidez de una ventana iluminada en la noche. &iquest;Los elementos visuales &mdash; luz, color, textura, clima, hora &mdash; construyen un ambiente coherente y envolvente? Una atm&oacute;sfera potente transporta al espectador al lugar. Diferencia clave: una foto de niebla tiene atm&oacute;sfera fuerte pero podr&iacute;a no generar emoci&oacute;n, y viceversa.</div>
+        </div>
+        <div class="aspect">
+          <div class="aspect-name">Conexi&oacute;n con el sujeto</div>
+          <div class="aspect-desc">&iquest;El espectador siente empat&iacute;a, curiosidad o cercan&iacute;a hacia el sujeto? &iquest;El retrato te hace querer conocer a esa persona? &iquest;La mirada del animal te atrapa? &iquest;Sientes que podr&iacute;as estar ah&iacute;? Contacto visual directo, expresiones reveladoras, posturas vulnerables, momentos &iacute;ntimos &mdash; todo genera conexi&oacute;n. Una foto de fauna donde el animal mira al objetivo conecta m&aacute;s que una de perfil. En paisaje, la conexi&oacute;n viene del &ldquo;quiero estar ah&iacute;&rdquo;. Una foto que te deja indiferente ante el sujeto puntua bajo, incluso si es t&eacute;cnicamente perfecta.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="part part--excepcional">
+      <div class="part-header">
+        <span class="part-name">Excepcional</span>
+        <span class="part-weight">Peso 20% &middot; 4 aspectos</span>
+      </div>
+      <div class="aspects">
+        <div class="aspect">
+          <div class="aspect-name">T&eacute;cnica + Emoci&oacute;n</div>
+          <div class="aspect-desc">&iquest;La maestr&iacute;a t&eacute;cnica y la fuerza emocional se amplifican mutuamente? No se trata de sumar t&eacute;cnica buena + emoci&oacute;n buena, sino de que la t&eacute;cnica est&eacute; al servicio del sentimiento de forma inseparable. Un barrido perfecto que transmite v&eacute;rtigo. Una larga exposici&oacute;n que convierte el mar en niebla y transmite eternidad. Un enfoque selectivo que a&iacute;sla una l&aacute;grima. Cuando la t&eacute;cnica desaparece como herramienta y se funde con la emoci&oacute;n, la imagen trasciende. Si la misma foto con t&eacute;cnica diferente no cambia de emoci&oacute;n, la fusi&oacute;n es d&eacute;bil.</div>
+        </div>
+        <div class="aspect">
+          <div class="aspect-name">Momento irrepetible</div>
+          <div class="aspect-desc">&iquest;La foto captura algo que no se puede volver a fotografiar? Un rayo cayendo detr&aacute;s de un faro. Un gesto fugaz entre dos desconocidos. Un animal en el instante exacto del salto. La clave: &iquest;puedes volver ma&ntilde;ana y repetir esta foto? Si s&iacute;, puntua bajo (m&aacute;x. 4). Si necesitar&iacute;as una coincidencia improbable, puntua medio (5&ndash;7). Si es literalmente irrepetible &mdash; el momento existi&oacute; una vez y nunca volver&aacute; &mdash; puntua alto (8&ndash;10).</div>
+        </div>
+        <div class="aspect">
+          <div class="aspect-name">Estilo e impacto</div>
+          <div class="aspect-desc">&iquest;La imagen tiene voz autoral propia y capacidad de detener al espectador? &iquest;Podr&iacute;as reconocer al fot&oacute;grafo por su estilo sin ver el cr&eacute;dito? &iquest;Te hace parar el scroll, detenerte en una exposici&oacute;n, volver a mirarla? El impacto no es solo &ldquo;wow&rdquo; inicial &mdash; es la capacidad de permanecer en tu memoria, de hacerte volver. Un estilo propio se construye con decisiones consistentes: paleta de color, tipo de luz, perspectiva, temas, tratamiento. Una foto gen&eacute;rica bien ejecutada no tiene estilo; una con decisiones arriesgadas y coherentes s&iacute;.</div>
+        </div>
+        <div class="aspect">
+          <div class="aspect-name">Trascendencia</div>
+          <div class="aspect-desc">&iquest;La imagen va m&aacute;s all&aacute; de lo que muestra y dice algo universal? &iquest;La foto de un anciano en un banco habla sobre la soledad en general? &iquest;El paisaje devastado habla sobre la fragilidad del planeta? &iquest;El ni&ntilde;o riendo habla sobre la inocencia universal? Las fotos trascendentes funcionan como met&aacute;foras visuales: muestran lo particular pero comunican lo universal. Son atemporales &mdash; funcionar&aacute;n igual dentro de 50 a&ntilde;os. Son las fotos que terminan en libros, exposiciones y memorias colectivas. Muy pocas im&aacute;genes alcanzan esto. La mayor&iacute;a puntuan 1&ndash;3 aqu&iacute;, y est&aacute; bien.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="scale">
+      <h2>Escala de puntuaci&oacute;n</h2>
+      <div class="scale-items">
+        <div class="scale-item">
+          <span class="scale-range">0 &ndash; 2</span>
+          <span class="scale-label">Significativamente deficiente o ausente</span>
+        </div>
+        <div class="scale-item">
+          <span class="scale-range">3 &ndash; 4</span>
+          <span class="scale-label">Por debajo de la media, problemas notables</span>
+        </div>
+        <div class="scale-item">
+          <span class="scale-range">5 &ndash; 6</span>
+          <span class="scale-label">Competente, correcta</span>
+        </div>
+        <div class="scale-item">
+          <span class="scale-range">7 &ndash; 8</span>
+          <span class="scale-label">Buena a muy buena</span>
+        </div>
+        <div class="scale-item">
+          <span class="scale-range">9 &ndash; 10</span>
+          <span class="scale-label">Excepcional &mdash; reservado para la perfecci&oacute;n</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="formula">
+      <h2>C&aacute;lculo de la puntuaci&oacute;n total</h2>
+      <code>total = (t&eacute;cnica &times; 0.40) + (art&iacute;stica &times; 0.40) + (excepcional &times; 0.20)</code>
+    </div>
+  </div>
+</body>
+</html>

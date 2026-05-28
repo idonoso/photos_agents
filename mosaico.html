@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mosaico &mdash; Portfolio fotogr&aacute;fico</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #000;
+      color: #e0e0e0;
+    }
+
+    /* --- Nav --- */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(10,10,10,0.96);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid #1c1c1c;
+    }
+    .site-header-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      display: flex;
+      align-items: center;
+      height: 68px;
+      gap: 2rem;
+    }
+    .site-logo {
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #fff;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+    .site-nav {
+      display: flex;
+      gap: 0.25rem;
+      margin-left: auto;
+    }
+    .site-nav a {
+      padding: 0.5rem 1.1rem;
+      color: #666;
+      text-decoration: none;
+      font-size: 0.8rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      border-radius: 6px;
+      transition: color 0.2s, background 0.2s;
+      font-weight: 500;
+    }
+    .site-nav a:hover { color: #fff; background: #1a1a1a; }
+    .site-nav a.active { color: #fff; background: #1c1c1c; border: 1px solid #2d2d2d; }
+
+    /* --- Hero: ocupa toda la pantalla visible bajo el nav --- */
+    .hero {
+      height: calc(100vh - 68px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #000;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hero img {
+      height: 100%;
+      width: auto;
+      max-width: 100%;
+      display: block;
+      object-fit: contain;
+      cursor: zoom-in;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 2rem 2.5rem;
+      background: linear-gradient(transparent 0%, rgba(0,0,0,0.75) 100%);
+      pointer-events: none;
+    }
+
+    .hero-title {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 0.3rem;
+    }
+
+    .hero-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .hero-score {
+      font-size: 1.1rem;
+      font-weight: 700;
+    }
+
+    .hero-cats {
+      font-size: 0.8rem;
+      color: #aaa;
+    }
+
+    /* --- Barra de filtros sticky bajo el nav --- */
+    .filters-bar {
+      position: sticky;
+      top: 68px;
+      z-index: 90;
+      background: rgba(10,10,10,0.97);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid #1c1c1c;
+      padding: 0.65rem 1.5rem;
+    }
+
+    .filters {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      align-items: center;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .filter-sep {
+      width: 1px;
+      height: 1.2rem;
+      background: #333;
+      margin: 0 0.25rem;
+    }
+
+    .filter-btn {
+      padding: 0.3em 0.7em;
+      background: #1a1a1a;
+      border: 1px solid #282828;
+      border-radius: 4px;
+      color: #666;
+      font-size: 0.72rem;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-family: inherit;
+    }
+    .filter-btn:hover { border-color: #555; color: #ccc; }
+    .filter-btn.active { background: #1a2233; border-color: #4a9eff; color: #4a9eff; }
+
+    /* --- Grid 5 columnas --- */
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 3px;
+      padding: 3px;
+      background: #000;
+    }
+
+    .grid-tile {
+      position: relative;
+      overflow: hidden;
+      cursor: zoom-in;
+      background: #0a0a0a;
+      aspect-ratio: 1 / 1;
+    }
+
+    .grid-tile img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease, filter 0.4s ease;
+    }
+
+    .grid-tile:hover img {
+      transform: scale(1.06);
+      filter: brightness(0.5);
+    }
+
+    .grid-tile-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 0.65rem 0.75rem;
+      background: linear-gradient(transparent 40%, rgba(0,0,0,0.88));
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .grid-tile:hover .grid-tile-overlay { opacity: 1; }
+
+    .grid-tile-title {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: #fff;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      margin-bottom: 0.15rem;
+    }
+
+    .grid-tile-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .grid-tile-score {
+      font-size: 0.82rem;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .grid-tile-cat {
+      font-size: 0.65rem;
+      color: #aaa;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .empty-state {
+      grid-column: 1 / -1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 40vh;
+      color: #444;
+      font-size: 0.9rem;
+    }
+
+    /* --- Lightbox --- */
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.93);
+      z-index: 200;
+      align-items: center;
+      justify-content: center;
+      cursor: zoom-out;
+    }
+    .lightbox.open { display: flex; }
+
+    .lightbox-inner {
+      position: relative;
+      max-width: 92vw;
+      cursor: default;
+    }
+
+    .lightbox img {
+      max-width: 92vw;
+      max-height: 84vh;
+      object-fit: contain;
+      border-radius: 4px;
+      display: block;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: -2.5rem;
+      right: 0;
+      width: 32px;
+      height: 32px;
+      border: none;
+      background: rgba(255,255,255,0.12);
+      border-radius: 50%;
+      color: #fff;
+      font-size: 1.1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+    }
+    .lightbox-close:hover { background: rgba(255,255,255,0.22); }
+
+    .lightbox-info {
+      display: flex;
+      align-items: baseline;
+      gap: 0.6rem;
+      padding: 0.55rem 0 0;
+    }
+
+    .lightbox-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #fff;
+    }
+
+    .lightbox-score {
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+
+    .lightbox-cats {
+      font-size: 0.75rem;
+      color: #555;
+      margin-left: auto;
+    }
+
+    /* --- Responsive --- */
+    @media (max-width: 1024px) {
+      .photo-grid { grid-template-columns: repeat(4, 1fr); }
+    }
+
+    @media (max-width: 640px) {
+      .photo-grid { grid-template-columns: repeat(3, 1fr); gap: 2px; padding: 2px; }
+      .hero-title { font-size: 1rem; }
+      .filters-bar { padding: 0.5rem 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-inner">
+      <a class="site-logo" href="index.html">Portfolio fotogr&aacute;fico</a>
+      <nav class="site-nav">
+        <a href="index.html">Portfolio</a>
+        <a href="mosaico.html" class="active">Mosaico</a>
+        <a href="tareas.html">Repetir</a>
+        <a href="aspectos.html">Aspectos</a>
+        <a href="tecnicas.html">T&eacute;cnicas</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Foto principal a pantalla completa -->
+  <section class="hero" id="hero">
+    <img id="hero-img" src="" alt="" onclick="openLightbox('hero')">
+    <div class="hero-overlay">
+      <div class="hero-title" id="hero-title"></div>
+      <div class="hero-meta">
+        <span class="hero-score" id="hero-score"></span>
+        <span class="hero-cats" id="hero-cats"></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Filtros -->
+  <div class="filters-bar">
+    <div class="filters" id="filters"></div>
+  </div>
+
+  <!-- Grid 5 columnas (todas las fotos, incluyendo la principal) -->
+  <div class="photo-grid" id="photo-grid"></div>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" onclick="closeLightboxBg(event)">
+    <div class="lightbox-inner">
+      <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+      <img id="lb-img" src="" alt="">
+      <div class="lightbox-info">
+        <span class="lightbox-title" id="lb-title"></span>
+        <span class="lightbox-score" id="lb-score"></span>
+        <span class="lightbox-cats" id="lb-cats"></span>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const SCORE_STOPS = [
+      [127,29,29],[153,27,27],[185,28,28],[220,38,38],[239,68,68],
+      [249,115,22],[234,179,8],[132,204,22],[16,185,129],[6,182,212],[37,99,235]
+    ];
+
+    function scoreColor(score) {
+      if (typeof score !== 'number' || isNaN(score)) return '#888';
+      const s = Math.max(0, Math.min(10, score));
+      const lo = Math.floor(s), hi = Math.min(10, lo + 1), t = s - lo;
+      const [r0,g0,b0] = SCORE_STOPS[lo], [r1,g1,b1] = SCORE_STOPS[hi];
+      return `rgb(${Math.round(r0+(r1-r0)*t)},${Math.round(g0+(g1-g0)*t)},${Math.round(b0+(b1-b0)*t)})`;
+    }
+
+    const fotoMap = {};
+    let allEligible = [];
+    let activeUbic = null;
+    let activeYear = null;
+    let activeCat = null;
+
+    function openLightbox(id) {
+      const foto = fotoMap[id];
+      if (!foto) return;
+      const score = foto.evaluacion.puntuacion_total;
+      document.getElementById('lb-img').src = foto.path;
+      document.getElementById('lb-img').alt = foto.titulo;
+      document.getElementById('lb-title').textContent = foto.titulo;
+      document.getElementById('lb-score').textContent = score.toFixed(1) + ' pts';
+      document.getElementById('lb-score').style.color = scoreColor(score);
+      document.getElementById('lb-cats').textContent = (foto.categorias || []).join(' · ');
+      document.getElementById('lightbox').classList.add('open');
+    }
+
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('open');
+    }
+
+    function closeLightboxBg(e) {
+      if (e.target === document.getElementById('lightbox')) closeLightbox();
+    }
+
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+
+    // Snap: cualquier scroll hacia abajo desde el hero salta directamente al grid
+    let jumping = false;
+
+    function snapToGrid() {
+      if (jumping) return;
+      jumping = true;
+      const grid = document.getElementById('photo-grid');
+      window.scrollTo({ top: grid.offsetTop, behavior: 'smooth' });
+      setTimeout(() => { jumping = false; }, 900);
+    }
+
+    window.addEventListener('wheel', (e) => {
+      if (jumping) { e.preventDefault(); return; }
+      if (window.scrollY > 5 || e.deltaY <= 0) return;
+      e.preventDefault();
+      snapToGrid();
+    }, { passive: false });
+
+    let touchStartY = 0;
+    window.addEventListener('touchstart', (e) => {
+      touchStartY = e.touches[0].clientY;
+    }, { passive: true });
+    window.addEventListener('touchend', (e) => {
+      if (jumping || window.scrollY > 5) return;
+      if (touchStartY - e.changedTouches[0].clientY > 30) snapToGrid();
+    }, { passive: true });
+
+    function buildFilters(fotos) {
+      const ubics = [...new Set(fotos.map(f => f.ubicacion).filter(u => u && u !== 'Desconocida'))].sort();
+      const cats = [...new Set(fotos.flatMap(f => f.categorias || []))].sort();
+      const years = [...new Set(fotos.map(f => f.fecha ? f.fecha.split('-')[0] : null).filter(Boolean))].sort().reverse();
+      const el = document.getElementById('filters');
+      let html = '';
+
+      html += `<button class="filter-btn active" data-type="ubic" data-val="">Todos</button>`;
+      ubics.forEach(u => { html += `<button class="filter-btn" data-type="ubic" data-val="${u}">${u}</button>`; });
+
+      if (cats.length > 1) {
+        html += `<div class="filter-sep"></div>`;
+        html += `<button class="filter-btn active" data-type="cat" data-val="">Todas</button>`;
+        cats.forEach(c => { html += `<button class="filter-btn" data-type="cat" data-val="${c}">${c}</button>`; });
+      }
+
+      if (years.length > 1) {
+        html += `<div class="filter-sep"></div>`;
+        html += `<button class="filter-btn active" data-type="year" data-val="">Todos</button>`;
+        years.forEach(y => { html += `<button class="filter-btn" data-type="year" data-val="${y}">${y}</button>`; });
+      }
+
+      el.innerHTML = html;
+      el.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const type = btn.dataset.type;
+          const val = btn.dataset.val;
+          el.querySelectorAll(`.filter-btn[data-type="${type}"]`).forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          if (type === 'ubic') activeUbic = val || null;
+          if (type === 'cat') activeCat = val || null;
+          if (type === 'year') activeYear = val || null;
+          applyFilters();
+        });
+      });
+    }
+
+    function applyFilters() {
+      document.querySelectorAll('.grid-tile').forEach(tile => {
+        const id = tile.dataset.id;
+        const foto = fotoMap[id];
+        if (!foto) return;
+        const matchUbic = !activeUbic || foto.ubicacion === activeUbic;
+        const matchCat = !activeCat || (foto.categorias || []).includes(activeCat);
+        const matchYear = !activeYear || (foto.fecha && foto.fecha.startsWith(activeYear));
+        tile.style.display = (matchUbic && matchCat && matchYear) ? '' : 'none';
+      });
+    }
+
+    async function init() {
+      try {
+        const res = await fetch('fotos.json');
+        const fotos = await res.json();
+
+        allEligible = fotos
+          .filter(f => f.evaluacion && f.evaluacion.puntuacion_total >= 6.0)
+          .sort((a, b) => b.evaluacion.puntuacion_total - a.evaluacion.puntuacion_total);
+
+        if (allEligible.length === 0) {
+          document.getElementById('hero').style.display = 'none';
+          document.getElementById('photo-grid').innerHTML =
+            '<div class="empty-state">No hay fotos con puntuación 6 o más.</div>';
+          return;
+        }
+
+        // Hero: la mejor foto
+        const heroFoto = allEligible[0];
+        fotoMap['hero'] = heroFoto;
+        const heroScore = heroFoto.evaluacion.puntuacion_total;
+        document.getElementById('hero-img').src = heroFoto.path;
+        document.getElementById('hero-img').alt = heroFoto.titulo;
+        document.getElementById('hero-title').textContent = heroFoto.titulo;
+        document.getElementById('hero-score').textContent = heroScore.toFixed(1) + ' pts';
+        document.getElementById('hero-score').style.color = scoreColor(heroScore);
+        document.getElementById('hero-cats').textContent = (heroFoto.categorias || []).join(' · ');
+
+        // Grid: todas las fotos elegibles en 5 columnas
+        let html = '';
+        allEligible.forEach((foto, i) => {
+          const id = `tile-${i}`;
+          fotoMap[id] = foto;
+          const score = foto.evaluacion.puntuacion_total;
+          const color = scoreColor(score);
+          const cats = (foto.categorias || []).join(' · ');
+          html += `
+            <div class="grid-tile" id="${id}" data-id="${id}" onclick="openLightbox('${id}')">
+              <img src="${foto.path}" alt="${foto.titulo}" loading="lazy">
+              <div class="grid-tile-overlay">
+                <div class="grid-tile-title">${foto.titulo}</div>
+                <div class="grid-tile-meta">
+                  <span class="grid-tile-score" style="color:${color}">${score.toFixed(1)}</span>
+                  <span class="grid-tile-cat">${cats}</span>
+                </div>
+              </div>
+            </div>`;
+        });
+
+        document.getElementById('photo-grid').innerHTML = html;
+        buildFilters(allEligible);
+
+      } catch (e) {
+        document.getElementById('photo-grid').innerHTML =
+          '<div class="empty-state">Error al cargar fotos.json</div>';
+      }
+    }
+
+    init();
+  </script>
+</body>
+</html>

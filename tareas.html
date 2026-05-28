@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Repetir &mdash; Tareas de repetici&oacute;n</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #0a0a0a;
+      color: #e0e0e0;
+      line-height: 1.6;
+      padding: 0;
+    }
+
+    .container { max-width: 1400px; margin: 0 auto; padding: 2rem 1.5rem; }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(10,10,10,0.96);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid #1c1c1c;
+    }
+    .site-header-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      display: flex;
+      align-items: center;
+      height: 68px;
+      gap: 2rem;
+    }
+    .site-logo {
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #fff;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+    .site-nav {
+      display: flex;
+      gap: 0.25rem;
+      margin-left: auto;
+    }
+    .site-nav a {
+      padding: 0.5rem 1.1rem;
+      color: #666;
+      text-decoration: none;
+      font-size: 0.8rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      border-radius: 6px;
+      transition: color 0.2s, background 0.2s;
+      font-weight: 500;
+    }
+    .site-nav a:hover { color: #fff; background: #1a1a1a; }
+    .site-nav a.active { color: #fff; background: #1c1c1c; border: 1px solid #2d2d2d; }
+
+    h1 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #4caf50;
+      margin-bottom: 0.25rem;
+    }
+    .header-sub {
+      color: #555;
+      font-size: 0.85rem;
+      margin-bottom: 1.5rem;
+      letter-spacing: 0.02em;
+    }
+
+    .empty-state {
+      color: #444;
+      font-size: 0.9rem;
+      text-align: center;
+      padding: 4rem 1rem;
+    }
+
+    /* --- Card --- */
+    .card {
+      background: #111;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      overflow: hidden;
+      transition: background 0.2s;
+    }
+    .card-compact {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      padding: 1rem 1.25rem;
+      cursor: pointer;
+      user-select: none;
+    }
+    .card-compact:hover { background: #1a1a1a; }
+    .card-thumb {
+      width: 72px;
+      height: 72px;
+      object-fit: cover;
+      border-radius: 5px;
+      flex-shrink: 0;
+    }
+    .card-info { flex: 1; min-width: 0; }
+    .card-title {
+      font-weight: 600;
+      font-size: 0.95rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .card-meta {
+      display: flex;
+      gap: 1rem;
+      font-size: 0.75rem;
+      color: #666;
+      margin-top: 0.2rem;
+      flex-wrap: wrap;
+    }
+
+    /* Margin badge */
+    .margin-badge {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      min-width: 56px;
+    }
+    .margin-num {
+      font-size: 1.4rem;
+      font-weight: 700;
+      line-height: 1;
+    }
+    .margin-label {
+      font-size: 0.6rem;
+      color: #555;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-top: 0.2rem;
+    }
+    .priority-high .margin-num { color: #e05555; }
+    .priority-med .margin-num { color: #e8a838; }
+    .priority-low .margin-num { color: #4caf50; }
+
+    /* Score progression */
+    .score-prog {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.85rem;
+      flex-shrink: 0;
+    }
+    .sc-cur { color: #888; font-weight: 600; }
+    .sc-arrow { color: #555; font-size: 0.7rem; }
+    .sc-pot { color: #4caf50; font-weight: 700; }
+
+    .card-chevron {
+      width: 20px;
+      height: 20px;
+      color: #555;
+      flex-shrink: 0;
+      transition: transform 0.3s;
+    }
+
+    /* Detail (expandable) */
+    .card-detail {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+    }
+    .card.open .card-detail { max-height: 5000px; }
+    .card.open .card-chevron { transform: rotate(180deg); }
+
+    .detail-inner { padding: 0 1.25rem 1.5rem; }
+    .detail-photo {
+      width: 100%;
+      max-height: 500px;
+      object-fit: contain;
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+    }
+
+    /* Conditions grid */
+    .cond-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 0.75rem;
+      margin-bottom: 1.25rem;
+    }
+    .cond-item {
+      padding: 0.85rem 1rem;
+      background: #0e0e0e;
+      border-radius: 5px;
+      border-left: 2px solid #4a9eff;
+    }
+    .cond-label {
+      font-size: 0.65rem;
+      color: #4a9eff;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 0.25rem;
+    }
+    .cond-value {
+      font-size: 0.83rem;
+      color: #ccc;
+      line-height: 1.5;
+    }
+
+    /* Plan sections */
+    .plan-section { margin-bottom: 1rem; }
+    .plan-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: #4caf50;
+      margin-bottom: 0.3rem;
+    }
+    .plan-text {
+      font-size: 0.83rem;
+      color: #ccc;
+      line-height: 1.6;
+      padding: 0.75rem 1rem;
+      background: #0e0e0e;
+      border-radius: 5px;
+      border-left: 2px solid #1a3a1a;
+    }
+
+    /* Tech plan sub-items */
+    .tech-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 0.75rem;
+      margin-bottom: 1.25rem;
+    }
+    .tech-item {
+      padding: 0.75rem 1rem;
+      background: #0e0e0e;
+      border-radius: 5px;
+      border-left: 2px solid #4caf50;
+    }
+    .tech-label {
+      font-size: 0.65rem;
+      color: #4caf50;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 0.25rem;
+    }
+    .tech-value {
+      font-size: 0.83rem;
+      color: #ccc;
+      line-height: 1.5;
+    }
+
+    /* Summary box */
+    .summary-box {
+      padding: 1rem 1.25rem;
+      background: #0e1a0e;
+      border-left: 3px solid #4caf50;
+      border-radius: 5px;
+      margin-top: 1.25rem;
+      margin-bottom: 1rem;
+    }
+    .summary-box .plan-label { color: #4caf50; font-size: 0.75rem; }
+    .summary-box .plan-text {
+      color: #a5d6a7;
+      background: transparent;
+      padding: 0;
+      border-left: none;
+      margin-top: 0.3rem;
+    }
+
+    /* Month tags */
+    .months-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      color: #888;
+      flex-shrink: 0;
+    }
+    .months-tag .mes {
+      display: inline-block;
+      padding: 0.1em 0.4em;
+      border-radius: 3px;
+      font-size: 0.68rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      background: #1a1a1a;
+      color: #666;
+    }
+    .mes--active {
+      background: #1a3a1a !important;
+      color: #4caf50 !important;
+    }
+    .mes--soon {
+      background: #2a2a10 !important;
+      color: #e8a838 !important;
+    }
+
+    /* Access notes */
+    .access-notes {
+      font-size: 0.8rem;
+      color: #888;
+      padding: 0.6rem 1rem;
+      background: #111;
+      border-radius: 5px;
+      margin-top: 0.5rem;
+      border-left: 2px solid #333;
+    }
+
+    @media (max-width: 600px) {
+      .container { padding: 1.5rem 1rem; }
+      .card-compact { gap: 0.75rem; padding: 0.75rem; }
+      .card-thumb { width: 56px; height: 56px; }
+      .margin-badge { min-width: 44px; }
+      .margin-num { font-size: 1.1rem; }
+      .cond-grid, .tech-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-inner">
+      <a class="site-logo" href="index.html">Portfolio fotogr&aacute;fico</a>
+      <nav class="site-nav">
+        <a href="index.html">Portfolio</a>
+        <a href="mosaico.html">Mosaico</a>
+        <a href="tareas.html" class="active">Repetir</a>
+        <a href="aspectos.html">Aspectos</a>
+        <a href="tecnicas.html">T&eacute;cnicas</a>
+      </nav>
+    </div>
+  </header>
+  <div class="container">
+    <h1>Repetir</h1>
+    <p class="header-sub" id="headerSub"></p>
+    <div id="tasks"></div>
+  </div>
+
+  <script>
+    const COND_LABELS = {
+      momento_dia: 'Momento del d\u00eda',
+      estacion: 'Estaci\u00f3n',
+      clima: 'Clima',
+      luz: 'Luz'
+    };
+
+    const ALL_MONTHS = ['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'];
+    const CURRENT_MONTH_IDX = new Date().getMonth(); // 0-based
+    const CURRENT_MONTH = ALL_MONTHS[CURRENT_MONTH_IDX];
+
+    function prioClass(margin) {
+      if (margin >= 2.0) return 'priority-high';
+      if (margin >= 1.5) return 'priority-med';
+      return 'priority-low';
+    }
+
+    function formatDate(d) {
+      if (!d) return '';
+      const [y, m, day] = d.split('-');
+      return `${parseInt(day)} ${ALL_MONTHS[parseInt(m)-1]} ${y}`;
+    }
+
+    function renderMonths(meses) {
+      if (!meses || meses.length === 0) return '';
+      if (meses[0] === 'todos') {
+        return `<span class="months-tag"><span class="mes mes--active">todos</span></span>`;
+      }
+      return `<span class="months-tag">${meses.map(m => {
+        const idx = ALL_MONTHS.indexOf(m);
+        const isActive = m === CURRENT_MONTH;
+        const nextIdx = (CURRENT_MONTH_IDX + 1) % 12;
+        const isSoon = idx === nextIdx;
+        const cls = isActive ? 'mes--active' : (isSoon ? 'mes--soon' : '');
+        return `<span class="mes ${cls}">${m}</span>`;
+      }).join('')}</span>`;
+    }
+
+    // Sort score: lower = better (shown first)
+    // 0 = current month match, 1 = next month match, 2 = "todos", 3+ = months away
+    function monthSortScore(meses) {
+      if (!meses || meses.length === 0) return 99;
+      if (meses[0] === 'todos') return 2;
+      // Distance from current month to the nearest ideal month
+      let minDist = 12;
+      for (const m of meses) {
+        const idx = ALL_MONTHS.indexOf(m);
+        if (idx < 0) continue;
+        const dist = (idx - CURRENT_MONTH_IDX + 12) % 12;
+        if (dist < minDist) minDist = dist;
+      }
+      return minDist === 0 ? 0 : (minDist === 1 ? 1 : 2 + minDist);
+    }
+
+    function renderConds(cond) {
+      if (!cond) return '';
+      return `<div class="cond-grid">${
+        Object.entries(cond)
+          .map(([k, v]) => `
+            <div class="cond-item">
+              <div class="cond-label">${COND_LABELS[k] || k}</div>
+              <div class="cond-value">${v}</div>
+            </div>`).join('')
+      }</div>`;
+    }
+
+    function renderTech(pt) {
+      if (!pt) return '';
+      const labels = { equipo: 'Equipo', ajustes_clave: 'Ajustes clave', enfoque: 'Enfoque' };
+      return `<div class="tech-grid">${
+        Object.entries(pt)
+          .map(([k, v]) => `
+            <div class="tech-item">
+              <div class="tech-label">${labels[k] || k}</div>
+              <div class="tech-value">${v}</div>
+            </div>`).join('')
+      }</div>`;
+    }
+
+    function renderPlan(label, text) {
+      if (!text) return '';
+      return `<div class="plan-section"><div class="plan-label">${label}</div><div class="plan-text">${text}</div></div>`;
+    }
+
+    function renderCard(foto) {
+      const r = foto.repetir;
+      const pc = prioClass(r.margen);
+
+      return `
+      <div class="card" id="card-${foto.nombre}">
+        <div class="card-compact" onclick="toggle('card-${foto.nombre}')">
+          <img class="card-thumb" src="${foto.path}" alt="${foto.titulo}" loading="lazy">
+          <div class="card-info">
+            <div class="card-title">${foto.titulo}</div>
+            <div class="card-meta">
+              <span>${[foto.lugar, foto.ubicacion].filter(v => v && v !== 'Desconocida').join(', ') || 'Desconocida'}</span>
+              ${renderMonths(r.meses)}
+            </div>
+          </div>
+          <div class="margin-badge ${pc}">
+            <span class="margin-num">+${r.margen.toFixed(1)}</span>
+            <span class="margin-label">Margen</span>
+          </div>
+          <div class="score-prog">
+            <span class="sc-cur">${r.puntuacion_actual.toFixed(1)}</span>
+            <span class="sc-arrow">&rarr;</span>
+            <span class="sc-pot">${r.potencial_estimado.toFixed(1)}</span>
+          </div>
+          <svg class="card-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+        <div class="card-detail">
+          <div class="detail-inner">
+            <img class="detail-photo" src="${foto.path}" alt="${foto.titulo}" loading="lazy">
+
+            <div class="summary-box">
+              <div class="plan-label">Resumen del plan</div>
+              <div class="plan-text">${r.resumen_plan || ''}</div>
+            </div>
+
+            ${renderConds(r.condiciones_ideales)}
+            ${renderTech(r.plan_tecnico)}
+            ${renderPlan('Composici\u00f3n', r.plan_composicion)}
+            ${renderPlan('Momento', r.plan_momento)}
+            ${renderPlan('Art\u00edstico', r.plan_artistico)}
+            ${renderPlan('Procesado', r.plan_procesado)}
+
+            ${r.notas_acceso ? `<div class="access-notes"><strong>Acceso:</strong> ${r.notas_acceso}</div>` : ''}
+          </div>
+        </div>
+      </div>`;
+    }
+
+    function toggle(id) {
+      document.getElementById(id).classList.toggle('open');
+    }
+
+    async function init() {
+      const res = await fetch('fotos.json');
+      const fotos = await res.json();
+      const tasks = fotos.filter(f => f.repetir);
+      tasks.sort((a, b) => {
+        const ma = monthSortScore(a.repetir.meses);
+        const mb = monthSortScore(b.repetir.meses);
+        if (ma !== mb) return ma - mb; // mes más cercano primero
+        return b.repetir.margen - a.repetir.margen; // luego mayor margen
+      });
+
+      document.getElementById('headerSub').textContent =
+        tasks.length === 0
+          ? 'No hay fotos pendientes de repetir'
+          : `${tasks.length} foto${tasks.length > 1 ? 's' : ''} pendiente${tasks.length > 1 ? 's' : ''} de repetir`;
+
+      const gallery = document.getElementById('tasks');
+      if (tasks.length === 0) {
+        gallery.innerHTML = '<div class="empty-state">Eval\u00faa fotos con el skill de evaluaci\u00f3n para generar planes de repetici\u00f3n.</div>';
+      } else {
+        gallery.innerHTML = tasks.map(renderCard).join('');
+      }
+    }
+
+    init();
+  </script>
+</body>
+</html>
