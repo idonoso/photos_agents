@@ -494,13 +494,13 @@
         const fotos = await res.json();
 
         allEligible = fotos
-          .filter(f => f.evaluacion && f.evaluacion.puntuacion_total >= 6.0)
+          .filter(f => f.evaluacion)
           .sort((a, b) => b.evaluacion.puntuacion_total - a.evaluacion.puntuacion_total);
 
         if (allEligible.length === 0) {
           document.getElementById('hero').style.display = 'none';
           document.getElementById('photo-grid').innerHTML =
-            '<div class="empty-state">No hay fotos con puntuación 6 o más.</div>';
+            '<div class="empty-state">No hay fotos evaluadas.</div>';
           return;
         }
 
