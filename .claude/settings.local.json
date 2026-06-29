@@ -14,7 +14,8 @@
       "Bash(cp \"/Users/ignacio/Sites/fotos/pendientes/DSC_2192.jpeg\" \"/Users/ignacio/Sites/fotos/originales/DSC_2192.jpeg\")",
       "Bash(rm \"/Users/ignacio/Sites/fotos/pendientes/DSC_2192.jpeg\")",
       "Bash(jq '[.[] | .evaluacion.puntuacion_total] | sort' /Users/ignacio/Sites/fotos/fotos.json)",
-      "Read(//tmp/**)"
+      "Read(//tmp/**)",
+      "Bash(git *)"
     ]
   }
 }
