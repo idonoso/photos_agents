@@ -23,6 +23,7 @@
     ],
     "fecha": "2026-03-08",
     "path": "originales/2400.jpeg",
+    "dimensiones": "2400x2400",
     "datos_toma": {
       "camara": "Nikon Z6 III",
       "objetivo": "Nikkor Z 180-600mm f/5.6-6.3 VR",
@@ -156,7 +157,73 @@
       "lo_mejorable": "El conjunto se queda en 'buena foto de naturaleza' sin alcanzar lo memorable. Le falta una perspectiva que sorprenda, un momento verdaderamente irrepetible, y un estilo visual más consolidado. La dirección es correcta — necesita atrevimiento en ángulos, paciencia para condiciones extraordinarias, y buscar contacto visual con el sujeto.",
       "potencial": 8.2
     },
-    "lugar": "Casa de Campo"
+    "lugar": "Casa de Campo",
+    "instagram": {
+      "fecha_prep": "2026-07-10",
+      "formato_recomendado": "1:1",
+      "dimensiones": "1080x1080",
+      "justificacion_formato": "La foto ya es cuadrada de origen (2400x2400) y el ave llena el encuadre con las alas extendidas de lado a lado; el formato 1:1 preserva la composición completa sin sacrificar ninguna parte del ave ni del espacio negativo del bokeh.",
+      "zona_recorte": "Sin recorte de contenido; solo redimensionado proporcional manteniendo el cuadrado original.",
+      "caption": {
+        "es": "En el instante exacto en que la vida depende de un milisegundo.\n\nLa Casa de Campo en invierno esconde una naturaleza que pocos ven. Esta gaviota juvenil desciende con las alas completamente abiertas, algo ya atrapado en el pico, ajena a todo lo que no sea su presa. El fondo de árboles desnudos se disuelve en un bokeh cremoso que aísla el instante de máxima tensión.\n\n¿Alguna vez has visto una escena de caza así en pleno parque urbano?",
+        "en": "The exact instant when life depends on a millisecond.\n\nWinter in Madrid's Casa de Campo hides more wildlife drama than most people notice. This juvenile gull drops in with wings fully spread, something already caught in its beak, oblivious to everything but its prey. The bare winter trees dissolve into a creamy bokeh that isolates this moment of pure tension.\n\nHave you ever witnessed a hunting scene like this in the middle of a city park?"
+      },
+      "alt_text": "Gaviota juvenil en pleno vuelo, vista de perfil con las alas completamente extendidas hacia arriba y las patas colgando hacia abajo, sosteniendo un pequeño alimento en el pico. El plumaje muestra un patrón moteado marrón y blanco propio de un ejemplar joven. El fondo de árboles invernales desenfocados en tonos grises y marrones crea un bokeh uniforme que resalta al ave, iluminada por luz difusa de día nublado.",
+      "hashtags": {
+        "sujeto": [
+          "#birdphotography",
+          "#wildbirds",
+          "#birdsofinstagram",
+          "#aves",
+          "#fotografiaaves",
+          "#gull"
+        ],
+        "tecnica": [
+          "#bokeh",
+          "#telephoto",
+          "#actionphotography",
+          "#freezeframe"
+        ],
+        "ubicacion": [
+          "#madrid",
+          "#casadecampo",
+          "#spain",
+          "#españa"
+        ],
+        "comunidad": [
+          "#photography",
+          "#photographer",
+          "#fotografia",
+          "#nikon",
+          "#nikoncreators"
+        ],
+        "nicho": [
+          "#birdsofmadrid",
+          "#avesmadrid",
+          "#madridbirds",
+          "#spanishwildlife",
+          "#wildlifeofinstagram",
+          "#naturegram"
+        ],
+        "bloque_completo": "#birdphotography #wildbirds #birdsofinstagram #aves #fotografiaaves #gull #bokeh #telephoto #actionphotography #freezeframe #madrid #casadecampo #spain #españa #photography #photographer #fotografia #nikon #nikoncreators #birdsofmadrid #avesmadrid #madridbirds #spanishwildlife #wildlifeofinstagram #naturegram"
+      },
+      "ajustes_tecnicos": {
+        "brillo": "sin cambios",
+        "contraste": "+8",
+        "saturacion": "sin cambios",
+        "nitidez_salida": "+12"
+      },
+      "comando_sips": "sips -Z 1080 \"/Users/ignacio/Sites/fotos/originales/2400.jpeg\" --out \"/Users/ignacio/Downloads/2400_ig.jpeg\" && sips -c 1080 1080 \"/Users/ignacio/Downloads/2400_ig.jpeg\"",
+      "recorte": {
+        "resample_flag": "-Z",
+        "resample_valor": 1080,
+        "crop_alto": 1080,
+        "crop_ancho": 1080,
+        "centrado": true,
+        "offset_y": null,
+        "offset_x": null
+      }
+    }
   },
   {
     "titulo": "Jaguar eléctrico en el Jarama",
@@ -181,6 +248,7 @@
     ],
     "fecha": "2026-03-21",
     "path": "originales/DSC_1523.jpeg",
+    "dimensiones": "5594x2329",
     "datos_toma": {
       "camara": "Nikon Z6 III",
       "objetivo": "Nikkor Z 180-600mm f/5.6-6.3 VR",
@@ -341,6 +409,7 @@
     ],
     "fecha": "2023-09-26",
     "path": "originales/Necrópolis de Guiza.jpeg",
+    "dimensiones": "5014x3286",
     "datos_toma": {
       "camara": "Nikon D3300",
       "objetivo": "18-55mm f/3.5-5.6",
@@ -499,6 +568,7 @@
     ],
     "fecha": "2025-12-27",
     "path": "originales/Guardia del Palacio Real.jpeg",
+    "dimensiones": "4364x3273",
     "datos_toma": {
       "camara": "Nikon Z6 III",
       "objetivo": "Nikkor Z 24-120mm f/4 S",
@@ -686,6 +756,7 @@
     ],
     "fecha": "2022-09-11",
     "path": "originales/Alcazar de Cordoba.jpeg",
+    "dimensiones": "6000x3375",
     "datos_toma": {
       "camara": "Nikon D3300",
       "objetivo": null,
@@ -845,6 +916,7 @@
     ],
     "fecha": "2026-04-11",
     "path": "originales/Sormormujo.jpeg",
+    "dimensiones": "3982x2655",
     "datos_toma": {
       "camara": "Nikon Z6 III",
       "objetivo": "Nikkor Z 180-600mm f/5.6-6.3 VR",
@@ -1006,6 +1078,7 @@
     ],
     "fecha": "2026-04-11",
     "path": "originales/DSC_2075.jpeg",
+    "dimensiones": "4839x3629",
     "datos_toma": {
       "camara": "Nikon Z6 III",
       "objetivo": "Nikkor Z 180-600mm f/5.6-6.3 VR",
@@ -1166,6 +1239,7 @@
     ],
     "fecha": "2026-04-11",
     "path": "originales/DSC_2246.jpeg",
+    "dimensiones": "4020x2680",
     "datos_toma": {
       "camara": "Nikon Z6 III",
       "objetivo": "Nikkor Z 180-600mm f/5.6-6.3 VR",
@@ -1327,6 +1401,7 @@
     ],
     "fecha": "2026-04-11",
     "path": "originales/DSC_2235.jpeg",
+    "dimensiones": "4504x3003",
     "datos_toma": {
       "camara": "Nikon Z6 III",
       "objetivo": "Nikkor Z 180-600mm f/5.6-6.3 VR",
@@ -1488,6 +1563,7 @@
     ],
     "fecha": "2021-09-09",
     "path": "originales/libelula dorada.jpeg",
+    "dimensiones": "3931x2621",
     "datos_toma": {
       "camara": "Nikon D3300",
       "objetivo": "70-300mm f/4.5-6.3",
@@ -1649,6 +1725,7 @@
     ],
     "fecha": "2025-11-01",
     "path": "originales/DSC_0050.jpeg",
+    "dimensiones": "6000x3375",
     "datos_toma": {
       "camara": "Nikon Z6 III",
       "objetivo": "Nikkor Z 24-120mm f/4 S",
@@ -1840,6 +1917,7 @@
     ],
     "fecha": "2025-11-08",
     "path": "originales/Museo geominero 2.jpeg",
+    "dimensiones": "4846x3877",
     "datos_toma": {
       "camara": "Nikon D3300",
       "objetivo": "11-16mm f/2.8",
@@ -2027,6 +2105,7 @@
     ],
     "fecha": "2025-11-08",
     "path": "originales/Mueso geominero.jpeg",
+    "dimensiones": "4899x3266",
     "datos_toma": {
       "camara": "Nikon D3300",
       "objetivo": "11-16mm f/2.8",
@@ -2214,6 +2293,7 @@
     ],
     "fecha": "2026-03-08",
     "path": "originales/Mirlo.jpeg",
+    "dimensiones": "3227x2316",
     "datos_toma": {
       "camara": "Nikon Z6 III",
       "objetivo": "Nikkor Z 180-600mm f/5.6-6.3 VR",
@@ -2376,6 +2456,7 @@
     ],
     "fecha": "2026-03-22",
     "path": "originales/DSC_2040.jpeg",
+    "dimensiones": "4519x3012",
     "datos_toma": {
       "camara": "Nikon Z6 III",
       "objetivo": "Nikkor Z 24-120mm f/4 S",
@@ -2564,6 +2645,7 @@
     ],
     "fecha": "2026-01-10",
     "path": "originales/DSC_0338.jpeg",
+    "dimensiones": "5416x3047",
     "datos_toma": {
       "camara": "Nikon Z6 III",
       "objetivo": "Nikkor Z 24-120mm f/4 S",
@@ -2752,6 +2834,7 @@
     ],
     "fecha": "2025-12-26",
     "path": "originales/DSC_0187.jpeg",
+    "dimensiones": "3591x5386",
     "datos_toma": {
       "camara": "Nikon Z6 III",
       "objetivo": "Nikkor Z 24-120mm f/4 S",
@@ -2944,6 +3027,7 @@
     ],
     "fecha": "2025-11-08",
     "path": "originales/El fronton.jpeg",
+    "dimensiones": "4246x2835",
     "datos_toma": {
       "camara": "Nikon D3300",
       "objetivo": "18-55mm f/3.5-5.6",
@@ -3131,6 +3215,7 @@
     ],
     "fecha": "2026-02-14",
     "path": "originales/Petirrojo Europeo.jpeg",
+    "dimensiones": "2626x2101",
     "datos_toma": {
       "camara": "Nikon Z6 III",
       "objetivo": "Nikkor Z 180-600mm f/5.6-6.3 VR",
@@ -3265,6 +3350,73 @@
       "resumen": "Petirrojo con contacto visual directo — la foto con mayor conexión emocional y mejor armonía cromática del portfolio, y la primera en alcanzar 7.0. El retrato íntimo a 600mm con bokeh azul-gris perfecto demuestra la maduración del estilo de retratos de fauna del fotógrafo. El potencial está en repetir este nivel de conexión con mejor luz y un momento de comportamiento activo.",
       "potencial": 8.3,
       "mejora_prioritaria": "Volver a El Pardo en invierno al amanecer para capturar al petirrojo con rim-light dorado, idealmente sobre una rama escarchada y con el mismo contacto visual directo. Ese mismo ojo mirándote, pero bañado en luz."
+    },
+    "instagram": {
+      "fecha_prep": "2026-07-01",
+      "formato_recomendado": "4:5",
+      "dimensiones": "1080x1350",
+      "justificacion_formato": "El petirrojo mira hacia la derecha con un amplio espacio de fondo bokeh vacío; un recorte centrado a 4:5 conserva el ave, la rama principal y suficiente espacio de dirección, maximizando su presencia en el feed.",
+      "zona_recorte": "Recorte centrado horizontalmente; se elimina la rama vertical secundaria del fondo izquierdo y el extremo del cielo vacío a la derecha, sin afectar al ave ni a la rama principal.",
+      "caption": {
+        "es": "Una mirada que calienta el invierno más frío.\n\nEste petirrojo europeo apareció entre las ramas desnudas de El Pardo, posado contra un cielo gris-azulado de pleno invierno. Su pecho naranja parecía la única chispa de color en kilómetros de frío, y ese ojo brillante y curioso hizo que el resto del bosque desapareciera.\n\n¿Hay algo más reconfortante que el rojo de un petirrojo en un día gris?",
+        "en": "A gaze warm enough to thaw the coldest February.\n\nThis European robin showed up among the bare branches of El Pardo, perched against a grey-blue winter sky. Its orange chest felt like the only spark of color for miles, and that bright, curious eye made the rest of the forest disappear.\n\nIs there anything more comforting than a robin's red on a grey day?"
+      },
+      "alt_text": "Petirrojo europeo posado en una rama desnuda, visto de frente con la cabeza ligeramente girada hacia la derecha. El pecho y la cara muestran un naranja intenso que contrasta con el dorso pardo-grisáceo y el vientre blanco. El ojo negro y brillante destaca con un punto de luz. El fondo es un azul-gris uniforme totalmente desenfocado, sin elementos distractores. La luz difusa ilumina el plumaje de forma homogénea.",
+      "hashtags": {
+        "sujeto": [
+          "#birdphotography",
+          "#wildbirds",
+          "#birdsofinstagram",
+          "#petirrojo",
+          "#europeanrobin",
+          "#aves"
+        ],
+        "tecnica": [
+          "#bokeh",
+          "#telephoto",
+          "#birdportrait",
+          "#shallowdof"
+        ],
+        "ubicacion": [
+          "#elpardo",
+          "#madrid",
+          "#spain",
+          "#españa"
+        ],
+        "comunidad": [
+          "#photography",
+          "#photographer",
+          "#foto",
+          "#nikon",
+          "#nikoncreators",
+          "#natgeo"
+        ],
+        "nicho": [
+          "#birdsofmadrid",
+          "#avesmadrid",
+          "#spanishwildlife",
+          "#birdsofspain",
+          "#wildlifeofinstagram",
+          "#naturegram"
+        ],
+        "bloque_completo": "#birdphotography #wildbirds #birdsofinstagram #petirrojo #europeanrobin #aves #bokeh #telephoto #birdportrait #shallowdof #elpardo #madrid #spain #españa #photography #photographer #foto #nikon #nikoncreators #natgeo #birdsofmadrid #avesmadrid #spanishwildlife #birdsofspain #wildlifeofinstagram #naturegram"
+      },
+      "ajustes_tecnicos": {
+        "brillo": "sin cambios",
+        "contraste": "+8",
+        "saturacion": "+3 selectiva en el naranja del pecho",
+        "nitidez_salida": "+12"
+      },
+      "comando_sips": "sips --resampleHeight 1350 \"/Users/ignacio/Sites/fotos/originales/Petirrojo Europeo.jpeg\" --out \"/Users/ignacio/Sites/fotos/instagram/previews/Petirrojo Europeo_ig.jpeg\" && sips -c 1350 1080 --cropOffset 0 150 \"/Users/ignacio/Sites/fotos/instagram/previews/Petirrojo Europeo_ig.jpeg\"",
+      "recorte": {
+        "resample_flag": "--resampleHeight",
+        "resample_valor": 1350,
+        "crop_alto": 1350,
+        "crop_ancho": 1080,
+        "centrado": false,
+        "offset_y": 0,
+        "offset_x": 150
+      }
     }
   },
   {
@@ -3291,6 +3443,7 @@
     ],
     "fecha": "2026-04-11",
     "path": "originales/DSC_2076.jpeg",
+    "dimensiones": "3540x3540",
     "datos_toma": {
       "camara": "Nikon Z6 III",
       "objetivo": "Nikkor Z 180-600mm f/5.6-6.3 VR",
@@ -3452,6 +3605,7 @@
     ],
     "fecha": "2026-04-11",
     "path": "originales/DSC_1993.jpeg",
+    "dimensiones": "4087x2725",
     "datos_toma": {
       "camara": "Nikon Z6 III",
       "objetivo": "Nikkor Z 180-600mm f/5.6-6.3 VR",
@@ -3615,6 +3769,7 @@
     ],
     "fecha": "2026-04-19",
     "path": "originales/DSC_2526.jpeg",
+    "dimensiones": "4841x2723",
     "datos_toma": {
       "camara": "Nikon Z6 III",
       "objetivo": "Nikkor Z 180-600mm f/5.6-6.3 VR",
@@ -3749,6 +3904,73 @@
       "resumen": "Segunda iteración de la lavandera que eleva notablemente la imagen respecto a la versión inicial. El recorte ajustado, el procesado más refinado y la visibilidad del insecto amarillo transforman la foto en una pieza de fauna madura: técnica sólida al servicio de una atmósfera pictórica y una narrativa clara. El techo ya no está en la ejecución sino en el momento capturado — la acción dentro del mismo lenguaje sería la consagración.",
       "potencial": 8.8,
       "mejora_prioritaria": "Volver durante la temporada de pelusas (finales abril-mayo) al mismo claro de luz con el mismo lenguaje visual ya consolidado, y esperar al instante de vuelo del ave con el insecto en el pico o al momento de mirada directa al objetivo. Ese momento fundiría acción, atmósfera, narrativa y estacionalidad en una imagen definitiva."
+    },
+    "instagram": {
+      "fecha_prep": "2026-07-06",
+      "formato_recomendado": "4:5",
+      "dimensiones": "1080x1350",
+      "justificacion_formato": "El ave queda centrada en el encuadre original (16:9), así que un recorte vertical centrado conserva cabeza, insecto en el pico y buena parte de la alfombra de pelusas, sacrificando la cola que se extiende hacia el borde izquierdo. Coincide con la variación 'más íntima' que la propia evaluación técnica sugería explorar.",
+      "zona_recorte": "Recorte centrado horizontalmente desde el 16:9 original a 4:5; se elimina la mayor parte de la cola por la izquierda y algo del fondo negro por la derecha, quedando un retrato más cerrado sobre el ave y el insecto.",
+      "caption": {
+        "es": "En Madrid nieva en primavera — y no es nieve.\n\nEsta lavandera blanca camina entre pelusas de chopo, un fenómeno efímero que solo dura unas semanas al año en la Casa de Campo. Un haz de luz lateral la recorta contra la sombra mientras lleva un pequeño insecto en el pico, alimento capturado en plena actividad primaveral.\n\n¿Habías visto antes esta 'nevada' de primavera madrileña?",
+        "en": "In Madrid it snows in spring — and it isn't snow.\n\nThis white wagtail walks among poplar fluff, a fleeting phenomenon that only lasts a few weeks each year in Casa de Campo. A shaft of side light carves her out of the shadow as she carries a tiny insect in her beak, food caught mid-spring hustle.\n\nHave you ever seen Madrid's spring 'snow'?"
+      },
+      "alt_text": "Lavandera blanca vista de perfil caminando sobre un suelo cubierto de pelusas de chopo blancas, con un pequeño insecto amarillo en el pico. Un haz de luz lateral ilumina el plumaje gris, blanco y negro del ave, recortándola contra un fondo en sombra profunda casi negro. La cola larga se extiende hacia la izquierda del encuadre mientras una pata queda levantada en pleno paso.",
+      "hashtags": {
+        "sujeto": [
+          "#birdphotography",
+          "#wildbirds",
+          "#birdsofinstagram",
+          "#aves",
+          "#whitewagtail",
+          "#lavanderablanca"
+        ],
+        "tecnica": [
+          "#bokeh",
+          "#telephoto",
+          "#naturallight",
+          "#highcontrast"
+        ],
+        "ubicacion": [
+          "#casadecampo",
+          "#madrid",
+          "#spain",
+          "#españa"
+        ],
+        "comunidad": [
+          "#photography",
+          "#photographer",
+          "#fotografia",
+          "#nikon",
+          "#nikoncreators",
+          "#natgeo"
+        ],
+        "nicho": [
+          "#birdsofmadrid",
+          "#avesmadrid",
+          "#madridbirds",
+          "#spanishwildlife",
+          "#birdsofspain",
+          "#wildlifeofinstagram"
+        ],
+        "bloque_completo": "#birdphotography #wildbirds #birdsofinstagram #aves #whitewagtail #lavanderablanca #bokeh #telephoto #naturallight #highcontrast #casadecampo #madrid #spain #españa #photography #photographer #fotografia #nikon #nikoncreators #natgeo #birdsofmadrid #avesmadrid #madridbirds #spanishwildlife #birdsofspain #wildlifeofinstagram"
+      },
+      "ajustes_tecnicos": {
+        "brillo": "sin cambios",
+        "contraste": "sin cambios",
+        "saturacion": "sin cambios",
+        "nitidez_salida": "+10"
+      },
+      "comando_sips": "sips --resampleHeight 1350 \"/Users/ignacio/Sites/fotos/originales/DSC_2526.jpeg\" --out \"/Users/ignacio/Downloads/DSC_2526_ig.jpeg\" && sips -c 1350 1080 \"/Users/ignacio/Downloads/DSC_2526_ig.jpeg\"",
+      "recorte": {
+        "resample_flag": "--resampleHeight",
+        "resample_valor": 1350,
+        "crop_alto": 1350,
+        "crop_ancho": 1080,
+        "centrado": true,
+        "offset_y": null,
+        "offset_x": null
+      }
     }
   },
   {
@@ -3777,6 +3999,7 @@
     ],
     "fecha": "2026-04-19",
     "path": "originales/DSC_2491.jpeg",
+    "dimensiones": "3288x2630",
     "datos_toma": {
       "camara": "Nikon Z6 III",
       "objetivo": "Nikkor Z 180-600mm f/5.6-6.3 VR",
@@ -3911,6 +4134,42 @@
       "resumen": "Reedición del retrato de jilguero que eleva la imagen con un trabajo cromático refinado: la desaturación selectiva del fondo da todo el protagonismo al ave sin perder naturalidad. La técnica alcanza un nivel muy alto (8.3) pero los aspectos narrativos y excepcionales permanecen iguales. Para escalar de verdad hace falta volver a campo buscando comportamiento — la sala de edición ya ha dado casi todo lo que podía dar.",
       "potencial": 8.0,
       "mejora_prioritaria": "Volver a la Casa de Campo con el mismo equipo y lenguaje visual ya consolidado, esperando al jilguero comiendo un cardo con el penacho blanco volando al viento — la escena icónica de la especie. Ese momento aportaría la narrativa y la originalidad que la reedición no puede añadir."
+    },
+    "instagram": {
+      "fecha_prep": "2026-07-26",
+      "formato_recomendado": "4:5",
+      "dimensiones": "1080x1350",
+      "justificacion_formato": "El jilguero está en perfil mirando hacia la derecha con espacio de dirección; el retrato recorta el exceso de fondo vacío del lado derecho manteniendo aire suficiente delante del pico y toda la altura original del encuadre.",
+      "zona_recorte": "Se mantiene toda la altura del encuadre. Recorte horizontal descentrado hacia la izquierda para incluir al ave completa (incluida la cola) y conservar espacio de dirección hacia donde mira, eliminando sobre todo fondo vacío del borde derecho.",
+      "caption": {
+        "es": "Llevaba un rato viendo a un jilguero ir y venir entre las ramas sin parar quieto, hasta que este se posó justo ahí, sobre el liquen, y aguantó lo suficiente para el retrato.\n\nLa máscara roja, el amarillo del ala, el pecho color canela — de cerca este pájaro parece pintado. La Casa de Campo en primavera tiene estas sorpresas de color entre tanto verde.",
+        "en": "I'd been watching a goldfinch hop from branch to branch without settling, and then it landed right there on the lichen and held still just long enough for this.\n\nThe red mask, the yellow wing flash, that cinnamon chest — up close this bird looks painted. Casa de Campo in spring keeps throwing these little bursts of color at you between all the green."
+      },
+      "alt_text": "Jilguero europeo posado de perfil sobre una rama cubierta de liquen, con la cabeza girada mostrando la máscara facial roja, la capucha blanca y negra, y el pico entreabierto. El pecho es marrón claro y el ala muestra una franja amarilla intensa junto a plumas negras con motas blancas. El fondo es un bokeh verde uniforme con puntos de luz difuminados, propio de vegetación primaveral fuera de foco.",
+      "hashtags": {
+        "sujeto": ["#birdphotography", "#europeangoldfinch", "#jilguero", "#carduelis", "#birdsofinstagram", "#aves"],
+        "tecnica": ["#bokeh", "#telephoto", "#shallowdof"],
+        "ubicacion": ["#casadecampo", "#madrid", "#spain", "#españa"],
+        "comunidad": ["#photography", "#photographer", "#fotografia", "#nikon", "#nikoncreators"],
+        "nicho": ["#birdsofmadrid", "#avesmadrid", "#madridbirds", "#spanishwildlife", "#wildlifeofinstagram"],
+        "bloque_completo": "#birdphotography #europeangoldfinch #jilguero #carduelis #birdsofinstagram #aves #bokeh #telephoto #shallowdof #casadecampo #madrid #spain #españa #photography #photographer #fotografia #nikon #nikoncreators #birdsofmadrid #avesmadrid #madridbirds #spanishwildlife #wildlifeofinstagram"
+      },
+      "ajustes_tecnicos": {
+        "brillo": "sin cambios",
+        "contraste": "sin cambios",
+        "saturacion": "sin cambios",
+        "nitidez_salida": "+10"
+      },
+      "comando_sips": "sips --resampleHeight 1350 \"/Users/ignacio/Sites/fotos/originales/DSC_2491.jpeg\" --out \"/Users/ignacio/Downloads/DSC_2491_ig.jpeg\" && sips -c 1350 1080 --cropOffset 0 150 \"/Users/ignacio/Downloads/DSC_2491_ig.jpeg\"",
+      "recorte": {
+        "resample_flag": "--resampleHeight",
+        "resample_valor": 1350,
+        "crop_alto": 1350,
+        "crop_ancho": 1080,
+        "centrado": false,
+        "offset_y": 0,
+        "offset_x": 150
+      }
     }
   },
   {
@@ -3940,6 +4199,7 @@
     ],
     "fecha": "2026-04-19",
     "path": "originales/DSC_2478.jpeg",
+    "dimensiones": "6048x4032",
     "datos_toma": {
       "camara": "Nikon Z6 III",
       "objetivo": "Nikkor Z 180-600mm f/5.6-6.3 VR",
@@ -4100,6 +4360,73 @@
       "plan_artistico": "El mayor salto artístico vendrá de la luz: la misma acción en hora dorada transformará el plumaje blanco en oro y los reflejos en pinceladas cálidas. Explorar perspectiva frontal (el ave viniendo hacia cámara con las alas en máxima envergadura) o contraluz con silueta de las alas. Buscar que el ojo del ganso mire directamente a cámara en el instante del aterrizaje para maximizar la conexión con el espectador.",
       "plan_procesado": "Aplicar máscara sobre el ave para realzar claridad y textura en el plumaje blanco sin afectar el agua. Saturación selectiva localizada en los rosas de las patas y el parche ocular rojo para amplificar los puntos de tensión cromática. Microcontraste en las gotas del splash. Con luz dorada: calentar +150-200K sobre el ave con ajuste selectivo para maximizar el tono sin que el agua pierda su color.",
       "resumen_plan": "Ir al lago de Casa de Campo en hora dorada de tarde. Antes de posicionarse, identificar la dirección del viento — los gansos aterrizan contra él. Misma técnica: 1/2000s, f/6.3, AF-C animal, ráfaga desde el inicio del descenso. Buscar encuadre más generoso para alas completas y esperar el contacto visual directo del ganso durante el aterrizaje."
+    },
+    "instagram": {
+      "fecha_prep": "2026-06-30",
+      "formato_recomendado": "4:5",
+      "dimensiones": "1080x1350",
+      "justificacion_formato": "El ganso ocupa el centro del encuadre con las alas desplegadas verticalmente (una alzada, otra extendida); el formato retrato maximiza su presencia en el feed y aprovecha mejor la verticalidad del aleteo que el 1:1 o el paisaje.",
+      "zona_recorte": "Foto horizontal (3:2) recortada a 4:5 vertical: ventana desplazada hacia la derecha respecto al centro para conservar cabeza, cuerpo, ala desplegada y splash, sacrificando la mayor parte del agua vacía a la izquierda; se pierde una porción del extremo del ala derecha.",
+      "caption": {
+        "es": "Entre el aire y el agua, un instante que no se repite.\n\nEste ganso del Nilo completa su aterrizaje en el lago de la Casa de Campo, alas desplegadas en toda su envergadura y las patas rosadas rompiendo la superficie en un estallido de espuma. Reflejos, anticipación y una ráfaga a tiempo — así se captura un instante que dura menos de un parpadeo.\n\n¿Cuántas veces has visto un aterrizaje así sin tener la cámara lista?",
+        "en": "Where the air meets the water, for just an instant.\n\nThis Egyptian goose completes its landing on the lake at Casa de Campo, wings fully spread and pink legs breaking the surface in a burst of spray. Reflexes, anticipation, and a well-timed burst — that's how you freeze a moment that lasts less than a blink.\n\nHow often have you caught a landing like this without your camera ready?"
+      },
+      "alt_text": "Ganso del Nilo completando un aterrizaje sobre el agua, con las alas totalmente desplegadas mostrando el patrón blanco y negro del plumaje. La cabeza, de tono marrón claro con un parche oscuro alrededor del ojo, mira hacia la izquierda. Las patas de color rosa intenso tocan la superficie generando salpicaduras y espuma blanca. El fondo muestra agua en tonos verde-azulados con reflejos de luz diurna. El ave ocupa el centro del encuadre en un momento de acción congelada.",
+      "hashtags": {
+        "sujeto": [
+          "#birdphotography",
+          "#wildbirds",
+          "#birdsofinstagram",
+          "#egyptiangoose",
+          "#gansodelnilo",
+          "#aveacuatica"
+        ],
+        "tecnica": [
+          "#actionphotography",
+          "#freezeframe",
+          "#telephoto",
+          "#birdsinflight"
+        ],
+        "ubicacion": [
+          "#casadecampo",
+          "#madrid",
+          "#spain",
+          "#españa"
+        ],
+        "comunidad": [
+          "#photography",
+          "#photographer",
+          "#foto",
+          "#nikon",
+          "#nikoncreators",
+          "#natgeo"
+        ],
+        "nicho": [
+          "#birdsofmadrid",
+          "#avesmadrid",
+          "#spanishwildlife",
+          "#wildlifeofinstagram",
+          "#birdsofspain",
+          "#naturegram"
+        ],
+        "bloque_completo": "#birdphotography #wildbirds #birdsofinstagram #egyptiangoose #gansodelnilo #aveacuatica #actionphotography #freezeframe #telephoto #birdsinflight #casadecampo #madrid #spain #españa #photography #photographer #foto #nikon #nikoncreators #natgeo #birdsofmadrid #avesmadrid #spanishwildlife #wildlifeofinstagram #birdsofspain #naturegram"
+      },
+      "ajustes_tecnicos": {
+        "brillo": "sin cambios",
+        "contraste": "+8",
+        "saturacion": "+5 selectiva en patas y parche ocular",
+        "nitidez_salida": "+12"
+      },
+      "comando_sips": "sips --resampleHeight 1350 \"/Users/ignacio/Sites/fotos/originales/DSC_2478.jpeg\" --out \"/Users/ignacio/Downloads/DSC_2478_ig.jpeg\" && sips -c 1350 1080 --cropOffset 0 660 \"/Users/ignacio/Downloads/DSC_2478_ig.jpeg\"",
+      "recorte": {
+        "resample_flag": "--resampleHeight",
+        "resample_valor": 1350,
+        "crop_alto": 1350,
+        "crop_ancho": 1080,
+        "centrado": false,
+        "offset_y": 0,
+        "offset_x": 660
+      }
     }
   },
   {
@@ -4128,6 +4455,7 @@
     ],
     "fecha": "2026-04-19",
     "path": "originales/DSC_2449.jpeg",
+    "dimensiones": "2302x2302",
     "datos_toma": {
       "camara": "Nikon Z6 III",
       "objetivo": "Nikkor Z 180-600mm f/5.6-6.3 VR",
@@ -4289,6 +4617,7 @@
     ],
     "fecha": "2026-04-11",
     "path": "originales/DSC_2286.jpeg",
+    "dimensiones": "3406x3406",
     "datos_toma": {
       "camara": "Nikon Z6 III",
       "objetivo": "Nikkor Z 24-120mm f/4 S",
@@ -4423,6 +4752,71 @@
       "resumen": "Retrato frontal ejemplar de macho de ánade real donde la composición cuadrada, la proximidad y la ligera inclinación de cabeza generan una presencia casi de retrato humano. La técnica controla con soltura una paleta cromática compleja (iridiscente, amarillo, naranja, marrón) y la conexión con el sujeto es alta. Lo que limita el techo es la facilidad del sujeto (ánade real en Retiro es casi garantía) y la falta de un momento comportamental específico que aportaría el último punto de impacto.",
       "potencial": 8.3,
       "mejora_prioritaria": "Trabajar el procesado con máscara selectiva sobre la cabeza para realzar el iridiscente metálico con claridad/textura, atenuar el fondo con viñeta y ligera desaturación para eliminar distracciones, y realzar el catchlight del ojo. Ese refinamiento llevaría la foto directamente al entorno del 8.0 sin necesidad de volver a campo. Para seguir subiendo, construir una serie de retratos frontales de distintas especies con el mismo lenguaje visual — ese proyecto sería su verdadera justificación y potencia."
+    },
+    "instagram": {
+      "fecha_prep": "2026-07-01",
+      "formato_recomendado": "1:1",
+      "dimensiones": "1080x1080",
+      "justificacion_formato": "El ánade ya aparece centrado y de frente en un encuadre naturalmente cuadrado; el 1:1 conserva toda la composición sin recortar los laterales.",
+      "zona_recorte": "Sin recorte adicional — la foto original ya es cuadrada (3406x3406) y el sujeto está centrado.",
+      "caption": {
+        "es": "Una mirada que convierte a un ave común en un retrato con nombre propio.\n\nEn el Parque del Retiro, este macho de ánade real inclinó la cabeza hacia la cámara dejando ver todo el brillo iridiscente verde-azul de su plumaje. Es un ave que cruzamos cada día sin mirarla dos veces, aquí mirando de frente, casi posando.\n\n¿Cuántas veces pasamos junto a un ánade sin mirarlo de verdad?",
+        "en": "A look that turns a common bird into a portrait with a name.\n\nIn Madrid's Retiro park, this male mallard tilted his head toward the camera, revealing the full iridescent green-blue shimmer of his plumage. A bird we walk past every day, here staring back as if posing for a portrait.\n\nHow often do we walk past a mallard without really looking?"
+      },
+      "alt_text": "Macho de ánade real visto de frente y ligeramente ladeado, con la cabeza verde-azul iridiscente inclinada hacia la cámara, pico amarillo y patas anaranjadas apoyado sobre un borde de piedra junto al agua. El fondo desenfocado muestra tonos claros de piedra y agua verdosa. La luz difusa de un día nublado ilumina de forma uniforme el plumaje marrón y gris del cuerpo.",
+      "hashtags": {
+        "sujeto": [
+          "#birdphotography",
+          "#wildbirds",
+          "#ducksofinstagram",
+          "#mallard",
+          "#anadereal",
+          "#aves"
+        ],
+        "tecnica": [
+          "#bokeh",
+          "#birdportrait",
+          "#closeupphotography"
+        ],
+        "ubicacion": [
+          "#madrid",
+          "#parquedelretiro",
+          "#spain",
+          "#españa"
+        ],
+        "comunidad": [
+          "#photography",
+          "#photographer",
+          "#fotografia",
+          "#nikon",
+          "#natgeo"
+        ],
+        "nicho": [
+          "#birdsofmadrid",
+          "#avesmadrid",
+          "#madridwildlife",
+          "#spanishwildlife",
+          "#wildlifeofinstagram",
+          "#naturegram"
+        ],
+        "bloque_completo": "#birdphotography #wildbirds #ducksofinstagram #mallard #anadereal #aves #bokeh #birdportrait #closeupphotography #madrid #parquedelretiro #spain #españa #photography #photographer #fotografia #nikon #natgeo #birdsofmadrid #avesmadrid #madridwildlife #spanishwildlife #wildlifeofinstagram #naturegram"
+      },
+      "ajustes_tecnicos": {
+        "brillo": "sin cambios",
+        "contraste": "+8",
+        "saturacion": "sin cambios",
+        "nitidez_salida": "+12"
+      },
+      "comando_sips": "sips -Z 1080 \"/Users/ignacio/Sites/fotos/originales/DSC_2286.jpeg\" --out \"/Users/ignacio/Downloads/DSC_2286_ig.jpeg\" && sips -c 1080 1080 \"/Users/ignacio/Downloads/DSC_2286_ig.jpeg\"",
+      "recorte": {
+        "resample_flag": "-Z",
+        "resample_valor": 1080,
+        "crop_alto": 1080,
+        "crop_ancho": 1080,
+        "centrado": true,
+        "offset_y": null,
+        "offset_x": null
+      }
     }
   },
   {
@@ -4450,6 +4844,7 @@
     ],
     "fecha": "2026-04-11",
     "path": "originales/DSC_2192.jpeg",
+    "dimensiones": "2678x1506",
     "datos_toma": {
       "camara": "Nikon Z6 III",
       "objetivo": "Nikkor Z 180-600mm f/5.6-6.3 VR",
@@ -4612,6 +5007,7 @@
     ],
     "fecha": "2026-04-11",
     "path": "originales/DSC_2177.jpeg",
+    "dimensiones": "1274x1911",
     "datos_toma": {
       "camara": "Nikon Z6 III",
       "objetivo": "Nikkor Z 180-600mm f/5.6-6.3 VR",
@@ -4746,6 +5142,47 @@
       "resumen": "Retrato ambiental del agateador común en su hábitat natural de corteza liquenada. La originalidad de la especie y la riqueza visual del tronco dorado son los grandes activos. El punto débil es el tamaño del ave en el encuadre, que limita la conexión directa con el espectador. Con más acercamiento y un momento de acción, el potencial es alto.",
       "potencial": 7.8,
       "mejora_prioritaria": "Acercarse más o recortar para que el agateador ocupe al menos un tercio del encuadre, y esperar el instante en que el pico toca la corteza en plena búsqueda de insectos. Ese momento con el tronco liquenado como fondo sería una imagen de gran fuerza."
+    },
+    "instagram": {
+      "fecha_prep": "2026-07-13",
+      "formato_recomendado": "4:5",
+      "dimensiones": "1080x1350",
+      "justificacion_formato": "El ave ocupa el tercio inferior-izquierdo y el tronco liquenado domina el resto del encuadre vertical; el retrato 4:5 preserva esa dominancia textural sin perder al sujeto.",
+      "zona_recorte": "Ancho completo mantenido; recorte simétrico arriba y abajo tras redimensionar por ancho (el ave queda dentro del área conservada).",
+      "caption": {
+        "es": "De construir el hogar a alimentar la vida que crece en él.\n\nEn el Parque del Sureste, este pequeño agateador común recorre la corteza cubierta de líquenes dorados en busca de material para su nido, casi invisible entre la textura del tronco.\n\nSemanas después, ya en El Pardo, vuelve a un escondite parecido con una larva en el pico: el trabajo de construir se ha convertido en el trabajo de alimentar.\n\n¿Habías visto antes a esta especie tan pequeña y sigilosa?",
+        "en": "From building the home to feeding the life growing inside it.\n\nIn Parque del Sureste, this tiny common treecreeper works its way across lichen-covered bark searching for nesting material, almost invisible against the trunk's texture.\n\nWeeks later, in El Pardo, it returns to a similar hideout with a larva in its beak: the work of building has become the work of feeding.\n\nHad you ever spotted a bird this small and elusive before?"
+      },
+      "alt_text": "Agateador común posado verticalmente sobre un tronco cubierto de líquenes amarillos y dorados, con un filamento blanco en el pico usado como material para el nido. El ave, de plumaje moteado gris y blanco, ocupa el tercio inferior izquierdo del encuadre sobre un fondo verde grisáceo difuminado.",
+      "hashtags": {
+        "sujeto": ["#birdphotography", "#wildbirds", "#birdsofinstagram", "#aves", "#fotografiaaves", "#treecreeper", "#agateador"],
+        "tecnica": ["#telephoto", "#bokeh", "#wildlifedetail"],
+        "ubicacion": ["#madrid", "#spain", "#españa", "#elpardo"],
+        "comunidad": ["#photography", "#photographer", "#foto", "#nikon", "#nikoncreators"],
+        "nicho": ["#birdsofmadrid", "#avesmadrid", "#madridbirds", "#spanishwildlife", "#wildlifeofinstagram", "#naturegram", "#birdsofspain"],
+        "bloque_completo": "#birdphotography #wildbirds #birdsofinstagram #aves #fotografiaaves #treecreeper #agateador #telephoto #bokeh #wildlifedetail #madrid #spain #españa #elpardo #photography #photographer #foto #nikon #nikoncreators #birdsofmadrid #avesmadrid #madridbirds #spanishwildlife #wildlifeofinstagram #naturegram #birdsofspain"
+      },
+      "ajustes_tecnicos": {
+        "brillo": "+5",
+        "contraste": "+8",
+        "saturacion": "sin cambios",
+        "nitidez_salida": "+12"
+      },
+      "comando_sips": "sips --resampleWidth 1080 \"/Users/ignacio/Sites/fotos/originales/DSC_2177.jpeg\" --out \"/Users/ignacio/Downloads/DSC_2177_ig.jpeg\" && sips -c 1350 1080 \"/Users/ignacio/Downloads/DSC_2177_ig.jpeg\"",
+      "recorte": {
+        "resample_flag": "--resampleWidth",
+        "resample_valor": 1080,
+        "crop_alto": 1350,
+        "crop_ancho": 1080,
+        "centrado": true,
+        "offset_y": null,
+        "offset_x": null
+      },
+      "post_carrusel": {
+        "orden": 1,
+        "pareja": "DSC_3151.jpeg",
+        "titulo_post": "Regreso al nido / El agateador entre líquenes dorados"
+      }
     }
   },
   {
@@ -4775,6 +5212,7 @@
     ],
     "fecha": "2026-03-21",
     "path": "originales/DSC_1623.jpeg",
+    "dimensiones": "5376x4032",
     "datos_toma": {
       "camara": "Nikon Z6 III",
       "objetivo": "Nikkor Z 180-600mm f/5.6-6.3 VR",
@@ -4937,6 +5375,7 @@
     ],
     "fecha": "2025-12-26",
     "path": "originales/DSC_0162.jpeg",
+    "dimensiones": "4731x2661",
     "datos_toma": {
       "camara": "Nikon Z6 III",
       "objetivo": "Nikkor Z 24-120mm f/4 S",
@@ -5094,6 +5533,7 @@
     ],
     "fecha": "2026-03-08",
     "path": "originales/Carbonero.jpeg",
+    "dimensiones": "2323x2323",
     "datos_toma": {
       "camara": "Nikon Z6 III",
       "objetivo": "Nikkor Z 180-600mm f/5.6-6.3 VR",
@@ -5256,6 +5696,7 @@
     ],
     "fecha": "2026-05-02",
     "path": "originales/DSC_2529.jpeg",
+    "dimensiones": "5726x3221",
     "datos_toma": {
       "camara": "Nikon Z6 III",
       "objetivo": "Nikkor Z 24-120mm f/4 S",
@@ -5450,6 +5891,7 @@
     ],
     "fecha": "2025-12-25",
     "path": "originales/DSC_0145.jpeg",
+    "dimensiones": "3876x2180",
     "datos_toma": {
       "camara": "Nikon Z6 III",
       "objetivo": "Nikkor Z 24-120mm f/4 S",
@@ -5613,6 +6055,7 @@
     ],
     "fecha": "2026-01-31",
     "path": "originales/DSC_0487.jpeg",
+    "dimensiones": "4032x4032",
     "datos_toma": {
       "camara": "Nikon Z6 III",
       "objetivo": "Nikkor Z 24-120mm f/4 S",
@@ -5777,6 +6220,7 @@
     ],
     "fecha": "2026-05-09",
     "path": "originales/DSC_2789.jpeg",
+    "dimensiones": "3288x2192",
     "datos_toma": {
       "camara": "Nikon Z6 III",
       "objetivo": "Nikkor Z 180-600mm f/5.6-6.3 VR",
@@ -5971,6 +6415,7 @@
     ],
     "fecha": "2026-05-09",
     "path": "originales/DSC_2597.jpeg",
+    "dimensiones": "2615x2615",
     "datos_toma": {
       "camara": "Nikon Z6 III",
       "objetivo": "Nikkor Z 180-600mm f/5.6-6.3 VR",
@@ -6134,6 +6579,7 @@
     ],
     "fecha": "2025-10-26",
     "path": "originales/Palacio Real.jpeg",
+    "dimensiones": "5908x3505",
     "datos_toma": {
       "camara": "Nikon D3300",
       "objetivo": "18-55mm f/3.5-5.6",
@@ -6324,6 +6770,7 @@
     ],
     "fecha": "2025-10-26",
     "path": "originales/Adrian.jpeg",
+    "dimensiones": "3195x3195",
     "datos_toma": {
       "camara": "Nikon D3300",
       "objetivo": "18-55mm f/3.5-5.6",
@@ -6488,6 +6935,7 @@
     ],
     "fecha": "2026-05-15",
     "path": "originales/DSC_3151.jpeg",
+    "dimensiones": "2471x3707",
     "datos_toma": {
       "camara": "Nikon Z6 III",
       "objetivo": "Nikkor Z 180-600mm f/5.6-6.3 VR",
@@ -6622,6 +7070,47 @@
       "resumen": "Versión mejorada compositivamente respecto al original: el agateador en tercio inferior con el tronco imponiéndose arriba añade contraste de escala y profundidad conceptual. La puntuación global se mantiene igual (7.1) porque la ganancia en composición e intención se compensa con la reducción de legibilidad de la presa en el pico. Un movimiento lateral inteligente, no un salto definitivo.",
       "potencial": 8.3,
       "mejora_prioritaria": "Encontrar la distancia y el encuadre que permita mostrar el contexto del árbol (para la escala) y el detalle de la presa en el pico (para la narrativa) en la misma imagen — ese equilibrio es la foto definitiva del agateador."
+    },
+    "instagram": {
+      "fecha_prep": "2026-07-13",
+      "formato_recomendado": "4:5",
+      "dimensiones": "1080x1350",
+      "justificacion_formato": "El agateador ocupa el tercio inferior con el tronco imponiéndose por encima; el retrato 4:5 refuerza el contraste de escala entre el ave diminuta y el árbol.",
+      "zona_recorte": "Ancho completo mantenido; recorte simétrico arriba y abajo tras redimensionar por ancho (el ave queda dentro del área conservada).",
+      "caption": {
+        "es": "De construir el hogar a alimentar la vida que crece en él.\n\nEn el Parque del Sureste, este pequeño agateador común recorre la corteza cubierta de líquenes dorados en busca de material para su nido, casi invisible entre la textura del tronco.\n\nSemanas después, ya en El Pardo, vuelve a un escondite parecido con una larva en el pico: el trabajo de construir se ha convertido en el trabajo de alimentar.\n\n¿Habías visto antes a esta especie tan pequeña y sigilosa?",
+        "en": "From building the home to feeding the life growing inside it.\n\nIn Parque del Sureste, this tiny common treecreeper works its way across lichen-covered bark searching for nesting material, almost invisible against the trunk's texture.\n\nWeeks later, in El Pardo, it returns to a similar hideout with a larva in its beak: the work of building has become the work of feeding.\n\nHad you ever spotted a bird this small and elusive before?"
+      },
+      "alt_text": "Agateador común trepando por un tronco cubierto de líquenes junto a una zona con corteza desprendida, sosteniendo una larva blanca en el pico mientras mira hacia arriba en dirección a la entrada de su nido. El fondo es un bokeh verde uniforme propio de un bosque en primavera.",
+      "hashtags": {
+        "sujeto": ["#birdphotography", "#wildbirds", "#birdsofinstagram", "#aves", "#fotografiaaves", "#treecreeper", "#agateador"],
+        "tecnica": ["#telephoto", "#bokeh", "#wildlifedetail"],
+        "ubicacion": ["#madrid", "#spain", "#españa", "#elpardo"],
+        "comunidad": ["#photography", "#photographer", "#foto", "#nikon", "#nikoncreators"],
+        "nicho": ["#birdsofmadrid", "#avesmadrid", "#madridbirds", "#spanishwildlife", "#wildlifeofinstagram", "#naturegram", "#birdsofspain"],
+        "bloque_completo": "#birdphotography #wildbirds #birdsofinstagram #aves #fotografiaaves #treecreeper #agateador #telephoto #bokeh #wildlifedetail #madrid #spain #españa #elpardo #photography #photographer #foto #nikon #nikoncreators #birdsofmadrid #avesmadrid #madridbirds #spanishwildlife #wildlifeofinstagram #naturegram #birdsofspain"
+      },
+      "ajustes_tecnicos": {
+        "brillo": "sin cambios",
+        "contraste": "+10",
+        "saturacion": "sin cambios",
+        "nitidez_salida": "+10"
+      },
+      "comando_sips": "sips --resampleWidth 1080 \"/Users/ignacio/Sites/fotos/originales/DSC_3151.jpeg\" --out \"/Users/ignacio/Downloads/DSC_3151_ig.jpeg\" && sips -c 1350 1080 \"/Users/ignacio/Downloads/DSC_3151_ig.jpeg\"",
+      "recorte": {
+        "resample_flag": "--resampleWidth",
+        "resample_valor": 1080,
+        "crop_alto": 1350,
+        "crop_ancho": 1080,
+        "centrado": true,
+        "offset_y": null,
+        "offset_x": null
+      },
+      "post_carrusel": {
+        "orden": 2,
+        "pareja": "DSC_2177.jpeg",
+        "titulo_post": "Regreso al nido / El agateador entre líquenes dorados"
+      }
     }
   },
   {
@@ -6651,6 +7140,7 @@
     ],
     "fecha": "2026-05-15",
     "path": "originales/DSC_3075.jpeg",
+    "dimensiones": "4332x2437",
     "datos_toma": {
       "camara": "Nikon Z6 III",
       "objetivo": "Nikkor Z 180-600mm f/5.6-6.3 VR",
@@ -6813,6 +7303,7 @@
     ],
     "fecha": "2026-05-15",
     "path": "originales/DSC_3171.jpeg",
+    "dimensiones": "4800x3200",
     "datos_toma": {
       "camara": "Nikon Z6 III",
       "objetivo": "Nikkor Z 180-600mm f/5.6-6.3 VR",
@@ -6975,6 +7466,7 @@
     ],
     "fecha": "2026-05-16",
     "path": "originales/DSC_3284.jpeg",
+    "dimensiones": "6048x4032",
     "datos_toma": {
       "camara": "Nikon Z6 III",
       "objetivo": "Nikkor Z 24-120mm f/4 S",
@@ -7171,6 +7663,7 @@
     ],
     "fecha": "2026-05-16",
     "path": "originales/DSC_3308.jpeg",
+    "dimensiones": "3699x4032",
     "datos_toma": {
       "camara": "Nikon Z6 III",
       "objetivo": "Nikkor Z 24-120mm f/4 S",
@@ -7333,6 +7826,7 @@
     ],
     "fecha": "2026-05-17",
     "path": "originales/DSC_3836.jpeg",
+    "dimensiones": "6048x4032",
     "datos_toma": {
       "camara": "Nikon Z6 III",
       "objetivo": "Nikkor Z 24-120mm f/4 S",
@@ -7525,6 +8019,7 @@
     ],
     "fecha": "2026-05-17",
     "path": "originales/DSC_3929.jpeg",
+    "dimensiones": "5000x2812",
     "datos_toma": {
       "camara": "Nikon Z6 III",
       "objetivo": "Nikkor Z 24-120mm f/4 S",
@@ -7718,6 +8213,7 @@
     ],
     "fecha": "2026-05-17",
     "path": "originales/DSC_3609.jpeg",
+    "dimensiones": "5028x2828",
     "datos_toma": {
       "camara": "Nikon Z6 III",
       "objetivo": "Nikkor Z 24-120mm f/4 S",
@@ -7906,6 +8402,7 @@
     ],
     "fecha": "2026-05-23",
     "path": "originales/DSC_4074.jpeg",
+    "dimensiones": "2652x2652",
     "datos_toma": {
       "camara": "Nikon Z6 III",
       "objetivo": "Nikkor Z 180-600mm f/5.6-6.3 VR",
@@ -8040,6 +8537,42 @@
       "resumen": "Versión notablemente mejorada respecto a la original: encuadre más dramático, bokeh más limpio, rocío matinal y procesado más refinado elevan la foto de 6.9 a 7.3. La especie y la atmósfera son sus mayores activos. El único ingrediente que falta para dar el salto a sobresaliente es el contacto visual directo con el ave.",
       "potencial": 8.5,
       "mejora_prioritaria": "Esperar el instante en que el Pechiazul gira la cabeza hacia el objetivo durante una pausa entre estrofas, con el babero azul inflado y visible y el rocío de fondo — ese contacto visual en las mismas condiciones atmosféricas llevaría la foto a 8.5 o más."
+    },
+    "instagram": {
+      "fecha_prep": "2026-07-26",
+      "formato_recomendado": "4:5",
+      "dimensiones": "1080x1350",
+      "justificacion_formato": "El original es cuadrado con el ave casi centrada y bastante bokeh vacío a los lados; el retrato 4:5 recorta solo el ancho sobrante, conservando toda la altura para el gesto del pico abierto hacia arriba en pleno canto.",
+      "zona_recorte": "Se mantiene toda la altura del encuadre redimensionado. Recorte de ancho centrado, eliminando bokeh vacío simétrico a ambos lados sin afectar a la cola ni al pico.",
+      "caption": {
+        "es": "Lo escuché antes de verlo — ese canto tan característico entre los piornales de Gredos, subiendo y bajando de tono sin parar.\n\nTardé un rato en localizarlo, pero cuando lo hice tenía el pico abierto de par en par y el babero azul brillando al sol como si fuera de neón. Pocas aves cantan con tanta entrega.",
+        "en": "I heard it before I saw it — that unmistakable song rising and falling somewhere in the gorse of Gredos.\n\nTook me a while to spot him, but when I did, his beak was wide open and that blue bib was practically glowing in the sun. Not many birds sing with this much commitment."
+      },
+      "alt_text": "Pechiazul macho posado en la cima de un arbusto de sierra, con el pico completamente abierto en pleno canto. El babero de plumas azul intenso contrasta con el costado rojizo y el dorso pardo-grisáceo. Las patas oscuras se apoyan sobre tallos verdes de la vegetación serrana. El fondo es un bokeh uniforme en tonos verdes y ocres, propio de un día soleado en la sierra.",
+      "hashtags": {
+        "sujeto": ["#birdphotography", "#bluethroat", "#pechiazul", "#luscinia", "#birdsofinstagram", "#aves"],
+        "tecnica": ["#bokeh", "#telephoto", "#birdsong"],
+        "ubicacion": ["#gredos", "#sierradegredos", "#avila", "#spain"],
+        "comunidad": ["#photography", "#photographer", "#nikon", "#nikoncreators", "#natgeo"],
+        "nicho": ["#birdsofspain", "#spanishwildlife", "#wildlifeofinstagram", "#naturegram", "#birdwatchingspain", "#singingbirds"],
+        "bloque_completo": "#birdphotography #bluethroat #pechiazul #luscinia #birdsofinstagram #aves #bokeh #telephoto #birdsong #gredos #sierradegredos #avila #spain #photography #photographer #nikon #nikoncreators #natgeo #birdsofspain #spanishwildlife #wildlifeofinstagram #naturegram #birdwatchingspain #singingbirds"
+      },
+      "ajustes_tecnicos": {
+        "brillo": "sin cambios",
+        "contraste": "sin cambios",
+        "saturacion": "sin cambios",
+        "nitidez_salida": "+10"
+      },
+      "comando_sips": "sips --resampleHeight 1350 \"/Users/ignacio/Sites/fotos/originales/DSC_4074.jpeg\" --out \"/Users/ignacio/Downloads/DSC_4074_ig.jpeg\" && sips -c 1350 1080 \"/Users/ignacio/Downloads/DSC_4074_ig.jpeg\"",
+      "recorte": {
+        "resample_flag": "--resampleHeight",
+        "resample_valor": 1350,
+        "crop_alto": 1350,
+        "crop_ancho": 1080,
+        "centrado": true,
+        "offset_y": null,
+        "offset_x": null
+      }
     }
   },
   {
@@ -8070,6 +8603,7 @@
     ],
     "fecha": "2026-05-23",
     "path": "originales/DSC_4647.jpeg",
+    "dimensiones": "2005x3008",
     "datos_toma": {
       "camara": "Nikon Z6 III",
       "objetivo": "Nikkor Z 180-600mm f/5.6-6.3 VR",
@@ -8204,6 +8738,71 @@
       "resumen": "Buena foto documental de comportamiento con técnica sólida, pero limitada por condiciones de luz desfavorables (ISO 6400) y un tema muy fotografiado sin una perspectiva que lo renueve. Tiene potencial claro si se repite en mejores condiciones de luz y con un enfoque más atrevido en el encuadre.",
       "potencial": 7.5,
       "mejora_prioritaria": "Repetir la misma escena con el abejorro bajo luz solar directa o lateral baja de primera hora: ISO 400-800, sombras modeladoras en el pelaje, plano frontal que muestre el ojo compuesto. Eso cambiaría radicalmente la dimensión técnica y artística de la foto."
+    },
+    "instagram": {
+      "fecha_prep": "2026-07-04",
+      "formato_recomendado": "4:5",
+      "dimensiones": "1080x1350",
+      "justificacion_formato": "La composición vertical de la espiga floral con el abejorro en el tercio superior-izquierdo aprovecha bien el formato retrato, maximizando la presencia en el feed sin perder la estructura floral que da contexto a la escena.",
+      "zona_recorte": "Redimensionar el ancho a 1080px y recortar centrado eliminando aproximadamente un 8% de cada extremo (superior e inferior); el abejorro queda cómodamente dentro del encuadre resultante.",
+      "caption": {
+        "es": "El trabajo silencioso que sostiene toda una montaña floreciendo.\n\nEn los prados de la Sierra de Gredos, un abejorro se abre paso entre las flores de una boraginácea silvestre, cargando polen de espiga en espiga. Con el 180-600mm pude acercarme a su ritmo de trabajo sin interrumpirlo, dejando que el fondo verde se disolviera en un bokeh limpio.\n\nEs una escena diminuta que se repite miles de veces cada primavera y que casi nunca nos detenemos a mirar.\n\n¿Te habías fijado alguna vez en el trabajo de un polinizador de cerca?",
+        "en": "The quiet work that keeps a whole mountain blooming.\n\nIn the meadows of Sierra de Gredos, a bumblebee works its way through the spikes of a wild borage flower, gathering pollen along the way. With a 180-600mm lens I could get close to its rhythm without disturbing it, letting the green background melt into a clean bokeh.\n\nIt's a tiny scene that repeats itself thousands of times every spring — one we rarely stop to notice.\n\nHave you ever looked closely at a pollinator at work?"
+      },
+      "alt_text": "Abejorro anaranjado y negro posado sobre una espiga floral rosa-blanca de una planta boraginácea, con las alas semiabiertas y las patas apoyadas en los pétalos mientras recolecta polen. El fondo es un bokeh verde uniforme y limpio propio de un teleobjetivo a máxima apertura. El insecto ocupa el tercio superior izquierdo de un encuadre vertical.",
+      "hashtags": {
+        "sujeto": [
+          "#macrophotography",
+          "#bumblebee",
+          "#abejorro",
+          "#insectphotography",
+          "#wildlifephotography",
+          "#polinizador"
+        ],
+        "tecnica": [
+          "#telephoto",
+          "#bokeh",
+          "#depthoffield"
+        ],
+        "ubicacion": [
+          "#gredos",
+          "#sierradegredos",
+          "#avila",
+          "#spain"
+        ],
+        "comunidad": [
+          "#photography",
+          "#photographer",
+          "#foto",
+          "#nikon",
+          "#nikoncreators"
+        ],
+        "nicho": [
+          "#macroofinstagram",
+          "#wildlifeofinstagram",
+          "#insectsofinstagram",
+          "#naturelovers",
+          "#beesofinstagram",
+          "#spanishwildlife"
+        ],
+        "bloque_completo": "#macrophotography #bumblebee #abejorro #insectphotography #wildlifephotography #polinizador #telephoto #bokeh #depthoffield #gredos #sierradegredos #avila #spain #photography #photographer #foto #nikon #nikoncreators #macroofinstagram #wildlifeofinstagram #insectsofinstagram #naturelovers #beesofinstagram #spanishwildlife"
+      },
+      "ajustes_tecnicos": {
+        "brillo": "+5",
+        "contraste": "+10",
+        "saturacion": "sin cambios",
+        "nitidez_salida": "+10"
+      },
+      "comando_sips": "sips --resampleWidth 1080 \"/Users/ignacio/Sites/fotos/originales/DSC_4647.jpeg\" --out \"/Users/ignacio/Downloads/DSC_4647_ig.jpeg\" && sips -c 1350 1080 \"/Users/ignacio/Downloads/DSC_4647_ig.jpeg\"",
+      "recorte": {
+        "resample_flag": "--resampleWidth",
+        "resample_valor": 1080,
+        "crop_alto": 1350,
+        "crop_ancho": 1080,
+        "centrado": true,
+        "offset_y": null,
+        "offset_x": null
+      }
     }
   },
   {
@@ -8234,6 +8833,7 @@
     ],
     "fecha": "2026-05-23",
     "path": "originales/DSC_4246.jpeg",
+    "dimensiones": "5614x2685",
     "datos_toma": {
       "camara": "Nikon Z6 III",
       "objetivo": "Nikkor Z 180-600mm f/5.6-6.3 VR",
@@ -8396,6 +8996,7 @@
     ],
     "fecha": "2026-05-24",
     "path": "originales/DSC_4701.jpeg",
+    "dimensiones": "4691x3127",
     "datos_toma": {
       "camara": "Nikon Z6 III",
       "objetivo": "Nikkor Z 24-120mm f/4 S",
@@ -8584,6 +9185,7 @@
     ],
     "fecha": "2026-05-23",
     "path": "originales/DSC_4278.jpeg",
+    "dimensiones": "6048x3402",
     "datos_toma": {
       "camara": "Nikon Z6 III",
       "objetivo": "Nikkor Z 24-120mm f/4 S",
@@ -8775,6 +9377,7 @@
     ],
     "fecha": "2026-05-23",
     "path": "originales/DSC_4584.jpeg",
+    "dimensiones": "5354x3569",
     "datos_toma": {
       "camara": "Nikon Z6 III",
       "objetivo": "Nikkor Z 180-600mm f/5.6-6.3 VR",
@@ -8909,6 +9512,42 @@
       "resumen": "Foto técnicamente impecable de un macho adulto de cabra montesa con cuernos de desarrollo excepcional. El bokeh del prado florido, el ISO 180 y la nitidez de los cuernos hacen de esta imagen la más completa de la sesión. El único ingrediente ausente es el contacto visual — ese instante elevaría la foto al nivel de las mejores del portfolio.",
       "potencial": 8.5,
       "mejora_prioritaria": "Esperar a que el ibex levante la cabeza y mire directamente al objetivo — con el mismo encuadre, el mismo bokeh y la misma luz. Ese único cambio lleva la foto de 7.5 a 8.5 o más."
+    },
+    "instagram": {
+      "fecha_prep": "2026-07-26",
+      "formato_recomendado": "1:1",
+      "dimensiones": "1080x1080",
+      "justificacion_formato": "El animal está pastando con la cabeza baja y los cuernos extendidos en horizontal, ocupando más ancho que alto; un cuadrado ajustado recorta el prado vacío sobrante sin arriesgar cortar las puntas de los cuernos, como sí podría pasar con un recorte 4:5 más estrecho.",
+      "zona_recorte": "Redimensionar por altura completa y recortar el ancho sobrante, desplazando el recorte ligeramente hacia la derecha respecto al centro geométrico para dejar margen de seguridad a la punta del cuerno derecho.",
+      "caption": {
+        "es": "Cada anillo de esos cuernos es un año de vida en la sierra — y este ejemplar tiene unos cuantos.\n\nLo encontré pastando tranquilo en un prado alto de Gredos, ajeno a la cámara, con esa cornamenta que casi le pesa más que la cabeza. Es de los machos más grandes que he visto por la zona.",
+        "en": "Each ring on those horns marks a year of mountain life — and this one's got plenty.\n\nI found him grazing calmly in a high meadow in Gredos, completely ignoring the camera, horns looking almost heavier than his head. One of the biggest males I've come across up there."
+      },
+      "alt_text": "Macho adulto de cabra montesa con cuernos grandes y fuertemente anillados, pastando con la cabeza baja en un prado alpino cubierto de hierba verde y flores amarillas silvestres. El pelaje es pardo-grisáceo con la parte inferior de las patas más oscura. El fondo se difumina en un bokeh verde-amarillo uniforme, propio de un día soleado en alta montaña.",
+      "hashtags": {
+        "sujeto": ["#wildlife", "#wildlifephotography", "#fauna", "#ibex", "#cabramontesa", "#capraiberica"],
+        "tecnica": ["#bokeh", "#telephoto", "#naturallight"],
+        "ubicacion": ["#gredos", "#sierradegredos", "#avila", "#spain"],
+        "comunidad": ["#photography", "#photographer", "#nikon", "#nikoncreators", "#natgeo"],
+        "nicho": ["#wildlifeofinstagram", "#animalsofinstagram", "#naturegram", "#ibexofinstagram", "#gredoswildlife", "#spanishwildlife"],
+        "bloque_completo": "#wildlife #wildlifephotography #fauna #ibex #cabramontesa #capraiberica #bokeh #telephoto #naturallight #gredos #sierradegredos #avila #spain #photography #photographer #nikon #nikoncreators #natgeo #wildlifeofinstagram #animalsofinstagram #naturegram #ibexofinstagram #gredoswildlife #spanishwildlife"
+      },
+      "ajustes_tecnicos": {
+        "brillo": "sin cambios",
+        "contraste": "+5",
+        "saturacion": "sin cambios",
+        "nitidez_salida": "+10"
+      },
+      "comando_sips": "sips --resampleHeight 1080 \"/Users/ignacio/Sites/fotos/originales/DSC_4584.jpeg\" --out \"/Users/ignacio/Downloads/DSC_4584_ig.jpeg\" && sips -c 1080 1080 --cropOffset 0 330 \"/Users/ignacio/Downloads/DSC_4584_ig.jpeg\"",
+      "recorte": {
+        "resample_flag": "--resampleHeight",
+        "resample_valor": 1080,
+        "crop_alto": 1080,
+        "crop_ancho": 1080,
+        "centrado": false,
+        "offset_y": 0,
+        "offset_x": 330
+      }
     }
   },
   {
@@ -8939,6 +9578,7 @@
     ],
     "fecha": "2026-05-23",
     "path": "originales/DSC_4452.jpeg",
+    "dimensiones": "4029x4029",
     "datos_toma": {
       "camara": "Nikon Z6 III",
       "objetivo": "Nikkor Z 24-120mm f/4 S",
@@ -9073,6 +9713,73 @@
       "resumen": "Foto de fauna excepcional dentro del portfolio: el ángulo contrapicado y la proximidad al sujeto la distinguen claramente de la fauna convencional de teleobjetivo. Técnicamente sólida y artísticamente valiente, su único lastre es la luz dura de mediodía y la ausencia de acción en el sujeto.",
       "potencial": 8.7,
       "mejora_prioritaria": "Repetir en hora dorada (7:00-9:00 o 18:00-20:00) con la misma posición y ángulo: la luz lateral y cálida sobre el pelaje y los cuernos, combinada con esta composición, elevaría la foto a un nivel difícil de superar en el portfolio."
+    },
+    "instagram": {
+      "fecha_prep": "2026-07-13",
+      "formato_recomendado": "1:1",
+      "dimensiones": "1080x1080",
+      "justificacion_formato": "El original ya es cuadrado (4029x4029) con el íbice centrado y la simetría de los cuernos como eje visual; el formato 1:1 conserva el encuadre completo sin sacrificar cielo ni rocas de primer plano.",
+      "zona_recorte": "Sin recorte necesario — el original coincide en proporción con el formato 1:1, solo se redimensiona a 1080x1080.",
+      "caption": {
+        "es": "Desde su trono de granito, el rey de Gredos te mira a los ojos.\n\nEn la Sierra de Gredos, reptar entre bloques de granito me llevó hasta este macho de cabra montesa, tumbado como un monarca sobre su trono de piedra. El contrapicado invierte los papeles: aquí el pequeño soy yo. Sus cuernos anillados cuentan años de supervivencia en la alta montaña.\n\n¿Qué animal salvaje te gustaría encontrar cara a cara?",
+        "en": "From his granite throne, the king of Gredos looks you in the eye.\n\nDeep in Spain's Sierra de Gredos, crawling between granite boulders led me to this Spanish ibex, resting like a monarch on his stone throne. The low angle flips the usual roles — here, I'm the small one. His ringed horns tell the story of years surviving high in the mountains.\n\nHave you ever met a wild animal eye to eye like this?"
+      },
+      "alt_text": "Macho adulto de cabra montesa (Capra pyrenaica) tumbado entre bloques de granito en la Sierra de Gredos, fotografiado desde un ángulo bajo. El animal mira directamente a la cámara, mostrando sus cuernos curvados y anillados. El fondo es un cielo azul despejado con nubes blancas dispersas, y las rocas de granito con manchas de liquen ocupan el primer plano.",
+      "hashtags": {
+        "sujeto": [
+          "#wildlife",
+          "#wildlifephotography",
+          "#fauna",
+          "#ibex",
+          "#cabramontesa",
+          "#wildgoat"
+        ],
+        "tecnica": [
+          "#bokeh",
+          "#naturallight",
+          "#eyecontact",
+          "#lowangleshot"
+        ],
+        "ubicacion": [
+          "#gredos",
+          "#sierradegredos",
+          "#spain",
+          "#españa"
+        ],
+        "comunidad": [
+          "#photography",
+          "#photographer",
+          "#fotografia",
+          "#nikon",
+          "#nikoncreators",
+          "#natgeo"
+        ],
+        "nicho": [
+          "#wildlifeofinstagram",
+          "#animalsofinstagram",
+          "#naturegram",
+          "#ibexofinstagram",
+          "#gredoswildlife",
+          "#spanishwildlife"
+        ],
+        "bloque_completo": "#wildlife #wildlifephotography #fauna #ibex #cabramontesa #wildgoat #bokeh #naturallight #eyecontact #lowangleshot #gredos #sierradegredos #spain #españa #photography #photographer #fotografia #nikon #nikoncreators #natgeo #wildlifeofinstagram #animalsofinstagram #naturegram #ibexofinstagram #gredoswildlife #spanishwildlife"
+      },
+      "ajustes_tecnicos": {
+        "brillo": "+3",
+        "contraste": "+8",
+        "saturacion": "sin cambios",
+        "nitidez_salida": "+12"
+      },
+      "comando_sips": "sips -Z 1080 \"/Users/ignacio/Sites/fotos/originales/DSC_4452.jpeg\" --out \"/Users/ignacio/Downloads/DSC_4452_ig.jpeg\" && sips -c 1080 1080 \"/Users/ignacio/Downloads/DSC_4452_ig.jpeg\"",
+      "recorte": {
+        "resample_flag": "-Z",
+        "resample_valor": 1080,
+        "crop_alto": 1080,
+        "crop_ancho": 1080,
+        "centrado": true,
+        "offset_y": null,
+        "offset_x": null
+      }
     }
   },
   {
@@ -9103,6 +9810,7 @@
     ],
     "fecha": "2026-05-24",
     "path": "originales/DSC_4703.jpeg",
+    "dimensiones": "5857x3295",
     "datos_toma": {
       "camara": "Nikon Z6 III",
       "objetivo": "Nikkor Z 24-120mm f/4 S",
@@ -9291,6 +9999,7 @@
     ],
     "fecha": "2026-06-06",
     "path": "originales/DSC_4747.jpeg",
+    "dimensiones": "3465x2310",
     "datos_toma": {
       "camara": "Nikon Z6 III",
       "objetivo": "Nikkor Z 180-600mm f/5.6-6.3 VR",
@@ -9452,6 +10161,7 @@
     ],
     "fecha": "2026-06-06",
     "path": "originales/DSC_4785.jpeg",
+    "dimensiones": "2688x4032",
     "datos_toma": {
       "camara": "Nikon Z6 III",
       "objetivo": "Nikkor Z 180-600mm f/5.6-6.3 VR",
@@ -9616,6 +10326,7 @@
     ],
     "fecha": "2026-05-23",
     "path": "originales/DSC_4040.jpeg",
+    "dimensiones": "4023x2682",
     "datos_toma": {
       "camara": "Nikon Z6 III",
       "objetivo": "Nikkor Z 180-600mm f/5.6-6.3 VR",
@@ -9780,6 +10491,7 @@
     ],
     "fecha": "2026-05-23",
     "path": "originales/DSC_4631.jpeg",
+    "dimensiones": "4861x3241",
     "datos_toma": {
       "camara": "Nikon Z6 III",
       "objetivo": "Nikkor Z 180-600mm f/5.6-6.3 VR",
@@ -9914,6 +10626,47 @@
       "resumen": "Sólida foto contextual de un escribano montesino en los prados floridos de la Laguna Grande de Gredos. La técnica es impecable y la atmósfera de montaña está muy bien captada, pero el momento estático y la iluminación difusa limitan el potencial artístico. Con luz dorada y el ave en plena actividad, esta escena tiene potencial para llegar a 7.5-8.0.",
       "potencial": 7.8,
       "mejora_prioritaria": "Regresar en mayo/junio al amanecer (7:00-8:30) con luz dorada lateral. Esperar a que el escribano cante desde su percha en la roca —pico abierto, plumaje erizado— para combinar el hábitat contextual con un momento decisivo y la mejor luz de la jornada."
+    },
+    "instagram": {
+      "fecha_prep": "2026-07-26",
+      "formato_recomendado": "4:5",
+      "dimensiones": "1080x1350",
+      "justificacion_formato": "El ave ocupa una fracción pequeña del encuadre horizontal original, posada en el extremo izquierdo de la roca; el retrato 4:5 recorta el prado vacío sobrante a la derecha y da más presencia al sujeto sin perder la roca de granito ni la capa de hierba en primer plano que dan contexto de hábitat.",
+      "zona_recorte": "Redimensionar por altura completa y recortar el ancho sobrante, desplazando el recorte hacia la izquierda para conservar el ave completa y parte de la roca de granito, eliminando sobre todo prado vacío del borde derecho.",
+      "caption": {
+        "es": "El mismo escribano montesino, dos paisajes muy distintos.\n\nEn la Laguna Grande de Gredos lo encontré posado en una roca de granito cubierta de liquen, rodeado de flores de alta montaña — un centinela vigilando el prado.\n\nEn el pinar de Palancares, en Cuenca, apareció entre las ramas de un pino, con el pico entreabierto cantando, enmarcado de forma natural por las agujas verdes en primer plano.\n\nMismo dibujo de cabeza a rayas, mismo pecho canela, dos mundos completamente diferentes.",
+        "en": "Same rock bunting, two completely different landscapes.\n\nAt Laguna Grande in Gredos I found him perched on a lichen-covered granite boulder, surrounded by high-mountain wildflowers — a lookout over the meadow.\n\nIn the pine forest of Palancares, Cuenca, he showed up between pine branches, beak open mid-song, naturally framed by green needles in the foreground.\n\nSame striped head pattern, same cinnamon chest, two entirely different worlds."
+      },
+      "alt_text": "Escribano montesino posado en el borde de una roca de granito cubierta de liquen amarillo y gris, en actitud alerta con la cabeza girada hacia la derecha. El plumaje muestra rayas blancas y negras en la cabeza y tonos canela en el pecho. El fondo es un prado verde desenfocado con pequeñas flores silvestres amarillas y azules.",
+      "hashtags": {
+        "sujeto": ["#birdphotography", "#rockbunting", "#escribanomontesino", "#emberizacia", "#birdsofinstagram", "#aves"],
+        "tecnica": ["#bokeh", "#telephoto", "#naturalhabitat"],
+        "ubicacion": ["#gredos", "#cuenca", "#palancares", "#spain", "#españa"],
+        "comunidad": ["#photography", "#photographer", "#foto", "#nikon", "#nikoncreators"],
+        "nicho": ["#birdsofspain", "#spanishwildlife", "#wildlifeofinstagram", "#naturegram", "#birdwatchingspain", "#mountainbirds"],
+        "bloque_completo": "#birdphotography #rockbunting #escribanomontesino #emberizacia #birdsofinstagram #aves #bokeh #telephoto #naturalhabitat #gredos #cuenca #palancares #spain #españa #photography #photographer #foto #nikon #nikoncreators #birdsofspain #spanishwildlife #wildlifeofinstagram #naturegram #birdwatchingspain #mountainbirds"
+      },
+      "ajustes_tecnicos": {
+        "brillo": "sin cambios",
+        "contraste": "+8",
+        "saturacion": "+5",
+        "nitidez_salida": "+10"
+      },
+      "comando_sips": "sips --resampleHeight 1350 \"/Users/ignacio/Sites/fotos/originales/DSC_4631.jpeg\" --out \"/Users/ignacio/Downloads/DSC_4631_ig.jpeg\" && sips -c 1350 1080 --cropOffset 0 150 \"/Users/ignacio/Downloads/DSC_4631_ig.jpeg\"",
+      "recorte": {
+        "resample_flag": "--resampleHeight",
+        "resample_valor": 1350,
+        "crop_alto": 1350,
+        "crop_ancho": 1080,
+        "centrado": false,
+        "offset_y": 0,
+        "offset_x": 150
+      },
+      "post_carrusel": {
+        "orden": 2,
+        "pareja": "DSC_5756.jpeg",
+        "titulo_post": "El escribano del pinar / Centinela de granito"
+      }
     }
   },
   {
@@ -9942,6 +10695,7 @@
     ],
     "fecha": "2026-06-14",
     "path": "originales/DSC_5211.jpeg",
+    "dimensiones": "5788x3255",
     "datos_toma": {
       "camara": "Nikon Z6 III",
       "objetivo": "Nikkor Z 24-120mm f/4 S",
@@ -10105,6 +10859,7 @@
     ],
     "fecha": "2026-06-14",
     "path": "originales/DSC_5245.jpeg",
+    "dimensiones": "5359x3014",
     "datos_toma": {
       "camara": "Nikon Z6 III",
       "objetivo": "Nikkor Z 24-120mm f/4 S",
@@ -10299,6 +11054,7 @@
     ],
     "fecha": "2026-06-14",
     "path": "originales/DSC_5340.jpeg",
+    "dimensiones": "5040x4032",
     "datos_toma": {
       "camara": "Nikon Z6 III",
       "objetivo": "Nikkor Z 24-120mm f/4 S",
@@ -10488,6 +11244,7 @@
     ],
     "fecha": "2026-06-14",
     "path": "originales/DSC_5056.jpeg",
+    "dimensiones": "3560x3560",
     "datos_toma": {
       "camara": "Nikon Z6 III",
       "objetivo": "Nikkor Z 24-120mm f/4 S",
@@ -10681,6 +11438,7 @@
     ],
     "fecha": "2026-06-21",
     "path": "originales/DSC_5613.jpeg",
+    "dimensiones": "2856x1904",
     "datos_toma": {
       "camara": "Nikon Z6 III",
       "objetivo": "Nikkor Z 180-600mm f/5.6-6.3 VR",
@@ -10843,6 +11601,7 @@
     ],
     "fecha": "2026-06-21",
     "path": "originales/DSC_5623.jpeg",
+    "dimensiones": "2170x2170",
     "datos_toma": {
       "camara": "Nikon Z6 III",
       "objetivo": "Nikkor Z 180-600mm f/5.6-6.3 VR",
@@ -11004,6 +11763,7 @@
     ],
     "fecha": "2026-06-21",
     "path": "originales/DSC_5756.jpeg",
+    "dimensiones": "3756x2504",
     "datos_toma": {
       "camara": "Nikon Z6 III",
       "objetivo": "Nikkor Z 180-600mm f/5.6-6.3 VR",
@@ -11138,6 +11898,47 @@
       "resumen": "Retrato de escribano montesino en el pinar de Palancares con composición más elaborada que la media del género: el marco de ramas desenfocadas y el bokeh amarillo-verde específico del bosque mediterráneo crean una imagen técnicamente sólida y con atmósfera de lugar genuina. La imagen muestra un paso adelante en la visión fotográfica.",
       "potencial": 8.0,
       "mejora_prioritaria": "Volver a Palancares al amanecer: la luz lateral baja entre los pinos iluminará el plumaje del escribano con un rim dorado, creará el catchlight en el ojo y añadirá la dimensión lumínica que le falta a la imagen para alcanzar su potencial completo."
+    },
+    "instagram": {
+      "fecha_prep": "2026-07-26",
+      "formato_recomendado": "4:5",
+      "dimensiones": "1080x1350",
+      "justificacion_formato": "El ave está enmarcada de forma natural por ramas de pino desenfocadas arriba y abajo en un encuadre horizontal; el retrato 4:5 recorta el ancho sobrante del fondo de bokeh amarillo-verde a la derecha sin afectar al marco de ramas ni al ave.",
+      "zona_recorte": "Redimensionar por altura completa y recortar el ancho sobrante, desplazando el recorte hacia la izquierda para conservar al ave completa (incluida la cola) y el marco de ramas de pino, eliminando sobre todo bokeh vacío del borde derecho.",
+      "caption": {
+        "es": "El mismo escribano montesino, dos paisajes muy distintos.\n\nEn la Laguna Grande de Gredos lo encontré posado en una roca de granito cubierta de liquen, rodeado de flores de alta montaña — un centinela vigilando el prado.\n\nEn el pinar de Palancares, en Cuenca, apareció entre las ramas de un pino, con el pico entreabierto cantando, enmarcado de forma natural por las agujas verdes en primer plano.\n\nMismo dibujo de cabeza a rayas, mismo pecho canela, dos mundos completamente diferentes.",
+        "en": "Same rock bunting, two completely different landscapes.\n\nAt Laguna Grande in Gredos I found him perched on a lichen-covered granite boulder, surrounded by high-mountain wildflowers — a lookout over the meadow.\n\nIn the pine forest of Palancares, Cuenca, he showed up between pine branches, beak open mid-song, naturally framed by green needles in the foreground.\n\nSame striped head pattern, same cinnamon chest, two entirely different worlds."
+      },
+      "alt_text": "Escribano montesino posado sobre una rama de pino, con el pico entreabierto en actitud de canto y la cabeza ligeramente alzada. El plumaje muestra el característico patrón de rayas blancas y negras en la cabeza y el pecho de tono canela. Ramas de pino desenfocadas en primer plano enmarcan la escena, con un fondo de bokeh amarillo-verde propio de un bosque de pinar.",
+      "hashtags": {
+        "sujeto": ["#birdphotography", "#rockbunting", "#escribanomontesino", "#emberizacia", "#birdsofinstagram", "#aves"],
+        "tecnica": ["#bokeh", "#telephoto", "#naturalhabitat"],
+        "ubicacion": ["#gredos", "#cuenca", "#palancares", "#spain", "#españa"],
+        "comunidad": ["#photography", "#photographer", "#foto", "#nikon", "#nikoncreators"],
+        "nicho": ["#birdsofspain", "#spanishwildlife", "#wildlifeofinstagram", "#naturegram", "#birdwatchingspain", "#mountainbirds"],
+        "bloque_completo": "#birdphotography #rockbunting #escribanomontesino #emberizacia #birdsofinstagram #aves #bokeh #telephoto #naturalhabitat #gredos #cuenca #palancares #spain #españa #photography #photographer #foto #nikon #nikoncreators #birdsofspain #spanishwildlife #wildlifeofinstagram #naturegram #birdwatchingspain #mountainbirds"
+      },
+      "ajustes_tecnicos": {
+        "brillo": "sin cambios",
+        "contraste": "+8",
+        "saturacion": "sin cambios",
+        "nitidez_salida": "+12"
+      },
+      "comando_sips": "sips --resampleHeight 1350 \"/Users/ignacio/Sites/fotos/originales/DSC_5756.jpeg\" --out \"/Users/ignacio/Downloads/DSC_5756_ig.jpeg\" && sips -c 1350 1080 --cropOffset 0 380 \"/Users/ignacio/Downloads/DSC_5756_ig.jpeg\"",
+      "recorte": {
+        "resample_flag": "--resampleHeight",
+        "resample_valor": 1350,
+        "crop_alto": 1350,
+        "crop_ancho": 1080,
+        "centrado": false,
+        "offset_y": 0,
+        "offset_x": 380
+      },
+      "post_carrusel": {
+        "orden": 1,
+        "pareja": "DSC_4631.jpeg",
+        "titulo_post": "El escribano del pinar / Centinela de granito"
+      }
     }
   },
   {
@@ -11165,6 +11966,7 @@
     ],
     "fecha": "2026-06-21",
     "path": "originales/DSC_5506.jpeg",
+    "dimensiones": "2562x2562",
     "datos_toma": {
       "camara": "Nikon Z6 III",
       "objetivo": "Nikkor Z 180-600mm f/5.6-6.3 VR",
@@ -11326,6 +12128,7 @@
     ],
     "fecha": "2026-06-21",
     "path": "originales/DSC_5451.jpeg",
+    "dimensiones": "2554x2554",
     "datos_toma": {
       "camara": "Nikon Z6 III",
       "objetivo": "Nikkor Z 180-600mm f/5.6-6.3 VR",
@@ -11489,6 +12292,7 @@
     ],
     "fecha": "2026-06-21",
     "path": "originales/DSC_5661.jpeg",
+    "dimensiones": "3837x2558",
     "datos_toma": {
       "camara": "Nikon Z6 III",
       "objetivo": "Nikkor Z 180-600mm f/5.6-6.3 VR",
@@ -11623,6 +12427,42 @@
       "resumen": "Mariposa Erebia sobre flor silvestre en el Palancares, con bokeh excepcional a 600mm e ISO muy bajo. Tecnicamente la mejor foto del dia. Le falta un momento mas decisivo o un angulo mas original para saltar al siguiente nivel artistico.",
       "potencial": 7.5,
       "mejora_prioritaria": "Esperar a que la mariposa abra completamente las alas mostrando el patron dorsal naranja, o capturar el instante del despegue. Ese momento con esta calidad tecnica y este bokeh llevaria la foto al rango 7.5-8.0."
+    },
+    "instagram": {
+      "fecha_prep": "2026-07-26",
+      "formato_recomendado": "4:5",
+      "dimensiones": "1080x1350",
+      "justificacion_formato": "La mariposa con las alas cerradas es más alta que ancha y está posada en la zona superior-derecha del encuadre horizontal original; el retrato 4:5 recorta centrado el bokeh vacío sobrante de la izquierda sin arriesgar cortar el insecto ni la flor.",
+      "zona_recorte": "Redimensionar por altura completa y recortar el ancho sobrante de forma centrada, eliminando bokeh vacío a ambos lados; la mariposa y la espiga floral quedan dentro del área conservada con margen de sobra.",
+      "caption": {
+        "es": "Ese punto negro en el ala no es un adorno — es un ojo falso para despistar a los pájaros.\n\nEncontré esta Erebia agarrada a una espiga silvestre en el Palancares, con las patas bien sujetas al viento que corría esa mañana. Un género de mariposa de montaña que casi nadie fotografía, más discreto que vistoso, pero con estos detalles que solo se ven de cerca.",
+        "en": "That black dot on the wing isn't decoration — it's a fake eye meant to confuse birds.\n\nI found this Erebia gripping a wild flower spike in Palancares, holding on tight against the morning wind. A mountain butterfly genus almost nobody photographs, more understated than showy, but full of details you only notice up close."
+      },
+      "alt_text": "Mariposa del género Erebia posada sobre una espiga de flores blancas silvestres, con las alas cerradas mostrando un ocelo negro rodeado de naranja en el ala anterior. El cuerpo es oscuro y velludo, con las patas y antenas sujetas a la flor. Una brizna de hierba verde cruza el encuadre en diagonal por delante del insecto, sobre un fondo de bokeh verde uniforme.",
+      "hashtags": {
+        "sujeto": ["#macrophotography", "#macro", "#butterfly", "#erebia", "#mariposa", "#lepidoptera"],
+        "tecnica": ["#bokeh", "#telephoto", "#macrodetail"],
+        "ubicacion": ["#cuenca", "#palancares", "#spain", "#españa"],
+        "comunidad": ["#photography", "#photographer", "#foto", "#nikon", "#nikoncreators"],
+        "nicho": ["#macroofinstagram", "#macrolove", "#butterfliesofinstagram", "#insectsofinstagram", "#naturephotography", "#spanishwildlife"],
+        "bloque_completo": "#macrophotography #macro #butterfly #erebia #mariposa #lepidoptera #bokeh #telephoto #macrodetail #cuenca #palancares #spain #españa #photography #photographer #foto #nikon #nikoncreators #macroofinstagram #macrolove #butterfliesofinstagram #insectsofinstagram #naturephotography #spanishwildlife"
+      },
+      "ajustes_tecnicos": {
+        "brillo": "sin cambios",
+        "contraste": "+5",
+        "saturacion": "sin cambios",
+        "nitidez_salida": "+12"
+      },
+      "comando_sips": "sips --resampleHeight 1350 \"/Users/ignacio/Sites/fotos/originales/DSC_5661.jpeg\" --out \"/Users/ignacio/Downloads/DSC_5661_ig.jpeg\" && sips -c 1350 1080 \"/Users/ignacio/Downloads/DSC_5661_ig.jpeg\"",
+      "recorte": {
+        "resample_flag": "--resampleHeight",
+        "resample_valor": 1350,
+        "crop_alto": 1350,
+        "crop_ancho": 1080,
+        "centrado": true,
+        "offset_y": null,
+        "offset_x": null
+      }
     }
   },
   {
@@ -11650,6 +12490,7 @@
     ],
     "fecha": "2026-06-21",
     "path": "originales/DSC_5558.jpeg",
+    "dimensiones": "4691x2639",
     "datos_toma": {
       "camara": "Nikon Z6 III",
       "objetivo": "Nikkor Z 180-600mm f/5.6-6.3 VR",
@@ -11812,6 +12653,7 @@
     ],
     "fecha": "2026-06-21",
     "path": "originales/DSC_5464.jpeg",
+    "dimensiones": "4122x2319",
     "datos_toma": {
       "camara": "Nikon Z6 III",
       "objetivo": "Nikkor Z 180-600mm f/5.6-6.3 VR",
@@ -11946,6 +12788,913 @@
       "resumen": "Buitre leonado en vuelo sobre el pinar de Cuenca, con el mejor ISO del dia (100) y un fondo boscoso en bokeh muy atractivo. La velocidad de obturacion (1/800s) limita la nitidez en los extremos del ala. La atmosfera y el enfoque tecnico son los puntos mas fuertes.",
       "potencial": 7.8,
       "mejora_prioritaria": "Repetir con 1/2000s minimo (subiendo ISO a 400-640 si es necesario) y en hora de luz lateral baja. La misma composicion con nitidez perfecta y luz dorada elevaria esta foto al rango 7.5-8.0."
+    }
+  },
+  {
+    "titulo": "Podalirio libando en la lavanda",
+    "nombre": "DSC_6283.jpeg",
+    "descripcion": "Un podalirio (Iphiclides podalirius) posado sobre una espiga de lavanda, con las alas extendidas en diagonal mientras liba el néctar con la probóscide. El fondo verde completamente desenfocado aísla al sujeto y resalta el contraste de sus alas rayadas en blanco y negro.",
+    "lugar": "Casa de Campo",
+    "ubicacion": "Madrid",
+    "categorias": [
+      "Fauna",
+      "Macro"
+    ],
+    "etiquetas": [
+      "mariposa",
+      "podalirio",
+      "insecto",
+      "polinizador",
+      "lavanda",
+      "flores",
+      "verano",
+      "bokeh",
+      "casa de campo",
+      "madrid"
+    ],
+    "fecha": "2026-07-12",
+    "path": "originales/DSC_6283.jpeg",
+    "dimensiones": "4254x2835",
+    "datos_toma": {
+      "camara": "Nikon Z6 III",
+      "objetivo": "Nikkor Z 180-600mm f/5.6-6.3 VR",
+      "iso": 720,
+      "diafragma": "f/7.1",
+      "obturador": "1/2000s",
+      "focal": "520mm",
+      "compensacion_ev": "-0.7",
+      "medicion": "Ponderada al centro",
+      "balance_blancos": "Automático"
+    },
+    "evaluacion": {
+      "fecha_evaluacion": "2026-07-12",
+      "tecnica": {
+        "exposicion": {
+          "puntuacion": 8.0,
+          "comentario": "Las alas claras conservan detalle de textura sin quemarse contra el fondo verde oscuro; la compensación de -0.7 EV con medición ponderada al centro fue una decisión acertada para proteger las zonas blancas.",
+          "mejora": "Revisar el histograma en la toma para confirmar que la parte más clara del ala superior no roza el corte; si acaso, bajar otro tercio de paso."
+        },
+        "nitidez": {
+          "puntuacion": 8.0,
+          "comentario": "Enfoque preciso en cabeza, ojo y cuerpo del insecto, con el patrón de rayas de las alas perfectamente resuelto pese a fotografiar con un tele-zoom a 520mm.",
+          "mejora": "En próximas repeticiones, priorizar el punto de enfoque sobre el ojo compuesto para maximizar la sensación de nitidez crítica."
+        },
+        "color": {
+          "puntuacion": 7.5,
+          "comentario": "Paleta armónica entre el crema/negro del insecto, el verde del fondo y el violeta de la lavanda; los complementarios verde-violeta funcionan bien.",
+          "mejora": "Un ligero refuerzo de saturación selectiva en la lavanda ayudaría a equilibrar su peso visual frente al insecto."
+        },
+        "balance_blancos": {
+          "puntuacion": 7.0,
+          "comentario": "El automático ha resuelto bien la escena, sin dominante visible; los verdes se mantienen naturales.",
+          "mejora": "Probar balance de blancos manual en luz día para escenas similares y comparar consistencia entre tomas de la misma sesión."
+        },
+        "composicion": {
+          "puntuacion": 7.5,
+          "comentario": "Buena diagonal ala-cuerpo-flor y espacio negativo a la izquierda que da aire a la imagen; la punta del ala superior queda muy cerca del borde superior.",
+          "mejora": "Dejar algo más de margen por encima de la punta del ala para que no quede tan al límite del encuadre."
+        },
+        "iluminacion": {
+          "puntuacion": 6.5,
+          "comentario": "Luz difusa y uniforme que revela bien la textura de las alas, pero plana, sin dirección que aporte volumen o drama.",
+          "mejora": "Buscar horas con luz más rasante (media mañana o media tarde) para que las escamas del ala generen relieve con sombra lateral."
+        },
+        "enfoque_profundidad": {
+          "puntuacion": 8.0,
+          "comentario": "Excelente separación del sujeto con un bokeh cremoso y continuo; se aprecian capas claras entre la flor en primer plano, el insecto y el fondo.",
+          "mejora": "Mantener esta misma distancia focal/apertura en encuadres similares, es el punto más fuerte de la toma."
+        },
+        "ruido_limpieza": {
+          "puntuacion": 8.5,
+          "comentario": "Imagen muy limpia; a ISO 720 en sensor full frame del Z6 III no se aprecia ruido de luminancia ni cromático.",
+          "mejora": "Sin cambios necesarios en este apartado."
+        },
+        "procesado": {
+          "puntuacion": 7.5,
+          "comentario": "Revelado natural, sin halos ni sobresaturación; las transiciones tonales en el fondo verde son suaves.",
+          "mejora": "Un ajuste fino de claridad local sobre el cuerpo del insecto aportaría un pelín más de textura sin afectar al bokeh."
+        },
+        "puntuacion_parte": 7.7,
+        "lo_bueno": "El aislamiento del sujeto es sobresaliente: bokeh limpio y continuo, cero ruido y una exposición bien resuelta gracias a la compensación negativa de EV. La nitidez en cabeza y patrón alar es notable para tratarse de un tele-zoom a 520mm.",
+        "lo_mejorable": "La luz difusa, aunque útil para el detalle, resta volumen y dramatismo a la escena. Buscar luz más direccional y ajustar ligeramente el encuadre para dar más aire a la punta del ala elevaría el conjunto técnico."
+      },
+      "artistica": {
+        "emocion": {
+          "puntuacion": 6.5,
+          "comentario": "Transmite una sensación delicada y serena propia de un instante de alimentación tranquilo, sin llegar a ser intensa.",
+          "mejora": "Capturar el instante justo del despliegue de la probóscide sobre la flor añadiría más carga emocional al gesto."
+        },
+        "narrativa": {
+          "puntuacion": 6.0,
+          "comentario": "Se entiende la acción (libar néctar) pero la historia es sencilla y sin tensión añadida.",
+          "mejora": "Incluir un segundo elemento, como otra flor o insecto compitiendo por la lavanda, generaría más contexto narrativo."
+        },
+        "momento": {
+          "puntuacion": 7.0,
+          "comentario": "Buen instante con las alas en posición dinámica y las patas sujetando la flor, capturando comportamiento natural real.",
+          "mejora": "Esperar al aleteo completo o al momento de despegue daría una pose aún más expresiva."
+        },
+        "intencion": {
+          "puntuacion": 7.5,
+          "comentario": "Las decisiones técnicas (exposición negativa, apertura media, distancia) apuntan claramente a aislar y proteger el detalle del insecto.",
+          "mejora": "Reforzar la intención decidiendo de antemano si el protagonismo es el insecto o la combinación insecto-flor, y encuadrar en consecuencia."
+        },
+        "originalidad": {
+          "puntuacion": 5.0,
+          "comentario": "Mariposa sobre lavanda en vista de perfil es un encuadre muy visto en fotografía macro/naturaleza.",
+          "mejora": "Probar un ángulo frontal o cenital, o capturar el momento de despegue para diferenciarse de la imagen clásica de perfil."
+        },
+        "atmosfera": {
+          "puntuacion": 6.5,
+          "comentario": "El verde suave de fondo y el violeta de la lavanda construyen una atmósfera veraniega de jardín agradable, aunque convencional.",
+          "mejora": "Incluir más de una espiga de lavanda desenfocada en primer plano reforzaría la sensación de campo de lavanda."
+        },
+        "conexion": {
+          "puntuacion": 5.0,
+          "comentario": "El insecto está de perfil y no hay contacto visual directo con el espectador, lo que limita la cercanía emocional.",
+          "mejora": "Buscar un ángulo donde se aprecien mejor los ojos compuestos mirando hacia cámara."
+        },
+        "puntuacion_parte": 6.2,
+        "lo_bueno": "La intención técnica es clara y coherente, y el momento de alimentación transmite una calma agradable propia del verano. El comportamiento natural capturado (libando con probóscide extendida) aporta autenticidad.",
+        "lo_mejorable": "El punto débil es la originalidad: es un encuadre de perfil muy convencional dentro del género macro de insectos en flores. La falta de contacto visual también resta conexión; explorar ángulos menos habituales sería el mayor salto artístico."
+      },
+      "excepcional": {
+        "tecnica_emocion": {
+          "puntuacion": 5.5,
+          "comentario": "La técnica sostiene bien la escena pero no la amplifica hasta un nivel que trascienda la competencia técnica.",
+          "mejora": "Un desenfoque de movimiento sutil en las alas (velocidad algo más baja) durante el aleteo podría fundir técnica y sensación de movimiento."
+        },
+        "momento_irrepetible": {
+          "puntuacion": 3.0,
+          "comentario": "Escena reproducible cualquier día soleado de verano con lavanda en flor y podalirios activos en la zona.",
+          "mejora": "Buscar comportamientos más singulares: cortejo entre dos podalirios, eclosión, o interacción con otro polinizador."
+        },
+        "estilo_impacto": {
+          "puntuacion": 4.5,
+          "comentario": "Imagen agradable y técnicamente sólida, pero sin un tratamiento o encuadre que la haga memorable o reconocible como sello propio.",
+          "mejora": "Desarrollar un tratamiento de color o un tipo de encuadre macro distintivo que se repita en la serie de insectos."
+        },
+        "trascendencia": {
+          "puntuacion": 2.0,
+          "comentario": "Bonita escena de naturaleza puntual, sin una lectura que vaya más allá de lo que muestra.",
+          "mejora": "No es un requisito para este tipo de imagen; centrarse en la calidad técnica y el momento es suficiente."
+        },
+        "puntuacion_parte": 3.8,
+        "lo_bueno": "Hay coherencia entre la ejecución técnica cuidada y el tono sereno de la imagen, lo que da una pieza pulida y agradable dentro del género macro.",
+        "lo_mejorable": "Es una escena reproducible y sin firma estilística marcada; el salto a lo excepcional requeriría un comportamiento más singular del insecto o un tratamiento visual más arriesgado."
+      },
+      "puntuacion_total": 6.3,
+      "lo_bueno": "Fotografía macro sólida en su ejecución: aislamiento de sujeto excelente, cero ruido y una exposición bien gestionada mediante compensación negativa de EV. El comportamiento natural del podalirio libando aporta autenticidad y calma a la escena.",
+      "lo_mejorable": "El conjunto se queda en el terreno de la 'buena foto macro' sin dar el salto a lo memorable: el encuadre de perfil es convencional, la luz es plana y falta un momento o ángulo más singular. La dirección de mejora pasa por luz más direccional y comportamientos menos habituales del sujeto.",
+      "resumen": "Podalirio libando en una flor de lavanda con excelente aislamiento de fondo y exposición bien resuelta. El encuadre de perfil es correcto pero convencional dentro del género macro; el mayor margen de mejora está en buscar luz más direccional y momentos de comportamiento más singulares.",
+      "potencial": 7.6,
+      "mejora_prioritaria": "Repetir la escena en horas de luz más rasante y esperar comportamientos menos habituales (aleteo, cortejo, contacto visual) para elevar tanto la técnica como la narrativa."
+    },
+    "instagram": {
+      "fecha_prep": "2026-07-20",
+      "formato_recomendado": "4:5",
+      "dimensiones": "1080x1350",
+      "justificacion_formato": "El podalirio ocupa casi toda la altura del encuadre en diagonal, con la lavanda como base; el retrato aprovecha ese eje vertical y permite recortar el amplio espacio negativo verde de la izquierda sin perder ala ni flor.",
+      "zona_recorte": "Recorte a altura completa (se usa el 100% del alto redimensionado); desplazado hacia la derecha en el ancho para no perder la punta del ala superior derecha ni la antena izquierda.",
+      "caption": {
+        "es": "Las lavandas de la Casa de Campo se llenan de podalirios en cuanto aprieta el calor.\n\nEste llevaba un rato posado libando tranquilamente, con las alas medio abiertas dejando ver ese patrón a rayas que tienen. Tuve que tumbarme casi a ras de suelo para pillarlo con el fondo bien desenfocado.\n\n¿Los habéis visto alguna vez de cerca? Son más grandes de lo que parece en foto.",
+        "en": "Lavender season in Madrid means the swallowtails are back at Casa de Campo.\n\nThis one stayed put for a while feeding, wings half-open showing off that striped pattern. Had to get down almost to ground level to get the background this soft.\n\nEver seen one up close? They're bigger than they look in photos."
+      },
+      "alt_text": "Mariposa podalirio posada sobre una espiga de lavanda violeta, con las alas extendidas en diagonal mostrando su patrón rayado en blanco y negro y una mancha naranja y azul en el borde inferior. La probóscide se apoya sobre las flores mientras liba. El fondo, completamente desenfocado, muestra tonos verdes uniformes de vegetación estival.",
+      "hashtags": {
+        "sujeto": ["#macrophotography", "#macro", "#butterfly", "#butterflies", "#mariposa", "#podalirio"],
+        "tecnica": ["#bokeh", "#telephoto", "#depthoffield"],
+        "ubicacion": ["#casadecampo", "#madrid", "#spain", "#españa"],
+        "comunidad": ["#photography", "#photographer", "#foto", "#nikon", "#nikoncreators"],
+        "nicho": ["#macroofinstagram", "#macrolove", "#macroworld", "#butterfliesofinstagram", "#insectsofinstagram", "#naturephotography"],
+        "bloque_completo": "#macrophotography #macro #butterfly #butterflies #mariposa #podalirio #bokeh #telephoto #depthoffield #casadecampo #madrid #spain #españa #photography #photographer #foto #nikon #nikoncreators #macroofinstagram #macrolove #macroworld #butterfliesofinstagram #insectsofinstagram #naturephotography"
+      },
+      "ajustes_tecnicos": {
+        "brillo": "sin cambios",
+        "contraste": "+8",
+        "saturacion": "+5",
+        "nitidez_salida": "+12"
+      },
+      "comando_sips": "sips --resampleHeight 1350 \"/Users/ignacio/Sites/fotos/originales/DSC_6283.jpeg\" --out \"/Users/ignacio/Downloads/DSC_6283_ig.jpeg\" && sips -c 1350 1080 --cropOffset 0 480 \"/Users/ignacio/Downloads/DSC_6283_ig.jpeg\"",
+      "recorte": {
+        "resample_flag": "--resampleHeight",
+        "resample_valor": 1350,
+        "crop_alto": 1350,
+        "crop_ancho": 1080,
+        "centrado": false,
+        "offset_y": 0,
+        "offset_x": 480
+      }
+    }
+  },
+  {
+    "titulo": "Abejorro suspendido sobre la lavanda",
+    "nombre": "DSC_6445.jpeg",
+    "descripcion": "Un abejorro captado en pleno vuelo justo antes de posarse en una espiga de lavanda, con las alas desenfocadas por el movimiento y las patas extendidas hacia las flores. El cuerpo nítido y el fondo verde desenfocado transmiten la sensación de suspensión en el aire.",
+    "lugar": "Casa de Campo",
+    "ubicacion": "Madrid",
+    "categorias": [
+      "Fauna",
+      "Macro"
+    ],
+    "etiquetas": [
+      "abejorro",
+      "insecto",
+      "polinizador",
+      "lavanda",
+      "flores",
+      "verano",
+      "vuelo",
+      "bokeh",
+      "casa de campo",
+      "madrid",
+      "polinización"
+    ],
+    "fecha": "2026-07-12",
+    "path": "originales/DSC_6445.jpeg",
+    "dimensiones": "3175x2117",
+    "datos_toma": {
+      "camara": "Nikon Z6 III",
+      "objetivo": "Nikkor Z 180-600mm f/5.6-6.3 VR",
+      "iso": 800,
+      "diafragma": "f/9",
+      "obturador": "1/800s",
+      "focal": "120mm",
+      "compensacion_ev": "0",
+      "medicion": "Ponderada al centro",
+      "balance_blancos": "Automático"
+    },
+    "evaluacion": {
+      "fecha_evaluacion": "2026-07-12",
+      "tecnica": {
+        "exposicion": {
+          "puntuacion": 8.0,
+          "comentario": "Buen equilibrio de luces sin quemar el amarillo del tórax ni empastar el negro del cuerpo; el fondo verde conserva detalle tonal.",
+          "mejora": "Vigilar el canal de amarillo en el histograma, es el más propenso a saturarse en luz directa como esta."
+        },
+        "nitidez": {
+          "puntuacion": 8.5,
+          "comentario": "Excelente distinción entre el cuerpo nítido (cabeza, antenas, patas) y el desenfoque de movimiento intencional en las alas, que comunica el aleteo real del insecto.",
+          "mejora": "Mantener esta misma relación de velocidad para lograr blur de alas sin perder nitidez corporal en próximas tomas de vuelo."
+        },
+        "color": {
+          "puntuacion": 7.5,
+          "comentario": "Buen contraste cromático entre el amarillo-negro del abejorro, el verde de fondo y el violeta de la lavanda.",
+          "mejora": "Un ligero ajuste de temperatura hacia tonos más cálidos realzaría el amarillo del tórax sin afectar al verde."
+        },
+        "balance_blancos": {
+          "puntuacion": 7.0,
+          "comentario": "El automático resuelve bien la escena bajo luz directa de sol, sin dominante apreciable.",
+          "mejora": "Sin cambios necesarios; funciona correctamente en esta luz."
+        },
+        "composicion": {
+          "puntuacion": 7.0,
+          "comentario": "Buen uso de capas con la lavanda desenfocada en primer plano y fondo, aunque el sujeto queda algo centrado y una flor del fondo superior compite ligeramente con el tórax amarillo.",
+          "mejora": "Desplazar el encuadre para colocar al abejorro sobre un tercio y despejar la flor clara que queda justo detrás del tórax."
+        },
+        "iluminacion": {
+          "puntuacion": 7.5,
+          "comentario": "Luz de sol directa que aporta brillo y define la textura peluda del tórax, con un contraste más marcado que en tomas con luz difusa.",
+          "mejora": "Buscar un ángulo donde la luz incida más lateralmente para modelar mejor el volumen del cuerpo."
+        },
+        "enfoque_profundidad": {
+          "puntuacion": 8.0,
+          "comentario": "El f/9 permite mantener nítido todo el cuerpo del abejorro pese a estar orientado en diagonal hacia la cámara, sin perder la separación del fondo.",
+          "mejora": "Correcta elección de apertura; se podría probar f/8 para ganar un poco más de luz sin perder cobertura de nitidez."
+        },
+        "ruido_limpieza": {
+          "puntuacion": 8.5,
+          "comentario": "Imagen limpia a ISO 800 en el sensor full frame del Z6 III, sin ruido visible.",
+          "mejora": "Sin cambios necesarios en este apartado."
+        },
+        "procesado": {
+          "puntuacion": 7.5,
+          "comentario": "Revelado natural y sin artefactos, buena gestión de las altas luces en las alas en movimiento.",
+          "mejora": "Un leve recorte de claridad en el fondo ayudaría a que el ojo se vaya aún más rápido al sujeto."
+        },
+        "puntuacion_parte": 7.7,
+        "lo_bueno": "El gran acierto técnico es la combinación de cuerpo nítido con desenfoque de movimiento controlado en las alas, algo difícil de lograr y que aquí funciona perfectamente. La exposición y la limpieza de imagen son excelentes.",
+        "lo_mejorable": "La composición es algo centrada y hay un elemento de fondo que compite visualmente con el sujeto; recolocar el encuadre y trabajar el ángulo de luz elevaría el conjunto técnico."
+      },
+      "artistica": {
+        "emocion": {
+          "puntuacion": 7.0,
+          "comentario": "La sensación de vuelo suspendido transmite energía y vitalidad, más viva que una pose estática.",
+          "mejora": "Un fondo algo más oscuro realzaría el contraste y la sensación de ingravidez del insecto."
+        },
+        "narrativa": {
+          "puntuacion": 6.5,
+          "comentario": "Se intuye la acción inminente de aterrizar en la flor, lo que añade un pequeño arco narrativo al instante.",
+          "mejora": "Capturar el instante justo del contacto de las patas con la flor completaría la secuencia narrativa."
+        },
+        "momento": {
+          "puntuacion": 7.5,
+          "comentario": "Instante preciso de vuelo con las patas ya extendidas hacia la flor y las alas en pleno batido, muy bien cazado.",
+          "mejora": "Encadenar una ráfaga para elegir el fotograma con la extensión de patas más expresiva."
+        },
+        "intencion": {
+          "puntuacion": 7.5,
+          "comentario": "La velocidad de obturación elegida deliberadamente para mostrar el aleteo revela una intención clara de capturar movimiento, no solo congelarlo.",
+          "mejora": "Mantener esta línea de trabajo (velocidad media en lugar de ultra rápida) como recurso distintivo en fotos de insectos en vuelo."
+        },
+        "originalidad": {
+          "puntuacion": 6.0,
+          "comentario": "El desenfoque de alas en pleno vuelo aporta algo más de originalidad que la clásica foto de insecto posado.",
+          "mejora": "Probar ángulos frontales o contraluz para diferenciarse aún más del abejorro-en-flor convencional."
+        },
+        "atmosfera": {
+          "puntuacion": 6.5,
+          "comentario": "Luz de sol directa y verdes intensos construyen una atmósfera veraniega vibrante y luminosa.",
+          "mejora": "Incluir más profundidad de campo escalonada con varias flores desenfocadas reforzaría la sensación de jardín."
+        },
+        "conexion": {
+          "puntuacion": 5.5,
+          "comentario": "Aunque no hay contacto visual directo, el ojo negro y las antenas visibles aportan algo de carácter al sujeto.",
+          "mejora": "Buscar un ángulo más frontal donde se aprecien ambos ojos para aumentar la conexión con el espectador."
+        },
+        "puntuacion_parte": 6.6,
+        "lo_bueno": "El momento de vuelo capturado con las patas extendidas hacia la flor aporta energía y una narrativa implícita de aterrizaje inminente. La intención de mostrar movimiento real en lugar de congelarlo todo es un acierto artístico.",
+        "lo_mejorable": "La conexión con el espectador es moderada al faltar contacto visual, y la originalidad podría reforzarse con ángulos menos frontales. Explorar otros puntos de vista y encadenar ráfagas ayudaría a encontrar instantes aún más expresivos."
+      },
+      "excepcional": {
+        "tecnica_emocion": {
+          "puntuacion": 6.5,
+          "comentario": "El desenfoque de alas fusiona bien la técnica con la sensación de movimiento y energía, más que en una imagen estática equivalente.",
+          "mejora": "Reducir aún más la velocidad de obturación en próximas pruebas podría acentuar el efecto de vuelo sin sacrificar nitidez corporal."
+        },
+        "momento_irrepetible": {
+          "puntuacion": 3.5,
+          "comentario": "Los abejorros sobrevuelan la lavanda constantemente en verano, por lo que la escena en sí es repetible, aunque el instante exacto de patas y alas no lo es.",
+          "mejora": "Buscar comportamientos menos frecuentes, como el forrajeo de varios abejorros compitiendo por la misma flor."
+        },
+        "estilo_impacto": {
+          "puntuacion": 5.0,
+          "comentario": "La técnica de vuelo con blur de alas aporta algo de identidad visual, aunque el encuadre general sigue siendo convencional.",
+          "mejora": "Repetir esta técnica de forma consistente en una serie de insectos en vuelo consolidaría un estilo propio reconocible."
+        },
+        "trascendencia": {
+          "puntuacion": 2.0,
+          "comentario": "Bonita escena de polinización estival sin una lectura que trascienda lo mostrado.",
+          "mejora": "No es un requisito para este tipo de imagen; el valor está en la ejecución técnica y el momento."
+        },
+        "puntuacion_parte": 4.3,
+        "lo_bueno": "La fusión entre la técnica de desenfoque de alas y la sensación de energía del vuelo es el punto más fuerte de esta imagen dentro del apartado excepcional.",
+        "lo_mejorable": "Sigue siendo una escena reproducible en cualquier jardín con lavanda en verano; el salto a lo excepcional requeriría un comportamiento más singular o una serie coherente que consolide un estilo propio."
+      },
+      "puntuacion_total": 6.5,
+      "lo_bueno": "Fotografía de acción bien resuelta: el contraste entre cuerpo nítido y alas desenfocadas comunica movimiento real de forma efectiva, algo más difícil de lograr que una toma estática. El instante de vuelo con las patas ya extendidas hacia la flor añade energía y narrativa.",
+      "lo_mejorable": "La composición centrada y un elemento de fondo que distrae ligeramente restan algo de fuerza visual; además, la originalidad y la conexión con el espectador tienen recorrido de mejora. Trabajar el encuadre y explorar ángulos más frontales sería el siguiente paso.",
+      "resumen": "Abejorro en pleno vuelo sobre lavanda, con un logrado contraste entre cuerpo nítido y alas desenfocadas por el movimiento. Buena captura de un instante de acción, aunque el encuadre centrado y la falta de contacto visual limitan el salto a lo memorable.",
+      "potencial": 7.8,
+      "mejora_prioritaria": "Recomponer el encuadre para despejar el fondo cerca del tórax y buscar ángulos más frontales o con contacto visual del insecto, manteniendo la misma técnica de desenfoque de alas."
+    },
+    "repetir": {
+      "fecha_plan": "2026-07-12",
+      "notas_acceso": "Casa de Campo, zona de lavanda cerca de donde se tomó esta foto; verano (jun-ago) cuando la lavanda está en flor y los abejorros son más activos a media mañana/tarde con sol directo.",
+      "puntuacion_actual": 6.5,
+      "potencial_estimado": 7.8,
+      "margen": 1.3,
+      "meses": [
+        "jun",
+        "jul",
+        "ago"
+      ],
+      "condiciones_ideales": {
+        "momento_dia": "Media mañana o media tarde con sol directo pero no cenital, para mantener textura sin contraluz duro",
+        "estacion": "Verano (jun-ago), lavanda en plena floración",
+        "clima": "Despejado o parcialmente nublado, sin viento fuerte que mueva la flor",
+        "luz": "Frontal-lateral suave que modele el tórax peludo"
+      },
+      "plan_tecnico": {
+        "equipo": "Nikon Z6 III + Nikkor Z 180-600mm f/5.6-6.3 VR",
+        "ajustes_clave": "Mantener f/9 para cubrir el cuerpo entero en foco; probar 1/500-1/640s (algo más lento que 1/800s) para acentuar el desenfoque de alas sin perder nitidez corporal; ISO auto en torno a 800.",
+        "enfoque": "AF-C con detección de ojo/animal si el sistema lo permite, priorizando la cabeza del abejorro"
+      },
+      "plan_composicion": "Recomponer para situar al abejorro sobre un tercio en lugar de centrado, y despejar la flor clara de fondo que queda justo detrás del tórax; buscar un ángulo algo más frontal que muestre ambos ojos para aumentar la conexión con el espectador.",
+      "plan_momento": "Encadenar ráfagas cortas para elegir el fotograma con las patas más extendidas hacia la flor o el instante exacto de contacto/aterrizaje, en vez de quedarse con el primer disparo válido.",
+      "plan_artistico": "Consolidar la técnica de alas desenfocadas con cuerpo nítido como recurso repetido en una pequeña serie de polinizadores en vuelo, para que empiece a leerse como un sello propio; probar ángulos menos convencionales que el lateral clásico.",
+      "plan_procesado": "Aplicar un leve recorte de claridad en el fondo verde para reforzar la separación del sujeto, y un ajuste cálido sutil en el amarillo del tórax.",
+      "resumen_plan": "Volver a la lavanda de Casa de Campo en verano, mismo equipo y apertura f/9, pero bajando ligeramente la velocidad (1/500-1/640s) para acentuar el blur de alas. Recomponer fuera de centro, despejar el fondo tras el tórax y encadenar ráfagas para cazar el instante exacto de aterrizaje."
+    }
+  },
+  {
+    "titulo": "Palada bajo el sol de verano",
+    "nombre": "DSC_5959.jpeg",
+    "descripcion": "Un piragüista surca en solitario el estanque de la Casa de Campo con el torso desnudo y la pala en alto tras una palada enérgica. El barrido fotográfico difumina el fondo arbolado y las barcas de recreo, transmitiendo la velocidad del kayak sobre el agua en calma.",
+    "lugar": "Estanque de la Casa de Campo",
+    "ubicacion": "Madrid",
+    "categorias": [
+      "Deportes"
+    ],
+    "etiquetas": [
+      "piragua",
+      "kayak",
+      "remo",
+      "barrido",
+      "panning",
+      "acción",
+      "deporte",
+      "estanque",
+      "agua",
+      "lago",
+      "verano",
+      "casa de campo",
+      "madrid"
+    ],
+    "fecha": "2026-07-12",
+    "path": "originales/DSC_5959.jpeg",
+    "dimensiones": "4373x2460",
+    "datos_toma": {
+      "camara": "Nikon Z6 III",
+      "objetivo": "Nikkor Z 24-120mm f/4 S",
+      "iso": 1250,
+      "diafragma": "f/7.1",
+      "obturador": "1/6s",
+      "focal": "24mm",
+      "compensacion_ev": "0",
+      "medicion": "Ponderada al centro",
+      "balance_blancos": "Automático"
+    },
+    "evaluacion": {
+      "fecha_evaluacion": "2026-07-12",
+      "tecnica": {
+        "exposicion": {
+          "puntuacion": 7.5,
+          "comentario": "El cielo y el agua conservan el color sin quemarse pese al fuerte sol de mediodía; el casco claro de la piragua y la piel del remero mantienen detalle sin zonas plastificadas.",
+          "mejora": "Bajar un tercio de paso la exposición para dar más densidad al cielo y reforzar el contraste con el agua verdosa."
+        },
+        "nitidez": {
+          "puntuacion": 6.5,
+          "comentario": "El barrido a 1/6s logra un torso y casco razonablemente definidos mientras el fondo se disuelve en líneas horizontales, aunque la cara y el brazo que sostiene la pala quedan claramente desenfocados.",
+          "mejora": "Subir la velocidad a 1/10-1/15s o reforzar el seguimiento de la cámara sobre la cabeza del remero para ganar nitidez crítica en el rostro sin perder el barrido de fondo."
+        },
+        "color": {
+          "puntuacion": 7.5,
+          "comentario": "Paleta fría y coherente entre el azul del cielo, el verde-turquesa del agua y el casco azul y amarillo de la piragua, con el tono cálido de la piel como único acento.",
+          "mejora": "Un ligero refuerzo de saturación en el amarillo del casco ayudaría a equilibrarlo frente al dominio azul-verde del resto de la escena."
+        },
+        "balance_blancos": {
+          "puntuacion": 7.0,
+          "comentario": "El automático resuelve bien la luz de mediodía sin dominante de color; el verde del agua y el azul del cielo se mantienen naturales.",
+          "mejora": "Probar un preset de luz día fijo en tomas similares para asegurar consistencia si se repite la sesión en distintos momentos del día."
+        },
+        "composicion": {
+          "puntuacion": 7.5,
+          "comentario": "El remero ocupa el tercio inferior derecho con buen espacio negativo hacia la izquierda en la dirección aparente del movimiento; las barcas del fondo aportan escala y contexto.",
+          "mejora": "Bajar ligeramente la línea de horizonte para dar aún más protagonismo al agua y reforzar la sensación de amplitud del estanque."
+        },
+        "iluminacion": {
+          "puntuacion": 6.0,
+          "comentario": "Luz cenital de mediodía, dura y sin apenas dirección, que aplana el volumen del torso y no aporta modelado a la escena.",
+          "mejora": "Repetir la escena a primera hora de la mañana con luz rasante lateral para modelar el cuerpo del remero y dar más profundidad tonal al agua."
+        },
+        "enfoque_profundidad": {
+          "puntuacion": 6.0,
+          "comentario": "La separación sujeto-fondo se consigue por el barrido de movimiento más que por la profundidad de campo; a f/7.1 tanto la piragua como el fondo estarían nítidos en una toma estática.",
+          "mejora": "Combinar el barrido con una apertura algo más abierta (f/4-f/5.6) para sumar desenfoque óptico de fondo al desenfoque de movimiento y reforzar el aislamiento."
+        },
+        "ruido_limpieza": {
+          "puntuacion": 8.0,
+          "comentario": "A ISO 1250 en el sensor full frame del Z6 III la imagen está prácticamente libre de ruido de luminancia o cromático.",
+          "mejora": "Sin cambios necesarios en este apartado."
+        },
+        "procesado": {
+          "puntuacion": 7.5,
+          "comentario": "Revelado natural y sin artefactos, con transiciones tonales suaves en el degradado del agua y el cielo.",
+          "mejora": "Una curva de contraste local suave sobre el remero ayudaría a que destaque un poco más frente al fondo ya de por sí difuminado."
+        },
+        "puntuacion_parte": 7.1,
+        "lo_bueno": "La técnica de barrido a 1/6s con un objetivo tan abierto como 24mm es un recurso arriesgado y bien resuelto: la imagen está limpia de ruido, el color es coherente y fiel, y el casco de la piragua junto con el torso conservan la definición suficiente para anclar la escena.",
+        "lo_mejorable": "La nitidez crítica en la cara y el brazo se pierde por el propio barrido, y la luz plana de mediodía no aporta volumen. Buscar una velocidad ligeramente más rápida y luz más rasante elevaría notablemente el apartado técnico."
+      },
+      "artistica": {
+        "emocion": {
+          "puntuacion": 7.0,
+          "comentario": "El gesto de la pala alzada y el torso desnudo transmiten energía y disfrute veraniego espontáneo.",
+          "mejora": "Capturar también la expresión facial nítida en ese mismo instante multiplicaría la carga emocional del gesto."
+        },
+        "narrativa": {
+          "puntuacion": 6.0,
+          "comentario": "Se entiende una escena de ocio activo en el estanque, pero sin un segundo elemento que añada tensión o contexto adicional a la historia.",
+          "mejora": "Incluir en el encuadre la orilla con más gente o un cruce con otra embarcación generaría una narrativa más rica."
+        },
+        "momento": {
+          "puntuacion": 7.5,
+          "comentario": "El disparo coincide con el punto más alto de la palada, el instante de mayor tensión visual del gesto.",
+          "mejora": "Probar también el instante justo en que la pala entra en contacto con el agua para variar el repertorio de momentos."
+        },
+        "intencion": {
+          "puntuacion": 7.5,
+          "comentario": "La velocidad lenta, el gran angular y el encuadre horizontal amplio apuntan claramente a transmitir velocidad y contexto ambiental a la vez, una decisión coherente y ejecutada con seguridad.",
+          "mejora": "Mantener esta misma técnica pero decidir de antemano si el protagonismo recae en el remero o en el conjunto del estanque, y encuadrar en consecuencia."
+        },
+        "originalidad": {
+          "puntuacion": 6.0,
+          "comentario": "El barrido de kayak/piragua es un recurso conocido en fotografía deportiva, pero el gran angular con el contexto del estanque y las barcas de fondo le da un aire menos habitual que el barrido clásico en teleobjetivo.",
+          "mejora": "Buscar un ángulo más bajo, casi a ras de agua, para una perspectiva menos convencional del mismo gesto."
+        },
+        "atmosfera": {
+          "puntuacion": 6.5,
+          "comentario": "La luz brillante, el agua en calma y las barcas de recreo al fondo construyen bien el ambiente de tarde de verano en un parque urbano.",
+          "mejora": "Esperar a que haya más actividad en el estanque (más barcas, gente en la orilla) para intensificar la sensación de bullicio veraniego."
+        },
+        "conexion": {
+          "puntuacion": 4.5,
+          "comentario": "El remero está de perfil y con la cara parcialmente tapada por el brazo, sin contacto visual con el espectador.",
+          "mejora": "Buscar el momento en que el remero mire hacia la cámara, o un ángulo frontal, para aumentar la cercanía con el sujeto."
+        },
+        "puntuacion_parte": 6.4,
+        "lo_bueno": "El instante elegido, en el punto álgido de la palada, y la coherencia entre la técnica de barrido y la sensación de movimiento hacen de esta una escena con intención clara y energía genuina.",
+        "lo_mejorable": "La conexión con el sujeto es el punto más débil por la falta de contacto visual y el rostro parcialmente oculto; la narrativa también se queda en lo anecdótico. Buscar un ángulo con el remero mirando a cámara elevaría el conjunto artístico."
+      },
+      "excepcional": {
+        "tecnica_emocion": {
+          "puntuacion": 6.0,
+          "comentario": "El barrido lento refuerza la sensación de energía y esfuerzo del gesto, aunque la pérdida de nitidez facial limita hasta qué punto la técnica amplifica la emoción.",
+          "mejora": "Ajustar la velocidad para conservar nitidez en el rostro sin perder el barrido de fondo fundiría mejor técnica y emoción."
+        },
+        "momento_irrepetible": {
+          "puntuacion": 2.5,
+          "comentario": "Escena reproducible cualquier tarde soleada en el estanque con actividad de piragüismo.",
+          "mejora": "Buscar un cruce entre dos piragüistas, una caída al agua, o una competición puntual para un momento genuinamente irrepetible."
+        },
+        "estilo_impacto": {
+          "puntuacion": 4.5,
+          "comentario": "Técnicamente vistosa gracias al barrido, pero dentro de un género (panning deportivo) muy visto, sin un tratamiento que la distinga como sello propio.",
+          "mejora": "Desarrollar un tratamiento de color o encuadre específico para la serie de barridos deportivos que se repita y sea reconocible."
+        },
+        "trascendencia": {
+          "puntuacion": 2.0,
+          "comentario": "Instantánea agradable de ocio veraniego sin una lectura que trascienda la propia escena.",
+          "mejora": "No es un requisito para este tipo de imagen deportiva/documental; centrarse en perfeccionar la técnica de barrido es suficiente."
+        },
+        "puntuacion_parte": 3.8,
+        "lo_bueno": "Hay coherencia entre la técnica arriesgada del barrido y la energía del instante capturado, lo que da una imagen dinámica y bien ejecutada dentro de su género.",
+        "lo_mejorable": "Es una escena reproducible sin firma estilística marcada; el salto a lo excepcional requeriría un momento más singular (competición, caída, cruce de piragüistas) o un tratamiento visual distintivo."
+      },
+      "puntuacion_total": 6.2,
+      "lo_bueno": "Fotografía de acción resuelta con una técnica de barrido arriesgada a 1/6s y 24mm, que consigue definir al remero y su piragua mientras disuelve el fondo en líneas de movimiento. El color es coherente, la imagen está limpia de ruido y el instante elegido coincide con el punto más expresivo de la palada.",
+      "lo_mejorable": "El conjunto se queda en el terreno de la buena foto de acción sin dar el salto a lo memorable: la nitidez facial se pierde por el propio barrido, la luz de mediodía es plana y falta conexión visual con el sujeto. Ajustar la velocidad de obturación y buscar luz más rasante junto con un ángulo que capture la mirada del remero elevaría tanto la técnica como el impacto artístico.",
+      "resumen": "Piragüista en pleno gesto de remada capturado con una técnica de barrido lenta que separa al sujeto del fondo mediante el movimiento. Buen color, limpieza técnica y timing, aunque la nitidez facial y la luz plana de mediodía limitan el resultado final.",
+      "potencial": 7.5,
+      "mejora_prioritaria": "Repetir el barrido con una velocidad ligeramente más rápida (1/10-1/15s) para conservar nitidez en el rostro, y buscar luz de primera hora de la mañana con el remero mirando hacia la cámara."
+    },
+    "repetir": {
+      "fecha_plan": "2026-07-12",
+      "notas_acceso": "Estanque de la Casa de Campo, Madrid. Acceso público y gratuito, con alquiler de barcas de remo activo sobre todo en fin de semana y días soleados.",
+      "puntuacion_actual": 6.2,
+      "potencial_estimado": 7.5,
+      "margen": 1.3,
+      "meses": [
+        "may",
+        "jun",
+        "jul",
+        "ago",
+        "sep"
+      ],
+      "condiciones_ideales": {
+        "momento_dia": "Primera hora de la mañana (8:00-9:30) para luz rasante y menos actividad de barcas que tape el encuadre",
+        "estacion": "Primavera-verano (may-sep), cuando hay más actividad de piragüismo y bañistas",
+        "clima": "Cielo despejado o con nubes altas suaves, sin viento fuerte que rice demasiado el agua",
+        "luz": "Lateral baja y rasante, evitando el sol cenital de mediodía"
+      },
+      "plan_tecnico": {
+        "equipo": "Nikon Z6 III + Nikkor Z 24-120mm f/4 S",
+        "ajustes_clave": "Subir la velocidad a 1/10-1/15s manteniendo el barrido, ISO 400-800 según luz, f/5.6-f/7.1",
+        "enfoque": "AF continuo con seguimiento de sujeto (3D-tracking) fijado en la cabeza/torso del remero para maximizar la nitidez en esa zona pese al barrido"
+      },
+      "plan_composicion": "Mantener el encuadre amplio a 24mm que incluye el contexto del estanque, pero bajar la línea de horizonte y esperar a que el remero quede orientado hacia la cámara o con la mirada visible para ganar conexión.",
+      "plan_momento": "Priorizar el instante álgido de la palada como en esta toma, pero esperar también a cruces con otras piraguas o barcas para sumar tensión narrativa.",
+      "plan_artistico": "Buscar una perspectiva más baja, casi a ras de agua, y luz de primera hora que dé volumen al torso del remero; la intención de transmitir velocidad ya funciona, solo falta pulir la ejecución técnica.",
+      "plan_procesado": "Mantener el revelado natural actual; reforzar levemente la saturación del amarillo del casco y aplicar un contraste local suave sobre el remero para que destaque más del fondo.",
+      "resumen_plan": "Volver al estanque de la Casa de Campo a primera hora de la mañana, subir la velocidad de obturación a 1/10-1/15s y buscar que el remero mire hacia la cámara en el punto álgido de la palada — con eso el barrido seguirá funcionando pero con nitidez facial y mejor conexión."
+    }
+  },
+  {
+    "titulo": "Camuflaje de plumas y granito",
+    "nombre": "DSC_6139",
+    "descripcion": "Un avión roquero posado sobre un gran bloque de granito, con el plumaje ligeramente erizado y la mirada alerta girada hacia un lateral. La textura moteada de la piedra combina con los tonos pardos y grises de su plumaje, generando un efecto de camuflaje natural.",
+    "lugar": "Madrid Río",
+    "ubicacion": "Madrid",
+    "categorias": [
+      "Aves"
+    ],
+    "etiquetas": [
+      "avión roquero",
+      "ptyonoprogne rupestris",
+      "ave",
+      "roca",
+      "granito",
+      "liquen",
+      "plumaje",
+      "camuflaje",
+      "madrid río",
+      "reposo",
+      "mirada",
+      "retrato animal",
+      "verano"
+    ],
+    "fecha": "2026-07-12",
+    "path": "originales/DSC_6139.jpeg",
+    "dimensiones": "4447x2965",
+    "datos_toma": {
+      "camara": "Nikon Z6 III",
+      "objetivo": "Nikkor Z 180-600mm f/5.6-6.3 VR",
+      "iso": 4000,
+      "diafragma": "f/7.1",
+      "obturador": "1/2000s",
+      "focal": "600mm",
+      "compensacion_ev": "0",
+      "medicion": "Ponderada al centro",
+      "balance_blancos": "Automático"
+    },
+    "evaluacion": {
+      "fecha_evaluacion": "2026-07-12",
+      "tecnica": {
+        "exposicion": {
+          "puntuacion": 7.5,
+          "comentario": "Buen equilibrio tonal entre la roca clara y el plumaje oscuro del ave, sin zonas quemadas en la garganta blanca ni sombras completamente empastadas en el dorso.",
+          "mejora": "Con medición ponderada al centro en una escena de alto contraste tonal (roca clara/ave oscura), una compensación de +0.3 EV habría abierto algo más las sombras del plumaje sin arriesgar las luces de la piedra."
+        },
+        "nitidez": {
+          "puntuacion": 8.3,
+          "comentario": "El ojo y la cabeza del ave están perfectamente nítidos, con detalle fino en las plumas de la garganta; la cola pierde algo de definición hacia la punta por la profundidad de campo.",
+          "mejora": "Cerrar el diafragma medio punto más (f/9-f/10) habría mantenido nítida también la cola sin perder demasiada separación del fondo."
+        },
+        "color": {
+          "puntuacion": 6.8,
+          "comentario": "Paleta monocroma de grises y pardos coherente con el entorno rocoso, pero sin ningún acento cromático que rompa la homogeneidad tonal.",
+          "mejora": "Buscar un ángulo donde algún elemento cálido (liquen amarillo, luz rasante dorada) aporte un punto de color que separe al ave del fondo."
+        },
+        "balance_blancos": {
+          "puntuacion": 7.2,
+          "comentario": "El balance automático mantiene una temperatura neutra y fiel a la luz de día, sin dominantes extrañas en la piedra ni en el plumaje.",
+          "mejora": "Sin cambios necesarios; el resultado es fiel a la escena."
+        },
+        "composicion": {
+          "puntuacion": 7.5,
+          "comentario": "El ave ocupa el tercio derecho del encuadre con la mirada dirigida hacia el espacio abierto, y la cola dirige la vista en diagonal desde la esquina inferior izquierda.",
+          "mejora": "Recortar ligeramente el margen izquierdo de roca vacía concentraría más el peso visual sobre el ave y su mirada."
+        },
+        "iluminacion": {
+          "puntuacion": 6.5,
+          "comentario": "Luz difusa y uniforme que revela bien la textura de la roca y del plumaje, pero sin dirección definida que aporte volumen o drama a la escena.",
+          "mejora": "Buscar luz lateral rasante de primera o última hora que cree sombras suaves y separe mejor las capas de plumaje."
+        },
+        "enfoque_profundidad": {
+          "puntuacion": 8.0,
+          "comentario": "Buena separación entre el ave y el fondo gracias al desenfoque progresivo de la roca, con un bokeh suave que no distrae.",
+          "mejora": "Nada que objetar; la relación diafragma-distancia funciona muy bien para este tipo de retrato."
+        },
+        "ruido_limpieza": {
+          "puntuacion": 6.8,
+          "comentario": "A ISO 4000 en fotograma completo hay algo de ruido de luminancia visible en las zonas de sombra del plumaje, aunque controlado.",
+          "mejora": "Aplicar una reducción de ruido selectiva en sombras; comprobar si podría haberse bajado el ISO abriendo el diafragma a f/6.3."
+        },
+        "procesado": {
+          "puntuacion": 7.3,
+          "comentario": "Revelado natural, sin halos ni sobresaturación; las transiciones tonales entre roca y plumaje son suaves.",
+          "mejora": "Un contraste local sutil en las plumas del pecho realzaría la textura sin artificios."
+        },
+        "puntuacion_parte": 7.3,
+        "lo_bueno": "La nitidez en cabeza y ojo es excelente, con un desenfoque de fondo muy limpio que aísla bien al ave del entorno rocoso. La exposición aprovecha bien el rango dinámico entre la piedra clara y el plumaje oscuro, y el balance de blancos es fiel a la luz del día.",
+        "lo_mejorable": "La iluminación plana y la paleta monocroma limitan el impacto visual; el ISO alto introduce algo de ruido en sombras. Buscar luz más direccional y un ISO más bajo elevaría notablemente esta parte."
+      },
+      "artistica": {
+        "emocion": {
+          "puntuacion": 6.0,
+          "comentario": "El plumaje erizado transmite una sensación de vulnerabilidad y frescor, aunque la pose estática no genera una emoción intensa.",
+          "mejora": "Capturar al ave en un gesto más activo (acicalándose, a punto de volar) intensificaría la respuesta emocional."
+        },
+        "narrativa": {
+          "puntuacion": 5.0,
+          "comentario": "La escena sugiere un momento de reposo o refugio, pero no hay elementos adicionales que construyan una historia más amplia.",
+          "mejora": "Incluir en el encuadre alguna pista del entorno (nido, otros individuos) añadiría contexto narrativo."
+        },
+        "momento": {
+          "puntuacion": 5.3,
+          "comentario": "Es un instante de calma más que un momento decisivo; la mirada alerta del ave es lo único que aporta tensión al fotograma.",
+          "mejora": "Esperar a un gesto puntual — un giro de cabeza más marcado, un bostezo, el instante justo antes de alzar el vuelo."
+        },
+        "intencion": {
+          "puntuacion": 7.0,
+          "comentario": "Se percibe una intención clara de retrato de fauna con aislamiento del sujeto y encuadre cuidado.",
+          "mejora": "Definir si el protagonismo es el ave o la textura de la roca ayudaría a reforzar aún más la lectura del encuadre."
+        },
+        "originalidad": {
+          "puntuacion": 5.0,
+          "comentario": "Un ave posada sobre roca es una composición habitual en fotografía de naturaleza, sin un punto de vista que la distinga.",
+          "mejora": "Buscar un ángulo más bajo o un encuadre más amplio que incluya el hábitat rocoso completo aportaría originalidad."
+        },
+        "atmosfera": {
+          "puntuacion": 6.5,
+          "comentario": "La combinación de tonos grises de la roca y el plumaje crea un ambiente sobrio y mineral, coherente con el hábitat rupícola de la especie.",
+          "mejora": "Una luz más cálida de atardecer sobre el granito reforzaría la atmósfera y añadiría profundidad tonal."
+        },
+        "conexion": {
+          "puntuacion": 5.5,
+          "comentario": "El ave está de perfil con la mirada hacia un lateral, sin contacto visual directo con el espectador, lo que limita la cercanía emocional.",
+          "mejora": "Esperar a que el ave gire la cabeza hacia el objetivo para lograr contacto visual directo."
+        },
+        "puntuacion_parte": 5.8,
+        "lo_bueno": "La intención de retrato está clara y el ambiente mineral que envuelve al ave es coherente con su hábitat natural. La sensación de reposo y vulnerabilidad del plumaje erizado aporta un punto de interés emocional sutil.",
+        "lo_mejorable": "Falta un momento más decisivo y una mirada que conecte con el espectador; el tema, aunque bien resuelto, es convencional dentro de la fotografía de aves posadas. Buscar un gesto de acción o contacto visual directo transformaría esta parte."
+      },
+      "excepcional": {
+        "tecnica_emocion": {
+          "puntuacion": 4.0,
+          "comentario": "La técnica es sólida pero no se funde con la emoción de forma que una potencie a la otra; el resultado es una buena ilustración más que una fusión.",
+          "mejora": "Buscar condiciones (luz rasante, gesto de vuelo) donde la técnica refuerce directamente la sensación transmitida."
+        },
+        "momento_irrepetible": {
+          "puntuacion": 2.5,
+          "comentario": "Un ave posada y erizada en una roca es una escena que se puede volver a fotografiar con paciencia en el mismo lugar.",
+          "mejora": "Buscar un comportamiento puntual (alimentando crías, cortejo) que sea mucho más difícil de repetir."
+        },
+        "estilo_impacto": {
+          "puntuacion": 3.5,
+          "comentario": "Es una imagen agradable y bien resuelta técnicamente, pero no tiene un tratamiento o encuadre que la haga inmediatamente reconocible como propia.",
+          "mejora": "Desarrollar un tratamiento de color o un encuadre más arriesgado (muy cerrado, muy amplio) que aporte firma personal."
+        },
+        "trascendencia": {
+          "puntuacion": 1.5,
+          "comentario": "Es un retrato de fauna correcto pero no comunica nada más allá de la propia escena observada.",
+          "mejora": "Buscar un enfoque que conecte la imagen con ideas más amplias, como la adaptación al entorno rocoso o la fragilidad de la vida silvestre urbana."
+        },
+        "puntuacion_parte": 2.9,
+        "lo_bueno": "Hay coherencia entre el hábitat rocoso y el aspecto del ave que empieza a construir una narrativa visual sobre adaptación y camuflaje.",
+        "lo_mejorable": "La escena es repetible y no alcanza un momento verdaderamente único ni un estilo autoral definido. Ganaría mucho documentando comportamientos puntuales o momentos de acción irrepetibles."
+      },
+      "puntuacion_total": 5.8,
+      "lo_bueno": "La imagen combina una técnica depurada — enfoque preciso, buen aislamiento del sujeto y exposición equilibrada — con una lectura coherente del hábitat rupícola de la especie, donde el plumaje y la roca dialogan visualmente.",
+      "lo_mejorable": "El conjunto se queda en un buen retrato de naturaleza sin dar el salto a la fotografía memorable: falta un momento de acción o comportamiento, una luz más envolvente y un punto de color o contraste que rompa la monocromía. La dirección de mejora pasa por buscar comportamiento y luz más que por la técnica, que ya está resuelta.",
+      "resumen": "Retrato técnicamente correcto de un avión roquero posado sobre granito, con buen aislamiento del sujeto y fidelidad tonal, pero limitado por una pose estática, luz plana y ausencia de contacto visual. El mayor potencial está en capturar un comportamiento activo con luz más direccional.",
+      "potencial": 7.4,
+      "mejora_prioritaria": "Esperar a que el ave gire la cabeza hacia la cámara o inicie un gesto de vuelo, preferiblemente con luz rasante de primera/última hora, para sumar contacto visual y dirección lumínica al buen aislamiento técnico ya logrado."
+    }
+  },
+  {
+    "titulo": "Milano negro planeando a contraluz",
+    "nombre": "DSC_6493",
+    "descripcion": "Un milano negro surca un cielo azul intenso con las alas completamente desplegadas, la luz del sol recortando el borde de sus plumas primarias. La cabeza girada y la mirada atenta añaden tensión a la silueta extendida en pleno vuelo sobre Casa de Campo.",
+    "lugar": "Casa de Campo",
+    "ubicacion": "Madrid",
+    "categorias": [
+      "Aves"
+    ],
+    "etiquetas": [
+      "milano negro",
+      "milvus migrans",
+      "rapaz",
+      "aves",
+      "vuelo",
+      "alas abiertas",
+      "cielo",
+      "azul",
+      "contraluz",
+      "casa de campo",
+      "madrid",
+      "planeo",
+      "envergadura",
+      "mirada"
+    ],
+    "fecha": "2026-07-12",
+    "path": "originales/DSC_6493.jpeg",
+    "dimensiones": "2567x2567",
+    "datos_toma": {
+      "camara": "Nikon Z6 III",
+      "objetivo": "Nikkor Z 180-600mm f/5.6-6.3 VR",
+      "iso": 450,
+      "diafragma": "f/7.1",
+      "obturador": "1/2000s",
+      "focal": "340mm",
+      "compensacion_ev": "0",
+      "medicion": "Ponderada al centro",
+      "balance_blancos": "Automático"
+    },
+    "evaluacion": {
+      "fecha_evaluacion": "2026-07-12",
+      "tecnica": {
+        "exposicion": {
+          "puntuacion": 8.5,
+          "comentario": "El cielo azul satura sin perder gradación, y el plumaje oscuro conserva detalle en las zonas de sombra a pesar del fuerte contraluz lateral.",
+          "mejora": "Una ligera subexposición de -0.3 EV habría intensificado aún más el azul del cielo sin sacrificar detalle en las plumas."
+        },
+        "nitidez": {
+          "puntuacion": 8.7,
+          "comentario": "El ojo y la cabeza del milano están perfectamente nítidos, y se aprecia la separación individual de las plumas primarias en ambas alas.",
+          "mejora": "El recorte cuadrado bastante ajustado reduce la resolución nativa disponible; acercarse más en el disparo original permitiría recortar menos y conservar más detalle."
+        },
+        "color": {
+          "puntuacion": 8.0,
+          "comentario": "El contraste entre el azul profundo del cielo y los tonos dorados y pardos del plumaje iluminado por el sol crea una paleta vibrante y natural.",
+          "mejora": "Sin cambios necesarios; la paleta funciona muy bien tal cual."
+        },
+        "balance_blancos": {
+          "puntuacion": 7.5,
+          "comentario": "El balance automático mantiene el azul del cielo fiel sin dominante verdosa ni magenta, y los tonos cálidos del plumaje se leen naturales.",
+          "mejora": "Nada que objetar en esta escena de luz de día directa."
+        },
+        "composicion": {
+          "puntuacion": 8.5,
+          "comentario": "La envergadura del ave cruza el encuadre en diagonal de esquina a esquina, con la mirada dirigida hacia el espacio vacío que aporta aire a la composición.",
+          "mejora": "Mantener este mismo criterio de recorte cuadrado y diagonal en próximas tomas de vuelo; funciona muy bien para este tipo de silueta."
+        },
+        "iluminacion": {
+          "puntuacion": 8.5,
+          "comentario": "El contraluz lateral crea un brillo translúcido en el borde de las plumas primarias y secundarias, revelando su estructura de forma muy gráfica.",
+          "mejora": "Sin mejoras significativas; esta dirección de luz es la ideal para este tipo de toma."
+        },
+        "enfoque_profundidad": {
+          "puntuacion": 8.0,
+          "comentario": "El fondo de cielo uniforme aísla completamente al ave sin necesidad de un desenfoque adicional, dejando todo el peso visual en la silueta.",
+          "mejora": "Nada que objetar; la ausencia de elementos de fondo funciona a favor de la imagen."
+        },
+        "ruido_limpieza": {
+          "puntuacion": 8.3,
+          "comentario": "A ISO 450 la imagen está prácticamente libre de ruido, con un cielo limpio y sin bandas de posterización.",
+          "mejora": "Sin cambios necesarios en este aspecto."
+        },
+        "procesado": {
+          "puntuacion": 8.0,
+          "comentario": "El revelado es natural, sin halos alrededor del ave ni saturación forzada en el azul del cielo.",
+          "mejora": "Un mínimo ajuste de claridad en las plumas iluminadas podría acentuar aún más la textura sin resultar artificial."
+        },
+        "puntuacion_parte": 8.2,
+        "lo_bueno": "La nitidez en cabeza y plumaje es sobresaliente, y el contraluz lateral aporta un brillo translúcido muy atractivo en el borde de las alas. La exposición resuelve con solvencia el reto de un cielo muy luminoso junto a un ave de plumaje oscuro.",
+        "lo_mejorable": "El recorte cuadrado ajustado limita algo la resolución final disponible. Acercarse más en la toma original o usar mayor focal reduciría la necesidad de recortar tanto en postproducción."
+      },
+      "artistica": {
+        "emocion": {
+          "puntuacion": 7.5,
+          "comentario": "La envergadura completamente desplegada contra un cielo despejado transmite una sensación clara de libertad y grandeza.",
+          "mejora": "Capturar el instante justo de un giro más pronunciado o un picado añadiría aún más tensión emocional."
+        },
+        "narrativa": {
+          "puntuacion": 5.5,
+          "comentario": "La escena sugiere un vuelo de reconocimiento o búsqueda, pero al no haber presa, nido u otro elemento de contexto, la historia queda abierta y genérica.",
+          "mejora": "Incluir en el encuadre algún elemento de referencia (otro ave, el paisaje de Casa de Campo) aportaría más contexto narrativo."
+        },
+        "momento": {
+          "puntuacion": 6.5,
+          "comentario": "La postura de las alas en plena extensión captura un instante representativo del planeo, aunque no es el pico de una acción concreta.",
+          "mejora": "Esperar a un aleteo activo o a un cambio brusco de dirección aportaría más tensión al instante capturado."
+        },
+        "intencion": {
+          "puntuacion": 8.0,
+          "comentario": "Se percibe una intención clara de aislar la silueta del ave con un encuadre diagonal y un recorte cuadrado muy deliberado.",
+          "mejora": "Mantener esta claridad de intención en las próximas tomas; el resultado ya es muy coherente."
+        },
+        "originalidad": {
+          "puntuacion": 5.0,
+          "comentario": "Una rapaz volando contra un cielo azul despejado es una composición muy habitual en fotografía de aves, aunque bien resuelta.",
+          "mejora": "Buscar un fondo distinto (nubes, paisaje, otra ave) o un ángulo de vuelo menos convencional aportaría más originalidad."
+        },
+        "atmosfera": {
+          "puntuacion": 7.5,
+          "comentario": "El azul intenso y uniforme del cielo transmite una sensación de altura y amplitud, reforzada por el contraluz cálido sobre el plumaje.",
+          "mejora": "Esperar a condiciones con alguna nube dispersa podría añadir profundidad atmosférica sin perder la limpieza actual."
+        },
+        "conexion": {
+          "puntuacion": 6.0,
+          "comentario": "El ojo del ave está nítido y su mirada atenta hacia un lateral aporta cierta cercanía, aunque no hay contacto visual directo con el espectador.",
+          "mejora": "Esperar a que el ave gire la cabeza hacia el objetivo generaría una conexión visual más directa."
+        },
+        "puntuacion_parte": 6.6,
+        "lo_bueno": "La intención compositiva es muy clara y coherente, y la sensación de libertad que transmite la envergadura desplegada es genuina. La mirada atenta del ave aporta un punto de conexión sutil pero efectivo.",
+        "lo_mejorable": "El tema es convencional dentro de la fotografía de rapaces en vuelo y la narrativa es limitada al no haber más contexto en la escena. Buscar comportamiento activo o un fondo menos habitual elevaría notablemente esta parte."
+      },
+      "excepcional": {
+        "tecnica_emocion": {
+          "puntuacion": 5.5,
+          "comentario": "El contraluz y la nitidez sirven bien a la sensación de grandeza del vuelo, aunque la fusión entre técnica y emoción no llega a ser inseparable.",
+          "mejora": "Buscar un momento donde el efecto lumínico coincida con un gesto de mayor intensidad (viraje brusco, aleteo potente) para una fusión más completa."
+        },
+        "momento_irrepetible": {
+          "puntuacion": 3.0,
+          "comentario": "Un milano negro planeando sobre Casa de Campo en un día despejado es una escena que se puede repetir con relativa facilidad en la misma zona.",
+          "mejora": "Buscar comportamientos puntuales como una caza, un cortejo o una interacción entre varios individuos para ganar irrepetibilidad."
+        },
+        "estilo_impacto": {
+          "puntuacion": 5.5,
+          "comentario": "El tratamiento gráfico y minimalista, con el ave ocupando la diagonal sobre un fondo limpio, tiene una fuerza visual notable y podría detener el scroll con facilidad.",
+          "mejora": "Repetir este mismo criterio de composición diagonal y fondo limpio en una serie coherente reforzaría un estilo propio reconocible."
+        },
+        "trascendencia": {
+          "puntuacion": 3.0,
+          "comentario": "La imagen evoca ideas universales de libertad y vuelo, pero se queda en el terreno de lo estético sin ahondar en un mensaje más profundo.",
+          "mejora": "Buscar un contexto que conecte la imagen con algo más amplio, como la convivencia de la fauna rapaz con el entorno urbano de Madrid."
+        },
+        "puntuacion_parte": 4.3,
+        "lo_bueno": "El tratamiento gráfico de la silueta contra el cielo tiene potencial de convertirse en una imagen de sello propio si se repite con criterio consistente.",
+        "lo_mejorable": "Falta un momento de comportamiento verdaderamente irrepetible y un mensaje que trascienda lo puramente estético. Documentar interacciones o caza elevaría mucho esta parte."
+      },
+      "puntuacion_total": 6.8,
+      "lo_bueno": "La imagen combina una ejecución técnica muy sólida — nitidez, contraluz y exposición bien resueltos — con una composición gráfica y deliberada que aísla al ave con fuerza visual. El resultado transmite con claridad la sensación de libertad del vuelo.",
+      "lo_mejorable": "El conjunto se apoya en un tema y encuadre habituales en fotografía de rapaces; el salto a la excelencia pasa por capturar un comportamiento más singular (caza, interacción) y por ajustar el recorte para preservar más resolución nativa.",
+      "resumen": "Milano negro planeando a contraluz sobre Casa de Campo, con una silueta muy bien resuelta técnicamente y una composición diagonal efectiva contra el cielo despejado. Es una de las fotos de vuelo más sólidas técnicamente del portfolio, aunque el tema en sí es convencional.",
+      "potencial": 7.8,
+      "mejora_prioritaria": "Buscar el mismo tipo de luz de contraluz pero durante un comportamiento activo (caza, interacción con otro milano, viraje brusco) y disparar con menos necesidad de recorte posterior para conservar la resolución nativa."
     }
   }
 ]

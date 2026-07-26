@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,500&family=Work+Sans:wght@400;500&display=swap" rel="stylesheet">
+  <script src="../image-slot.js"></script>
+</helmet>
+
+<div style="{{ wrapStyle }}">
+  <div style="{{ cardStyle }}">
+    <div style="{{ cfWrapStyle }}">
+      <image-slot id="cf-tpl" src="https://picsum.photos/seed/tpl-cf/800/800" style="width:100%;height:100%;display:block" shape="rect" fit="cover" placeholder="Foto, recorte circular"></image-slot>
+    </div>
+    <div style="{{ cfTitleStyle }}">Título de la foto</div>
+    <div style="{{ cfMetaStyle }}">Lugar · Fecha</div>
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;: {&quot;width&quot;: 1264, &quot;height&quot;: 739}}">
+// TIPO DE PÁGINA: Foto circular — recorte circular centrado, con título y
+// lugar/fecha debajo. Un tratamiento distintivo para retratos o detalles.
+class Component extends DCLogic {
+  renderVals() {
+    const fg = '#262220', muted = '#8a8175';
+    const sansFont = "'Work Sans', sans-serif";
+    const serifFont = "'Playfair Display', serif";
+    const cardW = 1200, cardH = 675, padX = 60, padY = 52;
+    const shadow = '0 26px 56px rgba(30,26,18,0.18), 0 4px 12px rgba(30,26,18,0.09)';
+    const border = '1px solid rgba(30,26,18,0.1)';
+    const d = 320;
+
+    return {
+      wrapStyle: { display: 'flex', justifyContent: 'center', background: '#e7e2d6', padding: 32 },
+      cardStyle: { background: 'linear-gradient(150deg, #faf6ec 0%, #f1ead6 100%)', border, boxShadow: shadow, borderRadius: 8, width: cardW, height: cardH, boxSizing: 'border-box', padding: `${padY}px ${padX}px`, display: 'flex', flexDirection: 'column', justifyContent: 'center', overflow: 'hidden', position: 'relative' },
+      cfWrapStyle: { width: d, height: d, margin: '0 auto', position: 'relative', overflow: 'hidden', borderRadius: '50%', background: 'rgba(20,16,10,0.045)', boxShadow: '0 16px 32px rgba(30,26,18,0.18)' },
+      cfTitleStyle: { fontFamily: serifFont, fontStyle: 'italic', fontSize: 26, color: fg, textAlign: 'center', marginTop: 26 },
+      cfMetaStyle: { fontFamily: sansFont, fontSize: 13.5, color: muted, textAlign: 'center', marginTop: 6, letterSpacing: '.02em' }
+    };
+  }
+}
+
+</script>
+</body>
+</html>

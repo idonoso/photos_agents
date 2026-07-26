@@ -258,6 +258,14 @@ mv "/Users/ignacio/Sites/fotos/pendientes/NOMBRE_ARCHIVO" "/Users/ignacio/Sites/
 
 Si es una actualización (detectada en 3a), sobrescribe el existente en `originales/`.
 
+Obtén las dimensiones en píxeles del archivo ya movido:
+
+```bash
+sips -g pixelWidth -g pixelHeight "/Users/ignacio/Sites/fotos/originales/NOMBRE_ARCHIVO"
+```
+
+Guarda el resultado como `"ANCHOxALTO"` (ej: `"3406x3406"`, `"6048x4024"`) en el campo `dimensiones` del paso 3d. Si `sips` no puede leer el archivo (algunos RAW no soportados), usa `null` en ese campo y continúa sin bloquear el flujo.
+
 ### 3d. Crear entrada JSON
 
 Crea un objeto con esta estructura exacta:
@@ -273,6 +281,7 @@ Crea un objeto con esta estructura exacta:
   "etiquetas": ["gaviota", "vuelo", "atardecer", "mar", "costa", "ave marina"],
   "fecha": "2026-03-15",
   "path": "originales/gaviota-vuelo.jpg",
+  "dimensiones": "6048x4024",
   "datos_toma": {
     "camara": "Canon R7",
     "objetivo": "100-400mm f/4.5-5.6 L IS II",
@@ -528,5 +537,6 @@ Si el usuario indica que la foto NO es repetible, NO añadas el campo `repetir` 
 - Nunca sobrescribas archivos en `originales/` sin preguntar primero (paso 3a).
 - El JSON debe ser la fuente de verdad. Siempre lee el JSON existente antes de escribir.
 - Las rutas en `path` son relativas al proyecto (`originales/foto.jpg`), no absolutas.
+- El campo `dimensiones` guarda el tamaño real en píxeles del archivo en `originales/` (formato `"ANCHOxALTO"`), obtenido con `sips -g pixelWidth -g pixelHeight`. Es el tamaño original, no el de ninguna exportación posterior (eso ya lo guarda `instagram.dimensiones` cuando aplica).
 - **Coherencia de puntuación**: antes de evaluar una nueva foto, revisa las puntuaciones de las fotos existentes en el JSON para mantener la escala relativa. Si la foto nueva es claramente mejor que una existente con 7.0, debe puntuar por encima. Si es peor, por debajo.
 - **Mejoras accionables**: cada sugerencia de mejora debe ser algo que el fotógrafo pueda hacer concretamente — no generalidades vagas como "mejorar la composición", sino instrucciones específicas como "incluir más cielo por encima del sujeto para dar espacio de respiro".

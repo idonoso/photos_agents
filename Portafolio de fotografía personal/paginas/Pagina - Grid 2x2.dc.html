@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500&family=Work+Sans:wght@400;500&display=swap" rel="stylesheet">
+  <script src="../image-slot.js"></script>
+</helmet>
+
+<div style="{{ wrapStyle }}">
+  <div style="{{ cardStyle }}">
+    <div style="{{ gridStyle }}">
+      <sc-for list="{{ photos }}" as="cell" hint-placeholder-count="4">
+        <div style="{{ cell.cellStyle }}">
+          <image-slot id="{{ cell.slotId }}" src="{{ cell.src }}" style="width:100%;height:100%;display:block" shape="rect" fit="cover" placeholder="Foto"></image-slot>
+          <div style="{{ cell.cellScrimStyle }}"></div>
+          <div style="{{ cell.cellTitleStyle }}">{{ cell.title }}</div>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;: {&quot;width&quot;: 1264, &quot;height&quot;: 739}}">
+// TIPO DE PÁGINA: Grid 2x2 — cuatro fotos en cuadrícula, cada una con su
+// título superpuesto. Bueno para mostrar variedad rápida sin mucho texto.
+class Component extends DCLogic {
+  photos = [
+    { slotId: 'g1', title: 'Foto uno', src: 'https://picsum.photos/seed/tpl-g1/800/800' },
+    { slotId: 'g2', title: 'Foto dos', src: 'https://picsum.photos/seed/tpl-g2/800/800' },
+    { slotId: 'g3', title: 'Foto tres', src: 'https://picsum.photos/seed/tpl-g3/800/800' },
+    { slotId: 'g4', title: 'Foto cuatro', src: 'https://picsum.photos/seed/tpl-g4/800/800' }
+  ];
+
+  renderVals() {
+    const serifFont = "'Playfair Display', serif";
+    const cardW = 1200, cardH = 675, padX = 60, padY = 52;
+    const contentW = cardW - padX * 2;
+    const shadow = '0 26px 56px rgba(30,26,18,0.18), 0 4px 12px rgba(30,26,18,0.09)';
+    const border = '1px solid rgba(30,26,18,0.1)';
+    const cellStyle = { position: 'relative', overflow: 'hidden', background: 'rgba(20,16,10,0.045)' };
+    const cellScrimStyle = { position: 'absolute', left: 0, right: 0, bottom: 0, height: '46%', background: 'linear-gradient(180deg, rgba(10,8,6,0) 0%, rgba(10,8,6,0.55) 100%)' };
+    const cellTitleStyle = { position: 'absolute', left: 14, bottom: 12, fontFamily: serifFont, fontSize: 18, color: '#faf6ef', textShadow: '0 2px 10px rgba(0,0,0,0.3)' };
+
+    return {
+      wrapStyle: { display: 'flex', justifyContent: 'center', background: '#e7e2d6', padding: 32 },
+      cardStyle: { background: 'linear-gradient(150deg, #faf6ec 0%, #f1ead6 100%)', border, boxShadow: shadow, borderRadius: 8, width: cardW, height: cardH, boxSizing: 'border-box', padding: `${padY}px ${padX}px`, display: 'flex', flexDirection: 'column', justifyContent: 'center', overflow: 'hidden', position: 'relative' },
+      gridStyle: { display: 'grid', gridTemplateColumns: '1fr 1fr', gridTemplateRows: '1fr 1fr', gap: 16, width: contentW, height: 470 },
+      photos: this.photos.map(p => ({ ...p, cellStyle, cellScrimStyle, cellTitleStyle }))
+    };
+  }
+}
+
+</script>
+</body>
+</html>

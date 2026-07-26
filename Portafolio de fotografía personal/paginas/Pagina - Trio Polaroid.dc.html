@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,500&display=swap" rel="stylesheet">
+  <script src="../image-slot.js"></script>
+</helmet>
+
+<div style="{{ wrapStyle }}">
+  <div style="{{ cardStyle }}">
+    <div style="{{ ptRowStyle }}">
+      <sc-for list="{{ photos }}" as="ph" hint-placeholder-count="3">
+        <div style="{{ ph.ptCardStyle }}">
+          <div style="{{ ph.ptFrameStyle }}">
+            <image-slot id="{{ ph.slotId }}" src="{{ ph.src }}" style="width:100%;height:100%;display:block" shape="rect" fit="cover" placeholder="Foto"></image-slot>
+          </div>
+          <div style="{{ ph.ptCapStyle }}">{{ ph.title }}</div>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;: {&quot;width&quot;: 1264, &quot;height&quot;: 739}}">
+// TIPO DE PÁGINA: Trío polaroid — tres fotos cuadradas con marco blanco y
+// ligera rotación, efecto instantánea. Bueno para momentos informales.
+class Component extends DCLogic {
+  items = [
+    { slotId: 'pt1', title: 'Momento uno', rot: -4 },
+    { slotId: 'pt2', title: 'Momento dos', rot: 3 },
+    { slotId: 'pt3', title: 'Momento tres', rot: -2 }
+  ];
+
+  renderVals() {
+    const cardW = 1200, cardH = 675, padX = 60, padY = 52;
+    const serifFont = "'Playfair Display', serif";
+    const shadow = '0 26px 56px rgba(30,26,18,0.18), 0 4px 12px rgba(30,26,18,0.09)';
+    const border = '1px solid rgba(30,26,18,0.1)';
+
+    return {
+      wrapStyle: { display: 'flex', justifyContent: 'center', background: '#e7e2d6', padding: 32 },
+      cardStyle: { background: 'linear-gradient(150deg, #faf6ec 0%, #f1ead6 100%)', border, boxShadow: shadow, borderRadius: 8, width: cardW, height: cardH, boxSizing: 'border-box', padding: `${padY}px ${padX}px`, display: 'flex', flexDirection: 'column', justifyContent: 'center', overflow: 'hidden', position: 'relative' },
+      ptRowStyle: { display: 'flex', justifyContent: 'center', gap: 30 },
+      photos: this.items.map(it => ({
+        slotId: `tpl-${it.slotId}`,
+        title: it.title,
+        src: `https://picsum.photos/seed/tpl-${it.slotId}/500/500`,
+        ptCardStyle: { background: '#fffdf8', padding: '14px 14px 20px', boxShadow: '0 12px 24px rgba(30,26,18,0.2)', transform: `rotate(${it.rot}deg)`, width: 220 },
+        ptFrameStyle: { position: 'relative', width: 192, height: 192, overflow: 'hidden', background: 'rgba(20,16,10,0.06)' },
+        ptCapStyle: { fontFamily: serifFont, fontStyle: 'italic', fontSize: 15, color: '#3a332b', textAlign: 'center', marginTop: 10 }
+      }))
+    };
+  }
+}
+
+</script>
+</body>
+</html>

@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Work+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <script src="./image-slot.js"></script>
+  <style>
+    body { margin: 0; background: #0b0b0b; }
+    * { box-sizing: border-box; }
+    @keyframes lbFadeIn { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes lbZoomIn { from { opacity: 0; transform: scale(.97); } to { opacity: 1; transform: scale(1); } }
+  </style>
+</helmet>
+
+<div style="{{ pageStyle }}">
+
+  <div style="{{ rowsWrapStyle }}">
+    <sc-for list="{{ pages }}" as="page" hint-placeholder-count="6">
+      <div style="{{ page.wrapStyle }}">
+        <div style="{{ page.cardStyle }}">
+
+          <sc-if value="{{ page.isCover }}" hint-placeholder-val="{{ false }}">
+            <div style="{{ page.coverImgWrapStyle }}">
+              <image-slot id="{{ page.photo.slotId }}" src="{{ page.photo.src }}" style="width:100%;height:100%;display:block" shape="rect" fit="cover" placeholder="{{ page.photo.placeholder }}"></image-slot>
+            </div>
+            <div style="{{ page.coverScrimStyle }}"></div>
+            <div style="{{ page.coverTextStyle }}">
+              <div style="{{ page.coverTitleStyle }}">Elena Rivas</div>
+              <div style="{{ page.coverTaglineStyle }}">Fotografía</div>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ page.isSingleStacked }}" hint-placeholder-val="{{ false }}">
+            <div style="{{ page.imgWrapStyle }}" onClick="{{ page.photo.onOpen }}">
+              <image-slot id="{{ page.photo.slotId }}" src="{{ page.photo.src }}" style="width:100%;height:100%;display:block" shape="rect" fit="cover" placeholder="{{ page.photo.placeholder }}"></image-slot>
+            </div>
+            <div style="{{ page.textWrapStyle }}">
+              <div style="{{ page.titleStyle }}">{{ page.photo.title }}</div>
+              <sc-if value="{{ page.showMeta }}" hint-placeholder-val="{{ true }}">
+                <div style="{{ page.metaStyle }}">{{ page.photo.place }} · {{ page.photo.date }}</div>
+              </sc-if>
+              <sc-if value="{{ page.showNotes }}" hint-placeholder-val="{{ true }}">
+                <div style="{{ page.notesStyle }}">{{ page.photo.notes }}</div>
+              </sc-if>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ page.isSingleSide }}" hint-placeholder-val="{{ false }}">
+            <div style="{{ page.sideRowStyle }}">
+              <div style="{{ page.imgWrapStyle }}" onClick="{{ page.photo.onOpen }}">
+                <image-slot id="{{ page.photo.slotId }}" src="{{ page.photo.src }}" style="width:100%;height:100%;display:block" shape="rect" fit="cover" placeholder="{{ page.photo.placeholder }}"></image-slot>
+              </div>
+              <div style="{{ page.sideTextStyle }}">
+                <div style="{{ page.titleStyle }}">{{ page.photo.title }}</div>
+                <sc-if value="{{ page.showMeta }}" hint-placeholder-val="{{ true }}">
+                  <div style="{{ page.metaStyle }}">{{ page.photo.place }} · {{ page.photo.date }}</div>
+                </sc-if>
+                <sc-if value="{{ page.showNotes }}" hint-placeholder-val="{{ false }}">
+                  <div style="{{ page.notesStyle }}">{{ page.photo.notes }}</div>
+                </sc-if>
+              </div>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ page.isTextForward }}" hint-placeholder-val="{{ false }}">
+            <div style="{{ page.tfRowStyle }}">
+              <div style="{{ page.imgWrapStyle }}" onClick="{{ page.photo.onOpen }}">
+                <image-slot id="{{ page.photo.slotId }}" src="{{ page.photo.src }}" style="width:100%;height:100%;display:block" shape="rect" fit="cover" placeholder="{{ page.photo.placeholder }}"></image-slot>
+              </div>
+              <div style="{{ page.sideTextStyle }}">
+                <div style="{{ page.tfQuoteStyle }}">{{ page.photo.notes }}</div>
+                <div style="{{ page.titleStyle }}">{{ page.photo.title }}</div>
+                <sc-if value="{{ page.showMeta }}" hint-placeholder-val="{{ true }}">
+                  <div style="{{ page.metaStyle }}">{{ page.photo.place }} · {{ page.photo.date }}</div>
+                </sc-if>
+              </div>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ page.isFullBleedSingle }}" hint-placeholder-val="{{ false }}">
+            <div style="{{ page.fbImgWrapStyle }}" onClick="{{ page.photo.onOpen }}">
+              <image-slot id="{{ page.photo.slotId }}" src="{{ page.photo.src }}" style="width:100%;height:100%;display:block" shape="rect" fit="cover" placeholder="{{ page.photo.placeholder }}"></image-slot>
+            </div>
+            <div style="{{ page.fbScrimStyle }}"></div>
+            <div style="{{ page.fbTextStyle }}">
+              <div style="{{ page.fbTitleStyle }}">{{ page.photo.title }}</div>
+              <sc-if value="{{ page.showMeta }}" hint-placeholder-val="{{ true }}">
+                <div style="{{ page.fbMetaStyle }}">{{ page.photo.place }} · {{ page.photo.date }}</div>
+              </sc-if>
+              <sc-if value="{{ page.showNotes }}" hint-placeholder-val="{{ true }}">
+                <div style="{{ page.fbNotesStyle }}">{{ page.photo.notes }}</div>
+              </sc-if>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ page.isGrid2x2 }}" hint-placeholder-val="{{ false }}">
+            <div style="{{ page.gridStyle }}">
+              <sc-for list="{{ page.photos }}" as="cell" hint-placeholder-count="4">
+                <div style="{{ cell.cellStyle }}" onClick="{{ cell.onOpen }}">
+                  <image-slot id="{{ cell.slotId }}" src="{{ cell.src }}" style="width:100%;height:100%;display:block" shape="rect" fit="cover" placeholder="{{ cell.placeholder }}"></image-slot>
+                  <div style="{{ cell.cellScrimStyle }}"></div>
+                  <div style="{{ cell.cellTitleStyle }}">{{ cell.title }}</div>
+                </div>
+              </sc-for>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ page.isDiptychText }}" hint-placeholder-val="{{ false }}">
+            <div style="{{ page.rowStyle }}">
+              <div>
+                <div style="{{ page.dtImgStyle }}" onClick="{{ page.leftPhoto.onOpen }}">
+                  <image-slot id="{{ page.leftPhoto.slotId }}" src="{{ page.leftPhoto.src }}" style="width:100%;height:100%;display:block" shape="rect" fit="cover" placeholder="{{ page.leftPhoto.placeholder }}"></image-slot>
+                </div>
+                <sc-if value="{{ page.showMeta }}" hint-placeholder-val="{{ true }}">
+                  <div style="{{ page.dtLabelStyle }}">{{ page.leftPhoto.place }}</div>
+                </sc-if>
+              </div>
+              <div style="{{ page.dtCenterStyle }}">
+                <div style="{{ page.dtTitleStyle }}">{{ page.themePhoto.title }}</div>
+                <div style="{{ page.dtNotesStyle }}">{{ page.themePhoto.notes }}</div>
+              </div>
+              <div>
+                <div style="{{ page.dtImgStyle }}" onClick="{{ page.rightPhoto.onOpen }}">
+                  <image-slot id="{{ page.rightPhoto.slotId }}" src="{{ page.rightPhoto.src }}" style="width:100%;height:100%;display:block" shape="rect" fit="cover" placeholder="{{ page.rightPhoto.placeholder }}"></image-slot>
+                </div>
+                <sc-if value="{{ page.showMeta }}" hint-placeholder-val="{{ true }}">
+                  <div style="{{ page.dtLabelStyle }}">{{ page.rightPhoto.place }}</div>
+                </sc-if>
+              </div>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ page.isFilmstrip }}" hint-placeholder-val="{{ false }}">
+            <div style="{{ page.filmHeaderStyle }}">{{ page.filmHeaderText }}</div>
+            <div style="{{ page.filmRowStyle }}">
+              <sc-for list="{{ page.photos }}" as="ph" hint-placeholder-count="5">
+                <div>
+                  <div style="{{ ph.thumbStyle }}" onClick="{{ ph.onOpen }}">
+                    <image-slot id="{{ ph.slotId }}" src="{{ ph.src }}" style="width:100%;height:100%;display:block" shape="rect" fit="cover" placeholder="{{ ph.placeholder }}"></image-slot>
+                  </div>
+                </div>
+              </sc-for>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ page.isCenteredMinimal }}" hint-placeholder-val="{{ false }}">
+            <div style="{{ page.cmImgWrapStyle }}" onClick="{{ page.photo.onOpen }}">
+              <image-slot id="{{ page.photo.slotId }}" src="{{ page.photo.src }}" style="width:100%;height:100%;display:block" shape="rect" fit="contain" placeholder="{{ page.photo.placeholder }}"></image-slot>
+            </div>
+            <div style="{{ page.cmTitleStyle }}">{{ page.photo.title }}</div>
+          </sc-if>
+
+          <sc-if value="{{ page.isLetterboxStack }}" hint-placeholder-val="{{ false }}">
+            <div style="{{ page.lsColStyle }}">
+              <sc-for list="{{ page.photos }}" as="ph" hint-placeholder-count="2">
+                <div>
+                  <div style="{{ ph.lsFrameStyle }}" onClick="{{ ph.onOpen }}">
+                    <image-slot id="{{ ph.slotId }}" src="{{ ph.src }}" style="width:100%;height:100%;display:block" shape="rect" fit="cover" placeholder="{{ ph.placeholder }}"></image-slot>
+                  </div>
+                  <div style="{{ ph.lsCapStyle }}">
+                    <div style="{{ ph.lsTitleStyle }}">{{ ph.title }}</div>
+                    <div style="{{ ph.lsMetaStyle }}">{{ ph.place }} · {{ ph.date }}</div>
+                  </div>
+                </div>
+              </sc-for>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ page.isHeroWithStrip }}" hint-placeholder-val="{{ false }}">
+            <div style="{{ page.hwHeroWrapStyle }}" onClick="{{ page.hero.onOpen }}">
+              <image-slot id="{{ page.hero.slotId }}" src="{{ page.hero.src }}" style="width:100%;height:100%;display:block" shape="rect" fit="cover" placeholder="{{ page.hero.placeholder }}"></image-slot>
+            </div>
+            <div style="{{ page.hwTextStyle }}">
+              <div style="{{ page.hwTitleStyle }}">{{ page.hero.title }}</div>
+              <sc-if value="{{ page.showMeta }}" hint-placeholder-val="{{ true }}">
+                <div style="{{ page.hwMetaStyle }}">{{ page.hero.place }} · {{ page.hero.date }}</div>
+              </sc-if>
+            </div>
+            <div style="{{ page.hwStripStyle }}">
+              <sc-for list="{{ page.thumbs }}" as="th" hint-placeholder-count="3">
+                <div style="{{ th.hwThumbStyle }}" onClick="{{ th.onOpen }}">
+                  <image-slot id="{{ th.slotId }}" src="{{ th.src }}" style="width:100%;height:100%;display:block" shape="rect" fit="cover" placeholder="{{ th.placeholder }}"></image-slot>
+                </div>
+              </sc-for>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ page.isPolaroidTrio }}" hint-placeholder-val="{{ false }}">
+            <div style="{{ page.ptRowStyle }}">
+              <sc-for list="{{ page.photos }}" as="ph" hint-placeholder-count="3">
+                <div style="{{ ph.ptCardStyle }}">
+                  <div style="{{ ph.ptFrameStyle }}" onClick="{{ ph.onOpen }}">
+                    <image-slot id="{{ ph.slotId }}" src="{{ ph.src }}" style="width:100%;height:100%;display:block" shape="rect" fit="cover" placeholder="{{ ph.placeholder }}"></image-slot>
+                  </div>
+                  <div style="{{ ph.ptCapStyle }}">{{ ph.title }}</div>
+                </div>
+              </sc-for>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ page.isAsymmetricPair }}" hint-placeholder-val="{{ false }}">
+            <div style="{{ page.apRowStyle }}">
+              <div>
+                <div style="{{ page.apBigWrapStyle }}" onClick="{{ page.bigPhoto.onOpen }}">
+                  <image-slot id="{{ page.bigPhoto.slotId }}" src="{{ page.bigPhoto.src }}" style="width:100%;height:100%;display:block" shape="rect" fit="cover" placeholder="{{ page.bigPhoto.placeholder }}"></image-slot>
+                </div>
+                <div style="{{ page.apTitleStyle }}">{{ page.bigPhoto.title }}</div>
+                <sc-if value="{{ page.showMeta }}" hint-placeholder-val="{{ true }}">
+                  <div style="{{ page.apMetaStyle }}">{{ page.bigPhoto.place }} · {{ page.bigPhoto.date }}</div>
+                </sc-if>
+              </div>
+              <div style="{{ page.apSmallColStyle }}">
+                <div style="{{ page.apSmallWrapStyle }}" onClick="{{ page.smallPhoto.onOpen }}">
+                  <image-slot id="{{ page.smallPhoto.slotId }}" src="{{ page.smallPhoto.src }}" style="width:100%;height:100%;display:block" shape="rect" fit="cover" placeholder="{{ page.smallPhoto.placeholder }}"></image-slot>
+                </div>
+              </div>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ page.isGridOffset3 }}" hint-placeholder-val="{{ false }}">
+            <div style="{{ page.goRowStyle }}">
+              <div style="{{ page.goBigWrapStyle }}" onClick="{{ page.bigPhoto.onOpen }}">
+                <image-slot id="{{ page.bigPhoto.slotId }}" src="{{ page.bigPhoto.src }}" style="width:100%;height:100%;display:block" shape="rect" fit="cover" placeholder="{{ page.bigPhoto.placeholder }}"></image-slot>
+              </div>
+              <div style="{{ page.goSmallColStyle }}">
+                <div style="{{ page.goSmallWrapStyle }}" onClick="{{ page.s1Photo.onOpen }}">
+                  <image-slot id="{{ page.s1Photo.slotId }}" src="{{ page.s1Photo.src }}" style="width:100%;height:100%;display:block" shape="rect" fit="cover" placeholder="{{ page.s1Photo.placeholder }}"></image-slot>
+                </div>
+                <div style="{{ page.goSmallWrapStyle }}" onClick="{{ page.s2Photo.onOpen }}">
+                  <image-slot id="{{ page.s2Photo.slotId }}" src="{{ page.s2Photo.src }}" style="width:100%;height:100%;display:block" shape="rect" fit="cover" placeholder="{{ page.s2Photo.placeholder }}"></image-slot>
+                </div>
+              </div>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ page.isCircleFocus }}" hint-placeholder-val="{{ false }}">
+            <div style="{{ page.cfWrapStyle }}" onClick="{{ page.photo.onOpen }}">
+              <image-slot id="{{ page.photo.slotId }}" src="{{ page.photo.src }}" style="width:100%;height:100%;display:block" shape="rect" fit="cover" placeholder="{{ page.photo.placeholder }}"></image-slot>
+            </div>
+            <div style="{{ page.cfTitleStyle }}">{{ page.photo.title }}</div>
+            <sc-if value="{{ page.showMeta }}" hint-placeholder-val="{{ true }}">
+              <div style="{{ page.cfMetaStyle }}">{{ page.photo.place }} · {{ page.photo.date }}</div>
+            </sc-if>
+          </sc-if>
+
+          <sc-if value="{{ page.isRoundedTriptych }}" hint-placeholder-val="{{ false }}">
+            <div style="{{ page.rtRowStyle }}">
+              <sc-for list="{{ page.photos }}" as="ph" hint-placeholder-count="3">
+                <div>
+                  <div style="{{ ph.rtWrapStyle }}" onClick="{{ ph.onOpen }}">
+                    <image-slot id="{{ ph.slotId }}" src="{{ ph.src }}" style="width:100%;height:100%;display:block" shape="rect" fit="cover" placeholder="{{ ph.placeholder }}"></image-slot>
+                  </div>
+                  <div style="{{ ph.rtTitleStyle }}">{{ ph.title }}</div>
+                </div>
+              </sc-for>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ page.isMulti }}" hint-placeholder-val="{{ false }}">
+            <div style="{{ page.rowStyle }}">
+              <sc-for list="{{ page.photos }}" as="ph" hint-placeholder-count="3">
+                <div style="{{ ph.itemStyle }}" onClick="{{ ph.onOpen }}">
+                  <div style="{{ ph.frameStyle }}">
+                    <image-slot id="{{ ph.slotId }}" src="{{ ph.src }}" style="width:100%;height:100%;display:block" shape="rect" fit="cover" placeholder="{{ ph.placeholder }}"></image-slot>
+                  </div>
+                  <div style="{{ ph.capStyle }}">
+                    <div style="{{ ph.itemTitleStyle }}">{{ ph.title }}</div>
+                    <sc-if value="{{ ph.showMeta }}" hint-placeholder-val="{{ true }}">
+                      <div style="{{ ph.itemMetaStyle }}">{{ ph.place }} · {{ ph.date }}</div>
+                    </sc-if>
+                    <sc-if value="{{ ph.showNotes }}" hint-placeholder-val="{{ false }}">
+                      <div style="{{ ph.itemNotesStyle }}">{{ ph.notes }}</div>
+                    </sc-if>
+                  </div>
+                </div>
+              </sc-for>
+            </div>
+          </sc-if>
+
+        </div>
+      </div>
+    </sc-for>
+  </div>
+
+  <sc-if value="{{ isOpen }}" hint-placeholder-val="{{ false }}">
+    <div style="{{ backdropStyle }}" onClick="{{ closePhoto }}" onTouchStart="{{ handleTouchStart }}" onTouchEnd="{{ handleTouchEnd }}">
+
+      <button style="{{ closeBtnStyle }}" onClick="{{ closePhoto }}" aria-label="Cerrar">&times;</button>
+      <button style="{{ arrowLeftStyle }}" onClick="{{ prevClick }}" aria-label="Anterior">&#8249;</button>
+      <button style="{{ arrowRightStyle }}" onClick="{{ nextClick }}" aria-label="Siguiente">&#8250;</button>
+
+      <div style="{{ imageWrapStyle }}" onClick="{{ handleImageClick }}">
+        <image-slot id="{{ activePhoto.slotId }}" src="{{ activePhoto.src }}" style="width:100%;height:100%;display:block" shape="rect" fit="contain" placeholder="{{ activePhoto.placeholder }}"></image-slot>
+      </div>
+
+      <sc-if value="{{ isTapMode }}" hint-placeholder-val="{{ false }}">
+        <sc-if value="{{ infoVisible }}" hint-placeholder-val="{{ false }}">
+          <div style="{{ overlayInfoStyle }}" onClick="{{ stop }}">
+            <div style="{{ lbTitleStyle }}">{{ activePhoto.title }}</div>
+            <div style="{{ lbMetaStyle }}">{{ activePhoto.place }} · {{ activePhoto.date }}</div>
+            <div style="{{ lbNotesStyle }}">{{ activePhoto.notes }}</div>
+            <div style="{{ exifRowStyle }}">ƒ/{{ activePhoto.aperture }} &nbsp;·&nbsp; {{ activePhoto.shutter }}s &nbsp;·&nbsp; {{ activePhoto.focal }}mm &nbsp;·&nbsp; ISO {{ activePhoto.iso }}</div>
+          </div>
+        </sc-if>
+        <sc-if value="{{ infoHiddenTap }}" hint-placeholder-val="{{ true }}">
+          <div style="{{ tapHintStyle }}" onClick="{{ stop }}">i</div>
+        </sc-if>
+      </sc-if>
+
+      <sc-if value="{{ isOverlayMode }}" hint-placeholder-val="{{ true }}">
+        <div style="{{ overlayInfoStyle }}" onClick="{{ stop }}">
+          <div style="{{ lbTitleStyle }}">{{ activePhoto.title }}</div>
+          <div style="{{ lbMetaStyle }}">{{ activePhoto.place }} · {{ activePhoto.date }}</div>
+          <div style="{{ lbNotesStyle }}">{{ activePhoto.notes }}</div>
+          <div style="{{ exifRowStyle }}">ƒ/{{ activePhoto.aperture }} &nbsp;·&nbsp; {{ activePhoto.shutter }}s &nbsp;·&nbsp; {{ activePhoto.focal }}mm &nbsp;·&nbsp; ISO {{ activePhoto.iso }}</div>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ isPanelMode }}" hint-placeholder-val="{{ false }}">
+        <div style="{{ panelStyle }}" onClick="{{ stop }}">
+          <div style="{{ lbTitleStyle }}">{{ activePhoto.title }}</div>
+          <div style="{{ lbMetaStyle }}">{{ activePhoto.place }} · {{ activePhoto.date }}</div>
+          <div style="{{ lbNotesStyle }}">{{ activePhoto.notes }}</div>
+          <div style="{{ panelDividerStyle }}"></div>
+          <div style="{{ exifLabelStyle }}">Datos técnicos</div>
+          <div style="{{ exifRowStyle }}">Apertura&nbsp;&nbsp;ƒ/{{ activePhoto.aperture }}</div>
+          <div style="{{ exifRowStyle }}">Velocidad&nbsp;&nbsp;{{ activePhoto.shutter }}s</div>
+          <div style="{{ exifRowStyle }}">Focal&nbsp;&nbsp;{{ activePhoto.focal }}mm</div>
+          <div style="{{ exifRowStyle }}">ISO&nbsp;&nbsp;{{ activePhoto.iso }}</div>
+        </div>
+      </sc-if>
+
+      <div style="{{ counterStyle }}">{{ counterLabel }}</div>
+
+    </div>
+  </sc-if>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{
+  &quot;$preview&quot;: {&quot;width&quot;: 1440, &quot;height&quot;: 1400},
+  &quot;palette&quot;: {
+    &quot;editor&quot;: &quot;color&quot;,
+    &quot;default&quot;: [&quot;#f4f0e8&quot;, &quot;#262220&quot;, &quot;#8a8175&quot;],
+    &quot;options&quot;: [
+      [&quot;#f4f0e8&quot;, &quot;#262220&quot;, &quot;#8a8175&quot;],
+      [&quot;#f7f5f1&quot;, &quot;#201f1d&quot;, &quot;#928c82&quot;],
+      [&quot;#f0f1ee&quot;, &quot;#1f2321&quot;, &quot;#838f89&quot;]
+    ],
+    &quot;tsType&quot;: &quot;string[]&quot;,
+    &quot;section&quot;: &quot;Tema&quot;
+  },
+  &quot;fullscreenInfoStyle&quot;: {
+    &quot;editor&quot;: &quot;enum&quot;,
+    &quot;default&quot;: &quot;overlay&quot;,
+    &quot;options&quot;: [&quot;overlay&quot;, &quot;panel&quot;, &quot;tap-reveal&quot;],
+    &quot;tsType&quot;: &quot;string&quot;,
+    &quot;section&quot;: &quot;Vista ampliada&quot;
+  }
+}">
+class Component extends DCLogic {
+  photos = [
+    { slotId: 'p1', title: 'Amanecer en la ría', place: 'Ribadesella, España', date: '14 mar 2026', notes: 'Bruma baja sobre el agua justo antes de la salida del sol.', ratio: 0.8, aperture: '8', shutter: '1/125', focal: '35', iso: '200', placeholder: 'Paisaje — amanecer, vertical', src: 'https://picsum.photos/seed/p1/1000/1250' },
+    { slotId: 'p2', title: 'Retrato de Marta', place: 'Estudio, Madrid', date: '02 feb 2026', notes: 'Luz de ventana, tarde de invierno.', ratio: 0.75, aperture: '2', shutter: '1/200', focal: '85', iso: '100', placeholder: 'Retrato — luz de ventana, vertical', src: 'https://picsum.photos/seed/p2/1000/1333' },
+    { slotId: 'p3', title: 'Calle Mayor', place: 'Cádiz, España', date: '28 jun 2025', notes: 'Sombras duras a mediodía.', ratio: 1.5, aperture: '11', shutter: '1/500', focal: '24', iso: '100', placeholder: 'Calle — mediodía, horizontal', src: 'https://picsum.photos/seed/p3/1000/667' },
+    { slotId: 'p4', title: 'Olas', place: 'Costa da Morte, España', date: '19 sep 2025', notes: 'Larga exposición para suavizar el agua.', ratio: 1.5, aperture: '16', shutter: '4', focal: '28', iso: '50', placeholder: 'Marina — larga exposición, horizontal', src: 'https://picsum.photos/seed/p4/1000/667' },
+    { slotId: 'p5', title: 'Mercado de abastos', place: 'Valencia, España', date: '05 nov 2025', notes: 'Color y vapor entre puestos.', ratio: 0.8, aperture: '4', shutter: '1/160', focal: '50', iso: '400', placeholder: 'Interior — mercado, vertical', src: 'https://picsum.photos/seed/p5/1000/1250' },
+    { slotId: 'p6', title: 'Niebla en el bosque', place: 'Selva de Irati, Navarra', date: '30 oct 2025', notes: 'Silencio absoluto entre los hayedos.', ratio: 0.667, aperture: '5.6', shutter: '1/60', focal: '35', iso: '320', placeholder: 'Paisaje — bosque, vertical alto', src: 'https://picsum.photos/seed/p6/1000/1499' },
+    { slotId: 'p7', title: 'Puerto viejo', place: 'Cudillero, Asturias', date: '11 ago 2025', notes: 'Barcas de madera al atardecer.', ratio: 1.5, aperture: '9', shutter: '1/250', focal: '40', iso: '160', placeholder: 'Paisaje — puerto, horizontal', src: 'https://picsum.photos/seed/p7/1000/667' },
+    { slotId: 'p8', title: 'Retrato de Iván', place: 'Terraza, Lisboa', date: '22 abr 2025', notes: 'Contraluz de última hora.', ratio: 0.8, aperture: '1.8', shutter: '1/320', focal: '50', iso: '100', placeholder: 'Retrato — contraluz, vertical', src: 'https://picsum.photos/seed/p8/1000/1250' },
+    { slotId: 'p9', title: 'Skyline nocturno', place: 'Bilbao, España', date: '03 ene 2026', notes: 'Reflejos sobre la ría en calma.', ratio: 1.778, aperture: '10', shutter: '15', focal: '24', iso: '100', placeholder: 'Arquitectura — noche, panorámica', src: 'https://picsum.photos/seed/p9/1000/562' },
+    { slotId: 'p10', title: 'Manos de alfarera', place: 'Taller, Úbeda', date: '17 jul 2025', notes: 'Barro y luz cenital.', ratio: 1, aperture: '3.5', shutter: '1/200', focal: '60', iso: '250', placeholder: 'Detalle — taller, cuadrada', src: 'https://picsum.photos/seed/p10/1000/1000' },
+    { slotId: 'p11', title: 'Dunas al viento', place: 'Corralejo, Fuerteventura', date: '09 may 2025', notes: 'Arena en movimiento constante.', ratio: 1.5, aperture: '13', shutter: '1/400', focal: '70', iso: '100', placeholder: 'Paisaje — dunas, horizontal', src: 'https://picsum.photos/seed/p11/1000/667' },
+    { slotId: 'p12', title: 'Escalera interior', place: 'Casa Batlló, Barcelona', date: '25 dic 2025', notes: 'Volví tres veces a este rellano antes de encontrar la hora en que la luz cenital cae recta sobre la baranda. Gaudí no dibujaba líneas rectas, así que cada escalón obliga al ojo a subir en espiral. Disparé desde el suelo, tumbado, para que la perspectiva exagerara la caída.', ratio: 0.667, aperture: '6.3', shutter: '1/80', focal: '20', iso: '400', placeholder: 'Arquitectura — interior, vertical alto', src: 'https://picsum.photos/seed/p12/1000/1499' },
+    { slotId: 'p13', title: 'Pescador solitario', place: 'Ría de Arousa, Galicia', date: '14 feb 2026', notes: 'Llegué antes del amanecer sin saber si habría alguien en la orilla. Lo encontré ya con las botas puestas, mirando el agua como quien espera una visita. No cambiamos una palabra; bastó con no acercarme demasiado y esperar a que la marea hiciera el resto.', ratio: 0.8, aperture: '7.1', shutter: '1/180', focal: '90', iso: '200', placeholder: 'Paisaje — pescador, vertical', src: 'https://picsum.photos/seed/p13/1000/1250' },
+    { slotId: 'p14', title: 'Ventana al patio', place: 'Córdoba, España', date: '08 jun 2025', notes: 'Macetas y azulejos centenarios.', ratio: 0.75, aperture: '4.5', shutter: '1/125', focal: '35', iso: '160', placeholder: 'Detalle — patio, vertical', src: 'https://picsum.photos/seed/p14/1000/1333' },
+    { slotId: 'p15', title: 'Faro en la niebla', place: 'Finisterre, España', date: '20 ene 2026', notes: 'El último rayo de sol antes de la tormenta.', ratio: 1.5, aperture: '11', shutter: '1/320', focal: '50', iso: '100', placeholder: 'Paisaje — faro, horizontal', src: 'https://picsum.photos/seed/p15/1000/667' },
+    { slotId: 'p16', title: 'Retrato de Sofía', place: 'Estudio, Sevilla', date: '03 mar 2025', notes: 'Mirada directa, luz dura de mediodía.', ratio: 0.8, aperture: '2.8', shutter: '1/250', focal: '90', iso: '100', placeholder: 'Retrato — luz dura, vertical', src: 'https://picsum.photos/seed/p16/1000/1250' },
+    { slotId: 'p17', title: 'Terrazas de viñas', place: 'Valle del Miño', date: '12 oct 2025', notes: 'Curvas del terreno al amanecer.', ratio: 1.5, aperture: '9', shutter: '1/200', focal: '35', iso: '100', placeholder: 'Paisaje — terrazas, horizontal', src: 'https://picsum.photos/seed/p17/1000/667' },
+    { slotId: 'p18', title: 'Puente romano', place: 'Mérida, España', date: '07 abr 2025', notes: 'Piedra pulida por veinte siglos.', ratio: 1, aperture: '8', shutter: '1/160', focal: '40', iso: '100', placeholder: 'Arquitectura — puente, cuadrada', src: 'https://picsum.photos/seed/p18/1000/1000' },
+    { slotId: 'p19', title: 'Cabras en el monte', place: 'Picos de Europa', date: '15 jun 2025', notes: 'Equilibrio sobre la roca caliza.', ratio: 1, aperture: '5.6', shutter: '1/500', focal: '200', iso: '200', placeholder: 'Fauna — cabras, cuadrada', src: 'https://picsum.photos/seed/p19/1000/1000' },
+    { slotId: 'p20', title: 'Procesión nocturna', place: 'Sevilla, España', date: '29 mar 2026', notes: 'Velas y silencio en la madrugada.', ratio: 1, aperture: '2.5', shutter: '1/60', focal: '35', iso: '800', placeholder: 'Calle — procesión, cuadrada', src: 'https://picsum.photos/seed/p20/1000/1000' },
+    { slotId: 'p21', title: 'Trigales al viento', place: 'Castilla y León', date: '25 jun 2025', notes: 'Ondas doradas hasta el horizonte.', ratio: 1, aperture: '10', shutter: '1/250', focal: '24', iso: '100', placeholder: 'Paisaje — trigales, cuadrada', src: 'https://picsum.photos/seed/p21/1000/1000' },
+    { slotId: 'p22', title: 'Reflejos en la plaza', place: 'Salamanca, España', date: '02 feb 2026', notes: 'Charco tras la lluvia, luz de farol.', ratio: 1, aperture: '6.3', shutter: '1/125', focal: '28', iso: '200', placeholder: 'Arquitectura — plaza, cuadrada', src: 'https://picsum.photos/seed/p22/1000/1000' },
+    { slotId: 'p23', title: 'Viñedos al atardecer', place: 'La Rioja, España', date: '18 sep 2025', notes: 'Hileras infinitas bajo luz dorada.', ratio: 0.75, aperture: '8', shutter: '1/320', focal: '50', iso: '100', placeholder: 'Paisaje — viñedos, vertical', src: 'https://picsum.photos/seed/p23/1000/1333' },
+    { slotId: 'p24', title: 'Barcas varadas', place: 'O Grove, Galicia', date: '01 nov 2025', notes: 'Marea baja al final del día.', ratio: 1.5, aperture: '11', shutter: '1/250', focal: '35', iso: '100', placeholder: 'Paisaje — barcas, horizontal', src: 'https://picsum.photos/seed/p24/1000/667' },
+    { slotId: 'p25', title: 'Callejón azul', place: 'Júzcar, Málaga', date: '14 may 2025', notes: 'Un pueblo entero pintado de añil.', ratio: 0.667, aperture: '5.6', shutter: '1/160', focal: '24', iso: '100', placeholder: 'Calle — callejón azul, vertical alto', src: 'https://picsum.photos/seed/p25/1000/1499' },
+    { slotId: 'p26', title: 'Molinos al viento', place: 'Consuegra, Toledo', date: '09 ago 2025', notes: 'Guardianes de piedra sobre la loma.', ratio: 1.5, aperture: '13', shutter: '1/500', focal: '70', iso: '200', placeholder: 'Paisaje — molinos, horizontal', src: 'https://picsum.photos/seed/p26/1000/667' },
+    { slotId: 'p27', title: 'Umbral de piedra', place: 'Trujillo, Cáceres', date: '11 dic 2025', notes: 'Un arco solo, sin nada alrededor.', ratio: 0.75, aperture: '4', shutter: '1/160', focal: '50', iso: '160', placeholder: 'Detalle — arco de piedra, vertical', src: 'https://picsum.photos/seed/p27/1000/1333' },
+    { slotId: 'p28', title: 'Marisma en calma', place: 'Doñana, Huelva', date: '06 ene 2026', notes: 'El agua tan quieta que duplica el cielo.', ratio: 1.5, aperture: '9', shutter: '1/250', focal: '35', iso: '100', placeholder: 'Paisaje — marisma, horizontal', src: 'https://picsum.photos/seed/p28/1000/667' },
+    { slotId: 'p29', title: 'Tren de la tarde', place: 'Canfranc, Huesca', date: '19 nov 2025', notes: 'La estación fantasma sigue esperando.', ratio: 1.5, aperture: '6.3', shutter: '1/320', focal: '40', iso: '200', placeholder: 'Paisaje — estación, horizontal', src: 'https://picsum.photos/seed/p29/1000/667' },
+    { slotId: 'p30', title: 'Amanecer en las Médulas', place: 'León, España', date: '02 oct 2025', notes: 'Tierra roja ardiendo bajo la primera luz.', ratio: 1.6, aperture: '11', shutter: '1/200', focal: '28', iso: '100', placeholder: 'Paisaje — Médulas, panorámica', src: 'https://picsum.photos/seed/p30/1000/625' },
+    { slotId: 'p31', title: 'Raíces expuestas', place: 'Las Médulas', date: '02 oct 2025', notes: 'Lo que queda tras dos mil años de minas.', ratio: 1, aperture: '8', shutter: '1/250', focal: '60', iso: '100', placeholder: 'Detalle — raíces, cuadrada', src: 'https://picsum.photos/seed/p31/1000/1000' },
+    { slotId: 'p32', title: 'Castañar en niebla', place: 'Las Médulas', date: '02 oct 2025', notes: 'Un paso más y desaparece el sendero.', ratio: 1, aperture: '5.6', shutter: '1/125', focal: '35', iso: '250', placeholder: 'Detalle — castañar, cuadrada', src: 'https://picsum.photos/seed/p32/1000/1000' },
+    { slotId: 'p33', title: 'Sendero rojo', place: 'Las Médulas', date: '02 oct 2025', notes: 'El color que da nombre al lugar.', ratio: 1, aperture: '10', shutter: '1/200', focal: '50', iso: '100', placeholder: 'Detalle — sendero, cuadrada', src: 'https://picsum.photos/seed/p33/1000/1000' },
+    { slotId: 'p34', title: 'Niños en la fuente', place: 'Plaza mayor, Écija', date: '15 jul 2025', notes: 'Risas que se oyen antes de verlas.', ratio: 1, aperture: '4', shutter: '1/500', focal: '85', iso: '200', placeholder: 'Calle — fuente, cuadrada', src: 'https://picsum.photos/seed/p34/1000/1000' },
+    { slotId: 'p35', title: 'Siesta de gato', place: 'Tetuán, Marruecos', date: '28 ago 2025', notes: 'El único que no tenía prisa.', ratio: 1, aperture: '2.8', shutter: '1/320', focal: '90', iso: '160', placeholder: 'Fauna — gato, cuadrada', src: 'https://picsum.photos/seed/p35/1000/1000' },
+    { slotId: 'p36', title: 'Pan recién hecho', place: 'Panadería, Fez', date: '29 ago 2025', notes: 'Harina flotando en la luz de la mañana.', ratio: 1, aperture: '3.2', shutter: '1/200', focal: '50', iso: '320', placeholder: 'Interior — panadería, cuadrada', src: 'https://picsum.photos/seed/p36/1000/1000' },
+    { slotId: 'p37', title: 'Torre inclinada', place: 'Zaragoza, España', date: '04 mar 2026', notes: 'Ladrillo mudéjar contra un cielo limpio.', ratio: 0.75, aperture: '9', shutter: '1/320', focal: '35', iso: '100', placeholder: 'Arquitectura — torre, vertical', src: 'https://picsum.photos/seed/p37/1000/1333' },
+    { slotId: 'p38', title: 'Campanario lejano', place: 'Zaragoza, España', date: '04 mar 2026', notes: 'La misma torre, desde otra calle.', ratio: 0.75, aperture: '8', shutter: '1/250', focal: '70', iso: '100', placeholder: 'Arquitectura — campanario, vertical', src: 'https://picsum.photos/seed/p38/1000/1333' },
+    { slotId: 'p39', title: 'Patio de los Naranjos', place: 'Córdoba, España', date: '09 jun 2025', notes: 'Sombra de cítricos sobre piedra caliza.', ratio: 0.9, aperture: '5.6', shutter: '1/160', focal: '28', iso: '100', placeholder: 'Arquitectura — patio, vertical', src: 'https://picsum.photos/seed/p39/1000/1111' },
+    { slotId: 'p40', title: 'Detalle de azulejo', place: 'Córdoba, España', date: '09 jun 2025', notes: 'Geometría repetida hasta el infinito.', ratio: 1.6, aperture: '4', shutter: '1/125', focal: '90', iso: '160', placeholder: 'Detalle — azulejo, horizontal', src: 'https://picsum.photos/seed/p40/1000/625' },
+    { slotId: 'p41', title: 'Reja y luz', place: 'Córdoba, España', date: '09 jun 2025', notes: 'Sombras que dibujan otra reja en el suelo.', ratio: 1.6, aperture: '6.3', shutter: '1/200', focal: '60', iso: '100', placeholder: 'Detalle — reja, horizontal', src: 'https://picsum.photos/seed/p41/1000/625' },
+    { slotId: 'p42', title: 'Retrato circular', place: 'Estudio, Bilbao', date: '21 abr 2026', notes: 'Un encuadre cerrado, casi un sello.', ratio: 1, aperture: '2', shutter: '1/250', focal: '85', iso: '100', placeholder: 'Retrato — encuadre circular, cuadrada', src: 'https://picsum.photos/seed/p42/1000/1000' },
+    { slotId: 'p43', title: 'Cerámica de Úbeda', place: 'Taller, Úbeda', date: '18 jul 2025', notes: 'Esmalte verde recién horneado.', ratio: 1, aperture: '4.5', shutter: '1/160', focal: '55', iso: '200', placeholder: 'Detalle — cerámica, cuadrada', src: 'https://picsum.photos/seed/p43/1000/1000' },
+    { slotId: 'p44', title: 'Herramientas viejas', place: 'Taller, Úbeda', date: '18 jul 2025', notes: 'Cada marca cuenta una tarde de trabajo.', ratio: 1, aperture: '3.5', shutter: '1/125', focal: '50', iso: '250', placeholder: 'Detalle — herramientas, cuadrada', src: 'https://picsum.photos/seed/p44/1000/1000' },
+    { slotId: 'p45', title: 'Manos en el torno', place: 'Taller, Úbeda', date: '18 jul 2025', notes: 'El barro tarda en aprender su forma.', ratio: 1, aperture: '2.8', shutter: '1/200', focal: '60', iso: '200', placeholder: 'Detalle — torno, cuadrada', src: 'https://picsum.photos/seed/p45/1000/1000' }
+  ];
+
+  rowSizes = [3, 2, 4, 2, 3];
+
+  coverPhoto = { slotId: 'cover', ratio: 1.6, placeholder: 'Foto de portada — panorámica o retrato grande, con espacio para el título', src: 'https://picsum.photos/seed/cover/1200/750' };
+
+  state = {
+    windowWidth: typeof window !== 'undefined' ? window.innerWidth : 1440,
+    activeIndex: null,
+    showFullscreenInfo: true
+  };
+
+  componentDidMount() {
+    window.addEventListener('resize', this.handleResize);
+    window.addEventListener('keydown', this.handleKeyDown);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.handleResize);
+    window.removeEventListener('keydown', this.handleKeyDown);
+  }
+
+  handleResize = () => {
+    if (this._raf) return;
+    this._raf = requestAnimationFrame(() => {
+      this._raf = null;
+      this.setState({ windowWidth: window.innerWidth });
+    });
+  };
+
+  handleKeyDown = (e) => {
+    if (this.state.activeIndex == null) return;
+    if (e.key === 'Escape') this.closePhoto();
+    if (e.key === 'ArrowRight') this.nextPhoto();
+    if (e.key === 'ArrowLeft') this.prevPhoto();
+  };
+
+  openPhoto = (i) => this.setState({ activeIndex: i, showFullscreenInfo: true });
+  closePhoto = () => this.setState({ activeIndex: null });
+  nextPhoto = () => this.setState(s => ({ activeIndex: (s.activeIndex + 1) % this.photos.length }));
+  prevPhoto = () => this.setState(s => ({ activeIndex: (s.activeIndex - 1 + this.photos.length) % this.photos.length }));
+  toggleInfo = () => this.setState(s => ({ showFullscreenInfo: !s.showFullscreenInfo }));
+
+  handleTouchStart = (e) => { this._touchX = e.changedTouches[0].clientX; };
+  handleTouchEnd = (e) => {
+    if (this._touchX == null) return;
+    const dx = e.changedTouches[0].clientX - this._touchX;
+    if (Math.abs(dx) > 50) { if (dx > 0) this.prevPhoto(); else this.nextPhoto(); }
+  };
+
+  handleImageClick = (e) => {
+    e.stopPropagation();
+    if ((this.props.fullscreenInfoStyle || 'overlay') === 'tap-reveal') this.toggleInfo();
+  };
+
+  stop = (e) => { e.stopPropagation(); };
+  prevClickFn = (e) => { e.stopPropagation(); this.prevPhoto(); };
+  nextClickFn = (e) => { e.stopPropagation(); this.nextPhoto(); };
+
+  renderVals() {
+    const palette = this.props.palette ?? ['#f4f0e8', '#262220', '#8a8175'];
+    const [, fg, muted] = palette;
+    const infoStyle = this.props.fullscreenInfoStyle ?? 'overlay';
+    const activeIndex = this.state.activeIndex;
+    const isOpen = activeIndex != null;
+    const activePhoto = isOpen ? this.photos[activeIndex] : null;
+    const isOverlayMode = infoStyle === 'overlay';
+    const isPanelMode = infoStyle === 'panel';
+    const isTapMode = infoStyle === 'tap-reveal';
+    const infoVisible = this.state.showFullscreenInfo;
+
+    const sansFont = "'Work Sans', sans-serif";
+    const serifFont = "'Playfair Display', serif";
+    const lbFg = '#f5f2ec';
+    const lbMuted = '#cfc9be';
+
+    // every page is the same rectangular size — like a 16:9 screen — and the same paper color
+    const cardW = 1200;
+    const cardH = 675;
+    const padX = 60;
+    const padY = 52;
+    const contentW = cardW - padX * 2;
+    const cardBg = 'linear-gradient(160deg, #faf6ec 0%, #f2ebd9 100%)';
+    const shadow = '0 26px 56px rgba(30,26,18,0.18), 0 4px 12px rgba(30,26,18,0.09)';
+    const border = '1px solid rgba(30,26,18,0.1)';
+
+    const fitBox = (ratio, maxWBox, maxHBox) => {
+      let tw = maxHBox * ratio, th = maxHBox;
+      if (tw > maxWBox) { tw = maxWBox; th = tw / ratio; }
+      return { w: Math.round(tw), h: Math.round(th) };
+    };
+
+    const textStyles = {
+      indexStyle: { fontFamily: sansFont, fontSize: 13, letterSpacing: '.16em', color: muted, marginBottom: 8 },
+      titleStyle: { fontFamily: serifFont, fontSize: 36, color: fg, margin: 0, lineHeight: 1.15 },
+      metaStyle: { fontFamily: sansFont, fontSize: 15, letterSpacing: '.02em', color: muted, marginTop: 9 },
+      notesStyle: { fontFamily: serifFont, fontStyle: 'italic', fontSize: 17, color: fg, opacity: 0.82, marginTop: 14, lineHeight: 1.5 }
+    };
+
+    // -- page recipes: type, how much text, and a photo count --
+    const recipes = [
+      { type: 'singleStacked', textLevel: 'full', count: 1 },
+      { type: 'duo', textLevel: 'meta', count: 2 },
+      { type: 'grid2x2', textLevel: 'minimal', count: 4 },
+      { type: 'textForward', textLevel: 'full', count: 1 },
+      { type: 'trio', textLevel: 'minimal', count: 3 },
+      { type: 'fullBleedSingle', textLevel: 'full', count: 1 },
+      { type: 'singleSide', textLevel: 'full', count: 1 },
+      { type: 'diptychText', textLevel: 'meta', count: 2 },
+      { type: 'duo', textLevel: 'full', count: 2 },
+      { type: 'filmstrip', textLevel: 'minimal', count: 5 },
+      { type: 'singleStacked', textLevel: 'full', count: 1 },
+      { type: 'trio', textLevel: 'minimal', count: 3 },
+      { type: 'centeredMinimal', textLevel: 'none', count: 1 },
+      { type: 'letterboxStack', textLevel: 'minimal', count: 2 },
+      { type: 'heroWithStrip', textLevel: 'meta', count: 4 },
+      { type: 'polaroidTrio', textLevel: 'minimal', count: 3 },
+      { type: 'asymmetricPair', textLevel: 'meta', count: 2 },
+      { type: 'gridOffset3', textLevel: 'minimal', count: 3 },
+      { type: 'circleFocus', textLevel: 'meta', count: 1 },
+      { type: 'roundedTriptych', textLevel: 'minimal', count: 3 }
+    ];
+
+    const cardStyleBase = {
+      background: cardBg, border, boxShadow: shadow, borderRadius: 8,
+      width: cardW, height: cardH, boxSizing: 'border-box',
+      padding: `${padY}px ${padX}px`, margin: '0 auto',
+      display: 'flex', flexDirection: 'column', justifyContent: 'center',
+      overflow: 'hidden', position: 'relative'
+    };
+    const wrapStyle = { marginBottom: 56, display: 'flex', justifyContent: 'center' };
+
+    let cursor = 0;
+    const pages = recipes.map((recipe, pageIdx) => {
+      const angle = 145 + ((pageIdx * 23) % 60);
+      const cardStyle = { ...cardStyleBase, background: `linear-gradient(${angle}deg, #faf6ec 0%, #f1ead6 100%)` };
+      const showMeta = recipe.textLevel !== 'none';
+      const showNotes = recipe.textLevel === 'full';
+
+      if (recipe.type === 'singleStacked' || recipe.type === 'singleSide' || recipe.type === 'textForward') {
+        const i = cursor++;
+        const p = this.photos[i];
+        let box, imgWrapStyle, sideRowStyle, sideTextStyle, tfRowStyle, textWrapStyle;
+
+        if (recipe.type === 'singleStacked') {
+          box = fitBox(p.ratio, contentW, 350);
+          imgWrapStyle = { width: box.w, height: box.h, margin: '0 auto', position: 'relative', overflow: 'hidden', background: 'rgba(20,16,10,0.045)', cursor: 'pointer', flex: 'none' };
+          textWrapStyle = { textAlign: 'center', marginTop: 22, maxWidth: 680, marginLeft: 'auto', marginRight: 'auto', flex: 'none' };
+        } else if (recipe.type === 'singleSide') {
+          box = fitBox(p.ratio, Math.round(contentW * 0.56), 420);
+          imgWrapStyle = { width: box.w, height: box.h, position: 'relative', overflow: 'hidden', background: 'rgba(20,16,10,0.045)', cursor: 'pointer', flex: 'none' };
+          sideRowStyle = { display: 'flex', flexDirection: 'row', gap: 48, alignItems: 'center', flex: 'none' };
+          sideTextStyle = { flex: 1, textAlign: 'left' };
+        } else {
+          box = fitBox(p.ratio, Math.round(contentW * 0.3), 270);
+          imgWrapStyle = { width: box.w, height: box.h, position: 'relative', overflow: 'hidden', background: 'rgba(20,16,10,0.045)', cursor: 'pointer', flex: 'none' };
+          tfRowStyle = { display: 'flex', flexDirection: 'row-reverse', gap: 48, alignItems: 'center', flex: 'none' };
+          sideTextStyle = { flex: 1, textAlign: 'left' };
+        }
+
+        return {
+          isSingleStacked: recipe.type === 'singleStacked',
+          isSingleSide: recipe.type === 'singleSide',
+          isTextForward: recipe.type === 'textForward',
+          isMulti: false,
+          wrapStyle, cardStyle, imgWrapStyle, sideRowStyle, sideTextStyle, tfRowStyle, textWrapStyle,
+          showMeta, showNotes,
+          ...textStyles,
+          tfQuoteStyle: { fontFamily: serifFont, fontStyle: 'italic', fontSize: 24, color: fg, lineHeight: 1.5, marginBottom: 16 },
+          photo: { ...p, onOpen: () => this.openPhoto(i), pageLabel: String(i + 1).padStart(2, '0') }
+        };
+      }
+
+      if (recipe.type === 'fullBleedSingle') {
+        const i = cursor++;
+        const p = this.photos[i];
+        return {
+          isFullBleedSingle: true, isMulti: false,
+          wrapStyle,
+          cardStyle: { ...cardStyleBase, padding: 0, justifyContent: 'flex-start' },
+          fbImgWrapStyle: { position: 'absolute', inset: 0, width: '100%', height: '100%', cursor: 'pointer' },
+          fbScrimStyle: { position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(10,8,6,0) 55%, rgba(10,8,6,0.6) 100%)' },
+          fbTextStyle: { position: 'absolute', left: 0, right: 0, bottom: 0, padding: '0 44px 34px', textAlign: 'left' },
+          fbTitleStyle: { fontFamily: serifFont, fontStyle: 'italic', fontSize: 38, color: '#faf6ef', textShadow: '0 3px 16px rgba(0,0,0,0.35)' },
+          fbMetaStyle: { fontFamily: sansFont, fontSize: 14, letterSpacing: '.06em', color: '#e7e0d2', marginTop: 6, opacity: 0.9 },
+          fbNotesStyle: { fontFamily: serifFont, fontStyle: 'italic', fontSize: 17, color: '#f2ede2', opacity: 0.92, marginTop: 14, lineHeight: 1.55, maxWidth: 520, textShadow: '0 2px 10px rgba(0,0,0,0.3)' },
+          showMeta, showNotes,
+          photo: { ...p, onOpen: () => this.openPhoto(i), pageLabel: String(i + 1).padStart(2, '0') }
+        };
+      }
+
+      if (recipe.type === 'grid2x2') {
+        const items = [];
+        for (let k = 0; k < 4; k++) {
+          const i = cursor++;
+          const p = this.photos[i];
+          if (!p) continue;
+          items.push({
+            ...p,
+            onOpen: () => this.openPhoto(i),
+            cellStyle: { position: 'relative', overflow: 'hidden', background: 'rgba(20,16,10,0.045)', cursor: 'pointer' },
+            cellScrimStyle: { position: 'absolute', left: 0, right: 0, bottom: 0, height: '46%', background: 'linear-gradient(180deg, rgba(10,8,6,0) 0%, rgba(10,8,6,0.55) 100%)' },
+            cellTitleStyle: { position: 'absolute', left: 14, bottom: 12, fontFamily: serifFont, fontSize: 18, color: '#faf6ef', textShadow: '0 2px 10px rgba(0,0,0,0.3)' }
+          });
+        }
+        return {
+          isGrid2x2: true, isMulti: false,
+          wrapStyle, cardStyle,
+          gridStyle: { display: 'grid', gridTemplateColumns: '1fr 1fr', gridTemplateRows: '1fr 1fr', gap: 16, width: contentW, height: 470 },
+          photos: items
+        };
+      }
+
+      if (recipe.type === 'diptychText') {
+        const i1 = cursor++; const p1 = this.photos[i1];
+        const i2 = cursor++; const p2 = this.photos[i2];
+        const dtBoxH = 420;
+        return {
+          isDiptychText: true, isMulti: false,
+          wrapStyle, cardStyle,
+          rowStyle: { display: 'flex', flexDirection: 'row', gap: 40, alignItems: 'center', flex: 'none' },
+          dtImgStyle: { height: dtBoxH, width: Math.round(dtBoxH * 0.72), flex: 'none', position: 'relative', overflow: 'hidden', background: 'rgba(20,16,10,0.045)', cursor: 'pointer' },
+          dtLabelStyle: { fontFamily: sansFont, fontSize: 12, letterSpacing: '.04em', color: muted, marginTop: 8, textAlign: 'center' },
+          dtCenterStyle: { flex: 1, textAlign: 'center', padding: '0 12px' },
+          dtTitleStyle: { fontFamily: serifFont, fontStyle: 'italic', fontSize: 30, color: fg, lineHeight: 1.3 },
+          dtNotesStyle: { fontFamily: serifFont, fontStyle: 'italic', fontSize: 16, color: fg, opacity: 0.75, marginTop: 12, lineHeight: 1.5 },
+          showMeta,
+          leftPhoto: { ...p1, onOpen: () => this.openPhoto(i1) },
+          rightPhoto: { ...p2, onOpen: () => this.openPhoto(i2) },
+          themePhoto: p1
+        };
+      }
+
+      if (recipe.type === 'filmstrip') {
+        const items = [];
+        for (let k = 0; k < 5; k++) {
+          const i = cursor++;
+          const p = this.photos[i];
+          if (!p) continue;
+          items.push({
+            ...p,
+            onOpen: () => this.openPhoto(i),
+            thumbStyle: { width: 168, height: 168, position: 'relative', overflow: 'hidden', background: 'rgba(20,16,10,0.045)', cursor: 'pointer' },
+            thumbLabelStyle: { fontFamily: sansFont, fontSize: 11.5, letterSpacing: '.1em', color: muted, marginTop: 8, textAlign: 'center' },
+            pageLabel: String(i + 1).padStart(2, '0')
+          });
+        }
+        return {
+          isFilmstrip: true, isMulti: false,
+          wrapStyle, cardStyle,
+          filmHeaderText: 'Cuaderno de campo',
+          filmHeaderStyle: { fontFamily: serifFont, fontStyle: 'italic', fontSize: 26, color: fg, textAlign: 'center', marginBottom: 26, flex: 'none' },
+          filmRowStyle: { display: 'flex', justifyContent: 'center', gap: 20, flex: 'none' },
+          photos: items
+        };
+      }
+
+      if (recipe.type === 'centeredMinimal') {
+        const i = cursor++;
+        const p = this.photos[i];
+        const box = fitBox(p.ratio, Math.round(contentW * 0.42), 340);
+        return {
+          isCenteredMinimal: true, isMulti: false,
+          wrapStyle, cardStyle,
+          cmImgWrapStyle: { width: box.w, height: box.h, margin: '0 auto', position: 'relative', overflow: 'hidden', background: 'rgba(20,16,10,0.045)', cursor: 'pointer' },
+          cmTitleStyle: { fontFamily: serifFont, fontStyle: 'italic', fontSize: 26, color: fg, textAlign: 'center', marginTop: 24 },
+          photo: { ...p, onOpen: () => this.openPhoto(i) }
+        };
+      }
+
+      if (recipe.type === 'letterboxStack') {
+        const items = [];
+        const boxH = 215;
+        for (let k = 0; k < 2; k++) {
+          const i = cursor++;
+          const p = this.photos[i];
+          if (!p) continue;
+          items.push({
+            ...p,
+            onOpen: () => this.openPhoto(i),
+            lsFrameStyle: { position: 'relative', width: contentW, height: boxH, overflow: 'hidden', background: 'rgba(20,16,10,0.045)', cursor: 'pointer' },
+            lsCapStyle: { display: 'flex', justifyContent: 'space-between', padding: '10px 2px 0' },
+            lsTitleStyle: { fontFamily: serifFont, fontSize: 20, color: fg, margin: 0 },
+            lsMetaStyle: { fontFamily: sansFont, fontSize: 12.5, color: muted, letterSpacing: '.02em' }
+          });
+        }
+        return {
+          isLetterboxStack: true, isMulti: false,
+          wrapStyle, cardStyle,
+          lsColStyle: { display: 'flex', flexDirection: 'column', gap: 22, flex: 'none' },
+          photos: items
+        };
+      }
+
+      if (recipe.type === 'heroWithStrip') {
+        const heroI = cursor++;
+        const hero = this.photos[heroI];
+        const heroBox = fitBox(hero.ratio, contentW, 280);
+        const thumbs = [];
+        for (let k = 0; k < 3; k++) {
+          const i = cursor++;
+          const p = this.photos[i];
+          if (!p) continue;
+          thumbs.push({
+            ...p,
+            onOpen: () => this.openPhoto(i),
+            hwThumbStyle: { position: 'relative', height: 110, flex: 1, overflow: 'hidden', background: 'rgba(20,16,10,0.045)', cursor: 'pointer' }
+          });
+        }
+        return {
+          isHeroWithStrip: true, isMulti: false,
+          wrapStyle, cardStyle,
+          hwHeroWrapStyle: { width: heroBox.w, height: heroBox.h, margin: '0 auto', position: 'relative', overflow: 'hidden', background: 'rgba(20,16,10,0.045)', cursor: 'pointer', flex: 'none' },
+          hwTextStyle: { textAlign: 'center', marginTop: 16, marginBottom: 20, flex: 'none' },
+          hwTitleStyle: { fontFamily: serifFont, fontStyle: 'italic', fontSize: 28, color: fg },
+          hwMetaStyle: { fontFamily: sansFont, fontSize: 14, color: muted, marginTop: 6, letterSpacing: '.02em' },
+          hwStripStyle: { display: 'flex', gap: 14, width: contentW, margin: '0 auto', flex: 'none' },
+          showMeta,
+          hero: { ...hero, onOpen: () => this.openPhoto(heroI) },
+          thumbs
+        };
+      }
+
+      if (recipe.type === 'polaroidTrio') {
+        const rotations = [-4, 3, -2];
+        const items = [];
+        for (let k = 0; k < 3; k++) {
+          const i = cursor++;
+          const p = this.photos[i];
+          if (!p) continue;
+          items.push({
+            ...p,
+            onOpen: () => this.openPhoto(i),
+            ptCardStyle: { background: '#fffdf8', padding: '14px 14px 20px', boxShadow: '0 12px 24px rgba(30,26,18,0.2)', transform: `rotate(${rotations[k]}deg)`, width: 220 },
+            ptFrameStyle: { position: 'relative', width: 192, height: 192, overflow: 'hidden', background: 'rgba(20,16,10,0.06)', cursor: 'pointer' },
+            ptCapStyle: { fontFamily: serifFont, fontStyle: 'italic', fontSize: 15, color: '#3a332b', textAlign: 'center', marginTop: 10 }
+          });
+        }
+        return {
+          isPolaroidTrio: true, isMulti: false,
+          wrapStyle, cardStyle,
+          ptRowStyle: { display: 'flex', justifyContent: 'center', gap: 30, flex: 'none' },
+          photos: items
+        };
+      }
+
+      if (recipe.type === 'asymmetricPair') {
+        const bigI = cursor++;
+        const big = this.photos[bigI];
+        const smallI = cursor++;
+        const small = this.photos[smallI];
+        const bigBox = fitBox(big.ratio, Math.round(contentW * 0.6), 440);
+        const smallBox = fitBox(small.ratio, Math.round(contentW * 0.32), 280);
+        return {
+          isAsymmetricPair: true, isMulti: false,
+          wrapStyle, cardStyle,
+          apRowStyle: { display: 'flex', flexDirection: 'row', gap: 40, alignItems: 'flex-end', justifyContent: 'center', flex: 'none' },
+          apBigWrapStyle: { width: bigBox.w, height: bigBox.h, position: 'relative', overflow: 'hidden', background: 'rgba(20,16,10,0.045)', cursor: 'pointer', flex: 'none' },
+          apSmallColStyle: { flex: 'none' },
+          apSmallWrapStyle: { width: smallBox.w, height: smallBox.h, position: 'relative', overflow: 'hidden', background: 'rgba(20,16,10,0.045)', cursor: 'pointer', flex: 'none' },
+          apTitleStyle: { fontFamily: serifFont, fontStyle: 'italic', fontSize: 24, color: fg, marginTop: 14 },
+          apMetaStyle: { fontFamily: sansFont, fontSize: 13, color: muted, marginTop: 6, letterSpacing: '.02em' },
+          showMeta,
+          bigPhoto: { ...big, onOpen: () => this.openPhoto(bigI) },
+          smallPhoto: { ...small, onOpen: () => this.openPhoto(smallI) }
+        };
+      }
+
+      if (recipe.type === 'gridOffset3') {
+        const bigI = cursor++;
+        const big = this.photos[bigI];
+        const s1I = cursor++;
+        const s1 = this.photos[s1I];
+        const s2I = cursor++;
+        const s2 = this.photos[s2I];
+        const rowH2 = 460;
+        const bigBox = fitBox(big.ratio, Math.round(contentW * 0.5), rowH2);
+        const smallH = Math.round((rowH2 - 20) / 2);
+        return {
+          isGridOffset3: true, isMulti: false,
+          wrapStyle, cardStyle,
+          goRowStyle: { display: 'flex', flexDirection: 'row', gap: 20, justifyContent: 'center', flex: 'none' },
+          goBigWrapStyle: { width: bigBox.w, height: bigBox.h, position: 'relative', overflow: 'hidden', background: 'rgba(20,16,10,0.045)', cursor: 'pointer', flex: 'none' },
+          goSmallColStyle: { display: 'flex', flexDirection: 'column', gap: 20, flex: 'none', width: Math.round(smallH * s1.ratio) },
+          goSmallWrapStyle: { width: '100%', height: smallH, position: 'relative', overflow: 'hidden', background: 'rgba(20,16,10,0.045)', cursor: 'pointer' },
+          bigPhoto: { ...big, onOpen: () => this.openPhoto(bigI) },
+          s1Photo: { ...s1, onOpen: () => this.openPhoto(s1I) },
+          s2Photo: { ...s2, onOpen: () => this.openPhoto(s2I) }
+        };
+      }
+
+      if (recipe.type === 'circleFocus') {
+        const i = cursor++;
+        const p = this.photos[i];
+        const d = 320;
+        return {
+          isCircleFocus: true, isMulti: false,
+          wrapStyle, cardStyle,
+          cfWrapStyle: { width: d, height: d, margin: '0 auto', position: 'relative', overflow: 'hidden', borderRadius: '50%', background: 'rgba(20,16,10,0.045)', cursor: 'pointer', boxShadow: '0 16px 32px rgba(30,26,18,0.18)' },
+          cfTitleStyle: { fontFamily: serifFont, fontStyle: 'italic', fontSize: 26, color: fg, textAlign: 'center', marginTop: 26 },
+          cfMetaStyle: { fontFamily: sansFont, fontSize: 13.5, color: muted, textAlign: 'center', marginTop: 6, letterSpacing: '.02em' },
+          showMeta,
+          photo: { ...p, onOpen: () => this.openPhoto(i) }
+        };
+      }
+
+      if (recipe.type === 'roundedTriptych') {
+        const items = [];
+        for (let k = 0; k < 3; k++) {
+          const i = cursor++;
+          const p = this.photos[i];
+          if (!p) continue;
+          items.push({
+            ...p,
+            onOpen: () => this.openPhoto(i),
+            rtWrapStyle: { width: 210, height: 210, position: 'relative', overflow: 'hidden', borderRadius: 18, background: 'rgba(20,16,10,0.045)', cursor: 'pointer' },
+            rtTitleStyle: { fontFamily: serifFont, fontSize: 17, color: fg, textAlign: 'center', marginTop: 12 }
+          });
+        }
+        return {
+          isRoundedTriptych: true, isMulti: false,
+          wrapStyle, cardStyle,
+          rtRowStyle: { display: 'flex', justifyContent: 'center', gap: 34, flex: 'none' },
+          photos: items
+        };
+      }
+
+      // duo / trio — justified row: scale height down so the row always fits
+      // in one line at contentW, never wraps, so captions never overflow the card.
+      const n = recipe.count;
+      const baseRowH = n === 2 ? 360 : 250;
+      const gap = 22;
+      const chosen = [];
+      for (let k = 0; k < n; k++) {
+        const i = cursor++;
+        const p = this.photos[i];
+        if (p) chosen.push({ p, i });
+      }
+      const totalNaturalW = chosen.reduce((s, c) => s + baseRowH * c.p.ratio, 0);
+      const totalGap = gap * Math.max(0, chosen.length - 1);
+      const scale = Math.min(1, (contentW - totalGap) / totalNaturalW);
+      const rowH = Math.round(baseRowH * scale);
+      const items = chosen.map(({ p, i }) => {
+        const itemW = Math.round(rowH * p.ratio);
+        return {
+          ...p,
+          onOpen: () => this.openPhoto(i),
+          showMeta, showNotes,
+          itemStyle: { width: itemW, flex: 'none', display: 'flex', flexDirection: 'column', cursor: 'pointer' },
+          frameStyle: { position: 'relative', height: rowH, width: '100%', overflow: 'hidden', background: 'rgba(20,16,10,0.045)' },
+          capStyle: { padding: '10px 2px 0' },
+          itemTitleStyle: { fontFamily: serifFont, fontSize: n === 2 ? 24 : 19, color: fg, margin: 0, lineHeight: 1.25 },
+          itemMetaStyle: { fontFamily: sansFont, fontSize: 12.5, letterSpacing: '.02em', color: muted, marginTop: 5 },
+          itemNotesStyle: { fontFamily: sansFont, fontStyle: 'italic', fontSize: 12.5, color: muted, marginTop: 6, lineHeight: 1.45 }
+        };
+      });
+
+      return {
+        isSingleStacked: false, isSingleSide: false, isTextForward: false, isMulti: true,
+        wrapStyle, cardStyle,
+        multiLabel: n === 2 ? 'Dos tomas' : 'Tres tomas',
+        multiHeaderStyle: { fontFamily: sansFont, fontSize: 12.5, letterSpacing: '.16em', textTransform: 'uppercase', color: muted, marginBottom: 18, flex: 'none' },
+        rowStyle: { display: 'flex', flexWrap: 'nowrap', alignItems: 'flex-start', justifyContent: 'center', gap: `${gap}px`, flex: 'none' },
+        photos: items
+      };
+    });
+
+    const coverCardStyle = {
+      background: '#12100c', border, boxShadow: shadow, borderRadius: 8,
+      width: cardW, height: cardH, boxSizing: 'border-box', padding: 0, overflow: 'hidden', position: 'relative'
+    };
+    pages.unshift({
+      isCover: true,
+      wrapStyle,
+      cardStyle: coverCardStyle,
+      coverImgWrapStyle: { position: 'absolute', inset: 0, width: '100%', height: '100%' },
+      coverScrimStyle: { position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(10,8,6,0.05) 0%, rgba(10,8,6,0.18) 45%, rgba(10,8,6,0.65) 100%)' },
+      coverTextStyle: { position: 'absolute', left: 0, right: 0, bottom: '10%', textAlign: 'center', padding: '0 32px' },
+      coverTitleStyle: { fontFamily: serifFont, fontStyle: 'italic', fontWeight: 500, fontSize: 68, color: '#f8f5ee', textShadow: '0 4px 24px rgba(0,0,0,0.35)', letterSpacing: '.01em' },
+      coverTaglineStyle: { fontFamily: sansFont, fontSize: 14, letterSpacing: '.24em', textTransform: 'uppercase', color: '#f0ece0', opacity: 0.88, marginTop: 12 },
+      photo: this.coverPhoto
+    });
+
+    return {
+      pageStyle: { background: '#e7e2d6', minHeight: '100vh' },
+      rowsWrapStyle: { background: '#e7e2d6', padding: '72px 32px 140px' },
+      pages,
+
+      isOpen, activePhoto,
+      isOverlayMode, isPanelMode, isTapMode,
+      infoVisible, infoHiddenTap: !infoVisible,
+      closePhoto: this.closePhoto,
+      prevClick: this.prevClickFn,
+      nextClick: this.nextClickFn,
+      handleTouchStart: this.handleTouchStart,
+      handleTouchEnd: this.handleTouchEnd,
+      handleImageClick: this.handleImageClick,
+      stop: this.stop,
+      counterLabel: isOpen ? `${activeIndex + 1} / ${this.photos.length}` : '',
+
+      backdropStyle: { position: 'fixed', inset: 0, background: 'rgba(5,5,5,0.97)', zIndex: 1000, display: 'flex', alignItems: 'center', justifyContent: 'center', animation: 'lbFadeIn .2s ease' },
+      closeBtnStyle: { position: 'absolute', top: 22, right: 26, width: 40, height: 40, border: 'none', background: 'transparent', color: lbFg, fontSize: 30, lineHeight: 1, cursor: 'pointer', zIndex: 5 },
+      arrowLeftStyle: { position: 'absolute', left: 20, top: '50%', transform: 'translateY(-50%)', width: 44, height: 44, border: 'none', background: 'transparent', color: lbFg, fontSize: 40, cursor: 'pointer', zIndex: 5, opacity: 0.75 },
+      arrowRightStyle: { position: 'absolute', right: 20, top: '50%', transform: 'translateY(-50%)', width: 44, height: 44, border: 'none', background: 'transparent', color: lbFg, fontSize: 40, cursor: 'pointer', zIndex: 5, opacity: 0.75 },
+      imageWrapStyle: { width: '86vw', height: '82vh', display: 'flex', alignItems: 'center', justifyContent: 'center', animation: 'lbZoomIn .25s ease' },
+
+      overlayInfoStyle: { position: 'absolute', left: 28, bottom: 26, maxWidth: 420, padding: '16px 20px', background: 'rgba(0,0,0,0.6)', borderRadius: 6, backdropFilter: 'blur(3px)' },
+      lbTitleStyle: { fontFamily: serifFont, fontSize: 22, color: '#f5f2ec', marginBottom: 4 },
+      lbMetaStyle: { fontFamily: sansFont, fontSize: 14, color: '#cfc9be', letterSpacing: '.02em' },
+      lbNotesStyle: { fontFamily: sansFont, fontStyle: 'italic', fontSize: 14, color: '#cfc9be', marginTop: 8, lineHeight: 1.4 },
+      exifRowStyle: { fontFamily: sansFont, fontSize: 13, color: '#cfc9be', marginTop: 5, letterSpacing: '.03em' },
+      exifLabelStyle: { fontFamily: sansFont, fontSize: 10.5, letterSpacing: '.14em', textTransform: 'uppercase', color: lbMuted, marginTop: 14, marginBottom: 6, opacity: 0.7 },
+      panelDividerStyle: { height: 1, background: 'rgba(255,255,255,0.12)', margin: '14px 0 0' },
+      panelStyle: { position: 'absolute', top: 0, right: 0, height: '100%', width: 300, background: 'rgba(8,8,8,0.88)', padding: '32px 26px', boxSizing: 'border-box', overflowY: 'auto' },
+      tapHintStyle: { position: 'absolute', left: 20, bottom: 20, width: 30, height: 30, borderRadius: '50%', border: `1px solid ${lbMuted}`, color: lbFg, fontFamily: serifFont, fontStyle: 'italic', fontSize: 15, display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', opacity: 0.85 },
+      counterStyle: { position: 'absolute', top: 26, left: 28, fontFamily: sansFont, fontSize: 11, letterSpacing: '.08em', color: lbMuted }
+    };
+  }
+}
+
+</script>
+</body>
+</html>

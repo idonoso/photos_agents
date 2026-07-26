@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Listado de evaluación — fotos.json</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --crema: #f4f0e8;
+    --tinta: #262220;
+    --topo: #8a8175;
+    --oro: #b08d57;
+    --card: #ffffff;
+    --linea: #e2dcd0;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--crema);
+    color: var(--tinta);
+    font: 400 15px/1.5 'Work Sans', sans-serif;
+    padding: 0 0 80px;
+  }
+
+  a { color: inherit; }
+
+  h1, h2, h3, h4 { font-family: 'Playfair Display', serif; margin: 0; }
+
+  /* ---------- Header ---------- */
+
+  .page-header {
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    background: var(--crema);
+    border-bottom: 1px solid var(--linea);
+    padding: 22px 28px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .page-header .top-row {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .page-header h1 { font-size: 26px; font-weight: 600; letter-spacing: -0.01em; }
+
+  .page-header .stats {
+    font-size: 13px;
+    color: var(--topo);
+    letter-spacing: 0.02em;
+  }
+
+  .toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .toolbar input[type="text"] {
+    flex: 1 1 220px;
+    min-width: 160px;
+    padding: 9px 14px;
+    border: 1px solid var(--topo);
+    border-radius: 999px;
+    background: var(--card);
+    color: var(--tinta);
+    font: 400 13px/1.4 'Work Sans', sans-serif;
+  }
+
+  .toolbar input[type="text"]:focus { outline: 2px solid var(--oro); outline-offset: 1px; }
+
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 13px;
+    border: 1px solid var(--topo);
+    border-radius: 999px;
+    background: var(--card);
+    color: var(--tinta);
+    font-size: 11.5px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    cursor: pointer;
+    user-select: none;
+    white-space: nowrap;
+  }
+
+  .chip.is-active { background: var(--tinta); color: var(--crema); border-color: var(--tinta); }
+
+  .btn-toggle-all {
+    margin-left: auto;
+    padding: 9px 16px;
+    border: 1px solid var(--tinta);
+    border-radius: 999px;
+    background: var(--tinta);
+    color: var(--crema);
+    font: 500 12px/1 'Work Sans', sans-serif;
+    letter-spacing: 0.03em;
+    cursor: pointer;
+  }
+
+  .category-row { display: flex; flex-wrap: wrap; gap: 8px; }
+
+  /* ---------- Grid ---------- */
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 22px;
+    padding: 26px 28px 0;
+  }
+
+  .card {
+    background: var(--card);
+    border: 1px solid var(--linea);
+    border-radius: 14px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+  }
+
+  .card.is-expanded { grid-column: 1 / -1; cursor: default; }
+
+  .thumb-wrap {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    background: var(--linea);
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+
+  .card.is-expanded .thumb-wrap { display: none; }
+
+  .thumb-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+  .card-body { padding: 16px 18px 18px; display: flex; flex-direction: column; gap: 8px; }
+
+  .card-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; }
+
+  .card-title { font-size: 17px; font-weight: 500; line-height: 1.25; }
+
+  .score-badge {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: baseline;
+    gap: 2px;
+    border: 1px solid var(--topo);
+    border-radius: 999px;
+    padding: 3px 11px;
+    font: 600 13px/1 'Work Sans', sans-serif;
+    white-space: nowrap;
+  }
+
+  .score-badge .max { font-size: 10px; opacity: 0.6; }
+
+  .score-badge.top { background: var(--oro); color: var(--crema); border-color: transparent; }
+
+  .card-place {
+    font-size: 12px;
+    color: var(--topo);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .cat-row { display: flex; flex-wrap: wrap; gap: 6px; }
+
+  .cat-pill {
+    font-size: 10.5px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border: 1px solid var(--linea);
+    background: var(--crema);
+    color: var(--tinta);
+    border-radius: 999px;
+    padding: 3px 9px;
+  }
+
+  .card-desc {
+    font-size: 13px;
+    color: var(--tinta);
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .card.is-expanded .card-desc { display: block; -webkit-line-clamp: unset; }
+
+  /* ---------- Detail ---------- */
+
+  .detail { display: none; padding: 4px 18px 22px; }
+
+  .card.is-expanded .detail { display: block; }
+
+  .detail-img-wrap {
+    width: 100%;
+    max-height: 520px;
+    border-radius: 10px;
+    overflow: hidden;
+    background: var(--linea);
+    margin-bottom: 18px;
+  }
+
+  .detail-img-wrap img { width: 100%; height: 100%; max-height: 520px; object-fit: contain; display: block; margin: 0 auto; }
+
+  .detail-summary {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 22px;
+    padding: 14px 16px;
+    background: var(--crema);
+    border: 1px solid var(--linea);
+    border-radius: 10px;
+    margin-bottom: 18px;
+  }
+
+  .detail-summary .metric { display: flex; flex-direction: column; gap: 2px; min-width: 90px; }
+  .detail-summary .metric .lbl { font-size: 10.5px; color: var(--topo); text-transform: uppercase; letter-spacing: 0.06em; }
+  .detail-summary .metric .val { font-size: 20px; font-weight: 600; font-family: 'Playfair Display', serif; }
+  .detail-summary .note { flex: 1 1 260px; font-size: 13px; }
+  .detail-summary .note strong { font-weight: 600; }
+
+  .part {
+    border: 1px solid var(--linea);
+    border-radius: 10px;
+    padding: 16px 18px;
+    margin-bottom: 16px;
+  }
+
+  .part header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+
+  .part header h4 { font-size: 14px; font-weight: 600; letter-spacing: 0.03em; text-transform: uppercase; color: var(--topo); }
+
+  .part-score { font-size: 18px; font-weight: 600; font-family: 'Playfair Display', serif; color: var(--tinta); }
+
+  .part-note { font-size: 13px; margin: 0 0 12px; }
+  .part-note strong { font-weight: 600; }
+
+  .aspect-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 10px;
+  }
+
+  .aspect {
+    background: var(--crema);
+    border: 1px solid var(--linea);
+    border-radius: 8px;
+    padding: 10px 12px;
+  }
+
+  .aspect-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    font-size: 12.5px;
+    font-weight: 600;
+    margin-bottom: 5px;
+  }
+
+  .aspect-head b { font-family: 'Playfair Display', serif; font-size: 14px; }
+
+  .aspect p { margin: 0 0 4px; font-size: 12px; line-height: 1.45; color: var(--tinta); }
+  .aspect p em { color: var(--topo); font-style: normal; }
+
+  .meta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px 26px;
+    font-size: 12.5px;
+    color: var(--topo);
+    padding: 4px 2px 0;
+  }
+
+  .meta-row span b { color: var(--tinta); font-weight: 500; }
+
+  details.sub-block {
+    margin-top: 14px;
+    border: 1px solid var(--linea);
+    border-radius: 10px;
+    padding: 10px 14px;
+  }
+
+  details.sub-block summary {
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--topo);
+  }
+
+  details.sub-block .sub-content { margin-top: 10px; font-size: 13px; }
+  details.sub-block .sub-content p { margin: 0 0 8px; }
+
+  #empty-msg, #error-msg { padding: 40px 28px; text-align: center; color: var(--topo); }
+  #error-msg { color: #a33; }
+
+  @media (max-width: 640px) {
+    .page-header { padding: 16px 16px 14px; }
+    .grid { padding: 18px 16px 0; grid-template-columns: 1fr 1fr; }
+    .btn-toggle-all { margin-left: 0; }
+  }
+
+  @media (max-width: 420px) {
+    .grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header class="page-header">
+  <div class="top-row">
+    <h1>Listado de evaluación</h1>
+    <div class="stats" id="stats-line">Cargando…</div>
+  </div>
+  <div class="toolbar">
+    <input type="text" id="search-input" placeholder="Buscar por título, lugar, descripción o etiqueta…">
+    <button class="btn-toggle-all" id="toggle-all-btn" type="button">Expandir todo</button>
+  </div>
+  <div class="category-row" id="category-row"></div>
+</header>
+
+<main class="grid" id="grid"></main>
+<div id="empty-msg" hidden>Ninguna foto coincide con el filtro actual.</div>
+<div id="error-msg" hidden></div>
+
+<script>
+(function () {
+  var ASPECT_LABELS = {
+    exposicion: 'Exposición', nitidez: 'Nitidez', color: 'Color',
+    balance_blancos: 'Balance de blancos', composicion: 'Composición',
+    iluminacion: 'Iluminación', enfoque_profundidad: 'Enfoque / profundidad',
+    ruido_limpieza: 'Ruido y limpieza', procesado: 'Procesado',
+    emocion: 'Emoción', narrativa: 'Narrativa', momento: 'Momento',
+    intencion: 'Intención', originalidad: 'Originalidad', atmosfera: 'Atmósfera',
+    conexion: 'Conexión', tecnica_emocion: 'Técnica + emoción',
+    momento_irrepetible: 'Momento irrepetible', estilo_impacto: 'Estilo e impacto',
+    trascendencia: 'Trascendencia'
+  };
+
+  var PART_KEYS = {
+    tecnica: ['exposicion', 'nitidez', 'color', 'balance_blancos', 'composicion', 'iluminacion', 'enfoque_profundidad', 'ruido_limpieza', 'procesado'],
+    artistica: ['emocion', 'narrativa', 'momento', 'intencion', 'originalidad', 'atmosfera', 'conexion'],
+    excepcional: ['tecnica_emocion', 'momento_irrepetible', 'estilo_impacto', 'trascendencia']
+  };
+
+  var PART_LABELS = { tecnica: 'Técnica', artistica: 'Artística', excepcional: 'Excepcional' };
+  var PART_WEIGHTS = { tecnica: '40%', artistica: '40%', excepcional: '20%' };
+
+  var grid = document.getElementById('grid');
+  var statsLine = document.getElementById('stats-line');
+  var searchInput = document.getElementById('search-input');
+  var categoryRow = document.getElementById('category-row');
+  var toggleAllBtn = document.getElementById('toggle-all-btn');
+  var emptyMsg = document.getElementById('empty-msg');
+  var errorMsg = document.getElementById('error-msg');
+
+  var photos = [];
+  var activeCategories = new Set();
+  var searchTerm = '';
+  var allExpanded = false;
+
+  function escapeHtml(s) {
+    return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
+  }
+
+  function baseName(path, nombre) {
+    var source = path || nombre || '';
+    return source.replace(/^originales\//, '').replace(/\.[^.]+$/, '');
+  }
+
+  function scoreClass(score) {
+    return score >= 8 ? 'top' : '';
+  }
+
+  function aspectCard(key, a) {
+    if (!a) return '';
+    return '<div class="aspect">' +
+      '<div class="aspect-head"><span>' + escapeHtml(ASPECT_LABELS[key] || key) + '</span><b>' + Number(a.puntuacion).toFixed(1) + '</b></div>' +
+      '<p>' + escapeHtml(a.comentario || '') + '</p>' +
+      '<p><em>Mejora:</em> ' + escapeHtml(a.mejora || '') + '</p>' +
+      '</div>';
+  }
+
+  function partSection(key, parte) {
+    if (!parte) return '';
+    var aspectos = PART_KEYS[key].map(function (k) { return aspectCard(k, parte[k]); }).join('');
+    return '<section class="part">' +
+      '<header><h4>' + PART_LABELS[key] + ' · ' + PART_WEIGHTS[key] + '</h4><span class="part-score">' + Number(parte.puntuacion_parte || 0).toFixed(1) + '</span></header>' +
+      (parte.lo_bueno ? '<p class="part-note"><strong>Lo bueno:</strong> ' + escapeHtml(parte.lo_bueno) + '</p>' : '') +
+      (parte.lo_mejorable ? '<p class="part-note"><strong>Lo mejorable:</strong> ' + escapeHtml(parte.lo_mejorable) + '</p>' : '') +
+      '<div class="aspect-grid">' + aspectos + '</div>' +
+      '</section>';
+  }
+
+  function repetirBlock(r) {
+    if (!r) return '';
+    var rows = [
+      ['Notas de acceso', r.notas_acceso],
+      ['Puntuación actual → potencial', (r.puntuacion_actual != null ? r.puntuacion_actual : '') + ' → ' + (r.potencial_estimado != null ? r.potencial_estimado : '')],
+      ['Margen', r.margen],
+      ['Condiciones ideales', r.condiciones_ideales],
+      ['Plan técnico', r.plan_tecnico],
+      ['Plan de composición', r.plan_composicion],
+      ['Plan de momento', r.plan_momento],
+      ['Plan artístico', r.plan_artistico],
+      ['Plan de procesado', r.plan_procesado],
+      ['Resumen del plan', r.resumen_plan],
+      ['Meses recomendados', Array.isArray(r.meses) ? r.meses.join(', ') : r.meses]
+    ].filter(function (row) { return row[1]; });
+    var body = rows.map(function (row) {
+      return '<p><strong>' + escapeHtml(row[0]) + ':</strong> ' + escapeHtml(row[1]) + '</p>';
+    }).join('');
+    return '<details class="sub-block"><summary>Plan de repetición</summary><div class="sub-content">' + body + '</div></details>';
+  }
+
+  function instagramBlock(ig) {
+    if (!ig) return '';
+    var rows = [
+      ['Formato recomendado', ig.formato_recomendado],
+      ['Dimensiones', ig.dimensiones],
+      ['Justificación del formato', ig.justificacion_formato],
+      ['Alt text', ig.alt_text],
+      ['Caption (ES)', ig.caption && ig.caption.es],
+      ['Caption (EN)', ig.caption && ig.caption.en]
+    ].filter(function (row) { return row[1]; });
+    var body = rows.map(function (row) {
+      return '<p><strong>' + escapeHtml(row[0]) + ':</strong> ' + escapeHtml(row[1]) + '</p>';
+    }).join('');
+    return '<details class="sub-block"><summary>Preparación para Instagram</summary><div class="sub-content">' + body + '</div></details>';
+  }
+
+  function cardHtml(foto, idx) {
+    var ev = foto.evaluacion || {};
+    var score = ev.puntuacion_total != null ? ev.puntuacion_total : 0;
+    var lugarTxt = [foto.lugar, foto.ubicacion].filter(Boolean).join(', ');
+    var cats = (foto.categorias || []).map(function (c) {
+      return '<span class="cat-pill">' + escapeHtml(c) + '</span>';
+    }).join('');
+    var dt = foto.datos_toma || {};
+    var metaBits = [
+      dt.camara ? '<span><b>' + escapeHtml(dt.camara) + '</b></span>' : '',
+      dt.objetivo ? '<span>' + escapeHtml(dt.objetivo) + '</span>' : '',
+      dt.diafragma ? '<span>' + escapeHtml(dt.diafragma) + '</span>' : '',
+      dt.obturador ? '<span>' + escapeHtml(dt.obturador) + '</span>' : '',
+      dt.focal ? '<span>' + escapeHtml(dt.focal) + '</span>' : '',
+      dt.iso != null ? '<span>ISO ' + escapeHtml(dt.iso) + '</span>' : ''
+    ].filter(Boolean).join('');
+
+    return (
+      '<article class="card" data-idx="' + idx + '">' +
+        '<div class="thumb-wrap"><img class="thumb-img" alt="' + escapeHtml(foto.titulo || foto.nombre) + '" loading="lazy"></div>' +
+        '<div class="card-body">' +
+          '<div class="card-top">' +
+            '<div class="card-title">' + escapeHtml(foto.titulo || foto.nombre) + '</div>' +
+            '<div class="score-badge ' + scoreClass(score) + '">' + Number(score).toFixed(1) + '<span class="max">/10</span></div>' +
+          '</div>' +
+          (lugarTxt ? '<div class="card-place">' + escapeHtml(lugarTxt) + '</div>' : '') +
+          (cats ? '<div class="cat-row">' + cats + '</div>' : '') +
+          '<div class="card-desc">' + escapeHtml(foto.descripcion || '') + '</div>' +
+        '</div>' +
+        '<div class="detail">' +
+          '<div class="detail-img-wrap"><img class="detail-img" alt="' + escapeHtml(foto.titulo || foto.nombre) + '"></div>' +
+          '<div class="detail-summary">' +
+            '<div class="metric"><span class="lbl">Puntuación total</span><span class="val">' + Number(score).toFixed(1) + '</span></div>' +
+            (ev.potencial != null ? '<div class="metric"><span class="lbl">Potencial</span><span class="val">' + Number(ev.potencial).toFixed(1) + '</span></div>' : '') +
+            '<div class="note">' +
+              (ev.resumen ? '<p>' + escapeHtml(ev.resumen) + '</p>' : '') +
+              (ev.mejora_prioritaria ? '<p><strong>Mejora prioritaria:</strong> ' + escapeHtml(ev.mejora_prioritaria) + '</p>' : '') +
+              (ev.lo_bueno ? '<p><strong>Lo bueno:</strong> ' + escapeHtml(ev.lo_bueno) + '</p>' : '') +
+              (ev.lo_mejorable ? '<p><strong>Lo mejorable:</strong> ' + escapeHtml(ev.lo_mejorable) + '</p>' : '') +
+            '</div>' +
+          '</div>' +
+          partSection('tecnica', ev.tecnica) +
+          partSection('artistica', ev.artistica) +
+          partSection('excepcional', ev.excepcional) +
+          (metaBits ? '<div class="meta-row">' + metaBits + '</div>' : '') +
+          repetirBlock(foto.repetir) +
+          instagramBlock(foto.instagram) +
+        '</div>' +
+      '</article>'
+    );
+  }
+
+  function lazyLoad(imgEl, src) {
+    var obs = new IntersectionObserver(function (entries) {
+      if (!entries[0].isIntersecting) return;
+      obs.disconnect();
+      imgEl.src = src;
+    }, { rootMargin: '200px' });
+    obs.observe(imgEl);
+  }
+
+  function matchesFilters(foto) {
+    if (activeCategories.size > 0) {
+      var cats = foto.categorias || [];
+      var hasMatch = cats.some(function (c) { return activeCategories.has(c); });
+      if (!hasMatch) return false;
+    }
+    if (searchTerm) {
+      var haystack = [
+        foto.titulo, foto.descripcion, foto.lugar, foto.ubicacion
+      ].concat(foto.etiquetas || []).join(' ').toLowerCase();
+      if (haystack.indexOf(searchTerm) === -1) return false;
+    }
+    return true;
+  }
+
+  function render() {
+    grid.innerHTML = '';
+    var visible = photos.filter(matchesFilters);
+    emptyMsg.hidden = visible.length > 0;
+
+    var frag = document.createDocumentFragment();
+    visible.forEach(function (foto) {
+      var wrapper = document.createElement('div');
+      wrapper.innerHTML = cardHtml(foto, foto._idx);
+      var cardEl = wrapper.firstElementChild;
+      frag.appendChild(cardEl);
+    });
+    grid.appendChild(frag);
+
+    grid.querySelectorAll('.card').forEach(function (cardEl) {
+      var idx = Number(cardEl.dataset.idx);
+      var foto = photos[idx];
+      var thumbImg = cardEl.querySelector('.thumb-img');
+      thumbImg.src = 'assets/fondo/' + foto._base + '.webp';
+      lazyLoad(thumbImg, 'assets/webp/' + foto._base + '.webp');
+    });
+
+    var avg = visible.length
+      ? (visible.reduce(function (sum, f) { return sum + f._score; }, 0) / visible.length).toFixed(1)
+      : '0.0';
+    statsLine.textContent = visible.length + ' de ' + photos.length + ' fotos · puntuación media ' + avg;
+  }
+
+  function onGridClick(e) {
+    var cardEl = e.target.closest('.card');
+    if (!cardEl) return;
+    var idx = Number(cardEl.dataset.idx);
+    var foto = photos[idx];
+    var wasExpanded = cardEl.classList.contains('is-expanded');
+    cardEl.classList.toggle('is-expanded');
+    if (!wasExpanded && !cardEl.dataset.hiRes) {
+      cardEl.querySelector('.detail-img').src = 'assets/webp/' + foto._base + '.webp';
+      cardEl.dataset.hiRes = '1';
+    }
+  }
+
+  function renderCategories() {
+    var set = new Set();
+    photos.forEach(function (f) { (f.categorias || []).forEach(function (c) { set.add(c); }); });
+    var cats = Array.from(set).sort(function (a, b) { return a.localeCompare(b, 'es'); });
+    categoryRow.innerHTML = cats.map(function (c) {
+      return '<span class="chip" data-cat="' + escapeHtml(c) + '">' + escapeHtml(c) + '</span>';
+    }).join('');
+  }
+
+  categoryRow.addEventListener('click', function (e) {
+    var chip = e.target.closest('.chip');
+    if (!chip) return;
+    var cat = chip.dataset.cat;
+    if (activeCategories.has(cat)) {
+      activeCategories.delete(cat);
+      chip.classList.remove('is-active');
+    } else {
+      activeCategories.add(cat);
+      chip.classList.add('is-active');
+    }
+    render();
+  });
+
+  searchInput.addEventListener('input', function () {
+    searchTerm = searchInput.value.trim().toLowerCase();
+    render();
+  });
+
+  toggleAllBtn.addEventListener('click', function () {
+    allExpanded = !allExpanded;
+    toggleAllBtn.textContent = allExpanded ? 'Colapsar todo' : 'Expandir todo';
+    grid.querySelectorAll('.card').forEach(function (cardEl) {
+      var idx = Number(cardEl.dataset.idx);
+      var foto = photos[idx];
+      cardEl.classList.toggle('is-expanded', allExpanded);
+      if (allExpanded && !cardEl.dataset.hiRes) {
+        cardEl.querySelector('.detail-img').src = 'assets/webp/' + foto._base + '.webp';
+        cardEl.dataset.hiRes = '1';
+      }
+    });
+  });
+
+  grid.addEventListener('click', onGridClick);
+
+  fetch('fotos.json')
+    .then(function (res) {
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      return res.json();
+    })
+    .then(function (data) {
+      photos = data
+        .map(function (f) {
+          f._base = baseName(f.path, f.nombre);
+          f._score = f.evaluacion && f.evaluacion.puntuacion_total != null ? f.evaluacion.puntuacion_total : 0;
+          return f;
+        })
+        .sort(function (a, b) { return b._score - a._score; });
+      photos.forEach(function (f, i) { f._idx = i; });
+      renderCategories();
+      render();
+    })
+    .catch(function (err) {
+      errorMsg.hidden = false;
+      errorMsg.textContent = 'No se pudo cargar fotos.json: ' + err.message + ' (¿estás sirviendo el sitio por HTTP y no abriendo el archivo directamente?)';
+      statsLine.textContent = 'Error de carga';
+    });
+})();
+</script>
+
+</body>
+</html>

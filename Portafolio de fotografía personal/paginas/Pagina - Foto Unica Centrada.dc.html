@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;1,400&family=Work+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <script src="../image-slot.js"></script>
+</helmet>
+
+<div style="{{ wrapStyle }}">
+  <div style="{{ cardStyle }}">
+    <div style="{{ imgWrapStyle }}">
+      <image-slot id="single-tpl" src="https://picsum.photos/seed/tpl-single/1000/1499" style="width:100%;height:100%;display:block" shape="rect" fit="cover" placeholder="Foto vertical u horizontal"></image-slot>
+    </div>
+    <div style="{{ textWrapStyle }}">
+      <div style="{{ titleStyle }}">Título de la foto</div>
+      <div style="{{ metaStyle }}">Lugar · Fecha</div>
+      <div style="{{ notesStyle }}">Nota o historia breve de la foto, una o dos líneas.</div>
+    </div>
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;: {&quot;width&quot;: 1264, &quot;height&quot;: 739}}">
+// TIPO DE PÁGINA: Foto única centrada — una foto (vertical u horizontal) con
+// título, lugar/fecha y nota debajo, todo centrado. Ideal para fotos con texto completo.
+class Component extends DCLogic {
+  ratio = 0.667; // cambia esto según la proporción real de la foto (alto/ancho invertido: w/h)
+
+  renderVals() {
+    const fg = '#262220', muted = '#8a8175';
+    const sansFont = "'Work Sans', sans-serif";
+    const serifFont = "'Playfair Display', serif";
+    const cardW = 1200, cardH = 675, padX = 60, padY = 52;
+    const contentW = cardW - padX * 2;
+    const shadow = '0 26px 56px rgba(30,26,18,0.18), 0 4px 12px rgba(30,26,18,0.09)';
+    const border = '1px solid rgba(30,26,18,0.1)';
+    let bw = 350 * this.ratio, bh = 350;
+    if (bw > contentW) { bw = contentW; bh = bw / this.ratio; }
+
+    return {
+      wrapStyle: { display: 'flex', justifyContent: 'center', background: '#e7e2d6', padding: 32 },
+      cardStyle: { background: 'linear-gradient(150deg, #faf6ec 0%, #f1ead6 100%)', border, boxShadow: shadow, borderRadius: 8, width: cardW, height: cardH, boxSizing: 'border-box', padding: `${padY}px ${padX}px`, display: 'flex', flexDirection: 'column', justifyContent: 'center', overflow: 'hidden', position: 'relative' },
+      imgWrapStyle: { width: Math.round(bw), height: Math.round(bh), margin: '0 auto', position: 'relative', overflow: 'hidden', background: 'rgba(20,16,10,0.045)', flex: 'none' },
+      textWrapStyle: { textAlign: 'center', marginTop: 22, maxWidth: 680, marginLeft: 'auto', marginRight: 'auto', flex: 'none' },
+      titleStyle: { fontFamily: serifFont, fontSize: 36, color: fg, margin: 0, lineHeight: 1.15 },
+      metaStyle: { fontFamily: sansFont, fontSize: 15, letterSpacing: '.02em', color: muted, marginTop: 9 },
+      notesStyle: { fontFamily: serifFont, fontStyle: 'italic', fontSize: 17, color: fg, opacity: 0.82, marginTop: 14, lineHeight: 1.5 }
+    };
+  }
+}
+
+</script>
+</body>
+</html>

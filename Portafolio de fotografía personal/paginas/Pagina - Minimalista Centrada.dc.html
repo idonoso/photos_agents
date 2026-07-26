@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;1,500&display=swap" rel="stylesheet">
+  <script src="../image-slot.js"></script>
+</helmet>
+
+<div style="{{ wrapStyle }}">
+  <div style="{{ cardStyle }}">
+    <div style="{{ cmImgWrapStyle }}">
+      <image-slot id="cm-tpl" src="https://picsum.photos/seed/tpl-cm/900/700" style="width:100%;height:100%;display:block" shape="rect" fit="contain" placeholder="Foto pequeña, mucho espacio en blanco"></image-slot>
+    </div>
+    <div style="{{ cmTitleStyle }}">Título de la foto</div>
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;: {&quot;width&quot;: 1264, &quot;height&quot;: 739}}">
+// TIPO DE PÁGINA: Minimalista centrada — foto pequeña y un solo título,
+// sin más texto, dejando mucho espacio en blanco alrededor. Para "respirar".
+class Component extends DCLogic {
+  ratio = 1.2;
+
+  renderVals() {
+    const fg = '#262220';
+    const serifFont = "'Playfair Display', serif";
+    const cardW = 1200, cardH = 675, padX = 60, padY = 52;
+    const contentW = cardW - padX * 2;
+    const shadow = '0 26px 56px rgba(30,26,18,0.18), 0 4px 12px rgba(30,26,18,0.09)';
+    const border = '1px solid rgba(30,26,18,0.1)';
+    let bw = 340 * this.ratio, bh = 340;
+    const maxW = Math.round(contentW * 0.42);
+    if (bw > maxW) { bw = maxW; bh = bw / this.ratio; }
+
+    return {
+      wrapStyle: { display: 'flex', justifyContent: 'center', background: '#e7e2d6', padding: 32 },
+      cardStyle: { background: 'linear-gradient(150deg, #faf6ec 0%, #f1ead6 100%)', border, boxShadow: shadow, borderRadius: 8, width: cardW, height: cardH, boxSizing: 'border-box', padding: `${padY}px ${padX}px`, display: 'flex', flexDirection: 'column', justifyContent: 'center', overflow: 'hidden', position: 'relative' },
+      cmImgWrapStyle: { width: Math.round(bw), height: Math.round(bh), margin: '0 auto', position: 'relative', overflow: 'hidden', background: 'rgba(20,16,10,0.045)' },
+      cmTitleStyle: { fontFamily: serifFont, fontStyle: 'italic', fontSize: 26, color: fg, textAlign: 'center', marginTop: 24 }
+    };
+  }
+}
+
+</script>
+</body>
+</html>

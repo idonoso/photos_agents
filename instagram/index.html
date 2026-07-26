@@ -1,0 +1,1511 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Galería de Instagram — fotos.json</title>
+<style>
+  :root {
+    --ink: #1c1c1e;
+    --ink-soft: #8e8e8e;
+    --line: #dbdbdb;
+    --page: #f6f8f6;
+    --card: #ffffff;
+    --teal: #3b6e64;
+    --teal-pale: #f3f7f6;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--page);
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    padding: 48px 20px 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 48px;
+  }
+
+  .page-header {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    max-width: 600px;
+  }
+
+  .page-header .label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--teal);
+  }
+
+  .page-header h1 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+
+  .page-header p {
+    margin: 0;
+    font-size: 13px;
+    color: var(--ink-soft);
+  }
+
+  .feed {
+    display: flex;
+    flex-direction: column;
+    gap: 56px;
+    width: 100%;
+    align-items: center;
+  }
+
+  .post {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    width: 100%;
+  }
+
+  /* ---------- Instagram card ---------- */
+
+  .ig-card {
+    width: 100%;
+    max-width: 470px;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+
+  .ig-header {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    padding: 13px 14px;
+  }
+
+  .ig-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #557c74, #2e4d46);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .ig-avatar svg { width: 16px; height: 16px; color: #fff; }
+
+  .ig-handle {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.2;
+  }
+
+  .ig-handle .place {
+    display: block;
+    font-size: 11.5px;
+    font-weight: 400;
+    color: var(--ink-soft);
+  }
+
+  .ig-menu {
+    margin-left: auto;
+    color: var(--ink);
+    opacity: 0.7;
+  }
+
+  .ig-photo-wrap {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    background: #eee;
+    overflow: hidden;
+  }
+
+  .ig-photo-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .ig-photo-note {
+    font-size: 11px;
+    color: var(--ink-soft);
+    padding: 6px 14px 0;
+  }
+
+  .ig-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 11px 14px 4px;
+  }
+
+  .ig-actions svg {
+    width: 24px;
+    height: 24px;
+    stroke: var(--ink);
+    fill: none;
+    stroke-width: 1.7;
+  }
+
+  .ig-actions .spacer { margin-left: auto; }
+
+  .ig-status {
+    padding: 6px 14px 2px;
+    font-size: 12.5px;
+    font-weight: 600;
+    color: var(--teal);
+    letter-spacing: 0.01em;
+  }
+
+  .ig-caption {
+    padding: 8px 14px 4px;
+    font-size: 13.5px;
+    line-height: 1.45;
+  }
+
+  .ig-caption .lang-tag {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: var(--teal);
+    background: var(--teal-pale);
+    border-radius: 4px;
+    padding: 1px 5px;
+    margin: 10px 0 5px;
+  }
+
+  .ig-caption .lang-block:first-child .lang-tag { margin-top: 0; }
+
+  .ig-caption b { font-weight: 600; }
+
+  .ig-caption .body-text {
+    white-space: pre-wrap;
+    margin: 0;
+  }
+
+  .ig-caption .tags {
+    color: #00376b;
+    word-break: break-word;
+  }
+
+  .ig-timestamp {
+    padding: 6px 14px 16px;
+    font-size: 10.5px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+
+  /* ---------- Technical spec sheet ---------- */
+
+  .spec {
+    width: 100%;
+    max-width: 620px;
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .spec-row {
+    background: var(--card);
+    padding: 16px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .spec-row .k {
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--teal);
+  }
+
+  .spec-row .v {
+    font-size: 13px;
+    line-height: 1.55;
+    color: var(--ink);
+  }
+
+  .spec-row .v.mono {
+    font-family: ui-monospace, "SF Mono", "Menlo", "Consolas", monospace;
+    font-size: 12px;
+    background: var(--teal-pale);
+    border-radius: 6px;
+    padding: 10px 12px;
+    overflow-x: auto;
+    white-space: pre;
+  }
+
+  .spec-row .pair {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px 28px;
+  }
+
+  .spec-row .pair div {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .spec-row .pair .num {
+    font-family: ui-monospace, "SF Mono", "Menlo", "Consolas", monospace;
+    font-variant-numeric: tabular-nums;
+    font-size: 14px;
+  }
+
+  .spec-row .pair .lbl {
+    font-size: 10.5px;
+    color: var(--ink-soft);
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12.5px;
+    font-weight: 600;
+  }
+
+  .badge.ok { color: #2e6b4f; }
+
+  .badge svg { width: 14px; height: 14px; }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .ig-actions svg { transition: opacity 0.15s ease; }
+    .ig-actions svg:hover { opacity: 0.6; }
+  }
+
+  /* ---------- Carousel (multi-photo post) ---------- */
+
+  .ig-carousel {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .ig-carousel::-webkit-scrollbar { display: none; }
+
+  .ig-carousel .slide {
+    flex: 0 0 100%;
+    scroll-snap-align: start;
+    height: 100%;
+  }
+
+  .ig-carousel .slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .ig-counter {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(0,0,0,0.55);
+    color: #fff;
+    font-size: 11px;
+    padding: 2px 8px;
+    border-radius: 10px;
+    pointer-events: none;
+  }
+
+  .ig-dots {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    padding-top: 8px;
+  }
+
+  .ig-dots span {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--line);
+  }
+
+  .ig-dots span.active { background: var(--teal); }
+
+  .spec-row .k .sub {
+    display: block;
+    font-weight: 400;
+    letter-spacing: 0;
+    text-transform: none;
+    color: var(--ink-soft);
+    font-size: 11px;
+    margin-top: 2px;
+  }
+
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <span class="label">Instagram Prep · Galería del proyecto</span>
+  <h1>Fotos preparadas para Instagram</h1>
+  <p>16 fotos en 14 posts · generado el 26 jul 2026 · datos leídos de fotos.json</p>
+</div>
+
+<div class="feed">
+
+  <article class="post">
+    <div class="ig-card">
+      <div class="ig-header">
+        <div class="ig-avatar">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 9a3 3 0 100 6 3 3 0 000-6zm9-1h-2.6l-1.2-1.9A2 2 0 0015.5 5h-7a2 2 0 00-1.7 1.1L5.6 8H3a1 1 0 00-1 1v10a2 2 0 002 2h16a2 2 0 002-2V9a1 1 0 00-1-1zm-9 9.5a5 5 0 110-10 5 5 0 010 10z"/></svg>
+        </div>
+        <div class="ig-handle">
+          WildLensProject
+          <span class="place">Casa de Campo</span>
+        </div>
+        <div class="ig-menu">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><circle cx="5" cy="12" r="1.7"/><circle cx="12" cy="12" r="1.7"/><circle cx="19" cy="12" r="1.7"/></svg>
+        </div>
+      </div>
+
+      <div class="ig-photo-wrap" style="aspect-ratio: 4 / 5;">
+        <img src="previews/DSC_2491_ig.jpeg" alt="Jilguero europeo posado de perfil sobre una rama cubierta de liquen, con la cabeza girada mostrando la máscara facial roja, la capucha blanca y negra, y el pico entreabierto. El pecho es marrón claro y el ala muestra una franja amarilla intensa junto a plumas negras con motas blancas. El fondo es un bokeh verde uniforme con puntos de luz difuminados, propio de vegetación primaveral fuera de foco." />
+      </div>
+
+
+      <div class="ig-actions">
+        <svg viewBox="0 0 24 24" stroke="currentColor"><path d="M12 21s-7.5-4.7-10-9.3C.4 8.4 2 4.5 5.8 4c2-.3 3.9.6 5 2.2C12 4.6 13.8 3.7 15.8 4c3.8.5 5.4 4.4 3.8 7.7C19.5 16.3 12 21 12 21z" stroke-linejoin="round"/></svg>
+        <svg viewBox="0 0 24 24" stroke="currentColor"><path d="M21 11.5a8.5 8.5 0 11-3.8-7.1L21 3l-1.2 4.3c.8 1.2 1.2 2.6 1.2 4.2z" stroke-linejoin="round"/></svg>
+        <svg viewBox="0 0 24 24" stroke="currentColor"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" stroke-linejoin="round"/></svg>
+        <div class="spacer"></div>
+        <svg viewBox="0 0 24 24" stroke="currentColor"><path d="M6 3h12v18l-6-4.5L6 21V3z" stroke-linejoin="round"/></svg>
+      </div>
+
+      <div class="ig-status">Vista previa · pendiente de publicar</div>
+
+      <div class="ig-caption">
+        <div class="lang-block">
+          <span class="lang-tag">ES</span>
+          <p class="body-text"><b>WildLensProject</b> Llevaba un rato viendo a un jilguero ir y venir entre las ramas sin parar quieto, hasta que este se posó justo ahí, sobre el liquen, y aguantó lo suficiente para el retrato.
+
+La máscara roja, el amarillo del ala, el pecho color canela — de cerca este pájaro parece pintado. La Casa de Campo en primavera tiene estas sorpresas de color entre tanto verde.
+
+<span class="tags">#birdphotography #europeangoldfinch #jilguero #carduelis #birdsofinstagram #aves #bokeh #telephoto #shallowdof #casadecampo #madrid #spain #españa #photography #photographer #fotografia #nikon #nikoncreators #birdsofmadrid #avesmadrid #madridbirds #spanishwildlife #wildlifeofinstagram</span></p>
+        </div>
+        <div class="lang-block">
+          <span class="lang-tag">EN</span>
+          <p class="body-text">I'd been watching a goldfinch hop from branch to branch without settling, and then it landed right there on the lichen and held still just long enough for this.
+
+The red mask, the yellow wing flash, that cinnamon chest — up close this bird looks painted. Casa de Campo in spring keeps throwing these little bursts of color at you between all the green.</p>
+        </div>
+      </div>
+
+      <div class="ig-timestamp">Preparada el 26 jul 2026</div>
+    </div>
+
+    <div class="spec">
+      <div class="spec-row">
+        <span class="k">Alt text</span>
+        <p class="v">Jilguero europeo posado de perfil sobre una rama cubierta de liquen, con la cabeza girada mostrando la máscara facial roja, la capucha blanca y negra, y el pico entreabierto. El pecho es marrón claro y el ala muestra una franja amarilla intensa junto a plumas negras con motas blancas. El fondo es un bokeh verde uniforme con puntos de luz difuminados, propio de vegetación primaveral fuera de foco.</p>
+        <div class="pair">
+          <div><span class="num">4:5</span><span class="lbl">formato</span></div>
+          <div><span class="num">1080 × 1350 px</span><span class="lbl">dimensiones</span></div>
+        </div>
+        <p class="v">El jilguero está en perfil mirando hacia la derecha con espacio de dirección; el retrato recorta el exceso de fondo vacío del lado derecho manteniendo aire suficiente delante del pico y toda la altura original del encuadre.</p>
+        <div class="pair">
+          <div><span class="num">sin cambios</span><span class="lbl">brillo</span></div>
+          <div><span class="num">sin cambios</span><span class="lbl">contraste</span></div>
+          <div><span class="num">sin cambios</span><span class="lbl">saturación</span></div>
+          <div><span class="num">+10</span><span class="lbl">nitidez de salida</span></div>
+        </div>
+        <p class="v mono">sips --resampleHeight 1350 "/Users/ignacio/Sites/fotos/originales/DSC_2491.jpeg" --out "/Users/ignacio/Downloads/DSC_2491_ig.jpeg"
+sips -c 1350 1080 --cropOffset 0 150 "/Users/ignacio/Downloads/DSC_2491_ig.jpeg"
+
+# Verificar:
+sips -g pixelWidth -g pixelHeight "/Users/ignacio/Downloads/DSC_2491_ig.jpeg"</p>
+      </div>
+    </div>
+  </article>
+  <article class="post">
+    <div class="ig-card">
+      <div class="ig-header">
+        <div class="ig-avatar">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 9a3 3 0 100 6 3 3 0 000-6zm9-1h-2.6l-1.2-1.9A2 2 0 0015.5 5h-7a2 2 0 00-1.7 1.1L5.6 8H3a1 1 0 00-1 1v10a2 2 0 002 2h16a2 2 0 002-2V9a1 1 0 00-1-1zm-9 9.5a5 5 0 110-10 5 5 0 010 10z"/></svg>
+        </div>
+        <div class="ig-handle">
+          WildLensProject
+          <span class="place">Sierra de Gredos</span>
+        </div>
+        <div class="ig-menu">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><circle cx="5" cy="12" r="1.7"/><circle cx="12" cy="12" r="1.7"/><circle cx="19" cy="12" r="1.7"/></svg>
+        </div>
+      </div>
+
+      <div class="ig-photo-wrap" style="aspect-ratio: 4 / 5;">
+        <img src="previews/DSC_4074_ig.jpeg" alt="Pechiazul macho posado en la cima de un arbusto de sierra, con el pico completamente abierto en pleno canto. El babero de plumas azul intenso contrasta con el costado rojizo y el dorso pardo-grisáceo. Las patas oscuras se apoyan sobre tallos verdes de la vegetación serrana. El fondo es un bokeh uniforme en tonos verdes y ocres, propio de un día soleado en la sierra." />
+      </div>
+
+
+      <div class="ig-actions">
+        <svg viewBox="0 0 24 24" stroke="currentColor"><path d="M12 21s-7.5-4.7-10-9.3C.4 8.4 2 4.5 5.8 4c2-.3 3.9.6 5 2.2C12 4.6 13.8 3.7 15.8 4c3.8.5 5.4 4.4 3.8 7.7C19.5 16.3 12 21 12 21z" stroke-linejoin="round"/></svg>
+        <svg viewBox="0 0 24 24" stroke="currentColor"><path d="M21 11.5a8.5 8.5 0 11-3.8-7.1L21 3l-1.2 4.3c.8 1.2 1.2 2.6 1.2 4.2z" stroke-linejoin="round"/></svg>
+        <svg viewBox="0 0 24 24" stroke="currentColor"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" stroke-linejoin="round"/></svg>
+        <div class="spacer"></div>
+        <svg viewBox="0 0 24 24" stroke="currentColor"><path d="M6 3h12v18l-6-4.5L6 21V3z" stroke-linejoin="round"/></svg>
+      </div>
+
+      <div class="ig-status">Vista previa · pendiente de publicar</div>
+
+      <div class="ig-caption">
+        <div class="lang-block">
+          <span class="lang-tag">ES</span>
+          <p class="body-text"><b>WildLensProject</b> Lo escuché antes de verlo — ese canto tan característico entre los piornales de Gredos, subiendo y bajando de tono sin parar.
+
+Tardé un rato en localizarlo, pero cuando lo hice tenía el pico abierto de par en par y el babero azul brillando al sol como si fuera de neón. Pocas aves cantan con tanta entrega.
+
+<span class="tags">#birdphotography #bluethroat #pechiazul #luscinia #birdsofinstagram #aves #bokeh #telephoto #birdsong #gredos #sierradegredos #avila #spain #photography #photographer #nikon #nikoncreators #natgeo #birdsofspain #spanishwildlife #wildlifeofinstagram #naturegram #birdwatchingspain #singingbirds</span></p>
+        </div>
+        <div class="lang-block">
+          <span class="lang-tag">EN</span>
+          <p class="body-text">I heard it before I saw it — that unmistakable song rising and falling somewhere in the gorse of Gredos.
+
+Took me a while to spot him, but when I did, his beak was wide open and that blue bib was practically glowing in the sun. Not many birds sing with this much commitment.</p>
+        </div>
+      </div>
+
+      <div class="ig-timestamp">Preparada el 26 jul 2026</div>
+    </div>
+
+    <div class="spec">
+      <div class="spec-row">
+        <span class="k">Alt text</span>
+        <p class="v">Pechiazul macho posado en la cima de un arbusto de sierra, con el pico completamente abierto en pleno canto. El babero de plumas azul intenso contrasta con el costado rojizo y el dorso pardo-grisáceo. Las patas oscuras se apoyan sobre tallos verdes de la vegetación serrana. El fondo es un bokeh uniforme en tonos verdes y ocres, propio de un día soleado en la sierra.</p>
+        <div class="pair">
+          <div><span class="num">4:5</span><span class="lbl">formato</span></div>
+          <div><span class="num">1080 × 1350 px</span><span class="lbl">dimensiones</span></div>
+        </div>
+        <p class="v">El original es cuadrado con el ave casi centrada y bastante bokeh vacío a los lados; el retrato 4:5 recorta solo el ancho sobrante, conservando toda la altura para el gesto del pico abierto hacia arriba en pleno canto.</p>
+        <div class="pair">
+          <div><span class="num">sin cambios</span><span class="lbl">brillo</span></div>
+          <div><span class="num">sin cambios</span><span class="lbl">contraste</span></div>
+          <div><span class="num">sin cambios</span><span class="lbl">saturación</span></div>
+          <div><span class="num">+10</span><span class="lbl">nitidez de salida</span></div>
+        </div>
+        <p class="v mono">sips --resampleHeight 1350 "/Users/ignacio/Sites/fotos/originales/DSC_4074.jpeg" --out "/Users/ignacio/Downloads/DSC_4074_ig.jpeg"
+sips -c 1350 1080 "/Users/ignacio/Downloads/DSC_4074_ig.jpeg"
+
+# Verificar:
+sips -g pixelWidth -g pixelHeight "/Users/ignacio/Downloads/DSC_4074_ig.jpeg"</p>
+      </div>
+    </div>
+  </article>
+  <article class="post">
+    <div class="ig-card">
+      <div class="ig-header">
+        <div class="ig-avatar">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 9a3 3 0 100 6 3 3 0 000-6zm9-1h-2.6l-1.2-1.9A2 2 0 0015.5 5h-7a2 2 0 00-1.7 1.1L5.6 8H3a1 1 0 00-1 1v10a2 2 0 002 2h16a2 2 0 002-2V9a1 1 0 00-1-1zm-9 9.5a5 5 0 110-10 5 5 0 010 10z"/></svg>
+        </div>
+        <div class="ig-handle">
+          WildLensProject
+          <span class="place">Sierra de Gredos</span>
+        </div>
+        <div class="ig-menu">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><circle cx="5" cy="12" r="1.7"/><circle cx="12" cy="12" r="1.7"/><circle cx="19" cy="12" r="1.7"/></svg>
+        </div>
+      </div>
+
+      <div class="ig-photo-wrap" style="aspect-ratio: 1 / 1;">
+        <img src="previews/DSC_4584_ig.jpeg" alt="Macho adulto de cabra montesa con cuernos grandes y fuertemente anillados, pastando con la cabeza baja en un prado alpino cubierto de hierba verde y flores amarillas silvestres. El pelaje es pardo-grisáceo con la parte inferior de las patas más oscura. El fondo se difumina en un bokeh verde-amarillo uniforme, propio de un día soleado en alta montaña." />
+      </div>
+
+
+      <div class="ig-actions">
+        <svg viewBox="0 0 24 24" stroke="currentColor"><path d="M12 21s-7.5-4.7-10-9.3C.4 8.4 2 4.5 5.8 4c2-.3 3.9.6 5 2.2C12 4.6 13.8 3.7 15.8 4c3.8.5 5.4 4.4 3.8 7.7C19.5 16.3 12 21 12 21z" stroke-linejoin="round"/></svg>
+        <svg viewBox="0 0 24 24" stroke="currentColor"><path d="M21 11.5a8.5 8.5 0 11-3.8-7.1L21 3l-1.2 4.3c.8 1.2 1.2 2.6 1.2 4.2z" stroke-linejoin="round"/></svg>
+        <svg viewBox="0 0 24 24" stroke="currentColor"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" stroke-linejoin="round"/></svg>
+        <div class="spacer"></div>
+        <svg viewBox="0 0 24 24" stroke="currentColor"><path d="M6 3h12v18l-6-4.5L6 21V3z" stroke-linejoin="round"/></svg>
+      </div>
+
+      <div class="ig-status">Vista previa · pendiente de publicar</div>
+
+      <div class="ig-caption">
+        <div class="lang-block">
+          <span class="lang-tag">ES</span>
+          <p class="body-text"><b>WildLensProject</b> Cada anillo de esos cuernos es un año de vida en la sierra — y este ejemplar tiene unos cuantos.
+
+Lo encontré pastando tranquilo en un prado alto de Gredos, ajeno a la cámara, con esa cornamenta que casi le pesa más que la cabeza. Es de los machos más grandes que he visto por la zona.
+
+<span class="tags">#wildlife #wildlifephotography #fauna #ibex #cabramontesa #capraiberica #bokeh #telephoto #naturallight #gredos #sierradegredos #avila #spain #photography #photographer #nikon #nikoncreators #natgeo #wildlifeofinstagram #animalsofinstagram #naturegram #ibexofinstagram #gredoswildlife #spanishwildlife</span></p>
+        </div>
+        <div class="lang-block">
+          <span class="lang-tag">EN</span>
+          <p class="body-text">Each ring on those horns marks a year of mountain life — and this one's got plenty.
+
+I found him grazing calmly in a high meadow in Gredos, completely ignoring the camera, horns looking almost heavier than his head. One of the biggest males I've come across up there.</p>
+        </div>
+      </div>
+
+      <div class="ig-timestamp">Preparada el 26 jul 2026</div>
+    </div>
+
+    <div class="spec">
+      <div class="spec-row">
+        <span class="k">Alt text</span>
+        <p class="v">Macho adulto de cabra montesa con cuernos grandes y fuertemente anillados, pastando con la cabeza baja en un prado alpino cubierto de hierba verde y flores amarillas silvestres. El pelaje es pardo-grisáceo con la parte inferior de las patas más oscura. El fondo se difumina en un bokeh verde-amarillo uniforme, propio de un día soleado en alta montaña.</p>
+        <div class="pair">
+          <div><span class="num">1:1</span><span class="lbl">formato</span></div>
+          <div><span class="num">1080 × 1080 px</span><span class="lbl">dimensiones</span></div>
+        </div>
+        <p class="v">El animal está pastando con la cabeza baja y los cuernos extendidos en horizontal, ocupando más ancho que alto; un cuadrado ajustado recorta el prado vacío sobrante sin arriesgar cortar las puntas de los cuernos, como sí podría pasar con un recorte 4:5 más estrecho.</p>
+        <div class="pair">
+          <div><span class="num">sin cambios</span><span class="lbl">brillo</span></div>
+          <div><span class="num">+5</span><span class="lbl">contraste</span></div>
+          <div><span class="num">sin cambios</span><span class="lbl">saturación</span></div>
+          <div><span class="num">+10</span><span class="lbl">nitidez de salida</span></div>
+        </div>
+        <p class="v mono">sips --resampleHeight 1080 "/Users/ignacio/Sites/fotos/originales/DSC_4584.jpeg" --out "/Users/ignacio/Downloads/DSC_4584_ig.jpeg"
+sips -c 1080 1080 --cropOffset 0 330 "/Users/ignacio/Downloads/DSC_4584_ig.jpeg"
+
+# Verificar:
+sips -g pixelWidth -g pixelHeight "/Users/ignacio/Downloads/DSC_4584_ig.jpeg"</p>
+      </div>
+    </div>
+  </article>
+  <article class="post">
+    <div class="ig-card">
+      <div class="ig-header">
+        <div class="ig-avatar">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 9a3 3 0 100 6 3 3 0 000-6zm9-1h-2.6l-1.2-1.9A2 2 0 0015.5 5h-7a2 2 0 00-1.7 1.1L5.6 8H3a1 1 0 00-1 1v10a2 2 0 002 2h16a2 2 0 002-2V9a1 1 0 00-1-1zm-9 9.5a5 5 0 110-10 5 5 0 010 10z"/></svg>
+        </div>
+        <div class="ig-handle">
+          WildLensProject
+          <span class="place">Palancares · Laguna Grande de Gredos</span>
+        </div>
+        <div class="ig-menu">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><circle cx="5" cy="12" r="1.7"/><circle cx="12" cy="12" r="1.7"/><circle cx="19" cy="12" r="1.7"/></svg>
+        </div>
+      </div>
+
+      <div class="ig-photo-wrap" style="aspect-ratio: 4 / 5; position: relative;">
+        <div class="ig-carousel">
+          <div class="slide">
+            <img src="previews/DSC_5756_ig.jpeg" alt="Escribano montesino posado sobre una rama de pino, con el pico entreabierto en actitud de canto y la cabeza ligeramente alzada. El plumaje muestra el característico patrón de rayas blancas y negras en la cabeza y el pecho de tono canela. Ramas de pino desenfocadas en primer plano enmarcan la escena, con un fondo de bokeh amarillo-verde propio de un bosque de pinar." />
+          </div>
+          <div class="slide">
+            <img src="previews/DSC_4631_ig.jpeg" alt="Escribano montesino posado en el borde de una roca de granito cubierta de liquen amarillo y gris, en actitud alerta con la cabeza girada hacia la derecha. El plumaje muestra rayas blancas y negras en la cabeza y tonos canela en el pecho. El fondo es un prado verde desenfocado con pequeñas flores silvestres amarillas y azules." />
+          </div>
+        </div>
+        <span class="ig-counter">1/2</span>
+      </div>
+
+      <div class="ig-dots"><span class="active"></span><span></span></div>
+
+      <div class="ig-actions">
+        <svg viewBox="0 0 24 24" stroke="currentColor"><path d="M12 21s-7.5-4.7-10-9.3C.4 8.4 2 4.5 5.8 4c2-.3 3.9.6 5 2.2C12 4.6 13.8 3.7 15.8 4c3.8.5 5.4 4.4 3.8 7.7C19.5 16.3 12 21 12 21z" stroke-linejoin="round"/></svg>
+        <svg viewBox="0 0 24 24" stroke="currentColor"><path d="M21 11.5a8.5 8.5 0 11-3.8-7.1L21 3l-1.2 4.3c.8 1.2 1.2 2.6 1.2 4.2z" stroke-linejoin="round"/></svg>
+        <svg viewBox="0 0 24 24" stroke="currentColor"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" stroke-linejoin="round"/></svg>
+        <div class="spacer"></div>
+        <svg viewBox="0 0 24 24" stroke="currentColor"><path d="M6 3h12v18l-6-4.5L6 21V3z" stroke-linejoin="round"/></svg>
+      </div>
+
+      <div class="ig-status">Vista previa · carrusel de 2 fotos · pendiente de publicar</div>
+
+      <div class="ig-caption">
+        <div class="lang-block">
+          <span class="lang-tag">ES</span>
+          <p class="body-text"><b>WildLensProject</b> El mismo escribano montesino, dos paisajes muy distintos.
+
+En la Laguna Grande de Gredos lo encontré posado en una roca de granito cubierta de liquen, rodeado de flores de alta montaña — un centinela vigilando el prado.
+
+En el pinar de Palancares, en Cuenca, apareció entre las ramas de un pino, con el pico entreabierto cantando, enmarcado de forma natural por las agujas verdes en primer plano.
+
+Mismo dibujo de cabeza a rayas, mismo pecho canela, dos mundos completamente diferentes.
+
+<span class="tags">#birdphotography #rockbunting #escribanomontesino #emberizacia #birdsofinstagram #aves #bokeh #telephoto #naturalhabitat #gredos #cuenca #palancares #spain #españa #photography #photographer #foto #nikon #nikoncreators #birdsofspain #spanishwildlife #wildlifeofinstagram #naturegram #birdwatchingspain #mountainbirds</span></p>
+        </div>
+        <div class="lang-block">
+          <span class="lang-tag">EN</span>
+          <p class="body-text">Same rock bunting, two completely different landscapes.
+
+At Laguna Grande in Gredos I found him perched on a lichen-covered granite boulder, surrounded by high-mountain wildflowers — a lookout over the meadow.
+
+In the pine forest of Palancares, Cuenca, he showed up between pine branches, beak open mid-song, naturally framed by green needles in the foreground.
+
+Same striped head pattern, same cinnamon chest, two entirely different worlds.</p>
+        </div>
+      </div>
+
+      <div class="ig-timestamp">Preparada el 26 jul 2026</div>
+    </div>
+
+    <div class="spec">
+      <div class="spec-row">
+        <span class="k">Foto 1 · El escribano del pinar<span class="sub">DSC_5756.jpeg · Palancares</span></span>
+        <p class="v">Alt text: Escribano montesino posado sobre una rama de pino, con el pico entreabierto en actitud de canto y la cabeza ligeramente alzada. El plumaje muestra el característico patrón de rayas blancas y negras en la cabeza y el pecho de tono canela. Ramas de pino desenfocadas en primer plano enmarcan la escena, con un fondo de bokeh amarillo-verde propio de un bosque de pinar.</p>
+        <div class="pair">
+          <div><span class="num">4:5</span><span class="lbl">formato</span></div>
+          <div><span class="num">1080 × 1350 px</span><span class="lbl">dimensiones</span></div>
+        </div>
+        <p class="v">El ave está enmarcada de forma natural por ramas de pino desenfocadas arriba y abajo en un encuadre horizontal; el retrato 4:5 recorta el ancho sobrante del fondo de bokeh amarillo-verde a la derecha sin afectar al marco de ramas ni al ave.</p>
+        <div class="pair">
+          <div><span class="num">sin cambios</span><span class="lbl">brillo</span></div>
+          <div><span class="num">+8</span><span class="lbl">contraste</span></div>
+          <div><span class="num">sin cambios</span><span class="lbl">saturación</span></div>
+          <div><span class="num">+12</span><span class="lbl">nitidez de salida</span></div>
+        </div>
+        <p class="v mono">sips --resampleHeight 1350 "/Users/ignacio/Sites/fotos/originales/DSC_5756.jpeg" --out "/Users/ignacio/Downloads/DSC_5756_ig.jpeg"
+sips -c 1350 1080 --cropOffset 0 380 "/Users/ignacio/Downloads/DSC_5756_ig.jpeg"</p>
+      </div>
+      <div class="spec-row">
+        <span class="k">Foto 2 · Centinela de granito<span class="sub">DSC_4631.jpeg · Laguna Grande de Gredos</span></span>
+        <p class="v">Alt text: Escribano montesino posado en el borde de una roca de granito cubierta de liquen amarillo y gris, en actitud alerta con la cabeza girada hacia la derecha. El plumaje muestra rayas blancas y negras en la cabeza y tonos canela en el pecho. El fondo es un prado verde desenfocado con pequeñas flores silvestres amarillas y azules.</p>
+        <div class="pair">
+          <div><span class="num">4:5</span><span class="lbl">formato</span></div>
+          <div><span class="num">1080 × 1350 px</span><span class="lbl">dimensiones</span></div>
+        </div>
+        <p class="v">El ave ocupa una fracción pequeña del encuadre horizontal original, posada en el extremo izquierdo de la roca; el retrato 4:5 recorta el prado vacío sobrante a la derecha y da más presencia al sujeto sin perder la roca de granito ni la capa de hierba en primer plano que dan contexto de hábitat.</p>
+        <div class="pair">
+          <div><span class="num">sin cambios</span><span class="lbl">brillo</span></div>
+          <div><span class="num">+8</span><span class="lbl">contraste</span></div>
+          <div><span class="num">+5</span><span class="lbl">saturación</span></div>
+          <div><span class="num">+10</span><span class="lbl">nitidez de salida</span></div>
+        </div>
+        <p class="v mono">sips --resampleHeight 1350 "/Users/ignacio/Sites/fotos/originales/DSC_4631.jpeg" --out "/Users/ignacio/Downloads/DSC_4631_ig.jpeg"
+sips -c 1350 1080 --cropOffset 0 150 "/Users/ignacio/Downloads/DSC_4631_ig.jpeg"</p>
+      </div>
+      <div class="spec-row">
+        <span class="badge ok">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12l5 5L20 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Guardado en fotos.json (ambas fotos)
+        </span>
+      </div>
+    </div>
+  </article>
+  <article class="post">
+    <div class="ig-card">
+      <div class="ig-header">
+        <div class="ig-avatar">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 9a3 3 0 100 6 3 3 0 000-6zm9-1h-2.6l-1.2-1.9A2 2 0 0015.5 5h-7a2 2 0 00-1.7 1.1L5.6 8H3a1 1 0 00-1 1v10a2 2 0 002 2h16a2 2 0 002-2V9a1 1 0 00-1-1zm-9 9.5a5 5 0 110-10 5 5 0 010 10z"/></svg>
+        </div>
+        <div class="ig-handle">
+          WildLensProject
+          <span class="place">Palancares</span>
+        </div>
+        <div class="ig-menu">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><circle cx="5" cy="12" r="1.7"/><circle cx="12" cy="12" r="1.7"/><circle cx="19" cy="12" r="1.7"/></svg>
+        </div>
+      </div>
+
+      <div class="ig-photo-wrap" style="aspect-ratio: 4 / 5;">
+        <img src="previews/DSC_5661_ig.jpeg" alt="Mariposa del género Erebia posada sobre una espiga de flores blancas silvestres, con las alas cerradas mostrando un ocelo negro rodeado de naranja en el ala anterior. El cuerpo es oscuro y velludo, con las patas y antenas sujetas a la flor. Una brizna de hierba verde cruza el encuadre en diagonal por delante del insecto, sobre un fondo de bokeh verde uniforme." />
+      </div>
+
+
+      <div class="ig-actions">
+        <svg viewBox="0 0 24 24" stroke="currentColor"><path d="M12 21s-7.5-4.7-10-9.3C.4 8.4 2 4.5 5.8 4c2-.3 3.9.6 5 2.2C12 4.6 13.8 3.7 15.8 4c3.8.5 5.4 4.4 3.8 7.7C19.5 16.3 12 21 12 21z" stroke-linejoin="round"/></svg>
+        <svg viewBox="0 0 24 24" stroke="currentColor"><path d="M21 11.5a8.5 8.5 0 11-3.8-7.1L21 3l-1.2 4.3c.8 1.2 1.2 2.6 1.2 4.2z" stroke-linejoin="round"/></svg>
+        <svg viewBox="0 0 24 24" stroke="currentColor"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" stroke-linejoin="round"/></svg>
+        <div class="spacer"></div>
+        <svg viewBox="0 0 24 24" stroke="currentColor"><path d="M6 3h12v18l-6-4.5L6 21V3z" stroke-linejoin="round"/></svg>
+      </div>
+
+      <div class="ig-status">Vista previa · pendiente de publicar</div>
+
+      <div class="ig-caption">
+        <div class="lang-block">
+          <span class="lang-tag">ES</span>
+          <p class="body-text"><b>WildLensProject</b> Ese punto negro en el ala no es un adorno — es un ojo falso para despistar a los pájaros.
+
+Encontré esta Erebia agarrada a una espiga silvestre en el Palancares, con las patas bien sujetas al viento que corría esa mañana. Un género de mariposa de montaña que casi nadie fotografía, más discreto que vistoso, pero con estos detalles que solo se ven de cerca.
+
+<span class="tags">#macrophotography #macro #butterfly #erebia #mariposa #lepidoptera #bokeh #telephoto #macrodetail #cuenca #palancares #spain #españa #photography #photographer #foto #nikon #nikoncreators #macroofinstagram #macrolove #butterfliesofinstagram #insectsofinstagram #naturephotography #spanishwildlife</span></p>
+        </div>
+        <div class="lang-block">
+          <span class="lang-tag">EN</span>
+          <p class="body-text">That black dot on the wing isn't decoration — it's a fake eye meant to confuse birds.
+
+I found this Erebia gripping a wild flower spike in Palancares, holding on tight against the morning wind. A mountain butterfly genus almost nobody photographs, more understated than showy, but full of details you only notice up close.</p>
+        </div>
+      </div>
+
+      <div class="ig-timestamp">Preparada el 26 jul 2026</div>
+    </div>
+
+    <div class="spec">
+      <div class="spec-row">
+        <span class="k">Alt text</span>
+        <p class="v">Mariposa del género Erebia posada sobre una espiga de flores blancas silvestres, con las alas cerradas mostrando un ocelo negro rodeado de naranja en el ala anterior. El cuerpo es oscuro y velludo, con las patas y antenas sujetas a la flor. Una brizna de hierba verde cruza el encuadre en diagonal por delante del insecto, sobre un fondo de bokeh verde uniforme.</p>
+        <div class="pair">
+          <div><span class="num">4:5</span><span class="lbl">formato</span></div>
+          <div><span class="num">1080 × 1350 px</span><span class="lbl">dimensiones</span></div>
+        </div>
+        <p class="v">La mariposa con las alas cerradas es más alta que ancha y está posada en la zona superior-derecha del encuadre horizontal original; el retrato 4:5 recorta centrado el bokeh vacío sobrante de la izquierda sin arriesgar cortar el insecto ni la flor.</p>
+        <div class="pair">
+          <div><span class="num">sin cambios</span><span class="lbl">brillo</span></div>
+          <div><span class="num">+5</span><span class="lbl">contraste</span></div>
+          <div><span class="num">sin cambios</span><span class="lbl">saturación</span></div>
+          <div><span class="num">+12</span><span class="lbl">nitidez de salida</span></div>
+        </div>
+        <p class="v mono">sips --resampleHeight 1350 "/Users/ignacio/Sites/fotos/originales/DSC_5661.jpeg" --out "/Users/ignacio/Downloads/DSC_5661_ig.jpeg"
+sips -c 1350 1080 "/Users/ignacio/Downloads/DSC_5661_ig.jpeg"
+
+# Verificar:
+sips -g pixelWidth -g pixelHeight "/Users/ignacio/Downloads/DSC_5661_ig.jpeg"</p>
+      </div>
+    </div>
+  </article>
+  <article class="post">
+    <div class="ig-card">
+      <div class="ig-header">
+        <div class="ig-avatar">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 9a3 3 0 100 6 3 3 0 000-6zm9-1h-2.6l-1.2-1.9A2 2 0 0015.5 5h-7a2 2 0 00-1.7 1.1L5.6 8H3a1 1 0 00-1 1v10a2 2 0 002 2h16a2 2 0 002-2V9a1 1 0 00-1-1zm-9 9.5a5 5 0 110-10 5 5 0 010 10z"/></svg>
+        </div>
+        <div class="ig-handle">
+          WildLensProject
+          <span class="place">Casa de Campo</span>
+        </div>
+        <div class="ig-menu">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><circle cx="5" cy="12" r="1.7"/><circle cx="12" cy="12" r="1.7"/><circle cx="19" cy="12" r="1.7"/></svg>
+        </div>
+      </div>
+
+      <div class="ig-photo-wrap" style="aspect-ratio: 4 / 5;">
+        <img src="previews/DSC_6283_ig.jpeg" alt="Mariposa podalirio posada sobre una espiga de lavanda violeta, con las alas extendidas en diagonal mostrando su patrón rayado en blanco y negro y una mancha naranja y azul en el borde inferior. La probóscide se apoya sobre las flores mientras liba. El fondo, completamente desenfocado, muestra tonos verdes uniformes de vegetación estival." />
+      </div>
+
+
+      <div class="ig-actions">
+        <svg viewBox="0 0 24 24" stroke="currentColor"><path d="M12 21s-7.5-4.7-10-9.3C.4 8.4 2 4.5 5.8 4c2-.3 3.9.6 5 2.2C12 4.6 13.8 3.7 15.8 4c3.8.5 5.4 4.4 3.8 7.7C19.5 16.3 12 21 12 21z" stroke-linejoin="round"/></svg>
+        <svg viewBox="0 0 24 24" stroke="currentColor"><path d="M21 11.5a8.5 8.5 0 11-3.8-7.1L21 3l-1.2 4.3c.8 1.2 1.2 2.6 1.2 4.2z" stroke-linejoin="round"/></svg>
+        <svg viewBox="0 0 24 24" stroke="currentColor"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" stroke-linejoin="round"/></svg>
+        <div class="spacer"></div>
+        <svg viewBox="0 0 24 24" stroke="currentColor"><path d="M6 3h12v18l-6-4.5L6 21V3z" stroke-linejoin="round"/></svg>
+      </div>
+
+      <div class="ig-status">Vista previa · pendiente de publicar</div>
+
+      <div class="ig-caption">
+        <div class="lang-block">
+          <span class="lang-tag">ES</span>
+          <p class="body-text"><b>WildLensProject</b> Las lavandas de la Casa de Campo se llenan de podalirios en cuanto aprieta el calor.
+
+Este llevaba un rato posado libando tranquilamente, con las alas medio abiertas dejando ver ese patrón a rayas que tienen. Tuve que tumbarme casi a ras de suelo para pillarlo con el fondo bien desenfocado.
+
+¿Los habéis visto alguna vez de cerca? Son más grandes de lo que parece en foto.
+
+<span class="tags">#macrophotography #macro #butterfly #butterflies #mariposa #podalirio #bokeh #telephoto #depthoffield #casadecampo #madrid #spain #españa #photography #photographer #foto #nikon #nikoncreators #macroofinstagram #macrolove #macroworld #butterfliesofinstagram #insectsofinstagram #naturephotography</span></p>
+        </div>
+        <div class="lang-block">
+          <span class="lang-tag">EN</span>
+          <p class="body-text">Lavender season in Madrid means the swallowtails are back at Casa de Campo.
+
+This one stayed put for a while feeding, wings half-open showing off that striped pattern. Had to get down almost to ground level to get the background this soft.
+
+Ever seen one up close? They're bigger than they look in photos.</p>
+        </div>
+      </div>
+
+      <div class="ig-timestamp">Preparada el 20 jul 2026</div>
+    </div>
+
+    <div class="spec">
+      <div class="spec-row">
+        <span class="k">Alt text</span>
+        <p class="v">Mariposa podalirio posada sobre una espiga de lavanda violeta, con las alas extendidas en diagonal mostrando su patrón rayado en blanco y negro y una mancha naranja y azul en el borde inferior. La probóscide se apoya sobre las flores mientras liba. El fondo, completamente desenfocado, muestra tonos verdes uniformes de vegetación estival.</p>
+        <div class="pair">
+          <div><span class="num">4:5</span><span class="lbl">formato</span></div>
+          <div><span class="num">1080 × 1350 px</span><span class="lbl">dimensiones</span></div>
+        </div>
+        <p class="v">El podalirio ocupa casi toda la altura del encuadre en diagonal, con la lavanda como base; el retrato aprovecha ese eje vertical y permite recortar el amplio espacio negativo verde de la izquierda sin perder ala ni flor.</p>
+        <div class="pair">
+          <div><span class="num">sin cambios</span><span class="lbl">brillo</span></div>
+          <div><span class="num">+8</span><span class="lbl">contraste</span></div>
+          <div><span class="num">+5</span><span class="lbl">saturación</span></div>
+          <div><span class="num">+12</span><span class="lbl">nitidez de salida</span></div>
+        </div>
+        <p class="v mono">sips --resampleHeight 1350 "/Users/ignacio/Sites/fotos/originales/DSC_6283.jpeg" --out "/Users/ignacio/Downloads/DSC_6283_ig.jpeg"
+sips -c 1350 1080 --cropOffset 0 480 "/Users/ignacio/Downloads/DSC_6283_ig.jpeg"
+
+# Verificar:
+sips -g pixelWidth -g pixelHeight "/Users/ignacio/Downloads/DSC_6283_ig.jpeg"</p>
+      </div>
+    </div>
+  </article>
+  <article class="post">
+    <div class="ig-card">
+      <div class="ig-header">
+        <div class="ig-avatar">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 9a3 3 0 100 6 3 3 0 000-6zm9-1h-2.6l-1.2-1.9A2 2 0 0015.5 5h-7a2 2 0 00-1.7 1.1L5.6 8H3a1 1 0 00-1 1v10a2 2 0 002 2h16a2 2 0 002-2V9a1 1 0 00-1-1zm-9 9.5a5 5 0 110-10 5 5 0 010 10z"/></svg>
+        </div>
+        <div class="ig-handle">
+          WildLensProject
+          <span class="place">Parque del Sureste · El Pardo</span>
+        </div>
+        <div class="ig-menu">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><circle cx="5" cy="12" r="1.7"/><circle cx="12" cy="12" r="1.7"/><circle cx="19" cy="12" r="1.7"/></svg>
+        </div>
+      </div>
+
+      <div class="ig-photo-wrap" style="aspect-ratio: 4 / 5; position: relative;">
+        <div class="ig-carousel">
+          <div class="slide">
+            <img src="previews/DSC_2177_ig.jpeg" alt="Agateador común posado verticalmente sobre un tronco cubierto de líquenes amarillos y dorados, con un filamento blanco en el pico usado como material para el nido. El ave, de plumaje moteado gris y blanco, ocupa el tercio inferior izquierdo del encuadre sobre un fondo verde grisáceo difuminado." />
+          </div>
+          <div class="slide">
+            <img src="previews/DSC_3151_ig.jpeg" alt="Agateador común trepando por un tronco cubierto de líquenes junto a una zona con corteza desprendida, sosteniendo una larva blanca en el pico mientras mira hacia arriba en dirección a la entrada de su nido. El fondo es un bokeh verde uniforme propio de un bosque en primavera." />
+          </div>
+        </div>
+        <span class="ig-counter">1/2</span>
+      </div>
+
+      <div class="ig-dots"><span class="active"></span><span></span></div>
+
+      <div class="ig-actions">
+        <svg viewBox="0 0 24 24" stroke="currentColor"><path d="M12 21s-7.5-4.7-10-9.3C.4 8.4 2 4.5 5.8 4c2-.3 3.9.6 5 2.2C12 4.6 13.8 3.7 15.8 4c3.8.5 5.4 4.4 3.8 7.7C19.5 16.3 12 21 12 21z" stroke-linejoin="round"/></svg>
+        <svg viewBox="0 0 24 24" stroke="currentColor"><path d="M21 11.5a8.5 8.5 0 11-3.8-7.1L21 3l-1.2 4.3c.8 1.2 1.2 2.6 1.2 4.2z" stroke-linejoin="round"/></svg>
+        <svg viewBox="0 0 24 24" stroke="currentColor"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" stroke-linejoin="round"/></svg>
+        <div class="spacer"></div>
+        <svg viewBox="0 0 24 24" stroke="currentColor"><path d="M6 3h12v18l-6-4.5L6 21V3z" stroke-linejoin="round"/></svg>
+      </div>
+
+      <div class="ig-status">Vista previa · carrusel de 2 fotos · pendiente de publicar</div>
+
+      <div class="ig-caption">
+        <div class="lang-block">
+          <span class="lang-tag">ES</span>
+          <p class="body-text"><b>WildLensProject</b> De construir el hogar a alimentar la vida que crece en él.
+
+En el Parque del Sureste, este pequeño agateador común recorre la corteza cubierta de líquenes dorados en busca de material para su nido, casi invisible entre la textura del tronco.
+
+Semanas después, ya en El Pardo, vuelve a un escondite parecido con una larva en el pico: el trabajo de construir se ha convertido en el trabajo de alimentar.
+
+¿Habías visto antes a esta especie tan pequeña y sigilosa?
+
+<span class="tags">#birdphotography #wildbirds #birdsofinstagram #aves #fotografiaaves #treecreeper #agateador #telephoto #bokeh #wildlifedetail #madrid #spain #españa #elpardo #photography #photographer #foto #nikon #nikoncreators #birdsofmadrid #avesmadrid #madridbirds #spanishwildlife #wildlifeofinstagram #naturegram #birdsofspain</span></p>
+        </div>
+        <div class="lang-block">
+          <span class="lang-tag">EN</span>
+          <p class="body-text">From building the home to feeding the life growing inside it.
+
+In Parque del Sureste, this tiny common treecreeper works its way across lichen-covered bark searching for nesting material, almost invisible against the trunk's texture.
+
+Weeks later, in El Pardo, it returns to a similar hideout with a larva in its beak: the work of building has become the work of feeding.
+
+Had you ever spotted a bird this small and elusive before?</p>
+        </div>
+      </div>
+
+      <div class="ig-timestamp">Preparada el 13 jul 2026</div>
+    </div>
+
+    <div class="spec">
+      <div class="spec-row">
+        <span class="k">Foto 1 · El agateador entre líquenes dorados<span class="sub">DSC_2177.jpeg · Parque del Sureste</span></span>
+        <p class="v">Alt text: Agateador común posado verticalmente sobre un tronco cubierto de líquenes amarillos y dorados, con un filamento blanco en el pico usado como material para el nido. El ave, de plumaje moteado gris y blanco, ocupa el tercio inferior izquierdo del encuadre sobre un fondo verde grisáceo difuminado.</p>
+        <div class="pair">
+          <div><span class="num">4:5</span><span class="lbl">formato</span></div>
+          <div><span class="num">1080 × 1350 px</span><span class="lbl">dimensiones</span></div>
+        </div>
+        <p class="v">El ave ocupa el tercio inferior-izquierdo y el tronco liquenado domina el resto del encuadre vertical; el retrato 4:5 preserva esa dominancia textural sin perder al sujeto.</p>
+        <div class="pair">
+          <div><span class="num">+5</span><span class="lbl">brillo</span></div>
+          <div><span class="num">+8</span><span class="lbl">contraste</span></div>
+          <div><span class="num">sin cambios</span><span class="lbl">saturación</span></div>
+          <div><span class="num">+12</span><span class="lbl">nitidez de salida</span></div>
+        </div>
+        <p class="v mono">sips --resampleWidth 1080 "/Users/ignacio/Sites/fotos/originales/DSC_2177.jpeg" --out "/Users/ignacio/Downloads/DSC_2177_ig.jpeg"
+sips -c 1350 1080 "/Users/ignacio/Downloads/DSC_2177_ig.jpeg"</p>
+      </div>
+      <div class="spec-row">
+        <span class="k">Foto 2 · Regreso al nido<span class="sub">DSC_3151.jpeg · El Pardo</span></span>
+        <p class="v">Alt text: Agateador común trepando por un tronco cubierto de líquenes junto a una zona con corteza desprendida, sosteniendo una larva blanca en el pico mientras mira hacia arriba en dirección a la entrada de su nido. El fondo es un bokeh verde uniforme propio de un bosque en primavera.</p>
+        <div class="pair">
+          <div><span class="num">4:5</span><span class="lbl">formato</span></div>
+          <div><span class="num">1080 × 1350 px</span><span class="lbl">dimensiones</span></div>
+        </div>
+        <p class="v">El agateador ocupa el tercio inferior con el tronco imponiéndose por encima; el retrato 4:5 refuerza el contraste de escala entre el ave diminuta y el árbol.</p>
+        <div class="pair">
+          <div><span class="num">sin cambios</span><span class="lbl">brillo</span></div>
+          <div><span class="num">+10</span><span class="lbl">contraste</span></div>
+          <div><span class="num">sin cambios</span><span class="lbl">saturación</span></div>
+          <div><span class="num">+10</span><span class="lbl">nitidez de salida</span></div>
+        </div>
+        <p class="v mono">sips --resampleWidth 1080 "/Users/ignacio/Sites/fotos/originales/DSC_3151.jpeg" --out "/Users/ignacio/Downloads/DSC_3151_ig.jpeg"
+sips -c 1350 1080 "/Users/ignacio/Downloads/DSC_3151_ig.jpeg"</p>
+      </div>
+      <div class="spec-row">
+        <span class="badge ok">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12l5 5L20 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Guardado en fotos.json (ambas fotos)
+        </span>
+      </div>
+    </div>
+  </article>
+  <article class="post">
+    <div class="ig-card">
+      <div class="ig-header">
+        <div class="ig-avatar">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 9a3 3 0 100 6 3 3 0 000-6zm9-1h-2.6l-1.2-1.9A2 2 0 0015.5 5h-7a2 2 0 00-1.7 1.1L5.6 8H3a1 1 0 00-1 1v10a2 2 0 002 2h16a2 2 0 002-2V9a1 1 0 00-1-1zm-9 9.5a5 5 0 110-10 5 5 0 010 10z"/></svg>
+        </div>
+        <div class="ig-handle">
+          WildLensProject
+          <span class="place">Sierra de Gredos</span>
+        </div>
+        <div class="ig-menu">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><circle cx="5" cy="12" r="1.7"/><circle cx="12" cy="12" r="1.7"/><circle cx="19" cy="12" r="1.7"/></svg>
+        </div>
+      </div>
+
+      <div class="ig-photo-wrap" style="aspect-ratio: 1 / 1;">
+        <img src="previews/DSC_4452_ig.jpeg" alt="Macho adulto de cabra montesa (Capra pyrenaica) tumbado entre bloques de granito en la Sierra de Gredos, fotografiado desde un ángulo bajo. El animal mira directamente a la cámara, mostrando sus cuernos curvados y anillados. El fondo es un cielo azul despejado con nubes blancas dispersas, y las rocas de granito con manchas de liquen ocupan el primer plano." />
+      </div>
+
+
+      <div class="ig-actions">
+        <svg viewBox="0 0 24 24" stroke="currentColor"><path d="M12 21s-7.5-4.7-10-9.3C.4 8.4 2 4.5 5.8 4c2-.3 3.9.6 5 2.2C12 4.6 13.8 3.7 15.8 4c3.8.5 5.4 4.4 3.8 7.7C19.5 16.3 12 21 12 21z" stroke-linejoin="round"/></svg>
+        <svg viewBox="0 0 24 24" stroke="currentColor"><path d="M21 11.5a8.5 8.5 0 11-3.8-7.1L21 3l-1.2 4.3c.8 1.2 1.2 2.6 1.2 4.2z" stroke-linejoin="round"/></svg>
+        <svg viewBox="0 0 24 24" stroke="currentColor"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" stroke-linejoin="round"/></svg>
+        <div class="spacer"></div>
+        <svg viewBox="0 0 24 24" stroke="currentColor"><path d="M6 3h12v18l-6-4.5L6 21V3z" stroke-linejoin="round"/></svg>
+      </div>
+
+      <div class="ig-status">Vista previa · pendiente de publicar</div>
+
+      <div class="ig-caption">
+        <div class="lang-block">
+          <span class="lang-tag">ES</span>
+          <p class="body-text"><b>WildLensProject</b> Desde su trono de granito, el rey de Gredos te mira a los ojos.
+
+En la Sierra de Gredos, reptar entre bloques de granito me llevó hasta este macho de cabra montesa, tumbado como un monarca sobre su trono de piedra. El contrapicado invierte los papeles: aquí el pequeño soy yo. Sus cuernos anillados cuentan años de supervivencia en la alta montaña.
+
+¿Qué animal salvaje te gustaría encontrar cara a cara?
+
+<span class="tags">#wildlife #wildlifephotography #fauna #ibex #cabramontesa #wildgoat #bokeh #naturallight #eyecontact #lowangleshot #gredos #sierradegredos #spain #españa #photography #photographer #fotografia #nikon #nikoncreators #natgeo #wildlifeofinstagram #animalsofinstagram #naturegram #ibexofinstagram #gredoswildlife #spanishwildlife</span></p>
+        </div>
+        <div class="lang-block">
+          <span class="lang-tag">EN</span>
+          <p class="body-text">From his granite throne, the king of Gredos looks you in the eye.
+
+Deep in Spain's Sierra de Gredos, crawling between granite boulders led me to this Spanish ibex, resting like a monarch on his stone throne. The low angle flips the usual roles — here, I'm the small one. His ringed horns tell the story of years surviving high in the mountains.
+
+Have you ever met a wild animal eye to eye like this?</p>
+        </div>
+      </div>
+
+      <div class="ig-timestamp">Preparada el 13 jul 2026</div>
+    </div>
+
+    <div class="spec">
+      <div class="spec-row">
+        <span class="k">Alt text</span>
+        <p class="v">Macho adulto de cabra montesa (Capra pyrenaica) tumbado entre bloques de granito en la Sierra de Gredos, fotografiado desde un ángulo bajo. El animal mira directamente a la cámara, mostrando sus cuernos curvados y anillados. El fondo es un cielo azul despejado con nubes blancas dispersas, y las rocas de granito con manchas de liquen ocupan el primer plano.</p>
+        <div class="pair">
+          <div><span class="num">1:1</span><span class="lbl">formato</span></div>
+          <div><span class="num">1080 × 1080 px</span><span class="lbl">dimensiones</span></div>
+        </div>
+        <p class="v">El original ya es cuadrado (4029x4029) con el íbice centrado y la simetría de los cuernos como eje visual; el formato 1:1 conserva el encuadre completo sin sacrificar cielo ni rocas de primer plano.</p>
+        <div class="pair">
+          <div><span class="num">+3</span><span class="lbl">brillo</span></div>
+          <div><span class="num">+8</span><span class="lbl">contraste</span></div>
+          <div><span class="num">sin cambios</span><span class="lbl">saturación</span></div>
+          <div><span class="num">+12</span><span class="lbl">nitidez de salida</span></div>
+        </div>
+        <p class="v mono">sips -Z 1080 "/Users/ignacio/Sites/fotos/originales/DSC_4452.jpeg" --out "/Users/ignacio/Downloads/DSC_4452_ig.jpeg"
+sips -c 1080 1080 "/Users/ignacio/Downloads/DSC_4452_ig.jpeg"
+
+# Verificar:
+sips -g pixelWidth -g pixelHeight "/Users/ignacio/Downloads/DSC_4452_ig.jpeg"</p>
+      </div>
+    </div>
+  </article>
+  <article class="post">
+    <div class="ig-card">
+      <div class="ig-header">
+        <div class="ig-avatar">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 9a3 3 0 100 6 3 3 0 000-6zm9-1h-2.6l-1.2-1.9A2 2 0 0015.5 5h-7a2 2 0 00-1.7 1.1L5.6 8H3a1 1 0 00-1 1v10a2 2 0 002 2h16a2 2 0 002-2V9a1 1 0 00-1-1zm-9 9.5a5 5 0 110-10 5 5 0 010 10z"/></svg>
+        </div>
+        <div class="ig-handle">
+          WildLensProject
+          <span class="place">Casa de Campo</span>
+        </div>
+        <div class="ig-menu">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><circle cx="5" cy="12" r="1.7"/><circle cx="12" cy="12" r="1.7"/><circle cx="19" cy="12" r="1.7"/></svg>
+        </div>
+      </div>
+
+      <div class="ig-photo-wrap" style="aspect-ratio: 1 / 1;">
+        <img src="previews/2400_ig.jpeg" alt="Gaviota juvenil en pleno vuelo, vista de perfil con las alas completamente extendidas hacia arriba y las patas colgando hacia abajo, sosteniendo un pequeño alimento en el pico. El plumaje muestra un patrón moteado marrón y blanco propio de un ejemplar joven. El fondo de árboles invernales desenfocados en tonos grises y marrones crea un bokeh uniforme que resalta al ave, iluminada por luz difusa de día nublado." />
+      </div>
+
+
+      <div class="ig-actions">
+        <svg viewBox="0 0 24 24" stroke="currentColor"><path d="M12 21s-7.5-4.7-10-9.3C.4 8.4 2 4.5 5.8 4c2-.3 3.9.6 5 2.2C12 4.6 13.8 3.7 15.8 4c3.8.5 5.4 4.4 3.8 7.7C19.5 16.3 12 21 12 21z" stroke-linejoin="round"/></svg>
+        <svg viewBox="0 0 24 24" stroke="currentColor"><path d="M21 11.5a8.5 8.5 0 11-3.8-7.1L21 3l-1.2 4.3c.8 1.2 1.2 2.6 1.2 4.2z" stroke-linejoin="round"/></svg>
+        <svg viewBox="0 0 24 24" stroke="currentColor"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" stroke-linejoin="round"/></svg>
+        <div class="spacer"></div>
+        <svg viewBox="0 0 24 24" stroke="currentColor"><path d="M6 3h12v18l-6-4.5L6 21V3z" stroke-linejoin="round"/></svg>
+      </div>
+
+      <div class="ig-status">Vista previa · pendiente de publicar</div>
+
+      <div class="ig-caption">
+        <div class="lang-block">
+          <span class="lang-tag">ES</span>
+          <p class="body-text"><b>WildLensProject</b> En el instante exacto en que la vida depende de un milisegundo.
+
+La Casa de Campo en invierno esconde una naturaleza que pocos ven. Esta gaviota juvenil desciende con las alas completamente abiertas, algo ya atrapado en el pico, ajena a todo lo que no sea su presa. El fondo de árboles desnudos se disuelve en un bokeh cremoso que aísla el instante de máxima tensión.
+
+¿Alguna vez has visto una escena de caza así en pleno parque urbano?
+
+<span class="tags">#birdphotography #wildbirds #birdsofinstagram #aves #fotografiaaves #gull #bokeh #telephoto #actionphotography #freezeframe #madrid #casadecampo #spain #españa #photography #photographer #fotografia #nikon #nikoncreators #birdsofmadrid #avesmadrid #madridbirds #spanishwildlife #wildlifeofinstagram #naturegram</span></p>
+        </div>
+        <div class="lang-block">
+          <span class="lang-tag">EN</span>
+          <p class="body-text">The exact instant when life depends on a millisecond.
+
+Winter in Madrid's Casa de Campo hides more wildlife drama than most people notice. This juvenile gull drops in with wings fully spread, something already caught in its beak, oblivious to everything but its prey. The bare winter trees dissolve into a creamy bokeh that isolates this moment of pure tension.
+
+Have you ever witnessed a hunting scene like this in the middle of a city park?</p>
+        </div>
+      </div>
+
+      <div class="ig-timestamp">Preparada el 10 jul 2026</div>
+    </div>
+
+    <div class="spec">
+      <div class="spec-row">
+        <span class="k">Alt text</span>
+        <p class="v">Gaviota juvenil en pleno vuelo, vista de perfil con las alas completamente extendidas hacia arriba y las patas colgando hacia abajo, sosteniendo un pequeño alimento en el pico. El plumaje muestra un patrón moteado marrón y blanco propio de un ejemplar joven. El fondo de árboles invernales desenfocados en tonos grises y marrones crea un bokeh uniforme que resalta al ave, iluminada por luz difusa de día nublado.</p>
+        <div class="pair">
+          <div><span class="num">1:1</span><span class="lbl">formato</span></div>
+          <div><span class="num">1080 × 1080 px</span><span class="lbl">dimensiones</span></div>
+        </div>
+        <p class="v">La foto ya es cuadrada de origen (2400x2400) y el ave llena el encuadre con las alas extendidas de lado a lado; el formato 1:1 preserva la composición completa sin sacrificar ninguna parte del ave ni del espacio negativo del bokeh.</p>
+        <div class="pair">
+          <div><span class="num">sin cambios</span><span class="lbl">brillo</span></div>
+          <div><span class="num">+8</span><span class="lbl">contraste</span></div>
+          <div><span class="num">sin cambios</span><span class="lbl">saturación</span></div>
+          <div><span class="num">+12</span><span class="lbl">nitidez de salida</span></div>
+        </div>
+        <p class="v mono">sips -Z 1080 "/Users/ignacio/Sites/fotos/originales/2400.jpeg" --out "/Users/ignacio/Downloads/2400_ig.jpeg"
+sips -c 1080 1080 "/Users/ignacio/Downloads/2400_ig.jpeg"
+
+# Verificar:
+sips -g pixelWidth -g pixelHeight "/Users/ignacio/Downloads/2400_ig.jpeg"</p>
+      </div>
+    </div>
+  </article>
+  <article class="post">
+    <div class="ig-card">
+      <div class="ig-header">
+        <div class="ig-avatar">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 9a3 3 0 100 6 3 3 0 000-6zm9-1h-2.6l-1.2-1.9A2 2 0 0015.5 5h-7a2 2 0 00-1.7 1.1L5.6 8H3a1 1 0 00-1 1v10a2 2 0 002 2h16a2 2 0 002-2V9a1 1 0 00-1-1zm-9 9.5a5 5 0 110-10 5 5 0 010 10z"/></svg>
+        </div>
+        <div class="ig-handle">
+          WildLensProject
+          <span class="place">Casa de Campo</span>
+        </div>
+        <div class="ig-menu">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><circle cx="5" cy="12" r="1.7"/><circle cx="12" cy="12" r="1.7"/><circle cx="19" cy="12" r="1.7"/></svg>
+        </div>
+      </div>
+
+      <div class="ig-photo-wrap" style="aspect-ratio: 4 / 5;">
+        <img src="previews/DSC_2526_ig.jpeg" alt="Lavandera blanca vista de perfil caminando sobre un suelo cubierto de pelusas de chopo blancas, con un pequeño insecto amarillo en el pico. Un haz de luz lateral ilumina el plumaje gris, blanco y negro del ave, recortándola contra un fondo en sombra profunda casi negro. La cola larga se extiende hacia la izquierda del encuadre mientras una pata queda levantada en pleno paso." />
+      </div>
+
+
+      <div class="ig-actions">
+        <svg viewBox="0 0 24 24" stroke="currentColor"><path d="M12 21s-7.5-4.7-10-9.3C.4 8.4 2 4.5 5.8 4c2-.3 3.9.6 5 2.2C12 4.6 13.8 3.7 15.8 4c3.8.5 5.4 4.4 3.8 7.7C19.5 16.3 12 21 12 21z" stroke-linejoin="round"/></svg>
+        <svg viewBox="0 0 24 24" stroke="currentColor"><path d="M21 11.5a8.5 8.5 0 11-3.8-7.1L21 3l-1.2 4.3c.8 1.2 1.2 2.6 1.2 4.2z" stroke-linejoin="round"/></svg>
+        <svg viewBox="0 0 24 24" stroke="currentColor"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" stroke-linejoin="round"/></svg>
+        <div class="spacer"></div>
+        <svg viewBox="0 0 24 24" stroke="currentColor"><path d="M6 3h12v18l-6-4.5L6 21V3z" stroke-linejoin="round"/></svg>
+      </div>
+
+      <div class="ig-status">Vista previa · pendiente de publicar</div>
+
+      <div class="ig-caption">
+        <div class="lang-block">
+          <span class="lang-tag">ES</span>
+          <p class="body-text"><b>WildLensProject</b> En Madrid nieva en primavera — y no es nieve.
+
+Esta lavandera blanca camina entre pelusas de chopo, un fenómeno efímero que solo dura unas semanas al año en la Casa de Campo. Un haz de luz lateral la recorta contra la sombra mientras lleva un pequeño insecto en el pico, alimento capturado en plena actividad primaveral.
+
+¿Habías visto antes esta 'nevada' de primavera madrileña?
+
+<span class="tags">#birdphotography #wildbirds #birdsofinstagram #aves #whitewagtail #lavanderablanca #bokeh #telephoto #naturallight #highcontrast #casadecampo #madrid #spain #españa #photography #photographer #fotografia #nikon #nikoncreators #natgeo #birdsofmadrid #avesmadrid #madridbirds #spanishwildlife #birdsofspain #wildlifeofinstagram</span></p>
+        </div>
+        <div class="lang-block">
+          <span class="lang-tag">EN</span>
+          <p class="body-text">In Madrid it snows in spring — and it isn't snow.
+
+This white wagtail walks among poplar fluff, a fleeting phenomenon that only lasts a few weeks each year in Casa de Campo. A shaft of side light carves her out of the shadow as she carries a tiny insect in her beak, food caught mid-spring hustle.
+
+Have you ever seen Madrid's spring 'snow'?</p>
+        </div>
+      </div>
+
+      <div class="ig-timestamp">Preparada el 6 jul 2026</div>
+    </div>
+
+    <div class="spec">
+      <div class="spec-row">
+        <span class="k">Alt text</span>
+        <p class="v">Lavandera blanca vista de perfil caminando sobre un suelo cubierto de pelusas de chopo blancas, con un pequeño insecto amarillo en el pico. Un haz de luz lateral ilumina el plumaje gris, blanco y negro del ave, recortándola contra un fondo en sombra profunda casi negro. La cola larga se extiende hacia la izquierda del encuadre mientras una pata queda levantada en pleno paso.</p>
+        <div class="pair">
+          <div><span class="num">4:5</span><span class="lbl">formato</span></div>
+          <div><span class="num">1080 × 1350 px</span><span class="lbl">dimensiones</span></div>
+        </div>
+        <p class="v">El ave queda centrada en el encuadre original (16:9), así que un recorte vertical centrado conserva cabeza, insecto en el pico y buena parte de la alfombra de pelusas, sacrificando la cola que se extiende hacia el borde izquierdo. Coincide con la variación 'más íntima' que la propia evaluación técnica sugería explorar.</p>
+        <div class="pair">
+          <div><span class="num">sin cambios</span><span class="lbl">brillo</span></div>
+          <div><span class="num">sin cambios</span><span class="lbl">contraste</span></div>
+          <div><span class="num">sin cambios</span><span class="lbl">saturación</span></div>
+          <div><span class="num">+10</span><span class="lbl">nitidez de salida</span></div>
+        </div>
+        <p class="v mono">sips --resampleHeight 1350 "/Users/ignacio/Sites/fotos/originales/DSC_2526.jpeg" --out "/Users/ignacio/Downloads/DSC_2526_ig.jpeg"
+sips -c 1350 1080 "/Users/ignacio/Downloads/DSC_2526_ig.jpeg"
+
+# Verificar:
+sips -g pixelWidth -g pixelHeight "/Users/ignacio/Downloads/DSC_2526_ig.jpeg"</p>
+      </div>
+    </div>
+  </article>
+  <article class="post">
+    <div class="ig-card">
+      <div class="ig-header">
+        <div class="ig-avatar">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 9a3 3 0 100 6 3 3 0 000-6zm9-1h-2.6l-1.2-1.9A2 2 0 0015.5 5h-7a2 2 0 00-1.7 1.1L5.6 8H3a1 1 0 00-1 1v10a2 2 0 002 2h16a2 2 0 002-2V9a1 1 0 00-1-1zm-9 9.5a5 5 0 110-10 5 5 0 010 10z"/></svg>
+        </div>
+        <div class="ig-handle">
+          WildLensProject
+          <span class="place">Sierra de Gredos</span>
+        </div>
+        <div class="ig-menu">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><circle cx="5" cy="12" r="1.7"/><circle cx="12" cy="12" r="1.7"/><circle cx="19" cy="12" r="1.7"/></svg>
+        </div>
+      </div>
+
+      <div class="ig-photo-wrap" style="aspect-ratio: 4 / 5;">
+        <img src="previews/DSC_4647_ig.jpeg" alt="Abejorro anaranjado y negro posado sobre una espiga floral rosa-blanca de una planta boraginácea, con las alas semiabiertas y las patas apoyadas en los pétalos mientras recolecta polen. El fondo es un bokeh verde uniforme y limpio propio de un teleobjetivo a máxima apertura. El insecto ocupa el tercio superior izquierdo de un encuadre vertical." />
+      </div>
+
+
+      <div class="ig-actions">
+        <svg viewBox="0 0 24 24" stroke="currentColor"><path d="M12 21s-7.5-4.7-10-9.3C.4 8.4 2 4.5 5.8 4c2-.3 3.9.6 5 2.2C12 4.6 13.8 3.7 15.8 4c3.8.5 5.4 4.4 3.8 7.7C19.5 16.3 12 21 12 21z" stroke-linejoin="round"/></svg>
+        <svg viewBox="0 0 24 24" stroke="currentColor"><path d="M21 11.5a8.5 8.5 0 11-3.8-7.1L21 3l-1.2 4.3c.8 1.2 1.2 2.6 1.2 4.2z" stroke-linejoin="round"/></svg>
+        <svg viewBox="0 0 24 24" stroke="currentColor"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" stroke-linejoin="round"/></svg>
+        <div class="spacer"></div>
+        <svg viewBox="0 0 24 24" stroke="currentColor"><path d="M6 3h12v18l-6-4.5L6 21V3z" stroke-linejoin="round"/></svg>
+      </div>
+
+      <div class="ig-status">Vista previa · pendiente de publicar</div>
+
+      <div class="ig-caption">
+        <div class="lang-block">
+          <span class="lang-tag">ES</span>
+          <p class="body-text"><b>WildLensProject</b> El trabajo silencioso que sostiene toda una montaña floreciendo.
+
+En los prados de la Sierra de Gredos, un abejorro se abre paso entre las flores de una boraginácea silvestre, cargando polen de espiga en espiga. Con el 180-600mm pude acercarme a su ritmo de trabajo sin interrumpirlo, dejando que el fondo verde se disolviera en un bokeh limpio.
+
+Es una escena diminuta que se repite miles de veces cada primavera y que casi nunca nos detenemos a mirar.
+
+¿Te habías fijado alguna vez en el trabajo de un polinizador de cerca?
+
+<span class="tags">#macrophotography #bumblebee #abejorro #insectphotography #wildlifephotography #polinizador #telephoto #bokeh #depthoffield #gredos #sierradegredos #avila #spain #photography #photographer #foto #nikon #nikoncreators #macroofinstagram #wildlifeofinstagram #insectsofinstagram #naturelovers #beesofinstagram #spanishwildlife</span></p>
+        </div>
+        <div class="lang-block">
+          <span class="lang-tag">EN</span>
+          <p class="body-text">The quiet work that keeps a whole mountain blooming.
+
+In the meadows of Sierra de Gredos, a bumblebee works its way through the spikes of a wild borage flower, gathering pollen along the way. With a 180-600mm lens I could get close to its rhythm without disturbing it, letting the green background melt into a clean bokeh.
+
+It's a tiny scene that repeats itself thousands of times every spring — one we rarely stop to notice.
+
+Have you ever looked closely at a pollinator at work?</p>
+        </div>
+      </div>
+
+      <div class="ig-timestamp">Preparada el 4 jul 2026</div>
+    </div>
+
+    <div class="spec">
+      <div class="spec-row">
+        <span class="k">Alt text</span>
+        <p class="v">Abejorro anaranjado y negro posado sobre una espiga floral rosa-blanca de una planta boraginácea, con las alas semiabiertas y las patas apoyadas en los pétalos mientras recolecta polen. El fondo es un bokeh verde uniforme y limpio propio de un teleobjetivo a máxima apertura. El insecto ocupa el tercio superior izquierdo de un encuadre vertical.</p>
+        <div class="pair">
+          <div><span class="num">4:5</span><span class="lbl">formato</span></div>
+          <div><span class="num">1080 × 1350 px</span><span class="lbl">dimensiones</span></div>
+        </div>
+        <p class="v">La composición vertical de la espiga floral con el abejorro en el tercio superior-izquierdo aprovecha bien el formato retrato, maximizando la presencia en el feed sin perder la estructura floral que da contexto a la escena.</p>
+        <div class="pair">
+          <div><span class="num">+5</span><span class="lbl">brillo</span></div>
+          <div><span class="num">+10</span><span class="lbl">contraste</span></div>
+          <div><span class="num">sin cambios</span><span class="lbl">saturación</span></div>
+          <div><span class="num">+10</span><span class="lbl">nitidez de salida</span></div>
+        </div>
+        <p class="v mono">sips --resampleWidth 1080 "/Users/ignacio/Sites/fotos/originales/DSC_4647.jpeg" --out "/Users/ignacio/Downloads/DSC_4647_ig.jpeg"
+sips -c 1350 1080 "/Users/ignacio/Downloads/DSC_4647_ig.jpeg"
+
+# Verificar:
+sips -g pixelWidth -g pixelHeight "/Users/ignacio/Downloads/DSC_4647_ig.jpeg"</p>
+      </div>
+    </div>
+  </article>
+  <article class="post">
+    <div class="ig-card">
+      <div class="ig-header">
+        <div class="ig-avatar">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 9a3 3 0 100 6 3 3 0 000-6zm9-1h-2.6l-1.2-1.9A2 2 0 0015.5 5h-7a2 2 0 00-1.7 1.1L5.6 8H3a1 1 0 00-1 1v10a2 2 0 002 2h16a2 2 0 002-2V9a1 1 0 00-1-1zm-9 9.5a5 5 0 110-10 5 5 0 010 10z"/></svg>
+        </div>
+        <div class="ig-handle">
+          WildLensProject
+          <span class="place">El Pardo</span>
+        </div>
+        <div class="ig-menu">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><circle cx="5" cy="12" r="1.7"/><circle cx="12" cy="12" r="1.7"/><circle cx="19" cy="12" r="1.7"/></svg>
+        </div>
+      </div>
+
+      <div class="ig-photo-wrap" style="aspect-ratio: 4 / 5;">
+        <img src="previews/Petirrojo Europeo_ig.jpeg" alt="Petirrojo europeo posado en una rama desnuda, visto de frente con la cabeza ligeramente girada hacia la derecha. El pecho y la cara muestran un naranja intenso que contrasta con el dorso pardo-grisáceo y el vientre blanco. El ojo negro y brillante destaca con un punto de luz. El fondo es un azul-gris uniforme totalmente desenfocado, sin elementos distractores. La luz difusa ilumina el plumaje de forma homogénea." />
+      </div>
+
+
+      <div class="ig-actions">
+        <svg viewBox="0 0 24 24" stroke="currentColor"><path d="M12 21s-7.5-4.7-10-9.3C.4 8.4 2 4.5 5.8 4c2-.3 3.9.6 5 2.2C12 4.6 13.8 3.7 15.8 4c3.8.5 5.4 4.4 3.8 7.7C19.5 16.3 12 21 12 21z" stroke-linejoin="round"/></svg>
+        <svg viewBox="0 0 24 24" stroke="currentColor"><path d="M21 11.5a8.5 8.5 0 11-3.8-7.1L21 3l-1.2 4.3c.8 1.2 1.2 2.6 1.2 4.2z" stroke-linejoin="round"/></svg>
+        <svg viewBox="0 0 24 24" stroke="currentColor"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" stroke-linejoin="round"/></svg>
+        <div class="spacer"></div>
+        <svg viewBox="0 0 24 24" stroke="currentColor"><path d="M6 3h12v18l-6-4.5L6 21V3z" stroke-linejoin="round"/></svg>
+      </div>
+
+      <div class="ig-status">Vista previa · pendiente de publicar</div>
+
+      <div class="ig-caption">
+        <div class="lang-block">
+          <span class="lang-tag">ES</span>
+          <p class="body-text"><b>WildLensProject</b> Una mirada que calienta el invierno más frío.
+
+Este petirrojo europeo apareció entre las ramas desnudas de El Pardo, posado contra un cielo gris-azulado de pleno invierno. Su pecho naranja parecía la única chispa de color en kilómetros de frío, y ese ojo brillante y curioso hizo que el resto del bosque desapareciera.
+
+¿Hay algo más reconfortante que el rojo de un petirrojo en un día gris?
+
+<span class="tags">#birdphotography #wildbirds #birdsofinstagram #petirrojo #europeanrobin #aves #bokeh #telephoto #birdportrait #shallowdof #elpardo #madrid #spain #españa #photography #photographer #foto #nikon #nikoncreators #natgeo #birdsofmadrid #avesmadrid #spanishwildlife #birdsofspain #wildlifeofinstagram #naturegram</span></p>
+        </div>
+        <div class="lang-block">
+          <span class="lang-tag">EN</span>
+          <p class="body-text">A gaze warm enough to thaw the coldest February.
+
+This European robin showed up among the bare branches of El Pardo, perched against a grey-blue winter sky. Its orange chest felt like the only spark of color for miles, and that bright, curious eye made the rest of the forest disappear.
+
+Is there anything more comforting than a robin's red on a grey day?</p>
+        </div>
+      </div>
+
+      <div class="ig-timestamp">Preparada el 1 jul 2026</div>
+    </div>
+
+    <div class="spec">
+      <div class="spec-row">
+        <span class="k">Alt text</span>
+        <p class="v">Petirrojo europeo posado en una rama desnuda, visto de frente con la cabeza ligeramente girada hacia la derecha. El pecho y la cara muestran un naranja intenso que contrasta con el dorso pardo-grisáceo y el vientre blanco. El ojo negro y brillante destaca con un punto de luz. El fondo es un azul-gris uniforme totalmente desenfocado, sin elementos distractores. La luz difusa ilumina el plumaje de forma homogénea.</p>
+        <div class="pair">
+          <div><span class="num">4:5</span><span class="lbl">formato</span></div>
+          <div><span class="num">1080 × 1350 px</span><span class="lbl">dimensiones</span></div>
+        </div>
+        <p class="v">El petirrojo mira hacia la derecha con un amplio espacio de fondo bokeh vacío; un recorte centrado a 4:5 conserva el ave, la rama principal y suficiente espacio de dirección, maximizando su presencia en el feed.</p>
+        <div class="pair">
+          <div><span class="num">sin cambios</span><span class="lbl">brillo</span></div>
+          <div><span class="num">+8</span><span class="lbl">contraste</span></div>
+          <div><span class="num">+3 selectiva en el naranja del pecho</span><span class="lbl">saturación</span></div>
+          <div><span class="num">+12</span><span class="lbl">nitidez de salida</span></div>
+        </div>
+        <p class="v mono">sips --resampleHeight 1350 "/Users/ignacio/Sites/fotos/originales/Petirrojo Europeo.jpeg" --out "/Users/ignacio/Sites/fotos/instagram/previews/Petirrojo Europeo_ig.jpeg"
+sips -c 1350 1080 --cropOffset 0 150 "/Users/ignacio/Sites/fotos/instagram/previews/Petirrojo Europeo_ig.jpeg"
+
+# Verificar:
+sips -g pixelWidth -g pixelHeight "/Users/ignacio/Sites/fotos/instagram/previews/Petirrojo Europeo_ig.jpeg"</p>
+      </div>
+    </div>
+  </article>
+  <article class="post">
+    <div class="ig-card">
+      <div class="ig-header">
+        <div class="ig-avatar">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 9a3 3 0 100 6 3 3 0 000-6zm9-1h-2.6l-1.2-1.9A2 2 0 0015.5 5h-7a2 2 0 00-1.7 1.1L5.6 8H3a1 1 0 00-1 1v10a2 2 0 002 2h16a2 2 0 002-2V9a1 1 0 00-1-1zm-9 9.5a5 5 0 110-10 5 5 0 010 10z"/></svg>
+        </div>
+        <div class="ig-handle">
+          WildLensProject
+          <span class="place">Parque del Retiro</span>
+        </div>
+        <div class="ig-menu">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><circle cx="5" cy="12" r="1.7"/><circle cx="12" cy="12" r="1.7"/><circle cx="19" cy="12" r="1.7"/></svg>
+        </div>
+      </div>
+
+      <div class="ig-photo-wrap" style="aspect-ratio: 1 / 1;">
+        <img src="previews/DSC_2286_ig.jpeg" alt="Macho de ánade real visto de frente y ligeramente ladeado, con la cabeza verde-azul iridiscente inclinada hacia la cámara, pico amarillo y patas anaranjadas apoyado sobre un borde de piedra junto al agua. El fondo desenfocado muestra tonos claros de piedra y agua verdosa. La luz difusa de un día nublado ilumina de forma uniforme el plumaje marrón y gris del cuerpo." />
+      </div>
+
+
+      <div class="ig-actions">
+        <svg viewBox="0 0 24 24" stroke="currentColor"><path d="M12 21s-7.5-4.7-10-9.3C.4 8.4 2 4.5 5.8 4c2-.3 3.9.6 5 2.2C12 4.6 13.8 3.7 15.8 4c3.8.5 5.4 4.4 3.8 7.7C19.5 16.3 12 21 12 21z" stroke-linejoin="round"/></svg>
+        <svg viewBox="0 0 24 24" stroke="currentColor"><path d="M21 11.5a8.5 8.5 0 11-3.8-7.1L21 3l-1.2 4.3c.8 1.2 1.2 2.6 1.2 4.2z" stroke-linejoin="round"/></svg>
+        <svg viewBox="0 0 24 24" stroke="currentColor"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" stroke-linejoin="round"/></svg>
+        <div class="spacer"></div>
+        <svg viewBox="0 0 24 24" stroke="currentColor"><path d="M6 3h12v18l-6-4.5L6 21V3z" stroke-linejoin="round"/></svg>
+      </div>
+
+      <div class="ig-status">Vista previa · pendiente de publicar</div>
+
+      <div class="ig-caption">
+        <div class="lang-block">
+          <span class="lang-tag">ES</span>
+          <p class="body-text"><b>WildLensProject</b> Una mirada que convierte a un ave común en un retrato con nombre propio.
+
+En el Parque del Retiro, este macho de ánade real inclinó la cabeza hacia la cámara dejando ver todo el brillo iridiscente verde-azul de su plumaje. Es un ave que cruzamos cada día sin mirarla dos veces, aquí mirando de frente, casi posando.
+
+¿Cuántas veces pasamos junto a un ánade sin mirarlo de verdad?
+
+<span class="tags">#birdphotography #wildbirds #ducksofinstagram #mallard #anadereal #aves #bokeh #birdportrait #closeupphotography #madrid #parquedelretiro #spain #españa #photography #photographer #fotografia #nikon #natgeo #birdsofmadrid #avesmadrid #madridwildlife #spanishwildlife #wildlifeofinstagram #naturegram</span></p>
+        </div>
+        <div class="lang-block">
+          <span class="lang-tag">EN</span>
+          <p class="body-text">A look that turns a common bird into a portrait with a name.
+
+In Madrid's Retiro park, this male mallard tilted his head toward the camera, revealing the full iridescent green-blue shimmer of his plumage. A bird we walk past every day, here staring back as if posing for a portrait.
+
+How often do we walk past a mallard without really looking?</p>
+        </div>
+      </div>
+
+      <div class="ig-timestamp">Preparada el 1 jul 2026</div>
+    </div>
+
+    <div class="spec">
+      <div class="spec-row">
+        <span class="k">Alt text</span>
+        <p class="v">Macho de ánade real visto de frente y ligeramente ladeado, con la cabeza verde-azul iridiscente inclinada hacia la cámara, pico amarillo y patas anaranjadas apoyado sobre un borde de piedra junto al agua. El fondo desenfocado muestra tonos claros de piedra y agua verdosa. La luz difusa de un día nublado ilumina de forma uniforme el plumaje marrón y gris del cuerpo.</p>
+        <div class="pair">
+          <div><span class="num">1:1</span><span class="lbl">formato</span></div>
+          <div><span class="num">1080 × 1080 px</span><span class="lbl">dimensiones</span></div>
+        </div>
+        <p class="v">El ánade ya aparece centrado y de frente en un encuadre naturalmente cuadrado; el 1:1 conserva toda la composición sin recortar los laterales.</p>
+        <div class="pair">
+          <div><span class="num">sin cambios</span><span class="lbl">brillo</span></div>
+          <div><span class="num">+8</span><span class="lbl">contraste</span></div>
+          <div><span class="num">sin cambios</span><span class="lbl">saturación</span></div>
+          <div><span class="num">+12</span><span class="lbl">nitidez de salida</span></div>
+        </div>
+        <p class="v mono">sips -Z 1080 "/Users/ignacio/Sites/fotos/originales/DSC_2286.jpeg" --out "/Users/ignacio/Downloads/DSC_2286_ig.jpeg"
+sips -c 1080 1080 "/Users/ignacio/Downloads/DSC_2286_ig.jpeg"
+
+# Verificar:
+sips -g pixelWidth -g pixelHeight "/Users/ignacio/Downloads/DSC_2286_ig.jpeg"</p>
+      </div>
+    </div>
+  </article>
+  <article class="post">
+    <div class="ig-card">
+      <div class="ig-header">
+        <div class="ig-avatar">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 9a3 3 0 100 6 3 3 0 000-6zm9-1h-2.6l-1.2-1.9A2 2 0 0015.5 5h-7a2 2 0 00-1.7 1.1L5.6 8H3a1 1 0 00-1 1v10a2 2 0 002 2h16a2 2 0 002-2V9a1 1 0 00-1-1zm-9 9.5a5 5 0 110-10 5 5 0 010 10z"/></svg>
+        </div>
+        <div class="ig-handle">
+          WildLensProject
+          <span class="place">Casa de Campo</span>
+        </div>
+        <div class="ig-menu">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><circle cx="5" cy="12" r="1.7"/><circle cx="12" cy="12" r="1.7"/><circle cx="19" cy="12" r="1.7"/></svg>
+        </div>
+      </div>
+
+      <div class="ig-photo-wrap" style="aspect-ratio: 4 / 5;">
+        <img src="previews/DSC_2478_ig.jpeg" alt="Ganso del Nilo completando un aterrizaje sobre el agua, con las alas totalmente desplegadas mostrando el patrón blanco y negro del plumaje. La cabeza, de tono marrón claro con un parche oscuro alrededor del ojo, mira hacia la izquierda. Las patas de color rosa intenso tocan la superficie generando salpicaduras y espuma blanca. El fondo muestra agua en tonos verde-azulados con reflejos de luz diurna. El ave ocupa el centro del encuadre en un momento de acción congelada." />
+      </div>
+
+
+      <div class="ig-actions">
+        <svg viewBox="0 0 24 24" stroke="currentColor"><path d="M12 21s-7.5-4.7-10-9.3C.4 8.4 2 4.5 5.8 4c2-.3 3.9.6 5 2.2C12 4.6 13.8 3.7 15.8 4c3.8.5 5.4 4.4 3.8 7.7C19.5 16.3 12 21 12 21z" stroke-linejoin="round"/></svg>
+        <svg viewBox="0 0 24 24" stroke="currentColor"><path d="M21 11.5a8.5 8.5 0 11-3.8-7.1L21 3l-1.2 4.3c.8 1.2 1.2 2.6 1.2 4.2z" stroke-linejoin="round"/></svg>
+        <svg viewBox="0 0 24 24" stroke="currentColor"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" stroke-linejoin="round"/></svg>
+        <div class="spacer"></div>
+        <svg viewBox="0 0 24 24" stroke="currentColor"><path d="M6 3h12v18l-6-4.5L6 21V3z" stroke-linejoin="round"/></svg>
+      </div>
+
+      <div class="ig-status">Vista previa · pendiente de publicar</div>
+
+      <div class="ig-caption">
+        <div class="lang-block">
+          <span class="lang-tag">ES</span>
+          <p class="body-text"><b>WildLensProject</b> Entre el aire y el agua, un instante que no se repite.
+
+Este ganso del Nilo completa su aterrizaje en el lago de la Casa de Campo, alas desplegadas en toda su envergadura y las patas rosadas rompiendo la superficie en un estallido de espuma. Reflejos, anticipación y una ráfaga a tiempo — así se captura un instante que dura menos de un parpadeo.
+
+¿Cuántas veces has visto un aterrizaje así sin tener la cámara lista?
+
+<span class="tags">#birdphotography #wildbirds #birdsofinstagram #egyptiangoose #gansodelnilo #aveacuatica #actionphotography #freezeframe #telephoto #birdsinflight #casadecampo #madrid #spain #españa #photography #photographer #foto #nikon #nikoncreators #natgeo #birdsofmadrid #avesmadrid #spanishwildlife #wildlifeofinstagram #birdsofspain #naturegram</span></p>
+        </div>
+        <div class="lang-block">
+          <span class="lang-tag">EN</span>
+          <p class="body-text">Where the air meets the water, for just an instant.
+
+This Egyptian goose completes its landing on the lake at Casa de Campo, wings fully spread and pink legs breaking the surface in a burst of spray. Reflexes, anticipation, and a well-timed burst — that's how you freeze a moment that lasts less than a blink.
+
+How often have you caught a landing like this without your camera ready?</p>
+        </div>
+      </div>
+
+      <div class="ig-timestamp">Preparada el 30 jun 2026</div>
+    </div>
+
+    <div class="spec">
+      <div class="spec-row">
+        <span class="k">Alt text</span>
+        <p class="v">Ganso del Nilo completando un aterrizaje sobre el agua, con las alas totalmente desplegadas mostrando el patrón blanco y negro del plumaje. La cabeza, de tono marrón claro con un parche oscuro alrededor del ojo, mira hacia la izquierda. Las patas de color rosa intenso tocan la superficie generando salpicaduras y espuma blanca. El fondo muestra agua en tonos verde-azulados con reflejos de luz diurna. El ave ocupa el centro del encuadre en un momento de acción congelada.</p>
+        <div class="pair">
+          <div><span class="num">4:5</span><span class="lbl">formato</span></div>
+          <div><span class="num">1080 × 1350 px</span><span class="lbl">dimensiones</span></div>
+        </div>
+        <p class="v">El ganso ocupa el centro del encuadre con las alas desplegadas verticalmente (una alzada, otra extendida); el formato retrato maximiza su presencia en el feed y aprovecha mejor la verticalidad del aleteo que el 1:1 o el paisaje.</p>
+        <div class="pair">
+          <div><span class="num">sin cambios</span><span class="lbl">brillo</span></div>
+          <div><span class="num">+8</span><span class="lbl">contraste</span></div>
+          <div><span class="num">+5 selectiva en patas y parche ocular</span><span class="lbl">saturación</span></div>
+          <div><span class="num">+12</span><span class="lbl">nitidez de salida</span></div>
+        </div>
+        <p class="v mono">sips --resampleHeight 1350 "/Users/ignacio/Sites/fotos/originales/DSC_2478.jpeg" --out "/Users/ignacio/Downloads/DSC_2478_ig.jpeg"
+sips -c 1350 1080 --cropOffset 0 660 "/Users/ignacio/Downloads/DSC_2478_ig.jpeg"
+
+# Verificar:
+sips -g pixelWidth -g pixelHeight "/Users/ignacio/Downloads/DSC_2478_ig.jpeg"</p>
+      </div>
+    </div>
+  </article>
+
+</div>
+
+</body>
+</html>

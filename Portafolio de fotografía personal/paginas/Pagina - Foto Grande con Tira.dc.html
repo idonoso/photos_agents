@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;1,500&family=Work+Sans:wght@400;500&display=swap" rel="stylesheet">
+  <script src="../image-slot.js"></script>
+</helmet>
+
+<div style="{{ wrapStyle }}">
+  <div style="{{ cardStyle }}">
+    <div style="{{ hwHeroWrapStyle }}">
+      <image-slot id="hw-hero-tpl" src="https://picsum.photos/seed/tpl-hw-hero/1200/560" style="width:100%;height:100%;display:block" shape="rect" fit="cover" placeholder="Foto hero, horizontal"></image-slot>
+    </div>
+    <div style="{{ hwTextStyle }}">
+      <div style="{{ hwTitleStyle }}">Título de la serie</div>
+      <div style="{{ hwMetaStyle }}">Lugar · Fecha</div>
+    </div>
+    <div style="{{ hwStripStyle }}">
+      <sc-for list="{{ thumbs }}" as="th" hint-placeholder-count="3">
+        <div style="{{ th.hwThumbStyle }}">
+          <image-slot id="{{ th.slotId }}" src="{{ th.src }}" style="width:100%;height:100%;display:block" shape="rect" fit="cover" placeholder="Foto relacionada"></image-slot>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;: {&quot;width&quot;: 1264, &quot;height&quot;: 739}}">
+// TIPO DE PÁGINA: Foto grande con tira — una foto protagonista arriba
+// (con título/lugar), y 3 miniaturas relacionadas debajo.
+class Component extends DCLogic {
+  thumbSeeds = ['hw1', 'hw2', 'hw3'];
+
+  renderVals() {
+    const fg = '#262220', muted = '#8a8175';
+    const sansFont = "'Work Sans', sans-serif";
+    const serifFont = "'Playfair Display', serif";
+    const cardW = 1200, cardH = 675, padX = 60, padY = 52;
+    const contentW = cardW - padX * 2;
+    const shadow = '0 26px 56px rgba(30,26,18,0.18), 0 4px 12px rgba(30,26,18,0.09)';
+    const border = '1px solid rgba(30,26,18,0.1)';
+    const heroW = contentW, heroH = 280;
+    const hwThumbStyle = { position: 'relative', height: 110, flex: 1, overflow: 'hidden', background: 'rgba(20,16,10,0.045)' };
+
+    return {
+      wrapStyle: { display: 'flex', justifyContent: 'center', background: '#e7e2d6', padding: 32 },
+      cardStyle: { background: 'linear-gradient(150deg, #faf6ec 0%, #f1ead6 100%)', border, boxShadow: shadow, borderRadius: 8, width: cardW, height: cardH, boxSizing: 'border-box', padding: `${padY}px ${padX}px`, display: 'flex', flexDirection: 'column', justifyContent: 'center', overflow: 'hidden', position: 'relative' },
+      hwHeroWrapStyle: { width: heroW, height: heroH, margin: '0 auto', position: 'relative', overflow: 'hidden', background: 'rgba(20,16,10,0.045)' },
+      hwTextStyle: { textAlign: 'center', marginTop: 16, marginBottom: 20 },
+      hwTitleStyle: { fontFamily: serifFont, fontStyle: 'italic', fontSize: 28, color: fg },
+      hwMetaStyle: { fontFamily: sansFont, fontSize: 14, color: muted, marginTop: 6, letterSpacing: '.02em' },
+      hwStripStyle: { display: 'flex', gap: 14, width: contentW, margin: '0 auto' },
+      thumbs: this.thumbSeeds.map(s => ({ slotId: `tpl-${s}`, src: `https://picsum.photos/seed/tpl-${s}/400/400`, hwThumbStyle }))
+    };
+  }
+}
+
+</script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;1,500&family=Work+Sans:wght@400;500&display=swap" rel="stylesheet">
+  <script src="../image-slot.js"></script>
+</helmet>
+
+<div style="{{ wrapStyle }}">
+  <div style="{{ cardStyle }}">
+    <div style="{{ apRowStyle }}">
+      <div>
+        <div style="{{ apBigWrapStyle }}">
+          <image-slot id="ap-big-tpl" src="https://picsum.photos/seed/tpl-ap-big/900/700" style="width:100%;height:100%;display:block" shape="rect" fit="cover" placeholder="Foto grande"></image-slot>
+        </div>
+        <div style="{{ apTitleStyle }}">Título de la foto grande</div>
+        <div style="{{ apMetaStyle }}">Lugar · Fecha</div>
+      </div>
+      <div style="{{ apSmallColStyle }}">
+        <div style="{{ apSmallWrapStyle }}">
+          <image-slot id="ap-small-tpl" src="https://picsum.photos/seed/tpl-ap-small/500/700" style="width:100%;height:100%;display:block" shape="rect" fit="cover" placeholder="Foto pequeña"></image-slot>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;: {&quot;width&quot;: 1264, &quot;height&quot;: 739}}">
+// TIPO DE PÁGINA: Par asimétrico — una foto grande con título/lugar, y una
+// segunda foto más pequeña al lado sin texto. Contraste de tamaños.
+class Component extends DCLogic {
+  bigRatio = 1.3;
+  smallRatio = 0.7;
+
+  renderVals() {
+    const fg = '#262220', muted = '#8a8175';
+    const sansFont = "'Work Sans', sans-serif";
+    const serifFont = "'Playfair Display', serif";
+    const cardW = 1200, cardH = 675, padX = 60, padY = 52;
+    const contentW = cardW - padX * 2;
+    const shadow = '0 26px 56px rgba(30,26,18,0.18), 0 4px 12px rgba(30,26,18,0.09)';
+    const border = '1px solid rgba(30,26,18,0.1)';
+
+    let bw = 440 * this.bigRatio, bh = 440;
+    const maxBw = Math.round(contentW * 0.6);
+    if (bw > maxBw) { bw = maxBw; bh = bw / this.bigRatio; }
+
+    let sw = 280 * this.smallRatio, sh = 280;
+    const maxSw = Math.round(contentW * 0.32);
+    if (sw > maxSw) { sw = maxSw; sh = sw / this.smallRatio; }
+
+    return {
+      wrapStyle: { display: 'flex', justifyContent: 'center', background: '#e7e2d6', padding: 32 },
+      cardStyle: { background: 'linear-gradient(150deg, #faf6ec 0%, #f1ead6 100%)', border, boxShadow: shadow, borderRadius: 8, width: cardW, height: cardH, boxSizing: 'border-box', padding: `${padY}px ${padX}px`, display: 'flex', flexDirection: 'column', justifyContent: 'center', overflow: 'hidden', position: 'relative' },
+      apRowStyle: { display: 'flex', flexDirection: 'row', gap: 40, alignItems: 'flex-end', justifyContent: 'center' },
+      apBigWrapStyle: { width: Math.round(bw), height: Math.round(bh), position: 'relative', overflow: 'hidden', background: 'rgba(20,16,10,0.045)' },
+      apSmallColStyle: {},
+      apSmallWrapStyle: { width: Math.round(sw), height: Math.round(sh), position: 'relative', overflow: 'hidden', background: 'rgba(20,16,10,0.045)' },
+      apTitleStyle: { fontFamily: serifFont, fontStyle: 'italic', fontSize: 24, color: fg, marginTop: 14 },
+      apMetaStyle: { fontFamily: sansFont, fontSize: 13, color: muted, marginTop: 6, letterSpacing: '.02em' }
+    };
+  }
+}
+
+</script>
+</body>
+</html>

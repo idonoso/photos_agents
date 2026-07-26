@@ -1,0 +1,1414 @@
+{
+  "generated_at": "2026-07-12T20:26:14.792Z",
+  "min_score": 0,
+  "total_eligible": 75,
+  "cover": {
+    "id": "DSC_2478.jpeg",
+    "title": "Ganso del Nilo tocando el agua",
+    "place": "Casa de Campo, Madrid",
+    "date": "19 abr 2026",
+    "notes": "Un ganso del Nilo completa su aterrizaje con las alas desplegadas en toda su envergadura, mostrando el patrón blanco y negro característico de la especie. Las patas rosadas tocan la superficie del agua generando un estallido de salpicaduras y espuma, mientras la mirada del ave permanece fija en el destino. Un instante decisivo de la dinámica de vuelo capturado con precisión milimétrica.",
+    "ratio": 1.5,
+    "aperture": "6.3",
+    "shutter": "1/2000",
+    "focal": "510",
+    "iso": 560,
+    "score": 8.3,
+    "src": "assets/webp/DSC_2478.webp",
+    "srcBlur": "assets/fondo/DSC_2478.webp"
+  },
+  "pages": [
+    {
+      "pinned": true,
+      "position": 0,
+      "type": "diptychText",
+      "textLevel": "meta",
+      "photos": [
+        {
+          "id": "2400.jpeg",
+          "title": "Gaviota cazando al vuelo",
+          "place": "Casa de Campo, Madrid",
+          "date": "08 mar 2026",
+          "notes": "Una gaviota juvenil capturada en plena acción de caza, con las alas completamente extendidas y algo de alimento en el pico. El fondo de árboles invernales del parque se diluye en un bokeh cremoso que aísla al ave en su momento de máxima tensión.",
+          "ratio": 1,
+          "aperture": "6",
+          "shutter": "1/2000",
+          "focal": "390",
+          "iso": 1250,
+          "score": 6.8,
+          "src": "assets/webp/2400.webp",
+          "srcBlur": "assets/fondo/2400.webp",
+          "globalIndex": 0
+        },
+        {
+          "id": "Petirrojo Europeo.jpeg",
+          "title": "Mirada de febrero",
+          "place": "El Pardo, Madrid",
+          "date": "14 feb 2026",
+          "notes": "Un petirrojo europeo posado en la horquilla de una rama desnuda mira directamente a cámara con su ojo negro y brillante. El pecho naranja-rojizo vibra contra un fondo azul-gris suave y limpio, creando un contraste cálido-frío perfecto. El cuerpo redondo y esponjoso transmite una ternura inmediata.",
+          "ratio": 1.2498810090433128,
+          "aperture": "6.3",
+          "shutter": "1/800",
+          "focal": "600",
+          "iso": 3600,
+          "score": 7,
+          "src": "assets/webp/Petirrojo Europeo.webp",
+          "srcBlur": "assets/fondo/Petirrojo Europeo.webp",
+          "globalIndex": 1
+        }
+      ]
+    },
+    {
+      "pinned": true,
+      "position": 1,
+      "type": "fullBleedSingle",
+      "textLevel": "full",
+      "photos": [
+        {
+          "id": "DSC_2526.jpeg",
+          "title": "Lavandera entre pelusas de chopo",
+          "place": "Casa de Campo, Madrid",
+          "date": "19 abr 2026",
+          "notes": "Una lavandera blanca camina sobre un suelo cubierto de pelusas de chopo, iluminada por un rayo de luz lateral que la recorta limpiamente contra un fondo en profunda sombra. Lleva en el pico un pequeño insecto amarillo, probablemente alimento capturado en plena actividad primaveral.",
+          "ratio": 1.777818582445832,
+          "aperture": "6",
+          "shutter": "1/2000",
+          "focal": "420",
+          "iso": 1100,
+          "score": 7.8,
+          "src": "assets/webp/DSC_2526.webp",
+          "srcBlur": "assets/fondo/DSC_2526.webp",
+          "globalIndex": 2
+        }
+      ]
+    },
+    {
+      "type": "singleStacked",
+      "textLevel": "full",
+      "photos": [
+        {
+          "id": "DSC_1523.jpeg",
+          "title": "Jaguar eléctrico en el Jarama",
+          "place": "Circuito del Jarama, Madrid",
+          "date": "21 mar 2026",
+          "notes": "Un Jaguar TCS Racing de Fórmula E Gen3 atraviesa una recta del Circuito del Jarama. Los colores corporativos blanco y negro contrastan con los detalles naranjas de las llantas, mientras el fondo de hierba se difumina por la velocidad y la distancia focal.",
+          "ratio": 2.4018892228424216,
+          "aperture": "7.1",
+          "shutter": "1/1000",
+          "focal": "380",
+          "iso": 1800,
+          "score": 5.6,
+          "src": "assets/webp/DSC_1523.webp",
+          "srcBlur": "assets/fondo/DSC_1523.webp",
+          "globalIndex": 3
+        }
+      ]
+    },
+    {
+      "type": "duo",
+      "textLevel": "meta",
+      "photos": [
+        {
+          "id": "Necrópolis de Guiza.jpeg",
+          "title": "Eternidad en la bruma del desierto",
+          "place": "Necrópolis de Guiza, Egipto",
+          "date": "26 sept 2023",
+          "notes": "Las tres grandes pirámides de Guiza emergen entre la calima del desierto, con la pirámide de Kefrén dominando el encuadre. Caravanas de camellos y figuras diminutas recorren la arena, dando escala humana a monumentos de 4.500 años. Al fondo, la silueta de El Cairo se desvanece en la bruma.",
+          "ratio": 1.5258673158855751,
+          "aperture": "20",
+          "shutter": "1/160",
+          "focal": "69",
+          "iso": 100,
+          "score": 6,
+          "src": "assets/webp/Necrópolis de Guiza.webp",
+          "srcBlur": "assets/fondo/Necrópolis de Guiza.webp",
+          "globalIndex": 4
+        },
+        {
+          "id": "Guardia del Palacio Real.jpeg",
+          "title": "Simetría de la Guardia Real",
+          "place": "Palacio Real, Madrid",
+          "date": "27 dic 2025",
+          "notes": "Dos guardias montados a caballo y dos a pie flanquean simétricamente la entrada principal del Palacio Real de Madrid. La perspectiva centrada enmarca una sucesión de arcos que se pierde en el interior del palacio, mientras los detalles dorados de las farolas coronan la composición.",
+          "ratio": 1.3333333333333333,
+          "aperture": "8",
+          "shutter": "1/320",
+          "focal": "34",
+          "iso": 250,
+          "score": 6.5,
+          "src": "assets/webp/Guardia del Palacio Real.webp",
+          "srcBlur": "assets/fondo/Guardia del Palacio Real.webp",
+          "globalIndex": 5
+        }
+      ]
+    },
+    {
+      "type": "grid2x2",
+      "textLevel": "minimal",
+      "photos": [
+        {
+          "id": "Alcazar de Cordoba.jpeg",
+          "title": "Jardines del Alcázar al mediodía",
+          "place": "Alcázar de los Reyes Cristianos, Córdoba",
+          "date": "11 sept 2022",
+          "notes": "Los jardines del Alcázar de los Reyes Cristianos en Córdoba, con el estanque de surtidores creando una línea de perspectiva hacia la Torre del Homenaje. Setos de ciprés mediterráneo, palmeras, flores rosas y la piedra dorada componen una escena de orden y belleza heredada de la tradición andalusí.",
+          "ratio": 1.7777777777777777,
+          "aperture": "13",
+          "shutter": "1/100",
+          "focal": "57",
+          "iso": 100,
+          "score": 6.2,
+          "src": "assets/webp/Alcazar de Cordoba.webp",
+          "srcBlur": "assets/fondo/Alcazar de Cordoba.webp",
+          "globalIndex": 6
+        },
+        {
+          "id": "Sormormujo.jpeg",
+          "title": "Somormujo emergiendo entre ondas",
+          "place": "Parque del Sureste, Madrid",
+          "date": "11 abr 2026",
+          "notes": "Un somormujo lavanco nada en las aguas verdes de un estanque, dejando tras de sí ondas concéntricas que delatan su reciente inmersión. Gotas de agua salpican su cuello mientras unas ramas desenfocadas en primer plano enmarcan la escena con naturalidad.",
+          "ratio": 1.4998116760828626,
+          "aperture": "7.1",
+          "shutter": "1/650",
+          "focal": "600",
+          "iso": 560,
+          "score": 5.2,
+          "src": "assets/webp/Sormormujo.webp",
+          "srcBlur": "assets/fondo/Sormormujo.webp",
+          "globalIndex": 7
+        },
+        {
+          "id": "DSC_2075.jpeg",
+          "title": "Mirada entre la hierba",
+          "place": "Parque del Sureste, Madrid",
+          "date": "11 abr 2026",
+          "notes": "Un conejo de monte captado a ras de suelo desde una distancia extraordinariamente corta mientras mordisquea hierba fresca. El ojo oscuro con su catchlight domina el encuadre, rodeado del pelaje gris-pardo detallado pelo a pelo. Las orejas se desvanecen en un suave desenfoque mientras el bokeh verde envuelve la escena.",
+          "ratio": 1.3334251860016533,
+          "aperture": "7.1",
+          "shutter": "1/640",
+          "focal": "600",
+          "iso": 2000,
+          "score": 6.5,
+          "src": "assets/webp/DSC_2075.webp",
+          "srcBlur": "assets/fondo/DSC_2075.webp",
+          "globalIndex": 8
+        },
+        {
+          "id": "DSC_2246.jpeg",
+          "title": "Polluelo del Nilo en el Retiro",
+          "place": "Parque del Retiro, Madrid",
+          "date": "11 abr 2026",
+          "notes": "Un polluelo de ganso del Nilo posa entre la hojarasca del Retiro, con su plumón oscuro y sedoso y el ojo brillante y alerta. Detrás, un hermano desenfocado completa la escena familiar, mientras la vegetación verde a la derecha aporta un contrapunto cromático al suelo terroso.",
+          "ratio": 1.5,
+          "aperture": "7.1",
+          "shutter": "1/640",
+          "focal": "450",
+          "iso": 8000,
+          "score": 5.7,
+          "src": "assets/webp/DSC_2246.webp",
+          "srcBlur": "assets/fondo/DSC_2246.webp",
+          "globalIndex": 9
+        }
+      ]
+    },
+    {
+      "type": "textForward",
+      "textLevel": "full",
+      "photos": [
+        {
+          "id": "DSC_2235.jpeg",
+          "title": "Cisne negro en la tormenta de cristal",
+          "place": "Parque del Retiro, Madrid",
+          "date": "11 abr 2026",
+          "notes": "Un cisne negro nada frente a un surtidor del Retiro cuyo chorro estalla en miles de gotas congeladas a 1/2000s. El plumaje negro absorbe la luz mientras el pico rojo aporta el único acento de color contra el telón de agua pulverizada. El agua turbulenta alrededor del ave añade energía a la escena.",
+          "ratio": 1.4998334998335,
+          "aperture": "6",
+          "shutter": "1/2000",
+          "focal": "460",
+          "iso": 1800,
+          "score": 6.1,
+          "src": "assets/webp/DSC_2235.webp",
+          "srcBlur": "assets/fondo/DSC_2235.webp",
+          "globalIndex": 10
+        }
+      ]
+    },
+    {
+      "type": "trio",
+      "textLevel": "minimal",
+      "photos": [
+        {
+          "id": "libelula dorada.jpeg",
+          "title": "Alas de oro al atardecer",
+          "place": "Desconocida, Desconocida",
+          "date": "09 sept 2021",
+          "notes": "Una libélula posada sobre la inflorescencia seca de un junco, retroiluminada por la última luz dorada del día. Las alas translúcidas brillan como vitrales, revelando su delicada venación contra un fondo casi negro. Los tonos ámbar y dorados del contraluz crean una atmósfera de joya natural suspendida en la oscuridad.",
+          "ratio": 1.4998092331171309,
+          "aperture": "6.3",
+          "shutter": "1/250",
+          "focal": "300",
+          "iso": 100,
+          "score": 6.9,
+          "src": "assets/webp/libelula dorada.webp",
+          "srcBlur": "assets/fondo/libelula dorada.webp",
+          "globalIndex": 11
+        },
+        {
+          "id": "DSC_0050.jpeg",
+          "title": "Tormenta sobre la Plaza de Oriente",
+          "place": "Plaza de Oriente, Madrid",
+          "date": "01 nov 2025",
+          "notes": "El Palacio Real y la estatua ecuestre de Felipe IV dominan la Plaza de Oriente bajo un cielo amenazante de nubarrones grises. Los setos recortados de los jardines enmarcan la escena desde una perspectiva baja a ras de vegetación, con turistas diminutos entre los monumentos.",
+          "ratio": 1.7777777777777777,
+          "aperture": "11",
+          "shutter": "1/160",
+          "focal": "52",
+          "iso": 100,
+          "score": 6.1,
+          "src": "assets/webp/DSC_0050.webp",
+          "srcBlur": "assets/fondo/DSC_0050.webp",
+          "globalIndex": 12
+        },
+        {
+          "id": "Museo geominero 2.jpeg",
+          "title": "Catedral de minerales",
+          "place": "Museo Geominero, Madrid",
+          "date": "08 nov 2025",
+          "notes": "El hall principal del Museo Geominero visto desde la última planta, revelando las tres alturas de balconadas con barandillas de hierro forjado, decenas de vitrinas verdes con especímenes geológicos en la planta baja, y los rosetones luminosos del techo. La perspectiva cenital transforma el museo en una catedral del conocimiento.",
+          "ratio": 1.2499355171524376,
+          "aperture": "2.8",
+          "shutter": "1/160",
+          "focal": "16",
+          "iso": 400,
+          "score": 6.7,
+          "src": "assets/webp/Museo geominero 2.webp",
+          "srcBlur": "assets/fondo/Museo geominero 2.webp",
+          "globalIndex": 13
+        }
+      ]
+    },
+    {
+      "type": "fullBleedSingle",
+      "textLevel": "full",
+      "photos": [
+        {
+          "id": "Mueso geominero.jpeg",
+          "title": "Cuarzo rosa ante el templo del saber",
+          "place": "Museo Geominero, Madrid",
+          "date": "08 nov 2025",
+          "notes": "El hall del Museo Geominero visto desde la planta baja, con un gran espécimen de cuarzo rosa dominando el primer plano mientras las tres alturas de balconadas de hierro forjado se curvan hacia el techo ornamentado. Una visitante camina entre vitrinas y fósiles, dando escala humana a la grandeza arquitectónica.",
+          "ratio": 1.5,
+          "aperture": "4.5",
+          "shutter": "1/80",
+          "focal": "16",
+          "iso": 400,
+          "score": 5.9,
+          "src": "assets/webp/Mueso geominero.webp",
+          "srcBlur": "assets/fondo/Mueso geominero.webp",
+          "globalIndex": 14
+        }
+      ]
+    },
+    {
+      "type": "singleSide",
+      "textLevel": "full",
+      "photos": [
+        {
+          "id": "Mirlo.jpeg",
+          "title": "Mirlo con presa en el pico",
+          "place": "Casa de Campo, Madrid",
+          "date": "08 mar 2026",
+          "notes": "Un mirlo común macho posado sobre tierra desnuda con brotes de primavera, el pico naranja brillante sujetando un gusano recién capturado. El plumaje negro azabache contrasta con el anillo ocular naranja y el fondo de césped disuelto en un bokeh verde cremoso.",
+          "ratio": 1.3933506044905009,
+          "aperture": "7.1",
+          "shutter": "1/800",
+          "focal": "600",
+          "iso": 1400,
+          "score": 6.4,
+          "src": "assets/webp/Mirlo.webp",
+          "srcBlur": "assets/fondo/Mirlo.webp",
+          "globalIndex": 15
+        }
+      ]
+    },
+    {
+      "type": "diptychText",
+      "textLevel": "meta",
+      "photos": [
+        {
+          "id": "DSC_2040.jpeg",
+          "title": "Túnel de pétalos en el Arenal",
+          "place": "Calle del Arenal, Madrid",
+          "date": "22 mar 2026",
+          "notes": "La Calle del Arenal se transforma en un túnel de flores blancas bajo la copa de perales ornamentales en plena floración. El teleobjetivo a 115mm comprime la perspectiva y densifica el dosel floral, mientras decenas de paseantes recorren la avenida en dirección a la Puerta del Sol.",
+          "ratio": 1.500332005312085,
+          "aperture": "11",
+          "shutter": "1/200",
+          "focal": "115",
+          "iso": 560,
+          "score": 6.4,
+          "src": "assets/webp/DSC_2040.webp",
+          "srcBlur": "assets/fondo/DSC_2040.webp",
+          "globalIndex": 16
+        },
+        {
+          "id": "DSC_0338.jpeg",
+          "title": "Sombras largas en Madrid Río",
+          "place": "Madrid Río, Madrid",
+          "date": "10 ene 2026",
+          "notes": "Un sendero curvo serpentea entre árboles desnudos de invierno en Madrid Río, con el sol bajo proyectando sombras kilométricas sobre el césped verde. Un muro de piedra cubierto de hiedra seca enmarca la escena por la derecha, mientras la luz dorada lateral revela texturas y modela el espacio con profundidad.",
+          "ratio": 1.777486051854283,
+          "aperture": "8",
+          "shutter": "1/400",
+          "focal": "44",
+          "iso": 400,
+          "score": 6.5,
+          "src": "assets/webp/DSC_0338.webp",
+          "srcBlur": "assets/fondo/DSC_0338.webp",
+          "globalIndex": 17
+        }
+      ]
+    },
+    {
+      "type": "duo",
+      "textLevel": "full",
+      "photos": [
+        {
+          "id": "DSC_0187.jpeg",
+          "title": "El ángel que cayó del cielo",
+          "place": "Parque del Retiro, Madrid",
+          "date": "26 dic 2025",
+          "notes": "La Fuente del Ángel Caído en el Retiro capturada desde abajo, con Lucifer retorciéndose en su caída eterna sobre el pedestal blanco mientras los demonios de bronce lo contemplan desde la base. Un cielo invernal de nubes dramáticas sirve de telón al drama más antiguo de la cultura occidental.",
+          "ratio": 0.6667285555142963,
+          "aperture": "14",
+          "shutter": "1/640",
+          "focal": "39",
+          "iso": 200,
+          "score": 6.5,
+          "src": "assets/webp/DSC_0187.webp",
+          "srcBlur": "assets/fondo/DSC_0187.webp",
+          "globalIndex": 18
+        },
+        {
+          "id": "El fronton.jpeg",
+          "title": "Las palabras del frontón",
+          "place": "Frontón Beti-Jai, Madrid",
+          "date": "08 nov 2025",
+          "notes": "El Frontón Beti-Jai visto desde las gradas superiores, con la inscripción de 1893 del periodista Antonio Peña y Goñi en primer plano y las tres alturas de galerías neomudéjares de hierro forjado desplegándose detrás. Personas diminutas en la cancha restaurada dan escala a la grandeza arquitectónica de este monumento oculto de Madrid.",
+          "ratio": 1.4977072310405644,
+          "aperture": "13",
+          "shutter": "1/200",
+          "focal": "27",
+          "iso": 100,
+          "score": 6.4,
+          "src": "assets/webp/El fronton.webp",
+          "srcBlur": "assets/fondo/El fronton.webp",
+          "globalIndex": 19
+        }
+      ]
+    },
+    {
+      "type": "filmstrip",
+      "textLevel": "minimal",
+      "photos": [
+        {
+          "id": "DSC_2076.jpeg",
+          "title": "Alerta entre la hierba",
+          "place": "Parque del Sureste, Madrid",
+          "date": "11 abr 2026",
+          "notes": "Un conejo de monte agazapado sobre hierba fresca mira directamente a cámara con ambos ojos, las orejas erguidas y el cuerpo tenso en alerta. Una rama seca detrás sugiere la cercanía de su refugio. El contacto visual frontal transmite la tensión del animal decidiendo entre quedarse y huir.",
+          "ratio": 1,
+          "aperture": "9",
+          "shutter": "1/640",
+          "focal": "320",
+          "iso": 2800,
+          "score": 5.8,
+          "src": "assets/webp/DSC_2076.webp",
+          "srcBlur": "assets/fondo/DSC_2076.webp",
+          "globalIndex": 20
+        },
+        {
+          "id": "DSC_1993.jpeg",
+          "title": "El cisne y su nido",
+          "place": "Parque del Retiro, Madrid",
+          "date": "11 abr 2026",
+          "notes": "Un cisne negro se inclina sobre su nido de ramas y hojas junto al agua del Retiro, con la cabeza bajada en gesto protector y el pico rojo brillando contra el plumaje oscuro. Las plumas del dorso muestran una textura exquisita de capas superpuestas mientras el ave cuida el lugar donde nacerán sus crías.",
+          "ratio": 1.4998165137614679,
+          "aperture": "7.1",
+          "shutter": "1/640",
+          "focal": "180",
+          "iso": 4500,
+          "score": 6.5,
+          "src": "assets/webp/DSC_1993.webp",
+          "srcBlur": "assets/fondo/DSC_1993.webp",
+          "globalIndex": 21
+        },
+        {
+          "id": "DSC_2491.jpeg",
+          "title": "Jilguero sobre musgo en primavera",
+          "place": "Casa de Campo, Madrid",
+          "date": "19 abr 2026",
+          "notes": "Un jilguero europeo posa sobre una rama cubierta de musgo verde, mostrando en perfil toda su paleta de colores — máscara roja, capucha blanca y negra, pecho marrón y barra amarilla viva en el ala. El fondo de vegetación primaveral se disuelve en un bokeh cremoso que destaca la intensidad cromática del ave.",
+          "ratio": 1.250190114068441,
+          "aperture": "7.1",
+          "shutter": "1/640",
+          "focal": "600",
+          "iso": 2200,
+          "score": 6.9,
+          "src": "assets/webp/DSC_2491.webp",
+          "srcBlur": "assets/fondo/DSC_2491.webp",
+          "globalIndex": 22
+        },
+        {
+          "id": "DSC_2449.jpeg",
+          "title": "Carbonero escondido entre hojas",
+          "place": "Casa de Campo, Madrid",
+          "date": "19 abr 2026",
+          "notes": "Un carbonero común se mueve entre las hojas de un arbusto con las alas abiertas, semidescubierto entre el follaje en un instante fugaz. El encuadre deja ramas desenfocadas en primer plano que enmarcan al ave como en una observación furtiva, con bokeh de cielo azul y vegetación salpicando el fondo.",
+          "ratio": 1,
+          "aperture": "7.1",
+          "shutter": "1/640",
+          "focal": "600",
+          "iso": 280,
+          "score": 6.3,
+          "src": "assets/webp/DSC_2449.webp",
+          "srcBlur": "assets/fondo/DSC_2449.webp",
+          "globalIndex": 23
+        },
+        {
+          "id": "DSC_2286.jpeg",
+          "title": "Retrato frontal de ánade real",
+          "place": "Parque del Retiro, Madrid",
+          "date": "11 abr 2026",
+          "notes": "Un macho de ánade real mira ligeramente ladeado hacia la cámara, dejando ver en toda su plenitud el iridiscente verde-azul metálico de la cabeza, el pico amarillo vivo y las patas anaranjadas. La proximidad frontal y la inclinación del cuello transmiten una presencia casi de retrato humano, convirtiendo a un ave habitual del Retiro en sujeto individualizado.",
+          "ratio": 1,
+          "aperture": "7.1",
+          "shutter": "1/640",
+          "focal": "105",
+          "iso": 1100,
+          "score": 7.5,
+          "src": "assets/webp/DSC_2286.webp",
+          "srcBlur": "assets/fondo/DSC_2286.webp",
+          "globalIndex": 24
+        }
+      ]
+    },
+    {
+      "type": "singleStacked",
+      "textLevel": "full",
+      "photos": [
+        {
+          "id": "DSC_2192.jpeg",
+          "title": "Garza imperial en vuelo rasante",
+          "place": "Parque del Sureste, Madrid",
+          "date": "11 abr 2026",
+          "notes": "Una garza imperial (Ardea purpurea) capturada en pleno vuelo horizontal con las alas completamente desplegadas, el cuello recogido en la posición característica de la especie y el largo pico amarillo apuntando hacia adelante. El fondo de vegetación verde se difumina en un bokeh uniforme y suave que aísla al ave con elegancia.",
+          "ratio": 1.7782204515272244,
+          "aperture": "6",
+          "shutter": "1/2000",
+          "focal": "400",
+          "iso": 1400,
+          "score": 6.4,
+          "src": "assets/webp/DSC_2192.webp",
+          "srcBlur": "assets/fondo/DSC_2192.webp",
+          "globalIndex": 25
+        }
+      ]
+    },
+    {
+      "type": "trio",
+      "textLevel": "minimal",
+      "photos": [
+        {
+          "id": "DSC_2177.jpeg",
+          "title": "El agateador entre líquenes dorados",
+          "place": "Parque del Sureste, Madrid",
+          "date": "11 abr 2026",
+          "notes": "Un agateador común (Certhia brachydactyla) trepa por la corteza de un árbol cubierto de líquenes amarillos, mostrando su comportamiento característico de búsqueda de insectos en la corteza. El tronco liquenado domina el encuadre con su textura y color, mientras el pequeño pájaro se funde y se distingue a la vez entre los tonos grises y dorados de la madera viva.",
+          "ratio": 0.6666666666666666,
+          "aperture": "7.1",
+          "shutter": "1/640",
+          "focal": "600",
+          "iso": 640,
+          "score": 6.7,
+          "src": "assets/webp/DSC_2177.webp",
+          "srcBlur": "assets/fondo/DSC_2177.webp",
+          "globalIndex": 26
+        },
+        {
+          "id": "DSC_1623.jpeg",
+          "title": "Ataque a la horquilla — Madrid ePrix",
+          "place": "Madrid ePrix, Madrid",
+          "date": "21 mar 2026",
+          "notes": "Un monoplaza de Fórmula E del equipo Nissan, con librea roja y blanca, tomando una curva cerrada en el circuito urbano del Madrid ePrix. Los bordillos amarillos y azules enmarcan la trayectoria del coche en plena carga lateral, con el piloto visible en el habitáculo. El asfalto mojado refleja la intensidad de la competición.",
+          "ratio": 1.3333333333333333,
+          "aperture": "7.1",
+          "shutter": "1/1000",
+          "focal": "450",
+          "iso": 2000,
+          "score": 6.9,
+          "src": "assets/webp/DSC_1623.webp",
+          "srcBlur": "assets/fondo/DSC_1623.webp",
+          "globalIndex": 27
+        },
+        {
+          "id": "DSC_0162",
+          "title": "Bandada sobre el Estanque",
+          "place": "Estanque del Retiro, Madrid",
+          "date": "26 dic 2025",
+          "notes": "El Estanque Grande del Retiro en diciembre, con el monumento a Alfonso XII al fondo. Decenas de aves surcan el cielo nublado mientras varios grupos de visitantes reman en las características barcas azules del parque. Los árboles desnudos del invierno enmarcan la escena.",
+          "ratio": 1.777903043968433,
+          "aperture": "",
+          "shutter": "",
+          "focal": "",
+          "iso": "",
+          "score": 5.9,
+          "src": "assets/webp/DSC_0162.webp",
+          "srcBlur": "assets/fondo/DSC_0162.webp",
+          "globalIndex": 28
+        }
+      ]
+    },
+    {
+      "type": "centeredMinimal",
+      "textLevel": "none",
+      "photos": [
+        {
+          "id": "Carbonero.jpeg",
+          "title": "Carbonero forrajeando en primavera",
+          "place": "Casa de Campo, Madrid",
+          "date": "08 mar 2026",
+          "notes": "Un carbonero común posado en una ramita a nivel del suelo, inclinado hacia adelante en plena actividad de forrajeo entre la hierba fresca y la hojarasca. Las alas azul-grises con la característica franja blanca contrastan con el fondo verde primaveral de la Casa de Campo.",
+          "ratio": 1,
+          "aperture": "7.1",
+          "shutter": "1/640",
+          "focal": "600",
+          "iso": 720,
+          "score": 6.2,
+          "src": "assets/webp/Carbonero.webp",
+          "srcBlur": "assets/fondo/Carbonero.webp",
+          "globalIndex": 29
+        }
+      ]
+    },
+    {
+      "type": "letterboxStack",
+      "textLevel": "minimal",
+      "photos": [
+        {
+          "id": "DSC_2529.jpeg",
+          "title": "Cibeles bajo la lluvia",
+          "place": "Plaza de Cibeles, Madrid",
+          "date": "02 may 2026",
+          "notes": "La Plaza de Cibeles en un día lluvioso de primavera, con la fuente de Cibeles en primer plano derecho y el Palacio de Comunicaciones dominando la izquierda. El asfalto mojado refleja los edificios y las banderas españolas ondeando añaden el único acento cromático cálido en un ambiente gris y sereno.",
+          "ratio": 1.777708786091276,
+          "aperture": "9",
+          "shutter": "1/200",
+          "focal": "46",
+          "iso": 360,
+          "score": 6,
+          "src": "assets/webp/DSC_2529.webp",
+          "srcBlur": "assets/fondo/DSC_2529.webp",
+          "globalIndex": 30
+        },
+        {
+          "id": "DSC_0145.jpeg",
+          "title": "El Galgo Navideño",
+          "place": "Parque del Retiro, Madrid",
+          "date": "25 dic 2025",
+          "notes": "Un galgo sentado en la arena del Retiro el día de Navidad, enfundado en un llamativo abrigo de estampado multicolor con rosas, azules y verdes. Los árboles desnudos de diciembre y las hojas caídas crean un fondo invernal apagado que contrasta con la viveza cromática del abrigo.",
+          "ratio": 1.7779816513761468,
+          "aperture": "8",
+          "shutter": "1/200",
+          "focal": "120",
+          "iso": 500,
+          "score": 6.1,
+          "src": "assets/webp/DSC_0145.webp",
+          "srcBlur": "assets/fondo/DSC_0145.webp",
+          "globalIndex": 31
+        }
+      ]
+    },
+    {
+      "type": "heroWithStrip",
+      "textLevel": "meta",
+      "photos": [
+        {
+          "id": "DSC_0487.jpeg",
+          "title": "Paloma al Borde del Agua",
+          "place": "Puerta del Sol, Madrid",
+          "date": "31 ene 2026",
+          "notes": "Retrato intimo de una paloma posada en el borde de una fuente en la Puerta del Sol en enero. Las plumas tornasoladas del cuello destacan contra el plumaje gris. El fondo desenfocado muestra el ambiente calido y dorado del edificio con transeuentes borrosos, creando una imagen de vida urbana silenciosa.",
+          "ratio": 1,
+          "aperture": "4.5",
+          "shutter": "1/400",
+          "focal": "78",
+          "iso": 250,
+          "score": 7.4,
+          "src": "assets/webp/DSC_0487.webp",
+          "srcBlur": "assets/fondo/DSC_0487.webp",
+          "globalIndex": 32
+        },
+        {
+          "id": "DSC_2789.jpeg",
+          "title": "Gamo curioso entre las encinas",
+          "place": "El Pardo, Madrid",
+          "date": "09 may 2026",
+          "notes": "Un gamo joven (Dama dama) de pie en una pradera de El Pardo, mirando directamente al fotógrafo con las manchas blancas características del pelaje estival. Al fondo, otro cérvido descansa en la hierba mientras las ramas de una encina centenaria enmarcan la escena desde arriba.",
+          "ratio": 1.5,
+          "aperture": "7.1",
+          "shutter": "1/320",
+          "focal": "600",
+          "iso": 450,
+          "score": 5.6,
+          "src": "assets/webp/DSC_2789.webp",
+          "srcBlur": "assets/fondo/DSC_2789.webp",
+          "globalIndex": 33
+        },
+        {
+          "id": "DSC_2597.jpeg",
+          "title": "Vigía del nido",
+          "place": "El Pardo, Madrid",
+          "date": "09 may 2026",
+          "notes": "Un trepador azul (Sitta europaea) asoma la cabeza desde el interior de su nido en un árbol, mirando directamente al fotógrafo. La entrada del nido ha sido reducida con barro, comportamiento característico de la especie para proteger los huevos. La textura de la corteza llena el encuadre creando un marco natural.",
+          "ratio": 1,
+          "aperture": "7.1",
+          "shutter": "1/640",
+          "focal": "600",
+          "iso": 3600,
+          "score": 7,
+          "src": "assets/webp/DSC_2597.webp",
+          "srcBlur": "assets/fondo/DSC_2597.webp",
+          "globalIndex": 34
+        },
+        {
+          "id": "Palacio Real.jpeg",
+          "title": "El Palacio tras la reja dorada",
+          "place": "Palacio Real, Madrid",
+          "date": "26 oct 2025",
+          "notes": "La fachada barroca del Palacio Real de Madrid vista a través de los motivos ornamentales de su verja dorada. Los barrotes decorados enmarcan el edificio creando capas de profundidad, mientras el cielo azul intenso contrasta con el metal dorado del primer plano.",
+          "ratio": 1.6855920114122682,
+          "aperture": "8",
+          "shutter": "1/500",
+          "focal": "34",
+          "iso": 100,
+          "score": 6.1,
+          "src": "assets/webp/Palacio Real.webp",
+          "srcBlur": "assets/fondo/Palacio Real.webp",
+          "globalIndex": 35
+        }
+      ]
+    },
+    {
+      "type": "polaroidTrio",
+      "textLevel": "minimal",
+      "photos": [
+        {
+          "id": "Adrian.jpeg",
+          "title": "Curiosidad bajo el sol de octubre",
+          "place": "Parque de la Montaña, Madrid",
+          "date": "26 oct 2025",
+          "notes": "Un niño pequeño con abrigo amarillo brillante posa junto a un tronco de árbol en el Parque de la Montaña durante un paseo otoñal. Las hojas secas en el suelo y las sombras alargadas del sol de tarde enmarcan una mirada directa llena de curiosidad e inocencia.",
+          "ratio": 1,
+          "aperture": "3.5",
+          "shutter": "1/250",
+          "focal": "27",
+          "iso": 100,
+          "score": 6.7,
+          "src": "assets/webp/Adrian.webp",
+          "srcBlur": "assets/fondo/Adrian.webp",
+          "globalIndex": 36
+        },
+        {
+          "id": "DSC_3151.jpeg",
+          "title": "Regreso al nido",
+          "place": "El Pardo, Madrid",
+          "date": "15 may 2026",
+          "notes": "Un agateador común trepando verticalmente por el tronco de un árbol en El Pardo, con una larva en el pico dirigiéndose hacia la entrada de un nido oculto en la corteza. El fondo se desdibuja en un suave y uniforme bokeh verde que contrasta con las ricas texturas del tronco cubierto de líquenes.",
+          "ratio": 0.6665767466954411,
+          "aperture": "7.1",
+          "shutter": "1/640",
+          "focal": "600",
+          "iso": 2800,
+          "score": 7.1,
+          "src": "assets/webp/DSC_3151.webp",
+          "srcBlur": "assets/fondo/DSC_3151.webp",
+          "globalIndex": 37
+        },
+        {
+          "id": "DSC_3075.jpeg",
+          "title": "Joya sobre alambre de espino",
+          "place": "El Pardo, Madrid",
+          "date": "15 may 2026",
+          "notes": "Un abejaruco europeo (Merops apiaster) posado sobre un alambre de espino en El Pardo, exhibiendo su extraordinario plumaje de tonos caoba, amarillo y turquesa. El ave descansa en posición de vigía mientras el fondo se desvanece en suaves manchas verdes y beige del campo castellano.",
+          "ratio": 1.777595404185474,
+          "aperture": "7.1",
+          "shutter": "1/640",
+          "focal": "600",
+          "iso": 250,
+          "score": 6.4,
+          "src": "assets/webp/DSC_3075.webp",
+          "srcBlur": "assets/fondo/DSC_3075.webp",
+          "globalIndex": 38
+        }
+      ]
+    },
+    {
+      "type": "asymmetricPair",
+      "textLevel": "meta",
+      "photos": [
+        {
+          "id": "DSC_3171.jpeg",
+          "title": "Vuelta al nido",
+          "place": "El Pardo, Madrid",
+          "date": "15 may 2026",
+          "notes": "Un trepador azul (Sitta europaea) en el umbral de su agujero de nido en un tronco viejo de El Pardo, con una larva en el pico a punto de entrar a alimentar a sus crías. El fondo de frondosidad primaveral se desvanece en un bokeh verde intenso.",
+          "ratio": 1.5,
+          "aperture": "7.1",
+          "shutter": "1/640",
+          "focal": "600",
+          "iso": 640,
+          "score": 6.9,
+          "src": "assets/webp/DSC_3171.webp",
+          "srcBlur": "assets/fondo/DSC_3171.webp",
+          "globalIndex": 39
+        },
+        {
+          "id": "DSC_3284.jpeg",
+          "title": "Burbujas ante el Teatro Real",
+          "place": "Plaza de Oriente, Madrid",
+          "date": "16 may 2026",
+          "notes": "Un artista callejero lanza enormes burbujas de jabón iridiscentes en la Plaza de Oriente, con el Teatro Real al fondo bajo un cielo azul intenso. Las burbujas crean una barrera efímera entre el espectador y el monumental edificio neoclásico, mientras transeúntes observan el espectáculo.",
+          "ratio": 1.5,
+          "aperture": "8",
+          "shutter": "1/500",
+          "focal": "48",
+          "iso": 125,
+          "score": 7,
+          "src": "assets/webp/DSC_3284.webp",
+          "srcBlur": "assets/fondo/DSC_3284.webp",
+          "globalIndex": 40
+        }
+      ]
+    },
+    {
+      "type": "gridOffset3",
+      "textLevel": "minimal",
+      "photos": [
+        {
+          "id": "DSC_3308.jpeg",
+          "title": "Persiguiendo burbujas",
+          "place": "Plaza de Oriente, Madrid",
+          "date": "16 may 2026",
+          "notes": "Un niño pequeño en la Plaza de Oriente alza los brazos con asombro hacia las enormes burbujas de jabón que flotan sobre él, con la boca abierta en una expresión de pura maravilla. Los edificios del entorno y una multitud de espectadores adultos enmarcan la escena.",
+          "ratio": 0.9174107142857143,
+          "aperture": "5.6",
+          "shutter": "1/500",
+          "focal": "69",
+          "iso": 100,
+          "score": 7.4,
+          "src": "assets/webp/DSC_3308.webp",
+          "srcBlur": "assets/fondo/DSC_3308.webp",
+          "globalIndex": 41
+        },
+        {
+          "id": "DSC_3836.jpeg",
+          "title": "Dúo de rosas en el Campo del Moro",
+          "place": "Campo del Moro, Madrid",
+          "date": "17 may 2026",
+          "notes": "Dos rosas de pétalos densos con tonos melocotón y crema emergen iluminadas por la luz solar directa sobre un fondo oscuro casi negro. En plena floración de mayo, el par floral destaca contra las sombras del jardín mientras una hoja verde añade un punto de color complementario. Los focos borrosos de otras flores en el fondo revelan el contexto del rosedal.",
+          "ratio": 1.5,
+          "aperture": "10",
+          "shutter": "1/500",
+          "focal": "73",
+          "iso": 160,
+          "score": 6.7,
+          "src": "assets/webp/DSC_3836.webp",
+          "srcBlur": "assets/fondo/DSC_3836.webp",
+          "globalIndex": 42
+        },
+        {
+          "id": "DSC_3929.jpeg",
+          "title": "Ciclista entre verdes",
+          "place": "Casa de Campo, Madrid",
+          "date": "17 may 2026",
+          "notes": "Una ciclista con maillot azul-violeta avanza a gran velocidad por el asfalto de la Casa de Campo en un día soleado de mayo. La técnica de barrido a 1/30s congela a la ciclista mientras el fondo verde de los árboles se disuelve en trazas horizontales que amplifican la sensación de movimiento. Los calcetines amarillos aportan un punto de color que contrasta con la paleta azul-verde dominante.",
+          "ratio": 1.7780938833570412,
+          "aperture": "22",
+          "shutter": "1/30",
+          "focal": "56",
+          "iso": 100,
+          "score": 6.7,
+          "src": "assets/webp/DSC_3929.webp",
+          "srcBlur": "assets/fondo/DSC_3929.webp",
+          "globalIndex": 43
+        }
+      ]
+    },
+    {
+      "type": "circleFocus",
+      "textLevel": "meta",
+      "photos": [
+        {
+          "id": "DSC_3609.jpeg",
+          "title": "Velocidad y quietud",
+          "place": "Príncipe Pío, Madrid",
+          "date": "17 may 2026",
+          "notes": "Un hombre de negro asciende en la escalera mecánica de la estación de Príncipe Pío absorto en su teléfono mientras un tren pasa a alta velocidad al fondo, convertido en trazas de luz. La larga exposición de 1/5s congela la figura solitaria contra el movimiento vertiginoso de la infraestructura urbana. El tratamiento en blanco y negro de alto contraste subraya la geometría de las barandillas en diagonal y acentúa la dimensión atemporal de la escena.",
+          "ratio": 1.777934936350778,
+          "aperture": "14",
+          "shutter": "1/5",
+          "focal": "40",
+          "iso": 100,
+          "score": 7.9,
+          "src": "assets/webp/DSC_3609.webp",
+          "srcBlur": "assets/fondo/DSC_3609.webp",
+          "globalIndex": 44
+        }
+      ]
+    },
+    {
+      "type": "roundedTriptych",
+      "textLevel": "minimal",
+      "photos": [
+        {
+          "id": "DSC_4074.jpeg",
+          "title": "El canto del Pechiazul",
+          "place": "Sierra de Gredos, Gredos",
+          "date": "23 may 2026",
+          "notes": "Un Pechiazul macho (Luscinia svecica) posado en la cima de un arbusto de la sierra, con el pico abierto en plena emisión de canto. El característico babero azul intenso centra la atención, flanqueado por los tonos rojizos del costado. El fondo verde de la vegetación serrana se disuelve en un bokeh suave y armonioso.",
+          "ratio": 1,
+          "aperture": "6.3",
+          "shutter": "1/2000",
+          "focal": "600",
+          "iso": 1000,
+          "score": 7.3,
+          "src": "assets/webp/DSC_4074.webp",
+          "srcBlur": "assets/fondo/DSC_4074.webp",
+          "globalIndex": 45
+        },
+        {
+          "id": "DSC_4647.jpeg",
+          "title": "El polinizador de Gredos",
+          "place": "Sierra de Gredos, Gredos",
+          "date": "23 may 2026",
+          "notes": "Un abejorro (Bombus sp.) en plena actividad de pecoreo sobre una espiga floral de una planta boraginácea de la sierra, con el cuerpo anaranjado en contraste con los pétalos rosados y los brotes aún sin abrir. La imagen captura el comportamiento de polinización con detalle de textura del pelaje y la estructura floral.",
+          "ratio": 0.6665558510638298,
+          "aperture": "6.3",
+          "shutter": "1/2000",
+          "focal": "600",
+          "iso": 6400,
+          "score": 6.2,
+          "src": "assets/webp/DSC_4647.webp",
+          "srcBlur": "assets/fondo/DSC_4647.webp",
+          "globalIndex": 46
+        },
+        {
+          "id": "DSC_4246.jpeg",
+          "title": "La cría en el granito",
+          "place": "Sierra de Gredos, Gredos",
+          "date": "23 may 2026",
+          "notes": "Una cría de cabra montesa (Capra pyrenaica) avanza con cautela sobre un enorme bloque de granito cubierto de líquen amarillo-verdoso en la Sierra de Gredos. El animal joven, con los cuernos apenas iniciados, contrasta en tamaño con la escala del paisaje rocoso que la rodea.",
+          "ratio": 2.0908752327746742,
+          "aperture": "7.1",
+          "shutter": "1/650",
+          "focal": "600",
+          "iso": 250,
+          "score": 6.9,
+          "src": "assets/webp/DSC_4246.webp",
+          "srcBlur": "assets/fondo/DSC_4246.webp",
+          "globalIndex": 47
+        }
+      ]
+    },
+    {
+      "type": "singleStacked",
+      "textLevel": "full",
+      "photos": [
+        {
+          "id": "DSC_4701.jpeg",
+          "title": "La sala del espejo",
+          "place": "Cueva del Águila, Arenas de San Pedro",
+          "date": "24 may 2026",
+          "notes": "Gran sala de la Cueva del Águila con un bosque de estalactitas y estalagmitas iluminado por luces artificiales cálidas y frías. Un pequeño lago subterráneo en primer plano refleja las formaciones del techo, duplicando la grandiosidad del espacio. La imagen captura la escala y el misterio de este espacio geológico.",
+          "ratio": 1.5001598976654942,
+          "aperture": "4",
+          "shutter": "1/100",
+          "focal": "24",
+          "iso": 11400,
+          "score": 6.4,
+          "src": "assets/webp/DSC_4701.webp",
+          "srcBlur": "assets/fondo/DSC_4701.webp",
+          "globalIndex": 48
+        }
+      ]
+    },
+    {
+      "type": "duo",
+      "textLevel": "meta",
+      "photos": [
+        {
+          "id": "DSC_4278.jpeg",
+          "title": "Nieve de mayo en la Laguna Grande",
+          "place": "Laguna Grande de Gredos, Gredos",
+          "date": "23 may 2026",
+          "notes": "Vista del circo glaciar de Gredos con la Laguna Grande en primer plano y las cumbres del macizo central cubiertas de nieve en pleno mes de mayo. El granito milenario, el agua fría y el cielo azul intenso componen una escena de alta montaña que transmite la escala y la permanencia del paisaje serrano.",
+          "ratio": 1.7777777777777777,
+          "aperture": "9",
+          "shutter": "1/500",
+          "focal": "30",
+          "iso": 125,
+          "score": 6.9,
+          "src": "assets/webp/DSC_4278.webp",
+          "srcBlur": "assets/fondo/DSC_4278.webp",
+          "globalIndex": 49
+        },
+        {
+          "id": "DSC_4584.jpeg",
+          "title": "El patriarca de Gredos",
+          "place": "Sierra de Gredos, Gredos",
+          "date": "23 may 2026",
+          "notes": "Macho adulto de cabra montesa (Capra pyrenaica) con cuernos de gran desarrollo pastando en un prado alpino salpicado de flores amarillas. Los cuernos, fuertemente anillados y arqueados hacia atrás, son el elemento visual dominante de la imagen. El fondo verde-amarillo se disuelve en un bokeh cremoso que aísla al animal con rotundidad.",
+          "ratio": 1.50014009526478,
+          "aperture": "7.1",
+          "shutter": "1/640",
+          "focal": "600",
+          "iso": 180,
+          "score": 7.5,
+          "src": "assets/webp/DSC_4584.webp",
+          "srcBlur": "assets/fondo/DSC_4584.webp",
+          "globalIndex": 50
+        }
+      ]
+    },
+    {
+      "type": "grid2x2",
+      "textLevel": "minimal",
+      "photos": [
+        {
+          "id": "DSC_4452.jpeg",
+          "title": "Desde su trono de granito",
+          "place": "Sierra de Gredos, Gredos",
+          "date": "23 may 2026",
+          "notes": "Íbice ibérico (Capra pyrenaica) descansando entre bloques de granito en la Sierra de Gredos, fotografiado desde un ángulo a ras de suelo. El animal, con los característicos cuernos curvados y fuertemente anillados, observa directamente a la cámara desde su posición elevada sobre las rocas. El cielo azul con nubes blancas enmarca su silueta majestuosa desde abajo.",
+          "ratio": 1,
+          "aperture": "7.1",
+          "shutter": "1/640",
+          "focal": "78",
+          "iso": 160,
+          "score": 8,
+          "src": "assets/webp/DSC_4452.webp",
+          "srcBlur": "assets/fondo/DSC_4452.webp",
+          "globalIndex": 51
+        },
+        {
+          "id": "DSC_4703.jpeg",
+          "title": "El techo de los siglos",
+          "place": "Cueva del Águila, Arenas de San Pedro",
+          "date": "24 may 2026",
+          "notes": "Vista amplia del techo de la Cueva del Águila en Arenas de San Pedro, cubierto de una densa masa de estalactitas blancas de calcita que cuelgan como un bosque invertido. La iluminación artificial cálida tiñe de ámbar las paredes y el fondo rocoso, mientras los focos resaltan la textura y el volumen de las formaciones. Una pequeña lámpara visible en la penumbra inferior aporta escala y subraya la inmensidad del espacio.",
+          "ratio": 1.7775417298937783,
+          "aperture": "4",
+          "shutter": "1/100",
+          "focal": "24",
+          "iso": 7200,
+          "score": 5.9,
+          "src": "assets/webp/DSC_4703.webp",
+          "srcBlur": "assets/fondo/DSC_4703.webp",
+          "globalIndex": 52
+        },
+        {
+          "id": "DSC_4747.jpeg",
+          "title": "Mariposa blanca entre echium",
+          "place": "Parque del Suroeste, Madrid",
+          "date": "06 jun 2026",
+          "notes": "Una mariposa blanca (Pieris sp.) reposa sobre una espiga de echium con las alas extendidas, mostrando su patrón de venas y la mancha negra característica. El suelo terroso del parque queda difuminado en un bokeh cálido que aísla al insecto sobre las flores azul-violeta.",
+          "ratio": 1.5,
+          "aperture": "7.1",
+          "shutter": "1/640",
+          "focal": "280",
+          "iso": 180,
+          "score": 6.1,
+          "src": "assets/webp/DSC_4747.webp",
+          "srcBlur": "assets/fondo/DSC_4747.webp",
+          "globalIndex": 53
+        },
+        {
+          "id": "DSC_4785.jpeg",
+          "title": "Saltamontes entre hojas devoradas",
+          "place": "Parque del Suroeste, Madrid",
+          "date": "06 jun 2026",
+          "notes": "Un saltamontes adulto aferrado a un tallo de planta de hojas dentadas y blanquecinas reposa en posición vertical sobre el tallo. Las patas traseras y las antenas son visibles con nitidez, y los restos de telaraña en las hojas superiores añaden capas de vida silvestre a la escena. Las hojas parcialmente consumidas narran el paso del insecto por la planta.",
+          "ratio": 0.6666666666666666,
+          "aperture": "7.1",
+          "shutter": "1/640",
+          "focal": "220",
+          "iso": 500,
+          "score": 6.1,
+          "src": "assets/webp/DSC_4785.webp",
+          "srcBlur": "assets/fondo/DSC_4785.webp",
+          "globalIndex": 54
+        }
+      ]
+    },
+    {
+      "type": "textForward",
+      "textLevel": "full",
+      "photos": [
+        {
+          "id": "DSC_4040.jpeg",
+          "title": "Vigía en la retama",
+          "place": "Sierra de Gredos, Gredos",
+          "date": "23 may 2026",
+          "notes": "Una cogujada posada en la cima de un arbusto de retama en la Sierra de Gredos, con su característica cresta bien visible. El ave adopta una postura alerta y vigilante, escudriñando el horizonte desde su atalaya vegetal. El fondo desenfocado de vegetación verde y rocas graníticas enmarca limpiamente al sujeto.",
+          "ratio": 1.5,
+          "aperture": "7.1",
+          "shutter": "1/640",
+          "focal": "600",
+          "iso": 450,
+          "score": 5.9,
+          "src": "assets/webp/DSC_4040.webp",
+          "srcBlur": "assets/fondo/DSC_4040.webp",
+          "globalIndex": 55
+        }
+      ]
+    },
+    {
+      "type": "trio",
+      "textLevel": "minimal",
+      "photos": [
+        {
+          "id": "DSC_4631.jpeg",
+          "title": "Centinela de granito",
+          "place": "Laguna Grande de Gredos, Gredos",
+          "date": "23 may 2026",
+          "notes": "Un escribano montesino en pose alerta sobre una roca de granito en los prados de alta montaña de la Laguna Grande de Gredos. Rodeado de flores silvestres primaverales —violetas y ranúnculos— el ave muestra los característicos dibujos en blanco y negro de su cabeza, con el fondo de pradera convertido en un suave bokeh verde.",
+          "ratio": 1.499845726627584,
+          "aperture": "7.1",
+          "shutter": "1/640",
+          "focal": "600",
+          "iso": 320,
+          "score": 6.6,
+          "src": "assets/webp/DSC_4631.webp",
+          "srcBlur": "assets/fondo/DSC_4631.webp",
+          "globalIndex": 56
+        },
+        {
+          "id": "DSC_5211.jpeg",
+          "title": "Vintage en marcha por Alcalá",
+          "place": "Calle de Alcalá, Madrid",
+          "date": "14 jun 2026",
+          "notes": "Un coche de estilo retro-vintage con carrocería plateada y techo verde oscuro, capturado en barrido en la calle de Alcalá de Madrid. La técnica de panning mantiene el vehículo relativamente nítido mientras el entorno urbano se disuelve en trazos horizontales que acentúan la sensación de movimiento. El diseño inspirado en los años 40 contrasta sutilmente con el tráfico moderno del fondo.",
+          "ratio": 1.7781874039938557,
+          "aperture": "13",
+          "shutter": "1/125",
+          "focal": "41",
+          "iso": 100,
+          "score": 6.4,
+          "src": "assets/webp/DSC_5211.webp",
+          "srcBlur": "assets/fondo/DSC_5211.webp",
+          "globalIndex": 57
+        },
+        {
+          "id": "DSC_5245.jpeg",
+          "title": "Corriente azul en la Puerta de Alcalá",
+          "place": "Puerta de Alcalá, Madrid",
+          "date": "14 jun 2026",
+          "notes": "Una ciclista con BiciMAD azul atraviesa la Puerta de Alcalá en un barrido a 1/31s. El movimiento horizontal disuelve las columnas neoclásicas y los coches en líneas de velocidad mientras la ciclista, con pantalones rojos y mochila, permanece relativamente nítida como ancla visual de la escena.",
+          "ratio": 1.7780358327803583,
+          "aperture": "7.1",
+          "shutter": "1/31",
+          "focal": "46",
+          "iso": 2500,
+          "score": 6.7,
+          "src": "assets/webp/DSC_5245.webp",
+          "srcBlur": "assets/fondo/DSC_5245.webp",
+          "globalIndex": 58
+        }
+      ]
+    },
+    {
+      "type": "fullBleedSingle",
+      "textLevel": "full",
+      "photos": [
+        {
+          "id": "DSC_5340.jpeg",
+          "title": "Alegría de junio en el Retiro",
+          "place": "Parque del Retiro, Madrid",
+          "date": "14 jun 2026",
+          "notes": "Grupo de impaciencias (Impatiens walleriana) en plena floración de verano en el Retiro. Los pétalos en rosa pálido y magenta intenso se alternan con hojas verdes lustrosas bajo una luz de dappled sunlight que crea zonas de brillo y sombra. Las flores del primer plano desenfocadas enmarcan las del plano principal.",
+          "ratio": 1.25,
+          "aperture": "8",
+          "shutter": "1/250",
+          "focal": "82",
+          "iso": 160,
+          "score": 5.5,
+          "src": "assets/webp/DSC_5340.webp",
+          "srcBlur": "assets/fondo/DSC_5340.webp",
+          "globalIndex": 59
+        }
+      ]
+    },
+    {
+      "type": "singleSide",
+      "textLevel": "full",
+      "photos": [
+        {
+          "id": "DSC_5056.jpeg",
+          "title": "Elegancia oscura en el estanque",
+          "place": "Estanque del Retiro, Madrid",
+          "date": "14 jun 2026",
+          "notes": "Un cisne negro nada plácidamente en el estanque del Retiro en un día de verano. Su oscuro plumaje contrasta con el agua verdosa, y el pico rojo aporta un acento cromático vibrante. Al fondo, el chorro de la fuente y la densa vegetación del parque enmarcan al ave.",
+          "ratio": 1,
+          "aperture": "7.1",
+          "shutter": "1/640",
+          "focal": "24",
+          "iso": 400,
+          "score": 5.9,
+          "src": "assets/webp/DSC_5056.webp",
+          "srcBlur": "assets/fondo/DSC_5056.webp",
+          "globalIndex": 60
+        }
+      ]
+    },
+    {
+      "type": "diptychText",
+      "textLevel": "meta",
+      "photos": [
+        {
+          "id": "DSC_5613.jpeg",
+          "title": "El cantor de las rocas",
+          "place": "Ventano del Diablo, Cuenca",
+          "date": "21 jun 2026",
+          "notes": "Un pequeño pájaro —posiblemente un gorrión chillón— posado sobre una rama seca y muy texturizada, con el pico entreabierto en pleno canto. El fondo gris-azulado completamente difuminado aisla al sujeto, mientras un pequeño brote verde en la esquina superior aporta un toque de vida al encuadre.",
+          "ratio": 1.5,
+          "aperture": "7.1",
+          "shutter": "1/2000",
+          "focal": "600",
+          "iso": 3600,
+          "score": 6.2,
+          "src": "assets/webp/DSC_5613.webp",
+          "srcBlur": "assets/fondo/DSC_5613.webp",
+          "globalIndex": 61
+        },
+        {
+          "id": "DSC_5623.jpeg",
+          "title": "Avión común sobre el azul",
+          "place": "Uña, Cuenca",
+          "date": "21 jun 2026",
+          "notes": "Un avión común (Delichon urbicum) fotografiado desde abajo en pleno vuelo contra el cielo de verano de Uña, Cuenca. El ave aparece como una silueta oscura de contornos definidos —visible la característica cola ligeramente ahorquillada y el perfil de las alas— con el azul-negro del dorso insinuado a través de la contraluz, sobre un fondo de azul uniforme y limpio.",
+          "ratio": 1,
+          "aperture": "7.1",
+          "shutter": "1/2000",
+          "focal": "180",
+          "iso": 400,
+          "score": 5.7,
+          "src": "assets/webp/DSC_5623.webp",
+          "srcBlur": "assets/fondo/DSC_5623.webp",
+          "globalIndex": 62
+        }
+      ]
+    },
+    {
+      "type": "duo",
+      "textLevel": "full",
+      "photos": [
+        {
+          "id": "DSC_5756.jpeg",
+          "title": "El escribano del pinar",
+          "place": "Palancares, Cuenca",
+          "date": "21 jun 2026",
+          "notes": "Un escribano montesino (Emberiza cia) posado sobre una rama de pino en el pinar de Palancares, Cuenca. El ave muestra su característico patrón de cabeza a rayas negras y blancas y el pecho canela, con el pico entreabierto en actitud de canto. Las ramas desenfocadas del primer plano enmarcan naturalmente la escena, mientras el fondo se disuelve en un bokeh amarillo-verde que evoca la luz filtrada del bosque mediterráneo.",
+          "ratio": 1.5,
+          "aperture": "7.1",
+          "shutter": "1/2000",
+          "focal": "600",
+          "iso": 3200,
+          "score": 6.6,
+          "src": "assets/webp/DSC_5756.webp",
+          "srcBlur": "assets/fondo/DSC_5756.webp",
+          "globalIndex": 63
+        },
+        {
+          "id": "DSC_5506.jpeg",
+          "title": "Buitre leonado desplegando alas",
+          "place": "Ventano del Diablo, Cuenca",
+          "date": "21 jun 2026",
+          "notes": "Un buitre leonado adulto fotografiado en el interior de su oquedad rocosa en el Ventano del Diablo, con las alas completamente desplegadas en actitud de despliegue o termorregulación. Las paredes de caliza gris enmarcan al ave, rodeada de restos de nido en el suelo pedregoso.",
+          "ratio": 1,
+          "aperture": "7.1",
+          "shutter": "1/2000",
+          "focal": "600",
+          "iso": 2500,
+          "score": 5.7,
+          "src": "assets/webp/DSC_5506.webp",
+          "srcBlur": "assets/fondo/DSC_5506.webp",
+          "globalIndex": 64
+        }
+      ]
+    },
+    {
+      "type": "filmstrip",
+      "textLevel": "minimal",
+      "photos": [
+        {
+          "id": "DSC_5451.jpeg",
+          "title": "Buitre leonado en la cornisa",
+          "place": "Ventano del Diablo, Cuenca",
+          "date": "21 jun 2026",
+          "notes": "Buitre leonado adulto posado en una cornisa rocosa del Ventano del Diablo, con la cabeza alzada y el pico abierto en actitud de alerta o vocalización. La pared de caliza iluminada por el sol cenital domina el encuadre, mostrando la textura rugosa de la roca y situando al ave en su hábitat rupestre.",
+          "ratio": 1,
+          "aperture": "7.1",
+          "shutter": "1/2000",
+          "focal": "600",
+          "iso": 640,
+          "score": 5.4,
+          "src": "assets/webp/DSC_5451.webp",
+          "srcBlur": "assets/fondo/DSC_5451.webp",
+          "globalIndex": 65
+        },
+        {
+          "id": "DSC_5661.jpeg",
+          "title": "Erebia en flor del Palancares",
+          "place": "Palancares, Cuenca",
+          "date": "21 jun 2026",
+          "notes": "Una mariposa Erebia posada sobre una espiga de flores blancas en el prado del Palancares, con las alas entrecerradas mostrando la banda anaranjada y un ocelo visible. El fondo de hierba verde queda disuelto en un bokeh cremoso a 600mm que aisla al insecto con elegancia.",
+          "ratio": 1.5,
+          "aperture": "6",
+          "shutter": "1/800",
+          "focal": "600",
+          "iso": 220,
+          "score": 6.6,
+          "src": "assets/webp/DSC_5661.webp",
+          "srcBlur": "assets/fondo/DSC_5661.webp",
+          "globalIndex": 66
+        },
+        {
+          "id": "DSC_5558.jpeg",
+          "title": "Alimoche surcando el cielo conquense",
+          "place": "Ventano del Diablo, Cuenca",
+          "date": "21 jun 2026",
+          "notes": "Un alimoche adulto en pleno vuelo sobre el Ventano del Diablo, con las alas completamente desplegadas en posicion de planeo. El patron blanco-crema del cuerpo y los cobertores contrasta con las primarias negras y el cielo azul grisaceo del verano, dejando visible la cabeza con la cara amarilla caracteristica de la especie.",
+          "ratio": 1.777567260325881,
+          "aperture": "7.1",
+          "shutter": "1/2000",
+          "focal": "600",
+          "iso": 360,
+          "score": 7,
+          "src": "assets/webp/DSC_5558.webp",
+          "srcBlur": "assets/fondo/DSC_5558.webp",
+          "globalIndex": 67
+        },
+        {
+          "id": "DSC_5464.jpeg",
+          "title": "Buitre leonado sobre el pinar conquense",
+          "place": "Ventano del Diablo, Cuenca",
+          "date": "21 jun 2026",
+          "notes": "Buitre leonado adulto en pleno vuelo de planeo sobre el pinar de las hoces del Ventano del Diablo, con las alas completamente extendidas mostrando el patron dorsal caracteristico de la especie. El bosque de coniferas del fondo queda disuelto en un suave bokeh verde que aisla al ave y aporta una atmosfera inconfundible de serranía conquense.",
+          "ratio": 1.777490297542044,
+          "aperture": "6.3",
+          "shutter": "1/800",
+          "focal": "600",
+          "iso": 100,
+          "score": 6.7,
+          "src": "assets/webp/DSC_5464.webp",
+          "srcBlur": "assets/fondo/DSC_5464.webp",
+          "globalIndex": 68
+        },
+        {
+          "id": "DSC_6283.jpeg",
+          "title": "Podalirio libando en la lavanda",
+          "place": "Casa de Campo, Madrid",
+          "date": "12 jul 2026",
+          "notes": "Un podalirio (Iphiclides podalirius) posado sobre una espiga de lavanda, con las alas extendidas en diagonal mientras liba el néctar con la probóscide. El fondo verde completamente desenfocado aísla al sujeto y resalta el contraste de sus alas rayadas en blanco y negro.",
+          "ratio": 1.5005291005291006,
+          "aperture": "7.1",
+          "shutter": "1/2000",
+          "focal": "520",
+          "iso": 720,
+          "score": 6.3,
+          "src": "assets/webp/DSC_6283.webp",
+          "srcBlur": "assets/fondo/DSC_6283.webp",
+          "globalIndex": 69
+        }
+      ]
+    },
+    {
+      "type": "singleStacked",
+      "textLevel": "full",
+      "photos": [
+        {
+          "id": "DSC_6445.jpeg",
+          "title": "Abejorro suspendido sobre la lavanda",
+          "place": "Casa de Campo, Madrid",
+          "date": "12 jul 2026",
+          "notes": "Un abejorro captado en pleno vuelo justo antes de posarse en una espiga de lavanda, con las alas desenfocadas por el movimiento y las patas extendidas hacia las flores. El cuerpo nítido y el fondo verde desenfocado transmiten la sensación de suspensión en el aire.",
+          "ratio": 1.4997638167217762,
+          "aperture": "9",
+          "shutter": "1/800",
+          "focal": "120",
+          "iso": 800,
+          "score": 6.5,
+          "src": "assets/webp/DSC_6445.webp",
+          "srcBlur": "assets/fondo/DSC_6445.webp",
+          "globalIndex": 70
+        }
+      ]
+    },
+    {
+      "type": "trio",
+      "textLevel": "minimal",
+      "photos": [
+        {
+          "id": "DSC_5959.jpeg",
+          "title": "Palada bajo el sol de verano",
+          "place": "Estanque de la Casa de Campo, Madrid",
+          "date": "12 jul 2026",
+          "notes": "Un piragüista surca en solitario el estanque de la Casa de Campo con el torso desnudo y la pala en alto tras una palada enérgica. El barrido fotográfico difumina el fondo arbolado y las barcas de recreo, transmitiendo la velocidad del kayak sobre el agua en calma.",
+          "ratio": 1.7776422764227642,
+          "aperture": "7.1",
+          "shutter": "1/6",
+          "focal": "24",
+          "iso": 1250,
+          "score": 6.2,
+          "src": "assets/webp/DSC_5959.webp",
+          "srcBlur": "assets/fondo/DSC_5959.webp",
+          "globalIndex": 71
+        },
+        {
+          "id": "DSC_6139",
+          "title": "Camuflaje de plumas y granito",
+          "place": "Madrid Río, Madrid",
+          "date": "12 jul 2026",
+          "notes": "Un avión roquero posado sobre un gran bloque de granito, con el plumaje ligeramente erizado y la mirada alerta girada hacia un lateral. La textura moteada de la piedra combina con los tonos pardos y grises de su plumaje, generando un efecto de camuflaje natural.",
+          "ratio": 1.499831365935919,
+          "aperture": "7.1",
+          "shutter": "1/2000",
+          "focal": "600",
+          "iso": 4000,
+          "score": 5.8,
+          "src": "assets/webp/DSC_6139.webp",
+          "srcBlur": "assets/fondo/DSC_6139.webp",
+          "globalIndex": 72
+        },
+        {
+          "id": "DSC_6493",
+          "title": "Milano negro planeando a contraluz",
+          "place": "Casa de Campo, Madrid",
+          "date": "12 jul 2026",
+          "notes": "Un milano negro surca un cielo azul intenso con las alas completamente desplegadas, la luz del sol recortando el borde de sus plumas primarias. La cabeza girada y la mirada atenta añaden tensión a la silueta extendida en pleno vuelo sobre Casa de Campo.",
+          "ratio": 1,
+          "aperture": "7.1",
+          "shutter": "1/2000",
+          "focal": "340",
+          "iso": 450,
+          "score": 6.8,
+          "src": "assets/webp/DSC_6493.webp",
+          "srcBlur": "assets/fondo/DSC_6493.webp",
+          "globalIndex": 73
+        }
+      ]
+    }
+  ]
+}

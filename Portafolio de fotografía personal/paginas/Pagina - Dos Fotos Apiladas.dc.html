@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500&family=Work+Sans:wght@400;500&display=swap" rel="stylesheet">
+  <script src="../image-slot.js"></script>
+</helmet>
+
+<div style="{{ wrapStyle }}">
+  <div style="{{ cardStyle }}">
+    <div style="{{ lsColStyle }}">
+      <sc-for list="{{ photos }}" as="ph" hint-placeholder-count="2">
+        <div>
+          <div style="{{ ph.lsFrameStyle }}">
+            <image-slot id="{{ ph.slotId }}" src="{{ ph.src }}" style="width:100%;height:100%;display:block" shape="rect" fit="cover" placeholder="Foto horizontal"></image-slot>
+          </div>
+          <div style="{{ ph.lsCapStyle }}">
+            <div style="{{ ph.lsTitleStyle }}">{{ ph.title }}</div>
+            <div style="{{ ph.lsMetaStyle }}">{{ ph.place }}</div>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;: {&quot;width&quot;: 1264, &quot;height&quot;: 739}}">
+// TIPO DE PÁGINA: Dos fotos apiladas tipo carta — dos fotos horizontales de
+// ancho completo, una encima de otra, cada una con su propia línea de crédito.
+class Component extends DCLogic {
+  photos = [
+    { slotId: 'ls1', title: 'Foto de arriba', place: 'Lugar y fecha', src: 'https://picsum.photos/seed/tpl-ls1/1400/500' },
+    { slotId: 'ls2', title: 'Foto de abajo', place: 'Lugar y fecha', src: 'https://picsum.photos/seed/tpl-ls2/1400/500' }
+  ];
+
+  renderVals() {
+    const fg = '#262220', muted = '#8a8175';
+    const sansFont = "'Work Sans', sans-serif";
+    const serifFont = "'Playfair Display', serif";
+    const cardW = 1200, cardH = 675, padX = 60, padY = 52;
+    const contentW = cardW - padX * 2;
+    const shadow = '0 26px 56px rgba(30,26,18,0.18), 0 4px 12px rgba(30,26,18,0.09)';
+    const border = '1px solid rgba(30,26,18,0.1)';
+    const boxH = 215;
+    const lsFrameStyle = { position: 'relative', width: contentW, height: boxH, overflow: 'hidden', background: 'rgba(20,16,10,0.045)' };
+    const lsCapStyle = { display: 'flex', justifyContent: 'space-between', padding: '10px 2px 0' };
+    const lsTitleStyle = { fontFamily: serifFont, fontSize: 20, color: fg, margin: 0 };
+    const lsMetaStyle = { fontFamily: sansFont, fontSize: 12.5, color: muted, letterSpacing: '.02em' };
+
+    return {
+      wrapStyle: { display: 'flex', justifyContent: 'center', background: '#e7e2d6', padding: 32 },
+      cardStyle: { background: 'linear-gradient(150deg, #faf6ec 0%, #f1ead6 100%)', border, boxShadow: shadow, borderRadius: 8, width: cardW, height: cardH, boxSizing: 'border-box', padding: `${padY}px ${padX}px`, display: 'flex', flexDirection: 'column', justifyContent: 'center', overflow: 'hidden', position: 'relative' },
+      lsColStyle: { display: 'flex', flexDirection: 'column', gap: 22 },
+      photos: this.photos.map(p => ({ ...p, lsFrameStyle, lsCapStyle, lsTitleStyle, lsMetaStyle }))
+    };
+  }
+}
+
+</script>
+</body>
+</html>
